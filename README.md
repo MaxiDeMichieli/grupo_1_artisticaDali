@@ -9,6 +9,7 @@
 ## Temática de la web y audiencia a la que apunta
 
 El sitio será una plataforma de venta de productos de librería tanto del rubro artístico, escolar y de artículos para oficinas, en la cual los potenciales clientes podrán armar kits de productos según sus necesidades.
+
 La audiencia objetivo serán personas de todas las edades, que tengan necesidad de abastecerse de insumos y materiales de librería. Tales como artistas, estudiantes y docentes de escuelas de artes plásticas, diseño, técnico-industrial, familias y empresas.
 
 ## Integrantes
