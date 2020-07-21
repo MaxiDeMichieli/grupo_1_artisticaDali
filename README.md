@@ -13,9 +13,10 @@ La audiencia objetivo serán personas de todas las edades, que tengan necesidad 
 
 ## Integrantes
 
+
 ### Aguilar, Aldana
 - 23 años
-- Estudiante de programación web.
+- Estudiante de Programación Web
 
 
 ### Céspedes, Jonatan
