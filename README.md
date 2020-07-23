@@ -43,11 +43,11 @@ Por qué elegimos estas páginas?
 
 ## Wireframes
 
-- [Home]()
-- [Detalle de producto]()
-- [Carrito de compras]()
-- [Formulario de registro]()
-- [Formulario de carga de producto]()
+- [Home](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/wireframes/home.jpg)
+- [Detalles de producto](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/wireframes/detalles%20del%20producto.jpg)
+- [Carrito de compras](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/wireframes/carrito%20de%20compras.jpg)
+- [Formulario de registro](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/wireframes/registro.jpg)
+- [Formulario de carga de producto](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/wireframes/carga%20de%20productos.jpg)
 
 
 ## Logos, colores y fuentes
