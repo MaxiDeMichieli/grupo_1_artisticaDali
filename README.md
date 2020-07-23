@@ -32,14 +32,14 @@ La audiencia objetivo serán personas de todas las edades, que tengan necesidad 
 
 ## Páginas de referencia
 
-- [Página]()
-- [Página]()
-- [Página]()
-- [Página]()
-- [Página]()
+- [Página](https://www.royaltalens.com)
+- [Página](https://www.winsornewton.com)
+- [Página](https://rygo.com.ar)
+- [Página](https://www.faber-castell.com.ar)
+- [Página](https://www.bicworld.com/es)
 
-Por qué elegimos estas páginas?
-
+¿Por qué elegimos éstas páginas?
+Nuestra elección se basó principalmente en la funcionalidad del e-commerce, tal es el caso de Rygo.com de la cual tomamos la estructura básica de la tienda y parte de la presentación de los productos. En cuanto a las otras, fueron elegidas por lo estético, relacionado al estilo del front-end y experiencia de navegación por el sitio.
 
 ## Wireframes
 
