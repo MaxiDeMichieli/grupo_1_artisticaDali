@@ -6,7 +6,7 @@
 
 
 
-## Temática de la web y audiencia a la que apunta
+## Temática de la web y audiencia objetivo
 
 El sitio será una plataforma de venta de productos de librería tanto del rubro artístico, escolar y de artículos para oficinas, en la cual los potenciales clientes podrán armar kits de productos según sus necesidades.
 
@@ -32,13 +32,14 @@ La audiencia objetivo serán personas de todas las edades, que tengan necesidad 
 
 ## Páginas de referencia
 
-- [Página](https://www.royaltalens.com)
-- [Página](https://www.winsornewton.com)
-- [Página](https://rygo.com.ar)
-- [Página](https://www.faber-castell.com.ar)
-- [Página](https://www.bicworld.com/es)
+- [Royal Talens](https://www.royaltalens.com)
+- [Winsor Newton](https://www.winsornewton.com)
+- [Rygo](https://rygo.com.ar)
+- [Faber Castell](https://www.faber-castell.com.ar)
+- [Bic](https://www.bicworld.com/es)
 
 ¿Por qué elegimos éstas páginas?
+
 Nuestra elección se basó principalmente en la funcionalidad del e-commerce, tal es el caso de Rygo.com de la cual tomamos la estructura básica de la tienda y parte de la presentación de los productos. En cuanto a las otras, fueron elegidas por lo estético, relacionado al estilo del front-end y experiencia de navegación por el sitio.
 
 ## Wireframes
@@ -52,7 +53,7 @@ Nuestra elección se basó principalmente en la funcionalidad del e-commerce, ta
 
 ## Logos, colores y fuentes
 
-- [Logos]()
-- [Colores]()
+- [Logos](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/desing/logos/logo.jpeg)
+- [Colores](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/desing/colors/Color%20Hunt%20Palette%20196240.png)
 - Fuentes:
-    - [Fuente]()
+    - [Fuente](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/tree/master/desing/fonts/balooDa2)
