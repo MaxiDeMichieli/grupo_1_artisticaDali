@@ -53,7 +53,7 @@ Nuestra elección se basó principalmente en la funcionalidad del e-commerce, ta
 
 ## Logos, colores y fuentes
 
-- [Logos](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/desing/logos/logo.jpeg)
-- [Colores](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/desing/colors/Color%20Hunt%20Palette%20196240.png)
+- [Logos](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/design/logos/logo.png)
+- [Colores](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/design/colors/Color%20Hunt%20Palette%20196240.png)
 - Fuentes:
-    - [balooDa2](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/tree/master/desing/fonts/balooDa2)
+    - [balooDa2](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/tree/master/design/fonts/balooDa2)
