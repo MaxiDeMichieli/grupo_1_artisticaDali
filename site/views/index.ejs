@@ -1,11 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+<%- include('partials/head.ejs') %> 
 <body>
-  <h1>Hola, somos <%- title %> </h1>
-</body>
+  <div class="home">
+  <%- include('partials/header.ejs') %> 
+   <!-- CARROUSEL--> 
+   <div class="carrousel">
+     <img src="images/banner_artistica.jpg" alt="">
+   </div>
+
+   <!-- OFERTAS -->
+
+   <main>
+     <div class="ofertas">
+       <h1>
+         ofertas destacadas
+       </h1>
+       <img src="" alt="">
+     </div>
+     
+     <!-- CATEGORIAS -->
+     <div class="categorias">
+        <section>     
+         <a href="category/"><img src="images/banner_escolar.jpg" alt="escolar"></a>
+        </section>   
+        <section>
+        <a href="category/"><img src="images/banner_artistica.jpg" alt="escolar"></a>
+      </section>
+      <section>
+        <a href="category/"><img src="images/banner_oficina.jpg" alt="escolar"></a>
+      </section>
+         
+     </div>
+    
+     <!-- BANNER -->
+
+     <div class="banner">
+       <img src="images/casa.png" alt="quedate en casa">
+     </div>
+
+   </main>
+  </div>
+  </body>
 </html>

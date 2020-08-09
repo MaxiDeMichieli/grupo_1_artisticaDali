@@ -3,6 +3,5 @@ module.exports = {
         res.render('index', { 
             title: 'Artística Dalí' 
         });
-    }
+    },
 }
-

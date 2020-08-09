@@ -1,20 +1,10 @@
 module.exports = {
     categories : (req, res, next)=>{
-        let id= req.params.id;
-        if(id==1){
-            res.render('categories', {
-                category1: 'Escolar'
-            })
-        };
-        if(id==2){
-            res.render('categories', {
-                category2: 'Artistica'
-            })
-        };
-        if(id==3){
-            res.render('categories', {
-                category3: 'Oficina'
-            })
-        };
+        let categories = [
+            {cat: 1, name: "Escolar"},
+            {cat: 2, name: "Artística"},
+            {cat: 3, name: "Oficina"}
+        ];
+        res.render('categories', {'categories' : categories})
     }
 }
