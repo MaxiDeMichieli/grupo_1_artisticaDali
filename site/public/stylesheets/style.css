@@ -1,71 +1,7 @@
-/*
-IMPORTS
-*/
+/* IMPORTS CSS */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Poppins&display=swap');
+@import url("./header.css");
 
-/*
-VARIABLES
-*/
+@import url("./footer.css");
 
-:root{
-  --color-claro: #e4e3e3;
-  --color-medio: #84a9ac;
-  --color-medioOscuro: #3b6978;
-  --color-oscuro: #204051;
-}
-
-/*
-GENERAL
-*/
-
-*{
-  box-sizing: border-box;
-  margin: 0;
-}
-body{
-  width: 100vw;
-}
-.home a {
-  text-decoration: none;
-  color: var(--color-oscuro)
-}
-.home li {
-  list-style: none;
-}
-
-.home .carrousel img{
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.home h1 {
-  font-family: 'Baloo Da 2';
-  text-transform: uppercase;
-  font-weight: bold;
-  text-align: center;
-  font-size: 40px;
-}
-
-.home .categorias{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
- 
-}
-.home .categorias section{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.home .categorias section img{
-  width: 80vw;
-  margin: 10px;
-  border-radius: 20px;
-}
-
-.home .banner img{
-  width: 100vw;
-}
+@import url("./home.css");
