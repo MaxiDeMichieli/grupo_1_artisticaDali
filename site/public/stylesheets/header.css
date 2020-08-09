@@ -29,8 +29,9 @@ div.separador-header {
     background-color: #fff;
     font-family: 'Poppins';
     position: fixed;
+    z-index: 2;
     width: 100%;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, .3);
+    box-shadow: 0px 0px 4px rgba(139, 26, 26, 0.3);
 }
 
 

@@ -35,37 +35,37 @@ body{
   list-style: none;
 }
 
-.home .carrousel img{
-  width: 100%;
-  margin-bottom: 20px;
-}
+@import url('./banner.css');
 
 .home h1 {
   font-family: 'Baloo Da 2';
   text-transform: uppercase;
+  color: var(--color-oscuro);
   font-weight: bold;
   text-align: center;
-  font-size: 40px;
+  font-size: 2em;
+  margin: 20px;
 }
 
-.home .categorias{
+
+@import url('./productslider.css');
+
+/* CATEGORIAS */
+
+.home section{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
- 
-}
-.home .categorias section{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
-.home .categorias section img{
+.home .categorias section img {
   width: 80vw;
   margin: 10px;
   border-radius: 20px;
+  border: 1px solid var(--color-medio);
 }
 
 .home .banner img{
+  margin: 30px 0px;
   width: 100vw;
 }
