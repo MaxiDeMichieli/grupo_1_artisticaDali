@@ -1,9 +1,3 @@
-div.separador-header {
-    margin: 0;
-    padding: 0;
-    height: 84.53px;
-}
-
 .header li {
     list-style: none;
 }
@@ -28,7 +22,7 @@ div.separador-header {
 .header {
     background-color: #fff;
     font-family: 'Poppins';
-    position: fixed;
+    position: sticky;
     top: -1px;
     z-index: 100;
     width: 100%;
@@ -237,10 +231,6 @@ div.separador-header {
 /* MEDIA QUERIES */
 
 @media (min-width: 576px) {
-    div.separador-header {
-        height: 64.67px;
-    }
-
     .header .buscador-icon {
         display: none;
     }
@@ -264,10 +254,6 @@ div.separador-header {
 }
 
 @media (min-width: 768px) {
-    div.separador-header {
-        height: 108.67px;
-    }
-
     .header .nav-btn {
         display: none;
     }
@@ -300,10 +286,6 @@ div.separador-header {
 }
 
 @media (min-width: 992px) {
-    div.separador-header {
-        height: 64.67px;
-    }
-
     .header .logo {
         padding: 5px;
         margin: 5px 0;
