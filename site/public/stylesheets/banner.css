@@ -20,7 +20,7 @@
 }
 
 .carousel-control-next-icon {
-  background-image: url("../images/carousel/next.svg");
+  background-image: url("/images/carousel/next.svg");
   width: 50px;
   height: 50px;
   transition-property: background-image;
@@ -28,7 +28,7 @@
 }
 
 .carousel-control-prev-icon {
-  background-image: url("../images/carousel/prev.svg");
+  background-image: url("/images/carousel/prev.svg");
   width: 50px;
   height: 50px;
   transition-property: background-image;
@@ -41,13 +41,13 @@
   opacity: 1;
 }
 
-.carousel-control-prev:hover .carousel-control-prev-icon {
-  background-image: url("../images/carousel/prevhover.svg");
+/* .carousel-control-prev:hover .carousel-control-prev-icon {
+  background-image: url("/images/carousel/prevhover.svg");
 }
 
 .carousel-control-next:hover .carousel-control-next-icon {
-  background-image: url("../images/carousel/nexthover.svg");
-}
+  background-image: url("/images/carousel/nexthover.svg");
+} */
 
 .carousel-fade .carousel-item {
   transition-property: opacity;
