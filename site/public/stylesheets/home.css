@@ -27,10 +27,7 @@ GENERAL
 body {
   width: 100%;
 }
-.home a {
-  text-decoration: none;
-  color: var(--color-oscuro)
-}
+
 .home li {
   list-style: none;
 }
@@ -42,25 +39,56 @@ body {
   font-weight: bold;
   text-align: center;
   font-size: 2em;
-  margin: 20px;
+  margin: 30px;
 }
 
 /* CATEGORIAS */
 
-.home section{
+.home .categorias section{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home .categorias section a{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .home .categorias section img {
-  width: 80%;
+  width: 100%;
   margin: 10px;
   border-radius: 20px;
   border: 1px solid var(--color-medio);
 }
 
-.home .banner img{
-  margin: 30px 0px;
+.home .banner_desktop img{
+  display: none;
+}
+
+.home .banner_movil img{
   width: 100%;
+  margin: 20px 0px;
+}
+
+/* MEDIA */
+
+@media (min-width:576px){
+  .home .banner_movil img{
+    display: none;
+  }
+  .home .banner_desktop img{
+    display: flex;
+    width: 100%;
+    margin: 30px 0px;
+  }
+}
+
+@media (min-width:768){
+  
+}
+
+@media (min-width: 992px) {
+
 }

@@ -1,12 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include('./partials/head.ejs') %> 
 <body>
-    <h1><%- title %> </h1>
+  
+  <%- include('./partials/header.ejs') %>
+  
+  <div class="categorias">
     
-</body>
-</html>
+    
+    <div class="container">
+      <div class="col-12 portada"><img src="/images/portadas/banner_escolar.jpg" alt="categoria_escolar"></div>
+      <div class="row">
+        <!--
+          Barra de navegacion de productos
+        -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Productos
+              </a>
+              <div class="container menu-productos">
+                <div class="row col-12">
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Carpetas</a>
+                    <a class="dropdown-item" href="#">Cartucheras</a>
+                    <a class="dropdown-item" href="#">Crayones</a>
+                    <a class="dropdown-item" href="#">Cuadernos</a>
+                    <a class="dropdown-item" href="#">Gomas</a>
+                    <a class="dropdown-item" href="#">Guillotinas</a>
+                    <a class="dropdown-item" href="#">Marcadores</a>
+                    <a class="dropdown-item" href="#">Repuestos</a>
+                    <a class="dropdown-item" href="#">Bases de corte</a>
+                    <a class="dropdown-item" href="#">Block</a>
+                    <a class="dropdown-item" href="#">Boligrafos</a>
+                    <a class="dropdown-item" href="#">Adhesivos</a>
+                    <a class="dropdown-item" href="#">Cajas de archivo</a>
+                    <a class="dropdown-item" href="#">Cintas Adhesivas</a>
+                      <a class="dropdown-item" href="#">Folios</a>
+                      <a class="dropdown-item" href="#">Folios</a>
+                      <a class="dropdown-item" href="#">Geometría y dibujos técnico</a>
+                      <a class="dropdown-item" href="#">Lapices</a>
+                      <a class="dropdown-item" href="#">Mochilas</a>
+                      <a class="dropdown-item" href="#">Sellos</a>
+                      <a class="dropdown-item" href="#">Separadores</a>
+                      <a class="dropdown-item" href="#">Tijeras y cutters</a>
+                      <a class="dropdown-item" href="#">Regalería</a>
+                      <a class="dropdown-item" href="#">Varios</a>
+                      <a class="dropdown-item" href="#">Broches</a>
+                      <a class="dropdown-item" href="#">Caligrafía</a>
+                      <a class="dropdown-item" href="#">Corrector</a>
+                    </div>
+                </div class="row">
+              </div>
+                
+                
+              </div>
+            </li>
+          </ul>
+          
+        </nav>
+        <!--
+          FIN barra de navegacion de productos
+        -->
+        <div class="container productos">
+          
+          <div class="row">
+            
+            <div class="col-12 col-md-4 col-lg-3">
+              
+              <section>
+                <div class="container">
+                  
+                  <div class="row">
+                    <div class="col-5 col-md-12 imgproducto">
+                      <img src="/images/450x450.png" alt="">
+                    </div>
+                    <div class="col-7 col-md-12 descripcion">
+                      <p>Nombre del producto</p>
+                      
+                      
+                        <h2>$ 125,53</h2>
+                        <span>30% OFF</span><br>
+                      
+                      <div class="botones">
+                        <a href="./productDetail.ejs">Detalle</a>
+                        <button type="button">Agregar al carrito</button>
+                      </div>
+                  </div>
+                </div>
+               
+                </div>
+              </section>
+            </div>
+
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <%- include('partials/footer.ejs') %>
+  
+  <%- include('partials/scripts.ejs') %> 

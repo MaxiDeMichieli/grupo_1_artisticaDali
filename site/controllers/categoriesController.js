@@ -1,10 +1,24 @@
 module.exports = {
     categories : (req, res, next)=>{
-        let categories = [
-            {cat: 1, name: "Escolar"},
-            {cat: 2, name: "Artística"},
-            {cat: 3, name: "Oficina"}
+        let categorias = [
+            {
+                "cat":1, "title": "Escolar"
+            },
+            {
+                "cat":2, "title": "Artística"
+            },
+            {
+                "cat":3, "title": "Oficina"
+            }
         ];
-        res.render('categories', {'categories' : categories})
+        let categoryId=req.params.id;
+        categorias.forEach(element =>{
+            if(element.cat == categoryId){
+            res.render('categories', {
+                title: element.title
+            });
+        }
+        
+        })
     }
 }

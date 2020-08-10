@@ -1,0 +1,123 @@
+/*
+IMPORTS
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Poppins&display=swap');
+
+/*
+VARIABLES
+*/
+
+:root{
+  --color-claro: #e4e3e3;
+  --color-medio: #84a9ac;
+  --color-medioOscuro: #3b6978;
+  --color-oscuro: #204051;
+}
+
+/*
+GENERAL
+*/
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* PORTADA */
+
+.categorias .container .portada img{
+  width: 100%;
+}
+
+/* MENU PRODUCTOS */
+
+.navbar{
+  width: 100%;
+  justify-content: center;
+  background-color: var(--color-medio);
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--color-medioOscuro);
+  font-family: Poppins;
+  background-color: white;
+  border: 1px solid var(--color-medio);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+
+
+/* PRODUCTOS */
+
+.categorias section{
+  display: flex;
+  border-bottom: 1px solid var(--color-medio);
+}
+
+.categorias section .imgproducto img{
+  width: 100%;
+}
+
+.categorias section .descripcion{
+  color: var(--color-medioOscuro);
+}
+
+.categorias section .descripcion p{
+  font-family: Poppins;
+}
+
+.categorias section .descripcion span{
+  font-family: Poppins;
+}
+
+.categorias section .descripcion h2{
+  font-family: 'Baloo Da 2';
+  font-weight: bold;
+  display: inline-block;
+}
+.categorias section .descripcion .botones {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+.categorias section .descripcion .botones button{
+  font-family: 'Baloo Da 2';
+  font-weight: bold;
+  font-size: 1,2em;
+  background-color: var(--color-oscuro);
+  color: var(--color-claro);
+  border: none;
+  border-radius: 50px;
+  padding: 5px;
+ 
+
+
+}
+
+@media (min-width:576px){
+  .dropdown-menu.show{
+    display: contents;
+  }
+  .dropdown-menu .dropdown-item{
+    width: 50%;
+  }
+   
+  
+}
+
+@media (min-width:768){
+  .dropdown-menu .dropdown-item{
+    width: 50%;
+  }
+  
+}
+
+@media (min-width: 992px){
+  .dropdown-menu .dropdown-item{
+    width: 25%;
+  }
+}

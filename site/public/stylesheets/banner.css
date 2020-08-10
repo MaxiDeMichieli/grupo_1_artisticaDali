@@ -41,14 +41,6 @@
   opacity: 1;
 }
 
-/* .carousel-control-prev:hover .carousel-control-prev-icon {
-  background-image: url("/images/carousel/prevhover.svg");
-}
-
-.carousel-control-next:hover .carousel-control-next-icon {
-  background-image: url("/images/carousel/nexthover.svg");
-} */
-
 .carousel-fade .carousel-item {
   transition-property: opacity;
   transition-duration: 1.5s;
