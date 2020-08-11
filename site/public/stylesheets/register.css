@@ -1,0 +1,205 @@
+.registro {
+    font-family: 'Poppins';
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 420px;
+    margin: 30px auto;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.registro .none {
+    display: none;
+}
+
+
+/* LOGO */
+
+.registro .logo {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.registro .logo a {
+    display: block;
+    width: 60%;
+    min-width: 200px;
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+
+.registro .logo img {
+    width: 100%;
+}
+
+
+/* VENTANAS */
+
+.registro .ventanas {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.registro .ventanas h3 {
+    font-size: .9em;
+    font-weight: 500;
+    text-align: center;
+    width: 48%;
+    border-bottom: 3px solid #9A9A9A;
+    color: #9A9A9A;
+    cursor: pointer;
+}
+
+.registro .ventanas h3.active {
+    border-bottom: 3px solid #3B6978;
+    color: #3B6978;
+}
+
+
+/* INICIO DE SESION */
+
+.registro .inicio-sesion form,
+.registro .crear-cuenta form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.registro .inicio-sesion form div,
+.registro .crear-cuenta form div {
+    width: 100%;
+}
+
+.registro .inicio-sesion form input,
+.registro .crear-cuenta form input {
+    width: 100%;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, .25);
+    font-size: .9em;
+}
+
+.registro .crear-cuenta .terminos {
+    margin-top: 30px;
+    font-size: .9em;
+}
+
+.registro .crear-cuenta .terminos input {
+    width: auto;
+    margin-right: 5px;
+}
+
+.registro form > input:focus {
+    outline: none;
+    box-shadow: 0px 0px 4px #3B6978;
+}
+
+.registro .inicio-sesion form label,
+.registro .crear-cuenta form label {
+    font-size: .9em;
+    margin: 8px 0 2px 0;
+}
+
+.registro .inicio-sesion form button,
+.registro .crear-cuenta form button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    background-color: #3B6978;
+    margin: 20px 0;
+    font-size: 1.2em;
+    font-family: 'Baloo Da 2';
+    font-weight: 600;
+}
+
+.registro form button:focus {
+    outline: none;
+}
+
+.registro .inicio-sesion a {
+    display: inline-block;
+    font-size: .9em;
+    color: #000;
+    margin-top: 30px;
+}
+
+
+/* BOTONES REDES */
+
+.registro .redes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.registro .redes hr {
+    width: 100%;
+    border-top: 2px solid #D8D8D8;
+    margin-top: 6px;
+}
+
+.registro .redes p {
+    width: 100%;
+    text-align: center;
+    font-size: .9em;
+    margin: 8px 0 15px 0;
+}
+
+.registro .redes div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.registro .redes div a {
+    width: 48%;
+    padding: 8px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, .35);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #4D4D4D;
+}
+
+.registro .redes div a span {
+    display: none;
+    margin-left: 10px;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (min-width:375px) {
+    .registro .redes div a span {
+        display: inline;
+    }
+}
+
+@media (min-width:800px) {
+    .registro {
+        max-width: 650px;
+    }
+
+    .registro .inicio-sesion form div,
+    .registro .crear-cuenta form div {
+        width: 48%;
+    }
+
+    .registro .ventanas h3 {
+        font-size: 1.1em;
+    }
+}
