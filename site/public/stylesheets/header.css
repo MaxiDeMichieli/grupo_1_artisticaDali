@@ -192,6 +192,11 @@
 
 .header .nav .menu li {
     margin: 20px auto;
+    cursor: pointer;
+}
+
+.header .nav .menu li:hover {
+    color: #3B6978;
 }
 
 

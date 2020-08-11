@@ -8,5 +8,13 @@
 
 @import url("./banner.css");
 
-@import url("./categories.css")
+@import url("./categories.css");
 
+@import url("./sliderProductos/owl.carousel.min.css");
+@import url("./sliderProductos/owl.theme.default.min.css");
+
+@import url("./productslider.css");
+
+@import url("./productSlider.css");
+
+@import url("./productDetail.css");
