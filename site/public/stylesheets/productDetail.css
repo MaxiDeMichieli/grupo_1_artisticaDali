@@ -1,0 +1,203 @@
+.detalles-productos {
+    font-family: 'Poppins';
+    margin-top: 30px;
+}
+
+
+/* IMAGENES */
+
+.detalles-productos .imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.detalles-productos .imagenes .chicas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    width: 100%;
+}
+
+.detalles-productos .imagenes .chicas img {
+    width: 22%;
+    max-width: 90px;
+    max-height: 90px;
+    margin: 5px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, .1);
+    cursor: pointer;
+}
+
+.detalles-productos .imagenes .grande {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.detalles-productos .imagenes .grande img {
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+/* DETALLES */
+
+.detalles-productos .detalles {
+    margin: 30px 0 50px 0;
+}
+
+.detalles-productos .detalles h2 {
+    font-weight: 400;
+    font-size: 1.8em;
+}
+
+.detalles-productos .detalles .precio {
+    display: block;
+    margin: 15px 0;
+    font-size: 2em;
+}
+
+.detalles-productos .detalles .cantidad label {
+    font-size: 1.2em;
+}
+
+.detalles-productos .detalles .cantidad select:focus {
+    outline: none !important;
+}
+
+.detalles-productos .detalles .cantidad .botones {
+    margin: 15px 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.detalles-productos .detalles .cantidad .botones button {
+    padding: 8px 15px;
+    font-family: 'Baloo Da 2';
+    font-weight: 800;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 3px solid #3B6978;
+    margin: 5px 5px;
+}
+
+.detalles-productos .detalles .cantidad .botones button:focus {
+    outline: none;
+}
+
+.detalles-productos .detalles .cantidad .botones .carrito {
+    color: #fff;
+    background: #3B6978;
+}
+
+
+/* DESCRIPCION Y OPINIONES */
+
+.detalles-productos .fondo-gris {
+    
+    padding: 30px 0;
+    border-radius: 15px;
+    background: #f7f7f7;
+}
+
+.detalles-productos .descripcion-opinion h3 {
+    margin: 15px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.detalles-productos .descripcion-opinion .descripcion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.detalles-productos .descripcion-opinion .descripcion  p {
+    text-align: justify;
+    border-bottom: 2px solid #204051;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+.detalles-productos .descripcion-opinion .opiniones {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detalles-productos .descripcion-opinion .opiniones .opinion {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, .1);
+}
+
+.detalles-productos .descripcion-opinion .opiniones .opinion p {
+    margin: 0;
+}
+
+.detalles-productos .descripcion-opinion .opiniones .opinion img {
+    width: 100px;
+}
+
+
+/* SLIDER PRODUCTO */
+
+.slider-productos h3 {
+    width: 90%;
+    font-size: 2em;
+    font-family: 'Baloo Da 2';
+    font-weight: 600;
+    text-align: center;
+    margin: 50px auto 20px auto;
+    color: #204051;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (min-width: 576px) {
+    .detalles-productos .imagenes .chicas {
+        width: 20%;
+        flex-direction: column;
+    }
+    
+    .detalles-productos .imagenes .chicas img {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .detalles-productos .imagenes .grande {
+        margin: 0 auto;
+        width: 70%;
+    }
+}
+
+@media (min-width: 992px) {
+    .detalles-productos .detalles-container {
+        padding-bottom: 60px;
+    }
+
+    .detalles-productos .detalles .cantidad .botones {
+        margin: 0;
+        justify-content: start;
+        margin-top: 60px;
+    }
+
+    .detalles-productos .detalles .cantidad .botones button {
+        margin: 0;
+    }
+
+    .detalles-productos .detalles .precio {
+        margin: 30px 0;
+    }
+
+    .detalles-productos .descripcion-opinion .descripcion{
+            border-right: 2px solid #204051;
+        }
+
+    .detalles-productos .descripcion-opinion .descripcion  p {
+        border-bottom: none;
+    }
+}

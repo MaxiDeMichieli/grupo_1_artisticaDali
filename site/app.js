@@ -9,7 +9,6 @@ var logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const categoriesRouter = require('./routes/categories');
-const router = require('./routes/index');
 const productAddRouter = require('./routes/productAdd');
 const productCartRouter = require('./routes/productCart');
 const productDetail = require('./routes/productDetail');
