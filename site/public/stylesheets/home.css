@@ -44,19 +44,21 @@ body {
 
 /* CATEGORIAS */
 
-.home .categorias section{
+.home .categoriashome section{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.home .categorias section a{
+.home .categoriashome section a{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border-bottom: none;
+
 }
 
-.home .categorias section img {
+.home .categoriashome section img {
   width: 100%;
   margin: 10px;
   border-radius: 20px;
@@ -71,6 +73,7 @@ body {
   width: 100%;
   margin: 20px 0px;
 }
+
 
 /* MEDIA */
 

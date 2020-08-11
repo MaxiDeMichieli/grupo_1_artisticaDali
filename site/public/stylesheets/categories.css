@@ -55,8 +55,8 @@ GENERAL
 
 .categorias section{
   display: flex;
- 
-  border-bottom: 1px solid var(--color-medio);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 }
 .categorias .col-12{
   margin-top: 15px;
@@ -123,17 +123,17 @@ GENERAL
   .dropdown-menu .dropdown-item{
     width: 50%;
   }
+  
 }
 
 /* TABLET */
 
-@media (min-width:768){
+@media (min-width:768px){
   .dropdown-menu .dropdown-item{
     width: 50%;
   }
-
   .categorias section .descripcion span{
-    text-align: center;
+  text-align: center;
   }
   .categorias .productos .botones{
     margin-bottom: 10px;
@@ -150,12 +150,16 @@ GENERAL
   /* Aparece lista lateral*/
   .categorias .lateral{
     display: block;
+    border: 1px solid var(--color-medio);
+    border-radius: 20px;
+    padding: 10px;
   }
 
   .categorias .lateral h3{
     color: var(--color-oscuro);
     font-family: "Baloo Da 2";
     font-weight: bold;
+    border-bottom: 1px solid var(--color-medio);
   }
 
   .categorias .lateral ul li{
@@ -167,6 +171,7 @@ GENERAL
   .categorias .productos {
     margin-top: 20px;
     width: 80%;
+    margin-bottom: 20px;
   }
 
   /* Elimino boton agregar al carrito */
