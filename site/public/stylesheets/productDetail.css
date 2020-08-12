@@ -58,6 +58,32 @@
 
 .detalles-productos .detalles .cantidad label {
     font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.detalles-productos .detalles .cantidad .numero {
+    padding: 3px 10px;
+    background: #fff;
+    border-radius: 50px;
+    border: 2px solid #3B6978;
+}
+
+.detalles-productos .detalles .cantidad .nice-number button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-weight: bolder;
+    color: #3B6978;
+}
+
+.detalles-productos .detalles .cantidad .nice-number input {
+    border: none;
+    background: transparent;
+    color: #204051;
+}
+
+.detalles-productos .detalles .cantidad .nice-number input:focus {
+    outline: none;
 }
 
 .detalles-productos .detalles .cantidad select:focus {

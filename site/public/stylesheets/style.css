@@ -10,6 +10,7 @@
 
 @import url("./categories.css");
 
+/* OWL CAROUSEL */
 @import url("./sliderProductos/owl.carousel.min.css");
 @import url("./sliderProductos/owl.theme.default.min.css");
 
@@ -20,3 +21,6 @@
 @import url("./productDetail.css");
 
 @import url("./register.css");
+
+/* JQUERY NICE NUMBER */
+@import url("./niceNumber/jquery.nice-number.css")
