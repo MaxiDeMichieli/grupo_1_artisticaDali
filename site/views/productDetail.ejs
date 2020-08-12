@@ -5,59 +5,55 @@
     <%- include('partials/header.ejs') %>
 
     <div class="detalles-productos">
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row detalles-container">
-                    <div class="imagenes col-12 col-lg-6">
-                        <div class="chicas">
-                            <img src="/images/detallesProducto/imagen-chica.png" alt="" id="img1-sm">
-                            <img src="/images/detallesProducto/imagen2-chica.png" alt="" id="img2-sm">
-                        </div>
-                        <div class="grande">
-                            <img id="img" src="/images/detallesProducto/imagen-grande.png" alt="producto">
-                        </div>
+        <div class="container">
+            <div class="row detalles-container">
+                <div class="imagenes col-12 col-lg-6">
+                    <div class="chicas">
+                        <img src="/images/detallesProducto/imagen-chica.png" alt="" id="img1-sm">
+                        <img src="/images/detallesProducto/imagen2-chica.png" alt="" id="img2-sm">
                     </div>
-                    <section class="detalles col-12 col-lg-6">
-                        <h2>Estuche con 4 rotuladores Pitt Artist Pen, negro</h2>
-                        <span class="precio">$1.500</span>
-                        <form action="" class="cantidad">
-                            <label for="cantidad">cantidad</label>
-                            <select name="cantidad" id="cantidad">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                            <div class="botones">
-                                <button type="submit" class="carrito">agregar al carrito</button>
-                            </div>
-                        </form>
-                    </section>
+                    <div class="grande">
+                        <img id="img" src="/images/detallesProducto/imagen-grande.png" alt="producto">
+                    </div>
                 </div>
+                <section class="detalles col-12 col-lg-6">
+                    <h2>Estuche con 4 rotuladores Pitt Artist Pen, negro</h2>
+                    <span class="precio">$1.500</span>
+                    <form action="" class="cantidad">
+                        <label for="cantidad">cantidad</label>
+                        <select name="cantidad" id="cantidad">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <div class="botones">
+                            <button type="submit" class="carrito">agregar al carrito</button>
+                        </div>
+                    </form>
+                </section>
             </div>
         </div>
         <div class="fondo-gris">
-            <div class="container-fluid">
-                <div class="container">
-                    <section class="row descripcion-opinion">
-                        <div class="descripcion col-12 col-lg-6">
-                            <h3>Descripción del producto</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar ex rutrum enim feugiat, vel mattis mi ultrices. Nam cursus turpis metus, et eleifend libero lobortis a.</p>
+            <div class="container">
+                <section class="row descripcion-opinion">
+                    <div class="descripcion col-12 col-lg-6">
+                        <h3>Descripción del producto</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar ex rutrum enim feugiat, vel mattis mi ultrices. Nam cursus turpis metus, et eleifend libero lobortis a.</p>
+                    </div>
+                    <div class="opiniones col-12 col-lg-6">
+                        <h3>Opiniones</h3>
+                        <div class="opinion">
+                            <img src="/images/detallesProducto/estrellas.svg" alt="">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar ex rutrum enim feugiat.</p>
                         </div>
-                        <div class="opiniones col-12 col-lg-6">
-                            <h3>Opiniones</h3>
-                            <div class="opinion">
-                                <img src="/images/detallesProducto/estrellas.svg" alt="">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar ex rutrum enim feugiat.</p>
-                            </div>
-                            <div class="opinion">
-                                <img src="/images/detallesProducto/estrellas.svg" alt="">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar ex rutrum enim feugiat.</p>
-                               </div>
-                        </div>
-                    </section>
-                </div>
+                        <div class="opinion">
+                            <img src="/images/detallesProducto/estrellas.svg" alt="">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar ex rutrum enim feugiat.</p>
+                           </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
