@@ -1,0 +1,275 @@
+/*
+IMPORTS
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Poppins&display=swap');
+
+/*
+VARIABLES
+*/
+
+:root{
+  --color-claro: #e4e3e3;
+  --color-medio: #84a9ac;
+  --color-medioOscuro: #3b6978;
+  --color-oscuro: #204051;
+}
+
+/*
+GENERAL
+*/
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  width: 100%;
+  margin: 0;
+}
+.cargaProd{
+  max-width: 100%;
+  border: 1px solid #84A9AC;
+  padding: 5px;
+}
+
+.cargaProd .row{
+  margin:0;
+}
+
+/*HEADER*/
+
+.cargaProd .container{
+  width: 100%;
+  padding: 0;
+
+}
+.cargaProd header .row{
+  background-color: var(--color-medio);
+  padding: 5px;
+  width: 100%;
+  height: 20%;
+  margin: 0;
+}
+
+.cargaProd .container .logo {
+ padding: 5px;
+}
+.cargaProd .container a img{
+  width: 100%;
+  max-width: 80px;
+  max-height: 80px;
+}
+.cargaProd .titulo{
+  padding: 10px;
+  font-size: 1.5em;
+}
+.cargaProd .container .user{
+  font-family: Poppins;
+  text-align: right;
+  font-size: 0.8em;
+  color: var(--color-medioOscuro);
+  padding: 0;
+}
+.cargaProd .container .user p{
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.cargaProd .container .user .cerrar{
+  border: 0;
+  background: none;
+  margin-bottom: 5px;
+  color: var(--color-oscuro);
+}
+
+/* PESTAÑAS */
+
+.cargaProd .pestañas{
+  font-family: Poppins;
+  width: 100%;
+  border: 1px solid var(--color-medio);
+  border-radius: 10px;
+  margin: 5px 0;
+}
+
+/* FORMULARIO  */
+
+.cargaProd .carga{
+  width: 100%;
+  font-family: Poppins;
+  color: var(--color-oscuro);
+}
+.cargaProd .carga .main{
+  width: 100%;
+  
+}
+.cargaProd .carga .main form{
+width: 100%;
+}
+.cargaProd .carga .main .datos{
+  display: flex;
+  flex-wrap: wrap;
+  max-width:100%;
+}
+.cargaProd #form{
+  padding: 0;
+}
+.cargaProd .carga .main .datos .row{
+  width: 100%;
+  margin: 0;
+}
+.cargaProd .carga .bloque1, .bloque2{
+  max-width: 50%;
+  padding: 5px;
+  font-size: 1em;
+}
+.cargaProd .carga .bloque1 input, .bloque2 input{
+  width: 100%;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--color-oscuro);
+  margin: 5px 0;
+  padding: 5px;
+  color: var(--color-medio);
+}
+.cargaProd .carga .main .datos .row .bloque1 select, .bloque2 select{
+  width: 100%;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--color-oscuro);
+  margin: 5px 0;
+  color: var(--color-medioOscuro);
+}
+
+.cargaProd .descripcion{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.cargaProd .descripcion label{
+  margin-left: 10px;
+}
+
+.cargaProd .descripcion textarea{
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid var(--color-oscuro);
+  padding: 10px;
+  color: var(--color-medioOscuro);
+}
+.cargaProd .precio{
+  margin: 10px;
+}
+.cargaProd .precio label{
+  margin-left: 10px;
+}
+.cargaProd .precio input{
+  border-radius: 20px;
+  border: 1px solid var(--color-oscuro);
+}
+
+/* CAJA IMAGENES */
+.cargaProd .imagenes{
+  border-radius: 20px;
+  border: 1px solid var(--color-oscuro);
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cargaProd .imagenes img{
+  max-width: 50%;
+}
+
+.cargaProd .cargaimg{
+  border-radius: 20px;
+  border: 1px solid var(--color-oscuro);
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.cargaProd .cargaimg h3{
+  text-align: center;
+  margin-right: 0; 
+  margin-bottom: 0;
+  width: 100%;
+  font-size: 1em;
+  padding: 5px;
+}
+
+.cargaProd .cargaimg p {
+  width: 100%;
+  border-top: 1px solid var(--color-oscuro);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
+}
+.cargaProd .cargaimg p button{
+  width: 40%;
+  padding: 3px;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  background-color: #3B6978;
+  margin: 5px 0;
+  font-size: 1.2em;
+  font-family: 'Baloo Da 2';
+  font-weight: 600;
+ 
+}
+.cargaProd .cargaimg p input{
+  width: 59%;
+  height: fit-content;
+  border: 1px solid var(--color-medioOscuro);
+  border-radius: 50px;
+  padding: 3px;
+  margin: 5px 0;
+}
+.cargaProd .cargaimg .cargados{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* BOTON FINAL */
+.cargaProd .pestañas .final{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cargaProd .final button{
+  width: 40%;
+  padding: 3px;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  background-color:var(--color-oscuro);
+  margin: 5px 0;
+  font-size: 1.2em;
+  font-family: 'Baloo Da 2';
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 768px){
+  .cargaProd .cargaimg p{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .cargaProd .cargaimg p input{
+    max-width: 300px;
+   
+  }
+}
+
+@media (min-width: 1024px){
+  .cargaProd .carga .main form {
+    width: 100%;
+    display: contents;
+}
+}

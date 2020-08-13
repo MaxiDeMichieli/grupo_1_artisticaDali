@@ -1,11 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include('partials/head.ejs') %>  
 <body>
-    <h1><%- title %> </h1>
-</body>
-</html>
+    <!-- HEADER -->
+    <div class="cargaProd">
+            <header>
+                <div class="container col-12">
+                        <div class="row">
+                            <div class="logo col-3 col-sm-6 col-md-4 col-lg-3">
+                                <a href="/"><img src="/images/logo_carga.png" alt="Artística Dalí"></a>
+                            </div>
+                            <div class="user col-9 col-sm-6 col-md-8 col-lg-9" >
+                                <p>Usuario: Nombre_de_usuario</p>
+                                <button type="submit" class="cerrar">cerrar sesión</button>
+                            </div>
+                        </div>
+                    </div>
+            </header>
+        
+        <!-- FINALIZA HEADER -->
+        
+        <!-- PESTAÑAS -->
+        
+       <div class="pestañas">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">CARGA</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">STOCK</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">OFERTAS</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                
+                <!-- INICIA PESTAÑA DE CARGA -->
+                
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    
+                    <!-- FORMULARIO -->
+                    
+                    <div class="carga">
+                        <div class="container main">
+                            <div class="row">
+                                <form action="">
+                                    <div class="col-12 col-md-12 col-lg-6" id="formulario1">
+                                        <h3 class="titulo">
+                                            Carga de productos
+                                        </h3>
+                                        <div class="container datos">
+                                            
+                                           <div class="row">
+                                                <div class="col-12 col-md-12" id="form">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            
+                                                                <div class="bloque1">
+           
+                                                                   
+                                                                        <select name="categoria" >
+                                                                            <option hidden selected>Elija una categoria</option>
+                                                                            <option value="Es">Escolar</option>
+                                                                            <option value="Ar">Artística</option>
+                                                                            <option value="Of">Oficina</option>
+                                                                        </select>
+                                                                   
+                                                                        
+                                                                        <input type="text" placeholder="Producto" name="producto" id="producto">
+                                                                    
+                                                                </div>
+                                                                <div class="bloque2">
+                                                                    
+                                                                        
+                                                                        
+                                                                        <select name="sub-categoria">
+                                                                            <option hidden selected>Elija una Sub-categoria</option>
+                                                                            <option value="Es">Lápices</option>
+                                                                            <option value="Ar">Acrilicos</option>
+                                                                            <option value="Of">Acuarelas</option>
+                                                                            <option value="Es">Barniz</option>
+                                                                            <option value="Ar">Bastidores</option>
+                                                                            <option value="Of">Marcadores</option>
+                                                                            <option value="Es">Pinceles</option>
+                                                                            <option value="Ar">Oleos</option>
+                                                                            <option value="Of">Atriles</option>
+                                                                        </select>
+                                                                    
+                                                                    
+                                                                        <input type="text" placeholder="Codigo" name="codigo" id="codigo">  
+                                                                     
+                                                               </div>
+                                                        </div>
+                                                    </div >
+                                                </div>
+                                           </div>
+                                                
+                                            <div class="descripcion">
+                                                <label for="descripcion">Descripción del producto</label>
+                                                <textarea name="descripcion" id="descripcion" cols="30" rows="7">Escriba aquí</textarea>
+                                            </div>
+                                            <div class="precio">
+                                                <label for="precio">Precio:   $</label>
+                                                <input type="text" name="precio" id="precio">
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-6" id="formulario2">
+                                        <div class="imagenes">
+                                            <img src="/images/450x450.png" alt="">
+                                            <img src="/images/450x450.png" alt="">
+                                            <img src="/images/450x450.png" alt="">
+                                            <img src="/images/450x450.png" alt="">
+                                        </div>
+                                        <div class="cargaimg">
+                                            <h3 id="tituloimg">Agregar archivos de imagen</h3>
+                                            <p>
+                                                <button type="button">Examinar</button>
+                                                <input type="text" name="examinar" id="examinar">
+                                            </p>
+                                            <div class="cargados">
+                                                <a href="">img001</a>
+                                                <a href="">img002</a>
+                                                <a href="">img003</a>
+                                                <a href="">img004</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="final">
+                                        <button type="submit">finalizar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                    <!-- FINALIZA PESTAÑA DE CARGA -->
+                    
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><h1>ESPACIO EN CONSTRUCCION</h1></div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><h1>ESPACIO EN CONSTRUCCION</h1></div>
+            </div>
+       </div>
+    </div>  
+        
+        
+        
+        
+        
+        <%- include('partials/scripts.ejs') %> 
