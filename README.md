@@ -62,6 +62,19 @@ Nuestra elección se basó principalmente en la funcionalidad del e-commerce, ta
 
 ### [Tablero](https://trello.com/b/yAEJerws/grupo-1-proyecto-art%C3%ADstica-dal%C3%AD)
 
+## Integrantes 
+
+
+### De Michieli, Máximo
+- 19 años
+- Estudiante de Programación Web
+
+
+### Céspedes, Jonatan
+- 34 años
+- Dibujante, Tatuador y estudiante de Programación Web
+
+
 ### Retrospectiva: [retro.md]()
 
 ### Tareas realizadas:
