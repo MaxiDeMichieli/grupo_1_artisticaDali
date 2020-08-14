@@ -75,7 +75,7 @@ Nuestra elección se basó principalmente en la funcionalidad del e-commerce, ta
 - Dibujante, Tatuador y estudiante de Programación Web
 
 
-### Retrospectiva: [retro.md]()
+### Retrospectiva: [retro.md](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/retro.md)
 
 ### Tareas realizadas:
 - Estructura de archivos con NodeJS + Express (Implementacion de estructura MVC)
