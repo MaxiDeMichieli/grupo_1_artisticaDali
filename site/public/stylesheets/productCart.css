@@ -1,0 +1,394 @@
+* {
+    box-sizing: border-box;
+}
+
+.carrito {
+    font-family: 'Poppins';
+    padding: 30px 0;
+}
+
+.carrito h2 {
+    font-size: 1.5em;
+    text-align: center;
+    color: #204051;
+}
+
+
+/* PRODUCTOS */
+
+.carrito .productos {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    border: 1px solid  #204051;
+    margin: auto;
+    flex: 0 0 97%;
+}
+
+.carrito .productos .producto {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    border-bottom: 1px solid #204051;
+}
+
+.carrito .productos .producto:nth-last-child(1) {
+    border-bottom: none;
+}
+
+.carrito .productos .imagen {
+    width: 35%;
+    padding: 5px;
+}
+
+.carrito .productos .imagen img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.carrito .productos .detalles {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+.carrito .productos .detalles h3 {
+    font-size: 1em;
+    align-self: flex-start;
+}
+
+.carrito .productos .detalles .precio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.carrito .productos .detalles .precio .precio-unitario {
+    width: 100%;
+    text-align: right;
+    color: #3B6978;
+}
+
+.carrito .productos .detalles .precio .precio-sumado {
+    text-align: right;
+    flex-grow: 1;
+    font-size: 1.2em;
+    font-family: 'Baloo Da 2';
+    font-weight: 800;
+    color: #204051;
+}
+
+.carrito .productos .detalles .precio .cantidad {
+    background: #fff;
+    border-radius: 50px;
+    border: 2px solid #204051;
+    font-size: .8em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 100px;
+    min-width: 68px;
+    width: 40%;
+}
+
+/* NICE NUMBER */
+.carrito .nice-number button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-weight: bolder;
+    font-size: 1.2em;
+    color: #204051;
+}
+
+.carrito .nice-number input {
+    border: none;
+    background: transparent;
+    color: #204051;
+}
+
+.carrito .nice-number input:focus {
+    outline: none;
+}
+/* NICE NUMBER END */
+
+.carrito .productos .detalles .sacar-carrito {
+    width: 100%;
+    max-width: 250px;
+    font-family: 'Baloo Da 2';
+    font-weight: 600;
+    font-size: 1em;
+    color: #fff;
+    padding: 6px;
+    border-radius: 50px;
+    border: #204051;
+    background: #204051;
+    margin-top: 15px;
+}
+
+.carrito .productos .detalles .sacar-carrito:focus {
+    outline: none;
+}
+
+
+/* ENVIOS */
+
+.carrito .envio {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.carrito .envio h4 {
+    color: #3B6978;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.carrito .envio input,
+.carrito .envio select {
+    background: #fff;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .55);
+}
+
+.carrito .envio input:focus,
+.carrito .envio select:focus {
+    outline: none;
+}
+
+.carrito .envio input.radio {
+    box-shadow: none;
+}
+
+.carrito .envio .input {
+    width: 20%;
+    flex-grow: 1;
+    margin-left: 10px;
+    padding: 0 10px;
+}
+
+
+/* RADIO BUTTONS */
+
+.carrito .envio .radio-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.carrito .envio .radio-buttons div:nth-child(1) {
+    margin-right: 25px;
+}
+
+
+/* SUCURSAL */
+
+.carrito .envio .sucursal {
+    padding: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.carrito .envio .sucursal div {
+    margin: 5px 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+
+/* DOMICILIO */
+
+.carrito .envio .domicilio {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    max-width: 300px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.carrito .envio .domicilio div {
+    margin: 5px 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+/* DISPLAY NONE */
+
+.carrito .envio .none {
+    display: none;
+}
+
+
+/* PAGO */
+
+.carrito .pagar {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15px auto 0 auto;
+    border-radius: 10px;
+    background: #204051;
+    color: #fff;
+    padding: 20px;
+    max-width: 500px;
+}
+
+.carrito .pagar div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+    padding: 5px;
+}
+
+.carrito .pagar div span {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.carrito .pagar div h5 {
+    margin: 0;
+}
+
+.carrito .pagar button {
+    max-width: 250px;
+    width: 100%;
+    margin: 10px auto 0 auto;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    color: #204051;
+    border-radius: 50px;
+    font-family: 'Baloo Da 2';
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+.carrito .pagar button:focus {
+    outline: none;
+}
+
+
+
+/* MEDIA QUERIES */
+
+@media (min-width: 375px) {
+    .carrito .productos .detalles .precio .cantidad {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 576px) {
+    .carrito .productos {
+        background-color: #f3f3f3;
+        flex: 0 0 100%;
+    }
+
+    .carrito .envio .sucursal {
+        max-width: none;
+    }
+
+    .carrito .envio .domicilio {
+        max-width: none;
+    }
+
+    .carrito .envio .sucursal div {
+        width: 50%;
+    }
+
+    .carrito .envio .domicilio div {
+        width: 50%;
+    }
+
+    .carrito .envio .input {
+        margin-right: 25px;
+    }
+}
+
+@media (min-width: 768px) {
+    .carrito .productos .imagen {
+        width: 20%;
+    }
+    
+    .carrito .productos .detalles {
+        width: 80%;
+    }
+
+    .carrito .productos .detalles .precio {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .carrito .productos .detalles .precio .precio-unitario {
+        width: auto;
+    }
+    
+    .carrito .productos .detalles .precio .precio-sumado {
+        flex-grow: 0;
+    }
+
+    .carrito .productos .detalles .precio .cantidad {
+        margin: 0 15px;
+    }
+}
+
+@media (min-width: 992px) {
+    .carrito .pagar {
+        margin-top: 40px;
+    }
+
+    .carrito .productos .imagen {
+        width: 15%;
+    }
+
+    .carrito .productos .detalles {
+        width: 85%;
+    }
+
+    .carrito .productos .detalles h3 {
+        font-size: 1.2em;
+    }
+
+    .carrito .productos .detalles .precio {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .carrito h2 {
+        font-size: 1.9em;
+    }
+
+    .carrito .pagar {
+        margin-top: 40px;
+    }
+
+    .carrito .productos .imagen {
+        width: 15%;
+    }
+
+    .carrito .productos .detalles {
+        width: 85%;
+    }
+
+    .carrito .productos .detalles .precio {
+        width: 40%;
+    }
+}

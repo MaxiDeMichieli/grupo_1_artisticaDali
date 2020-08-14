@@ -25,4 +25,6 @@
 @import url("./productAdd.css");
 
 /* JQUERY NICE NUMBER */
-@import url("./niceNumber/jquery.nice-number.css")
+@import url("./niceNumber/jquery.nice-number.css");
+
+@import url("./productCart.css");

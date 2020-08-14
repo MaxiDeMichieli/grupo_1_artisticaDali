@@ -1,3 +1,3 @@
 $(function(){
-    $('input[type="number"]').niceNumber();
+    $('.number-spinner').niceNumber();
 });

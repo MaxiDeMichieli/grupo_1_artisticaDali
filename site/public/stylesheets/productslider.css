@@ -17,7 +17,7 @@
     background-image: url('/images/carousel/nexthover.svg') !important;
     background-repeat: no-repeat !important;
     position: absolute;
-    right: -45px;
+    right: -35px;
     top: 140px;
 }
 
@@ -35,7 +35,7 @@
     background-image: url('/images/carousel/prevhover.svg') !important;
     background-repeat: no-repeat !important;
     position: absolute;
-    left: -40px;
+    left: -30px;
     top: 140px;
 }
 

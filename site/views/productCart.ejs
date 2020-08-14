@@ -1,11 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include('./partials/head.ejs') %>
 <body>
-    <h1><%- title %> </h1>
-</body>
-</html>
+
+    <%- include('./partials/header.ejs') %> 
+
+    <div class="carrito">
+        <div class="container">
+            <h2>Productos en su Carrito</h2>
+            <form action="#">
+               <div class="row">
+
+                    <!-- PRODUCTOS -->
+                    <section class="col-12 productos">
+                        <div class="producto">
+                            <div class="imagen">
+                                <img src="/images/productos/producto.png" alt="">
+                            </div>
+                            <div class="detalles">
+                                <h3>Estuche con 4 rotuladores Pitt Artist Pen, negro</h3>
+                                <div class="precio">
+                                    <span class="precio-unitario">$1.500 c/u</span>
+                                    <span class="cantidad">
+                                        <input type="number" class="number-spinner" value="1"  min="1" max="100">
+                                    </span>
+                                    <span class="precio-sumado">$3.000</span>
+                                </div>
+                                <button class="sacar-carrito">Quitar del carrito</button>
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="imagen">
+                                <img src="/images/productos/producto.png" alt="">
+                            </div>
+                            <div class="detalles">
+                                <h3>Estuche con 4 rotuladores Pitt Artist Pen, negro</h3>
+                                <div class="precio">
+                                    <span class="precio-unitario">$1.500 c/u</span>
+                                    <span class="cantidad">
+                                        <input type="number" class="number-spinner" value="1"  min="1" max="100">
+                                    </span>
+                                    <span class="precio-sumado">$3.000</span>
+                                </div>
+                                <button class="sacar-carrito">Quitar del carrito</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ENVIO -->
+                    <section class="envio col-12 col-lg-8">
+                        <h4>Formas de envío</h4>
+                        <!-- RADIO BUTTONS -->
+                        <div class="radio-buttons">
+                            <div>
+                                <label for="sucursal-radio">Retiro en sucursal </label>
+                                <input type="radio" name="envio" value="sucursal" class="radio" id="sucursal-radio" onclick="radio(0)" required>
+                            </div>
+                            <div>
+                                <label for="domicilio-radio">Envío a domicilio </label>
+                                <input type="radio" name="envio" value="domicilio" class="radio" id="domicilio-radio" onclick="radio(1)" required>
+                            </div>
+                        </div>
+                        <!-- SUCURSAL -->
+                        <div class="sucursal none" id="sucursal-inputs">
+                            <div>
+                                <label for="sucursal">Sucursal</label>
+                                <select name="sucursal" id="sucursal" class="input">
+                                    <option value="none"> </option>
+                                    <option value="sucursal1">Sucursal 1</option>
+                                    <option value="sucursal2">Sucursal 2</option>
+                                    <option value="sucursal3">Sucursal 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- DOMICILIO -->
+                        <div class="domicilio none" id="domicilio-inputs">
+                            <div>
+                                <label for="calle">Calle</label>
+                                <input type="text" name="calle" id="calle" class="input">
+                            </div>
+                            <div>
+                                <label for="numero">Número</label>
+                                <input type="number" name="numero" id="numero" class="input">
+                            </div>
+                            <div>
+                                <label for="dpto">Dpto.</label>
+                                <input type="text" name="dpto" id="dpto" class="input">
+                            </div>
+                            <div>
+                                <label for="cpostal">C. Postal</label>
+                                <input type="text" name="cpostal" id="cpostal" class="input">
+                            </div>
+                            <div>
+                                <label for="provincia">Provincia</label>
+                                <select name="provincia" id="provincia" class="input">
+                                    <option value="none"> </option>
+                                    <option value="provincia">provincia</option>
+                                    <option value="provincia">provincia</option>
+                                    <option value="provincia">provincia</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="localidad">Localidad</label>
+                                <select name="localidad" id="localidad" class="input">
+                                    <option value="none"> </option>
+                                    <option value="localidad">localidad</option>
+                                    <option value="localidad">localidad</option>
+                                    <option value="localidad">localidad</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- PAGO -->
+                    <section class="pagar col-11 col-lg-4">
+                        <div class="subtotal">
+                            <h5>Subtotal</h5>
+                            <span>$3.000</span>
+                        </div>
+                        <div class="costo-envio">
+                            <h5>Costo de envío</h5>
+                            <span>$340</span>
+                        </div>
+                        <div class="total">
+                            <h5>TOTAL</h5>
+                            <span>$3.340</span>
+                        </div>
+                        <button type="submit">PAGAR</button>
+                    </section>
+               </div>
+            </form>
+        </div>
+    </div>
+
+
+    <%- include('partials/footer.ejs') %>
+  
+    <script src="/javascripts/header.js"></script>
+    <script src="/javascripts/productCart.js"></script>
+    
+<%- include('partials/scripts.ejs') %>
