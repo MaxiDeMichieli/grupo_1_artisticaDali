@@ -1,7 +1,7 @@
 /* GENERAL */
 
 .productSlider {
-    font-family: 'Poppins';
+    font-family: var(--fuente-poppins);
     width: 80%;
     margin: 0 auto;
     max-width: 250px;
@@ -75,7 +75,7 @@
 
 .productSlider .item-container img {
     padding-bottom: 5px;
-    border-bottom: 1px solid #3B6978;
+    border-bottom: 1px solid var(--color-medio);
 }
 
 .productSlider .item-container h4 {
@@ -105,7 +105,7 @@
     right: 0px;
     top: 0px;
     padding: 5px 8px;
-    background: #204051;
+    background: var(--color-oscuro);
     color: #fff;
     border-radius: 0px 0px 0px 10px;
     font-size: 15px;

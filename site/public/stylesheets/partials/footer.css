@@ -1,7 +1,7 @@
-/* GENERAL */
+/* GENERAL FOOTER */
 
 .footer {
-    font-family: 'Poppins';
+    font-family: var(--fuente-poppins);
 }
 
 .footer ul {
@@ -39,7 +39,7 @@
 
 .footer {
     border-radius: 15px 15px 0px 0px;
-    background: #3B6978;
+    background: var(--color-medioOscuro);
 }
 
 .footer .contenedor {

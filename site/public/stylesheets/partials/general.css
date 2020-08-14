@@ -1,0 +1,17 @@
+/* VARIABLES */
+
+:root{
+  --fuente-poppins: 'Poppins';
+  --fuente-baloo: 'Baloo Da 2';
+  --color-claro: #f5f5f5;
+  --color-medio: #84a9ac;
+  --color-medioOscuro: #3b6978;
+  --color-oscuro: #204051;
+}
+
+/* GENERAL */
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+}

@@ -10,7 +10,7 @@
 .carrito h2 {
     font-size: 1.5em;
     text-align: center;
-    color: #204051;
+    color: var(--color-oscuro);
 }
 
 
@@ -20,7 +20,7 @@
     display: flex;
     flex-wrap: wrap;
     border-radius: 10px;
-    border: 1px solid  #204051;
+    border: 1px solid  var(--color-oscuro);
     margin: auto;
     flex: 0 0 97%;
 }
@@ -30,7 +30,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 30px 0;
-    border-bottom: 1px solid #204051;
+    border-bottom: 1px solid var(--color-oscuro);
 }
 
 .carrito .productos .producto:nth-last-child(1) {
@@ -70,7 +70,7 @@
 .carrito .productos .detalles .precio .precio-unitario {
     width: 100%;
     text-align: right;
-    color: #3B6978;
+    color: var(--color-medioOscuro);
 }
 
 .carrito .productos .detalles .precio .precio-sumado {
@@ -79,13 +79,13 @@
     font-size: 1.2em;
     font-family: 'Baloo Da 2';
     font-weight: 800;
-    color: #204051;
+    color: var(--color-ocuro);
 }
 
 .carrito .productos .detalles .precio .cantidad {
     background: #fff;
     border-radius: 50px;
-    border: 2px solid #204051;
+    border: 2px solid var(--color-oscuro);
     font-size: .8em;
     display: flex;
     flex-wrap: wrap;
@@ -102,13 +102,13 @@
     background-color: transparent;
     font-weight: bolder;
     font-size: 1.2em;
-    color: #204051;
+    color: var(--color-oscuro);
 }
 
 .carrito .nice-number input {
     border: none;
     background: transparent;
-    color: #204051;
+    color: var(--color-oscuro);
 }
 
 .carrito .nice-number input:focus {
@@ -119,14 +119,14 @@
 .carrito .productos .detalles .sacar-carrito {
     width: 100%;
     max-width: 250px;
-    font-family: 'Baloo Da 2';
+    font-family: var(--fuente-baloo);
     font-weight: 600;
     font-size: 1em;
     color: #fff;
     padding: 6px;
     border-radius: 50px;
-    border: #204051;
-    background: #204051;
+    border: var(--color-oscuro);
+    background: var(--color-oscuro);
     margin-top: 15px;
 }
 
@@ -145,7 +145,7 @@
 }
 
 .carrito .envio h4 {
-    color: #3B6978;
+    color: var(--color-medioOscuro);
     border-bottom: 1px solid #bbbbbb;
 }
 
@@ -243,7 +243,7 @@
     justify-content: center;
     margin: 15px auto 0 auto;
     border-radius: 10px;
-    background: #204051;
+    background: var(--color-oscuro);
     color: #fff;
     padding: 20px;
     max-width: 500px;
@@ -274,9 +274,9 @@
     padding: 10px;
     background-color: #fff;
     border: none;
-    color: #204051;
+    color: var(--color-oscuro);
     border-radius: 50px;
-    font-family: 'Baloo Da 2';
+    font-family: var(--fuente-baloo);
     font-size: 1.4em;
     font-weight: 700;
 }
@@ -297,7 +297,7 @@
 
 @media (min-width: 576px) {
     .carrito .productos {
-        background-color: #f3f3f3;
+        background-color: var(--color-claro);
         flex: 0 0 100%;
     }
 

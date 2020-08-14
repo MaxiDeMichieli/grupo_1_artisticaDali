@@ -1,5 +1,7 @@
+/* GENERAL DETALLES */
+
 .detalles-productos {
-    font-family: 'Poppins';
+    font-family: var(--fuente-poppins);
     margin-top: 30px;
 }
 
@@ -65,7 +67,7 @@
     padding: 3px 10px;
     background: #fff;
     border-radius: 50px;
-    border: 2px solid #3B6978;
+    border: 2px solid var(--color-medio);
 }
 
 .detalles-productos .detalles .cantidad .nice-number button {
@@ -73,13 +75,13 @@
     border: none;
     background-color: transparent;
     font-weight: bolder;
-    color: #3B6978;
+    color: var(--color-medio);
 }
 
 .detalles-productos .detalles .cantidad .nice-number input {
     border: none;
     background: transparent;
-    color: #204051;
+    color: var(--color-oscuro);
 }
 
 .detalles-productos .detalles .cantidad .nice-number input:focus {
@@ -105,7 +107,7 @@
     font-size: 1.2em;
     border-radius: 50px;
     cursor: pointer;
-    border: 3px solid #3B6978;
+    border: 3px solid var(--color-medio);
     margin: 5px 5px;
 }
 
@@ -115,7 +117,7 @@
 
 .detalles-productos .detalles .cantidad .botones .carrito {
     color: #fff;
-    background: #3B6978;
+    background: var(--color-medio);
 }
 
 
@@ -125,7 +127,7 @@
     
     padding: 30px 0;
     border-radius: 15px;
-    background: #f7f7f7;
+    background: var(--color-claro);
 }
 
 .detalles-productos .descripcion-opinion h3 {
@@ -142,7 +144,7 @@
 
 .detalles-productos .descripcion-opinion .descripcion  p {
     text-align: justify;
-    border-bottom: 2px solid #204051;
+    border-bottom: 2px solid var(--color-oscuro);
     margin: 0;
     padding-bottom: 20px;
 }
@@ -177,7 +179,7 @@
     font-weight: 600;
     text-align: center;
     margin: 50px auto 20px auto;
-    color: #204051;
+    color: var(--color-oscuro);
 }
 
 
@@ -220,7 +222,7 @@
     }
 
     .detalles-productos .descripcion-opinion .descripcion{
-            border-right: 2px solid #204051;
+            border-right: 2px solid var(--color-oscuro);
         }
 
     .detalles-productos .descripcion-opinion .descripcion  p {

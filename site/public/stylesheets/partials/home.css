@@ -1,29 +1,5 @@
-/*
-IMPORTS
-*/
+/* GENERAL HOME */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Poppins&display=swap');
-
-/*
-VARIABLES
-*/
-
-:root{
-  --color-claro: #e4e3e3;
-  --color-medio: #84a9ac;
-  --color-medioOscuro: #3b6978;
-  --color-oscuro: #204051;
-}
-
-/*
-GENERAL
-*/
-
-*{
-  box-sizing: border-box;
-  margin: 0;
-}
 body {
   width: 100%;
 }
@@ -33,7 +9,7 @@ body {
 }
 
 .home h1 {
-  font-family: 'Baloo Da 2';
+  font-family: var(--fuente-baloo);
   text-transform: uppercase;
   color: var(--color-oscuro);
   font-weight: bold;

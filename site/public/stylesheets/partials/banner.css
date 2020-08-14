@@ -1,4 +1,3 @@
-
 /* CUSTOM CAROUSEL */
 
 .carousel-indicators {
@@ -16,7 +15,7 @@
 }
 
 .carousel-indicators .active {
-  background-color: #3B6978;
+  background-color: var(--color-medioOscuro);
 }
 
 .carousel-control-next-icon {

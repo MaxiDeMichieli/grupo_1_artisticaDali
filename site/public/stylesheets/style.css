@@ -1,30 +1,34 @@
 /* IMPORTS CSS */
 
-@import url("./header.css");
 
-@import url("./footer.css");
-
-@import url("./home.css");
-
-@import url("./banner.css");
-
-@import url("./categories.css");
+/* GENERALES */
+@import url("./partials/general.css");
 
 /* OWL CAROUSEL */
 @import url("./sliderProductos/owl.carousel.min.css");
 @import url("./sliderProductos/owl.theme.default.min.css");
 
-@import url("./productslider.css");
-
-@import url("./productSlider.css");
-
-@import url("./productDetail.css");
-
-@import url("./register.css");
-
-@import url("./productAdd.css");
-
 /* JQUERY NICE NUMBER */
 @import url("./niceNumber/jquery.nice-number.css");
 
-@import url("./productCart.css");
+/* CUSTOM */
+
+@import url("./partials/header.css");
+
+@import url("./partials/footer.css");
+
+@import url("./partials/home.css");
+
+@import url("./partials/banner.css");
+
+@import url("./partials/categories.css");
+
+@import url("./partials/productSlider.css");
+
+@import url("./partials/productDetail.css");
+
+@import url("./partials/register.css");
+
+@import url("./partials/productAdd.css");
+
+@import url("./partials/productCart.css");
