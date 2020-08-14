@@ -1,16 +1,8 @@
 # Artística Dalí
 
+![logotipo](/design/logos/logo.png)
 
-
-## Primer Sprint
-
-
-
-## Temática de la web y audiencia objetivo
-
-El sitio será una plataforma de venta de productos de librería tanto del rubro artístico, escolar y de artículos para oficinas, en la cual los potenciales clientes podrán armar kits de productos según sus necesidades.
-
-La audiencia objetivo serán personas de todas las edades, que tengan necesidad de abastecerse de insumos y materiales de librería. Tales como artistas, estudiantes y docentes de escuelas de artes plásticas, diseño, técnico-industrial, familias y empresas.
+## Primer Sprint (24/07)
 
 ## Integrantes
 
@@ -28,6 +20,13 @@ La audiencia objetivo serán personas de todas las edades, que tengan necesidad 
 ### De Michieli, Máximo
 - 19 años
 - Estudiante de Programación Web
+
+
+## Temática de la web y audiencia objetivo
+
+El sitio será una plataforma de venta de productos de librería tanto del rubro artístico, escolar y de artículos para oficinas, en la cual los potenciales clientes podrán armar kits de productos según sus necesidades.
+
+La audiencia objetivo serán personas de todas las edades, que tengan necesidad de abastecerse de insumos y materiales de librería. Tales como artistas, estudiantes y docentes de escuelas de artes plásticas, diseño, técnico-industrial, familias y empresas.
 
 
 ## Páginas de referencia
@@ -57,3 +56,19 @@ Nuestra elección se basó principalmente en la funcionalidad del e-commerce, ta
 - [Colores](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/design/colors/Color%20Hunt%20Palette%20196240.png)
 - Fuentes:
     - [balooDa2](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/tree/master/design/fonts/balooDa2)
+
+
+## Segundo Sprint (14/08)
+
+### [Tablero](https://trello.com/b/yAEJerws/grupo-1-proyecto-art%C3%ADstica-dal%C3%AD)
+
+### Retrospectiva: [retro.md]()
+
+### Tareas realizadas:
+- Estructura de archivos con NodeJS + Express (Implementacion de estructura MVC)
+- HOME: index.ejs
+- DETALLE PRODUCTO: productDetail.ejs
+- CARRITO DE COMPRAS: productCart.ejs
+- REGISTRO: register.ejs
+- FORMULARIO DE CARGA DEL PRODUCTO: productAdd.ejs
+- CATEGORIAS(extra): categories.ejs
