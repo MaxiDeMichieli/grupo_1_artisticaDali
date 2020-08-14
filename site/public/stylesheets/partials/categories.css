@@ -1,3 +1,12 @@
+/* GENERAL CATEGORIES*/
+
+.categorias  a{
+  color: var(--color-medioOscuro);
+}
+.categorias{
+  margin-bottom: 25px;
+}
+
 /* PORTADA */
 
 .categorias .container .portada img{
@@ -36,10 +45,12 @@
 }
 .categorias section .imgproducto img{
   width: 100%;
+  display: block;
 }
 
 .categorias section .descripcion{
   color: var(--color-medioOscuro);
+  text-align: center;
 }
 
 .categorias section .descripcion p{
@@ -55,6 +66,7 @@
 .categorias section .descripcion h2{
   font-family: 'Baloo Da 2';
   font-weight: bold;
+ 
   
 }
 .categorias section .descripcion .botones {
@@ -121,6 +133,8 @@
     display: none;
   }
   /* Aparece lista lateral*/
+
+ 
   .categorias .lateral{
     display: block;
     border: 1px solid var(--color-medio);
@@ -145,6 +159,9 @@
     margin-top: 20px;
     width: 90%;
     margin-bottom: 20px;
+  }
+  .categorias section .descripcion h2{
+    text-align: center;
   }
 
   /* Elimino boton agregar al carrito */

@@ -1,5 +1,6 @@
 /* GENERAL PRODUCT ADD */
 
+
 body {
   width: 100%;
   margin: 0;
@@ -12,6 +13,10 @@ body {
 
 .cargaProd .row{
   margin:0;
+}
+
+.cargaProd a{
+  color: var(--color-medioOscuro)
 }
 
 /*HEADER*/
