@@ -11,8 +11,8 @@
                     <% if (producto.image.length > 1) { %>
                     <div class="chicas">
 
-                        <% producto.image.forEach(img => { %>
-                        <img src="/images/productos/<%- img %> " alt="" id="img1-sm">
+                        <% producto.image.forEach((img, i) => { %> 
+                        <img src="/images/productos/<%- img %> " alt="" id="img-sm<%- i + 1 %>">
                         <% }) %>
                         
                     </div>
@@ -100,6 +100,26 @@
     </div>
 
     <%- include('partials/footer.ejs') %>
+
+    <% if (producto.image.length > 1) { %>
+    <script>
+        const imgGrande = document.getElementById("img");
+        const imgChica1 = document.getElementById("img-sm1");
+        const imgChica2 = document.getElementById("img-sm2");
+        const imgChica3 = document.getElementById("img-sm3");
+        const imgChica4 = document.getElementById("img-sm4");
+
+        document.getElementById("img-sm1").onclick = () => {
+            imgGrande.src = "/images/productos/<%- producto.image[0] %>";
+        }
+
+        document.getElementById("img-sm2").onclick = () => {
+            imgGrande.src = "/images/productos/<%- producto.image[1] %>";
+        }
+    </script>
+    <% } %>
+    
+    
 
     <!-- <script src="/javascripts/detallesProducto.js"></script> -->
     <script src="/javascripts/header.js"></script>
