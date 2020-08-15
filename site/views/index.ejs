@@ -61,7 +61,12 @@
                 <div class="item">
                     <div class="item-container">
                         <img src="/images/productos/<%- producto.image[0] %> " alt="">
+                        <% if (producto.name.length > 30) { %>
+                         <% let nameSlice = producto.name.slice(0,30) %> 
+                          <h4><%= nameSlice %>... </h4>
+                        <% } else { %>
                         <h4><%= producto.name %> </h4>
+                        <% } %> 
                         <span class="precio">$<%= producto.price %>
                           <% if (producto.discount != 0) { %>
                            <!-- <span>$1800</span> -->
