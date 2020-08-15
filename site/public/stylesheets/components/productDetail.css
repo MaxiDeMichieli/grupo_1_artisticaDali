@@ -50,17 +50,20 @@
 .detalles-productos .detalles h2 {
     font-weight: 400;
     font-size: 1.8em;
+    color:var(--color-oscuro);
 }
 
 .detalles-productos .detalles .precio {
     display: block;
     margin: 15px 0;
     font-size: 2em;
+    color:var(--color-oscuro);
 }
 
 .detalles-productos .detalles .cantidad label {
     font-size: 1.2em;
     margin-right: 10px;
+    color:var(--color-oscuro);
 }
 
 .detalles-productos .detalles .cantidad .numero {
@@ -134,6 +137,7 @@
     margin: 15px 0;
     width: 100%;
     text-align: center;
+    color:var(--color-oscuro);
 }
 
 .detalles-productos .descripcion-opinion .descripcion {
@@ -146,11 +150,13 @@
     margin-top: 20px;
     padding-bottom: 20px;
     border-bottom: 2px solid var(--color-oscuro);
+    color:var(--color-oscuro);
 }
 
 .detalles-productos .descripcion-opinion .descripcion .descripcion-parrafos  p {
     margin: 0;
     padding-bottom: 2px;
+    color:var(--color-oscuro);
 }
 
 .detalles-productos .descripcion-opinion .opiniones {
@@ -165,10 +171,12 @@
     margin: 10px;
     border-radius: 10px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, .1);
+    color:var(--color-oscuro);
 }
 
 .detalles-productos .descripcion-opinion .opiniones .opinion p {
     margin: 0;
+    color:var(--color-oscuro);
 }
 
 .detalles-productos .descripcion-opinion .opiniones .opinion img {

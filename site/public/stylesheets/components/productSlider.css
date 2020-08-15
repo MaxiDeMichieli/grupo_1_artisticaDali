@@ -6,6 +6,7 @@
     margin: 0 auto;
     max-width: 250px;
     margin-bottom: 80px;
+    color: var(--color-oscuro);
 }
 
 .owl-carousel .owl-nav {
@@ -71,6 +72,7 @@
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
+    color: var(--color-oscuro);
 }
 
 .productSlider .item-container img {

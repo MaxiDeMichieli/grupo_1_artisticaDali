@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Resaltador Stabilo Swing Cool Paster x6",
+        "name": "Resaltador Stabilo Swing Cool Paster x6, la mejor calidad",
         "price": 90,
         "description": "Marca Nº1 en resaltadores. Colores pastel, punta biselada. Colores disponibles:\n-amarillo\n-celeste\n-lila\n-naranja\n-rosa\n-verde",
         "discount": 15,
@@ -28,7 +28,7 @@
     },
     {
         "id": 4,
-        "name": "Cartuchera Mooving doble cierre fortnite",
+        "name": "Cartuchera Mooving doble cierre fortnite, reforzada con skins",
         "price": 734,
         "description": "Cartuchera Mooving doble cierre fortnite",
         "discount": 5,
@@ -37,7 +37,7 @@
     },
     {
         "id": 5,
-        "name": "Acrilico profesional Winsor & Newton 60ml",
+        "name": "Acrilico profesional Winsor & Newton 60ml, calidad premium",
         "price": 1011,
         "description": "El acrílico profesional es nuestra gama posee la calidad más fina. Combina nuestra experiencia con los colores y los últimos avances en tecnología de resina. Nuestros 80 colores son brillantes cuando están húmedos y siguen siendo tan brillante cuando están seco. Lo que se ve es realmente lo que es.\nCon 62 colores individuales de pigmento esto crea el más limpio espectro brillante y las mejores oportunidades de mezcla de color.",
         "discount": 25,
@@ -73,15 +73,6 @@
     },
     {
         "id": 9,
-        "name": "Block para acuarela 35x50 300g/m2 Shoeller nº10 Dacapo",
-        "price": 1727,
-        "description": "Hecho en Alemania.\nMedida: 35x50cm 300g/m2.\nColor, Blanco Natural\nSin ácidos- Papel de Esparto - Grano Grueso\n-Importador Plantec\nESPARTO Schoeller es un papel especial que soporta la aplicación de abundante agua por ser muy resistente a la humedad y estable en sus dimensiones, aún mojado.\n-Excelente papel libre de ácidos y cloro. Materia prima estable\n-Textura rugosa. Resistente al envejecimiento.\n-No contiene blanqueadores ópticos.\n-Aplicación primaria : acuarela – acuarelable.\n-También utilizable para : acrílico, pinturas, técnicas de grabado en húmedo.",
-        "discount": 10,
-        "category": "",
-        "image": ["marcadorPizzini.jpg"]
-    },
-    {
-        "id": 10,
         "name": "Valija Cresko Disney Spiderman 17",
         "price": 5240,
         "description": "Valija Cresko Disney Spiderman 17",
