@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "Resaltador Stabilo Swing Cool Paster x6",
+        "price": 90,
+        "description": "Marca Nº1 en resaltadores. Colores pastel, punta biselada. Colores disponibles:\n-amarillo\n-celeste\n-lila\n-naranja\n-rosa\n-verde",
+        "discount": 15,
+        "category": "",
+        "image": ["marcadorStabilo.jpg"]
+    },
+    {
+        "id": 2,
+        "name": "Sharpie Kit Lettering crea tus diseños 30 Pcs Bunny Toys",
+        "price": 4500,
+        "description": "El Set Lettering Sharpie contiene:\n-10 Marcadores Permanentes Sharpie Punta Fina\n-4 Boligrafos Sharpie Pen-\n6 Boligrafos Sharpie Pen Brush\n-2 Marcadores Sharpie Paint\n-5 Sobres con Tarjeta\n-3 Tarjetas portanombres",
+        "discount": 20,
+        "category": "",
+        "image": ["marcadorSharpie.jpg"]
+    },
+    {
+        "id": 3,
+        "name": "Carpeta Mooving fortnite a4 2 anillos x40cm",
+        "price": 350,
+        "description": "Carpeta Mooving de fortnite a4 2 anillos x40 centimetros",
+        "discount": 5,
+        "category": "",
+        "image": ["carpetaFornite.jpg"]
+    },
+    {
+        "id": 4,
+        "name": "Cartuchera Mooving doble cierre fortnite",
+        "price": 734,
+        "description": "Cartuchera Mooving doble cierre fortnite",
+        "discount": 5,
+        "category": "",
+        "image": ["cartucheraFornite.jpg"]
+    },
+    {
+        "id": 5,
+        "name": "Acrilico profesional Winsor & Newton 60ml",
+        "price": 1011,
+        "description": "El acrílico profesional es nuestra gama posee la calidad más fina. Combina nuestra experiencia con los colores y los últimos avances en tecnología de resina. Nuestros 80 colores son brillantes cuando están húmedos y siguen siendo tan brillante cuando están seco. Lo que se ve es realmente lo que es.\nCon 62 colores individuales de pigmento esto crea el más limpio espectro brillante y las mejores oportunidades de mezcla de color.",
+        "discount": 25,
+        "category": "",
+        "image": ["acrilicoWinsor.jpg"]
+    },
+    {
+        "id": 6,
+        "name": "Bandeja acuarela Giotto 24 colores + pincel",
+        "price": 627,
+        "description": "Las acuarelas Giotto proporcionan una gama de colores brillantes, vivos y opacos para que crees tu obra maestra.\nMezcla los colores como un chef mezcla sus ingredientes para crear una realidad mágica.\nY para fantásticos efectos de acuarela simplemente diluye la pintura con agua.",
+        "discount": 15,
+        "category": "",
+        "image": ["acuarelaGiotto.jpg"]
+    },
+    {
+        "id": 7,
+        "name": "Acuarelas Rembrandt traditional estuche X22",
+        "price": 28123,
+        "description": "Rembrandt es el nombre legendario de una gama que es conocida por su calidad superior e inigualable. Se ha desarrollado a través de pura habilidad y visión artística y se basa en las mejores materias primas.\nContenido:\n-22 sartenes (108-224-254-268-270-336-366-370-371-409-411-416-506-508-532-535-615-620-623-662-702-708)\n-1 cepillo serie 110 no. 4 (cabello puro rojo sable)\n-Bandeja mezcladora de porcelana",
+        "discount": 10,
+        "category": "",
+        "image": ["acuarelasRembrandtEstuche.jpg"]
+    },
+    {
+        "id": 8,
+        "name": "Mini pincel Winsor & Newton",
+        "price": 449,
+        "description": "Pincel Winsor & Newton mini, pincel de bolsillo.\nEspecial para acuarelas, gouache, tinta.",
+        "discount": 20,
+        "category": "",
+        "image": ["pincelImg1.jpg", "pincelImg2.jpg"]
+    },
+    {
+        "id": 9,
+        "name": "Block para acuarela 35x50 300g/m2 Shoeller nº10 Dacapo",
+        "price": 1727,
+        "description": "Hecho en Alemania.\nMedida: 35x50cm 300g/m2.\nColor, Blanco Natural\nSin ácidos- Papel de Esparto - Grano Grueso\n-Importador Plantec\nESPARTO Schoeller es un papel especial que soporta la aplicación de abundante agua por ser muy resistente a la humedad y estable en sus dimensiones, aún mojado.\n-Excelente papel libre de ácidos y cloro. Materia prima estable\n-Textura rugosa. Resistente al envejecimiento.\n-No contiene blanqueadores ópticos.\n-Aplicación primaria : acuarela – acuarelable.\n-También utilizable para : acrílico, pinturas, técnicas de grabado en húmedo.",
+        "discount": 10,
+        "category": "",
+        "image": ["marcadorPizzini.jpg"]
+    },
+    {
+        "id": 10,
+        "name": "Valija Cresko Disney Spiderman 17",
+        "price": 5240,
+        "description": "Valija Cresko Disney Spiderman 17",
+        "discount": 5,
+        "category": "",
+        "image": ["mochilaSpiderman.jpg"]
+    }
+]

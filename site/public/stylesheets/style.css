@@ -2,7 +2,7 @@
 
 
 /* GENERALES */
-@import url("./partials/general.css");
+@import url("./components/general.css");
 
 /* OWL CAROUSEL */
 @import url("./sliderProductos/owl.carousel.min.css");
@@ -13,22 +13,22 @@
 
 /* CUSTOM */
 
-@import url("./partials/header.css");
+@import url("./components/header.css");
 
-@import url("./partials/footer.css");
+@import url("./components/footer.css");
 
-@import url("./partials/home.css");
+@import url("./components/home.css");
 
-@import url("./partials/banner.css");
+@import url("./components/banner.css");
 
-@import url("./partials/categories.css");
+@import url("./components/categories.css");
 
-@import url("./partials/productSlider.css");
+@import url("./components/productSlider.css");
 
-@import url("./partials/productDetail.css");
+@import url("./components/productDetail.css");
 
-@import url("./partials/register.css");
+@import url("./components/register.css");
 
-@import url("./partials/productAdd.css");
+@import url("./components/productAdd.css");
 
-@import url("./partials/productCart.css");
+@import url("./components/productCart.css");

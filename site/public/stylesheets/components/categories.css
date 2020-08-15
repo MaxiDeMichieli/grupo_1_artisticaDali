@@ -43,9 +43,15 @@
 .categorias .col-12{
   margin-top: 15px;
 }
+.categorias .producto {
+  max-width: 350px;
+  margin: 15px auto 0 auto;
+}
 .categorias section .imgproducto img{
   width: 100%;
   display: block;
+  max-width: 300px;
+  margin: auto;
 }
 
 .categorias section .descripcion{
@@ -159,6 +165,9 @@
     margin-top: 20px;
     width: 90%;
     margin-bottom: 20px;
+  }
+  .categorias .producto {
+    margin: 15px 0 0 0;
   }
   .categorias section .descripcion h2{
     text-align: center;

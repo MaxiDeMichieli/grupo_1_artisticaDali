@@ -1,3 +1,5 @@
+const dbProduct = require('../data/database');
+
 module.exports = {
     categories : (req, res, next)=>{
         let categorias = [
@@ -15,7 +17,8 @@ module.exports = {
         categorias.forEach(element =>{
             if(element.cat == categoryId){
             res.render('categories', {
-                title: element.title
+                title: element.title,
+                productos: dbProduct
             });
         }
         

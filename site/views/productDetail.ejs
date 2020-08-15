@@ -8,19 +8,26 @@
         <div class="container">
             <div class="row detalles-container">
                 <div class="imagenes col-12 col-lg-6">
+                    <% if (producto.image.length > 1) { %>
                     <div class="chicas">
-                        <img src="/images/detallesProducto/imagen-chica.png" alt="" id="img1-sm">
-                        <img src="/images/detallesProducto/imagen2-chica.png" alt="" id="img2-sm">
+
+                        <% producto.image.forEach(img => { %>
+                        <img src="/images/productos/<%- img %> " alt="" id="img1-sm">
+                        <% }) %>
+                        
                     </div>
+                    <% } %>
+                    
+
                     <div class="grande">
-                        <img id="img" src="/images/detallesProducto/imagen-grande.png" alt="producto">
+                        <img id="img" src="/images/productos/<%- producto.image[0] %> " alt="producto">
                     </div>
                 </div>
                 <section class="detalles col-12 col-lg-6">
-                    <h2>Estuche con 4 rotuladores Pitt Artist Pen, negro</h2>
-                    <span class="precio">$1.500</span>
+                    <h2><%= producto.name %> </h2>
+                    <span class="precio">$<%= producto.price %> </span>
                     <form action="" class="cantidad">
-                        <label for="cantidad">cantidad</label>
+                        <label for="cantidad">Cantidad</label>
                         <span class="numero">
                             <input type="number" value="1" min="1" max="100" class="number-spinner">
                         </span>
@@ -36,7 +43,12 @@
                 <section class="row descripcion-opinion">
                     <div class="descripcion col-12 col-lg-6">
                         <h3>Descripción del producto</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar ex rutrum enim feugiat, vel mattis mi ultrices. Nam cursus turpis metus, et eleifend libero lobortis a.</p>
+                        <div class="descripcion-parrafos">
+                            <% let descripcion = producto.description.split('\n') %>
+                            <% descripcion.forEach(frase => { %>
+                                <p><%= frase %> </p>
+                            <% }) %>
+                        </div>
                     </div>
                     <div class="opiniones col-12 col-lg-6">
                         <h3>Opiniones</h3>
@@ -57,97 +69,34 @@
         <h3>Productos que te pueden interesar</h3>
         <div class="productSlider">
             <div class="owl-carousel owl-theme">
-                <a href="/detail/1">
-                    <div class="item">
-                        <div class="item-container">
-                            <img src="/images/productos/producto.png" alt="">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <span class="precio">$1530<span>$1800</span></span>
-                            <div class="oferta">
-                                <span>15% OFF</span>
+                <% productos.forEach(producto => { %>
+         
+                    <a href="/detail/<%- producto.id %> ">
+                        <div class="item">
+                            <div class="item-container">
+                                <img src="/images/productos/<%- producto.image[0] %> " alt="">
+                                <h4><%= producto.name %> </h4>
+                                <span class="precio">$<%= producto.price %>
+                                  <% if (producto.discount != 0) { %>
+                                   <!-- <span>$1800</span> -->
+                                  <% } %>
+                                </span>
+                                <% if (producto.discount != 0) { %>
+                                <div class="oferta">
+                                    <span><%= producto.discount %> % OFF</span>
+                                </div>
+                                <% } %>
                             </div>
                         </div>
-                    </div>
-                </a>
-                <a href="/detail/1">
-                    <div class="item">
-                        <div class="item-container">
-                            <img src="/images/productos/producto.png" alt="">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <span class="precio">$1530<span>$1800</span></span>
-                            <div class="oferta">
-                                <span>15% OFF</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="/detail/1">
-                    <div class="item">
-                        <div class="item-container">
-                            <img src="/images/productos/producto.png" alt="">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <span class="precio">$1530<span>$1800</span></span>
-                            <div class="oferta">
-                                <span>15% OFF</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="/detail/1">
-                    <div class="item">
-                        <div class="item-container">
-                            <img src="/images/productos/producto.png" alt="">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <span class="precio">$1530<span>$1800</span></span>
-                            <div class="oferta">
-                                <span>15% OFF</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="/detail/1">
-                    <div class="item">
-                        <div class="item-container">
-                            <img src="/images/productos/producto.png" alt="">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <span class="precio">$1530<span>$1800</span></span>
-                            <div class="oferta">
-                                <span>15% OFF</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="/detail/1">
-                    <div class="item">
-                        <div class="item-container">
-                            <img src="/images/productos/producto.png" alt="">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <span class="precio">$1530<span>$1800</span></span>
-                            <div class="oferta">
-                                <span>15% OFF</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="/detail/1">
-                    <div class="item">
-                        <div class="item-container">
-                            <img src="/images/productos/producto.png" alt="">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <span class="precio">$1530<span>$1800</span></span>
-                            <div class="oferta">
-                                <span>15% OFF</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                <% }) %>
             </div>
         </div>
     </div>
 
     <%- include('partials/footer.ejs') %>
 
-    <script src="/javascripts/detallesProducto.js"></script>
+    <!-- <script src="/javascripts/detallesProducto.js"></script> -->
     <script src="/javascripts/header.js"></script>
     
   

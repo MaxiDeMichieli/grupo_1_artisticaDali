@@ -67,7 +67,7 @@
     padding: 3px 10px;
     background: #fff;
     border-radius: 50px;
-    border: 2px solid var(--color-medio);
+    border: 2px solid var(--color-medioOscuro);
 }
 
 .detalles-productos .detalles .cantidad .nice-number button {
@@ -75,7 +75,7 @@
     border: none;
     background-color: transparent;
     font-weight: bolder;
-    color: var(--color-medio);
+    color: var(--color-medioOscuro);
 }
 
 .detalles-productos .detalles .cantidad .nice-number input {
@@ -107,7 +107,7 @@
     font-size: 1.2em;
     border-radius: 50px;
     cursor: pointer;
-    border: 3px solid var(--color-medio);
+    border: 3px solid var(--color-medioOscuro);
     margin: 5px 5px;
 }
 
@@ -117,7 +117,7 @@
 
 .detalles-productos .detalles .cantidad .botones .carrito {
     color: #fff;
-    background: var(--color-medio);
+    background: var(--color-medioOscuro);
 }
 
 
@@ -139,24 +139,30 @@
 .detalles-productos .descripcion-opinion .descripcion {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
 }
 
-.detalles-productos .descripcion-opinion .descripcion  p {
-    text-align: justify;
-    border-bottom: 2px solid var(--color-oscuro);
-    margin: 0;
+.detalles-productos .descripcion-opinion .descripcion .descripcion-parrafos {
+    margin-top: 20px;
     padding-bottom: 20px;
+    border-bottom: 2px solid var(--color-oscuro);
+}
+
+.detalles-productos .descripcion-opinion .descripcion .descripcion-parrafos  p {
+    margin: 0;
+    padding-bottom: 2px;
 }
 
 .detalles-productos .descripcion-opinion .opiniones {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .detalles-productos .descripcion-opinion .opiniones .opinion {
     width: 100%;
     padding: 10px;
+    margin: 10px;
     border-radius: 10px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, .1);
 }
@@ -221,11 +227,11 @@
         margin: 30px 0;
     }
 
-    .detalles-productos .descripcion-opinion .descripcion{
+    .detalles-productos .descripcion-opinion .descripcion {
             border-right: 2px solid var(--color-oscuro);
         }
 
-    .detalles-productos .descripcion-opinion .descripcion  p {
+    .detalles-productos .descripcion-opinion .descripcion .descripcion-parrafos {
         border-bottom: none;
     }
 }

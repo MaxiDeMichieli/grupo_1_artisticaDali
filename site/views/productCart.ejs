@@ -13,32 +13,32 @@
                     <section class="col-12 productos">
                         <div class="producto">
                             <div class="imagen">
-                                <img src="/images/productos/producto.png" alt="">
+                                <img src="/images/productos/<%- productos[0].image[0] %> " alt="">
                             </div>
                             <div class="detalles">
-                                <h3>Estuche con 4 rotuladores Pitt Artist Pen, negro</h3>
+                                <h3><%= productos[0].name %> </h3>
                                 <div class="precio">
-                                    <span class="precio-unitario">$1.500 c/u</span>
+                                    <span class="precio-unitario">$<%= productos[0].price %> c/u</span>
                                     <span class="cantidad">
                                         <input type="number" class="number-spinner" value="1"  min="1" max="100">
                                     </span>
-                                    <span class="precio-sumado">$3.000</span>
+                                    <span class="precio-sumado">$90</span>
                                 </div>
                                 <button class="sacar-carrito">Quitar del carrito</button>
                             </div>
                         </div>
                         <div class="producto">
                             <div class="imagen">
-                                <img src="/images/productos/producto.png" alt="">
+                                <img src="/images/productos/<%- productos[1].image[0] %> " alt="">
                             </div>
                             <div class="detalles">
-                                <h3>Estuche con 4 rotuladores Pitt Artist Pen, negro</h3>
+                                <h3><%= productos[1].name %> </h3>
                                 <div class="precio">
-                                    <span class="precio-unitario">$1.500 c/u</span>
+                                    <span class="precio-unitario">$<%= productos[1].price %> c/u</span>
                                     <span class="cantidad">
                                         <input type="number" class="number-spinner" value="1"  min="1" max="100">
                                     </span>
-                                    <span class="precio-sumado">$3.000</span>
+                                    <span class="precio-sumado">$4500</span>
                                 </div>
                                 <button class="sacar-carrito">Quitar del carrito</button>
                             </div>
@@ -114,7 +114,7 @@
                     <section class="pagar col-11 col-lg-4">
                         <div class="subtotal">
                             <h5>Subtotal</h5>
-                            <span>$3.000</span>
+                            <span>$4.590</span>
                         </div>
                         <div class="costo-envio">
                             <h5>Costo de envío</h5>
@@ -122,7 +122,7 @@
                         </div>
                         <div class="total">
                             <h5>TOTAL</h5>
-                            <span>$3.340</span>
+                            <span>$4.930</span>
                         </div>
                         <button type="submit">PAGAR</button>
                     </section>

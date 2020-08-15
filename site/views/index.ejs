@@ -55,90 +55,28 @@
   
       <div class="productSlider">
         <div class="owl-carousel owl-theme">
-            <a href="/detail/1">
+        <% productos.forEach(producto => { %>
+         
+            <a href="/detail/<%- producto.id %> ">
                 <div class="item">
                     <div class="item-container">
-                        <img src="/images/productos/producto.png" alt="">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <span class="precio">$1530<span>$1800</span></span>
+                        <img src="/images/productos/<%- producto.image[0] %> " alt="">
+                        <h4><%= producto.name %> </h4>
+                        <span class="precio">$<%= producto.price %>
+                          <% if (producto.discount != 0) { %>
+                           <!-- <span>$1800</span> -->
+                          <% } %>
+                        </span>
+                        <% if (producto.discount != 0) { %>
                         <div class="oferta">
-                            <span>15% OFF</span>
+                            <span><%= producto.discount %> % OFF</span>
                         </div>
+                        <% } %>
                     </div>
                 </div>
             </a>
-            <a href="/detail/1">
-                <div class="item">
-                    <div class="item-container">
-                        <img src="/images/productos/producto.png" alt="">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <span class="precio">$1530<span>$1800</span></span>
-                        <div class="oferta">
-                            <span>15% OFF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="/detail/1">
-                <div class="item">
-                    <div class="item-container">
-                        <img src="/images/productos/producto.png" alt="">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <span class="precio">$1530<span>$1800</span></span>
-                        <div class="oferta">
-                            <span>15% OFF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="/detail/1">
-                <div class="item">
-                    <div class="item-container">
-                        <img src="/images/productos/producto.png" alt="">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <span class="precio">$1530<span>$1800</span></span>
-                        <div class="oferta">
-                            <span>15% OFF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="/detail/1">
-                <div class="item">
-                    <div class="item-container">
-                        <img src="/images/productos/producto.png" alt="">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <span class="precio">$1530<span>$1800</span></span>
-                        <div class="oferta">
-                            <span>15% OFF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="/detail/1">
-                <div class="item">
-                    <div class="item-container">
-                        <img src="/images/productos/producto.png" alt="">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <span class="precio">$1530<span>$1800</span></span>
-                        <div class="oferta">
-                            <span>15% OFF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="/detail/1">
-                <div class="item">
-                    <div class="item-container">
-                        <img src="/images/productos/producto.png" alt="">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <span class="precio">$1530<span>$1800</span></span>
-                        <div class="oferta">
-                            <span>15% OFF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
+        <% }) %>
+
         </div>
     </div>
       

@@ -149,4 +149,12 @@
     .productSlider {
         max-width: 1066px;
     }
+
+    .owl-carousel .owl-nav .owl-next {
+        right: -45px;
+    }
+
+    .owl-carousel .owl-nav .owl-prev {
+        left: -40px;
+    }
 }

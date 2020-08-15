@@ -125,276 +125,38 @@
             <div class="container vidriera col-lg-9">
 
               <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
-                  
+
+
+                <% productos.forEach(producto => { %>
+                 
+                <div class="col-12 col-sm-6 col-lg-4 producto">
                   <section>
                     <div class="container">
-                      
                       <div class="row">
                         <div class="col-12 col-md-12 imgproducto">
-                          <img src="/images/450x450.png" alt="">
+                          <img src="/images/productos/<%- producto.image[0] %> " alt="">
                         </div>
                         <div class="col-12 col-md-12 descripcion">
-                          <p>Set Faber Castell, caja x 12 unidades</p>
-                          
-                          
-                            <h2>$ 125,53</h2>
-                            <span>30% OFF</span><br>
-                          
+                          <p><%= producto.name %> </p>
+                            <h2>$<%= producto.price %> </h2>
+
+                          <% if (producto.discount != 0) { %>
+                           <span><%= producto.discount %>% OFF</span><br>
+                          <% } %>
+
                           <div class="botones">
-                            <a href="/detail/">Detalle</a>
+                            <a href="/detail/<%- producto.id %> ">Detalle</a>
                             <button class="agregar" type="button">Agregar al carrito</button>
                             <a class="comprar" href="./productCart.ejs">Comprar</a>
                           </div>
                       </div>
                     </div>
-                   
                     </div>
                   </section>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  
-                  <section>
-                    <div class="container">
-                      
-                      <div class="row">
-                        <div class="col-12 col-md-12 imgproducto">
-                          <img src="/images/450x450.png" alt="">
-                        </div>
-                        <div class="col-12 col-md-12 descripcion">
-                          <p>Set Faber Castell, caja x 12 unidades</p>
-                          
-                          
-                            <h2>$ 125,53</h2>
-                            <span>30% OFF</span><br>
-                          
-                          <div class="botones">
-                            <a href="/detail/">Detalle</a>
-                            <button class="agregar" type="button">Agregar al carrito</button>
-                            <a class="comprar" href="./productCart.ejs">Comprar</a>
-                          </div>
-                      </div>
-                    </div>
-                   
-                    </div>
-                  </section>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  
-                  <section>
-                    <div class="container">
-                      
-                      <div class="row">
-                        <div class="col-12 col-md-12 imgproducto">
-                          <img src="/images/450x450.png" alt="">
-                        </div>
-                        <div class="col-12 col-md-12 descripcion">
-                          <p>Set Faber Castell, caja x 12 unidades</p>
-                          
-                          
-                            <h2>$ 125,53</h2>
-                            <span>30% OFF</span><br>
-                          
-                          <div class="botones">
-                            <a href="/detail/">Detalle</a>
-                            <button class="agregar" type="button">Agregar al carrito</button>
-                            <a class="comprar" href="./productCart.ejs">Comprar</a>
-                          </div>
-                      </div>
-                    </div>
-                   
-                    </div>
-                  </section>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  
-                  <section>
-                    <div class="container">
-                      
-                      <div class="row">
-                        <div class="col-12 col-md-12 imgproducto">
-                          <img src="/images/450x450.png" alt="">
-                        </div>
-                        <div class="col-12 col-md-12 descripcion">
-                          <p>Set Faber Castell, caja x 12 unidades</p>
-                          
-                          
-                            <h2>$ 125,53</h2>
-                            <span>30% OFF</span><br>
-                          
-                          <div class="botones">
-                            <a href="/detail/">Detalle</a>
-                            <button class="agregar" type="button">Agregar al carrito</button>
-                            <a class="comprar" href="./productCart.ejs">Comprar</a>
-                          </div>
-                      </div>
-                    </div>
-                   
-                    </div>
-                  </section>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  
-                  <section>
-                    <div class="container">
-                      
-                      <div class="row">
-                        <div class="col-12 col-md-12 imgproducto">
-                          <img src="/images/450x450.png" alt="">
-                        </div>
-                        <div class="col-12 col-md-12 descripcion">
-                          <p>Set Faber Castell, caja x 12 unidades</p>
-                          
-                          
-                            <h2>$ 125,53</h2>
-                            <span>30% OFF</span><br>
-                          
-                          <div class="botones">
-                            <a href="/detail/">Detalle</a>
-                            <button class="agregar" type="button">Agregar al carrito</button>
-                            <a class="comprar" href="./productCart.ejs">Comprar</a>
-                          </div>
-                      </div>
-                    </div>
-                   
-                    </div>
-                  </section>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  
-                  <section>
-                    <div class="container">
-                      
-                      <div class="row">
-                        <div class="col-12 col-md-12 imgproducto">
-                          <img src="/images/450x450.png" alt="">
-                        </div>
-                        <div class="col-12 col-md-12 descripcion">
-                          <p>Set Faber Castell, caja x 12 unidades</p>
-                          
-                          
-                            <h2>$ 125,53</h2>
-                            <span>30% OFF</span><br>
-                          
-                          <div class="botones">
-                            <a href="/detail/">Detalle</a>
-                            <button class="agregar" type="button">Agregar al carrito</button>
-                            <a class="comprar" href="./productCart.ejs">Comprar</a>
-                          </div>
-                      </div>
-                    </div>
-                   
-                    </div>
-                  </section>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  
-                  <section>
-                    <div class="container">
-                      
-                      <div class="row">
-                        <div class="col-12 col-md-12 imgproducto">
-                          <img src="/images/450x450.png" alt="">
-                        </div>
-                        <div class="col-12 col-md-12 descripcion">
-                          <p>Set Faber Castell, caja x 12 unidades</p>
-                          
-                          
-                            <h2>$ 125,53</h2>
-                            <span>30% OFF</span><br>
-                          
-                          <div class="botones">
-                            <a href="/detail/">Detalle</a>
-                            <button class="agregar" type="button">Agregar al carrito</button>
-                            <a class="comprar" href="./productCart.ejs">Comprar</a>
-                          </div>
-                      </div>
-                    </div>
-                   
-                    </div>
-                  </section>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  
-                  <section>
-                    <div class="container">
-                      
-                      <div class="row">
-                        <div class="col-12 col-md-12 imgproducto">
-                          <img src="/images/450x450.png" alt="">
-                        </div>
-                        <div class="col-12 col-md-12 descripcion">
-                          <p>Set Faber Castell, caja x 12 unidades</p>
-                          
-                          
-                            <h2>$ 125,53</h2>
-                            <span>30% OFF</span><br>
-                          
-                          <div class="botones">
-                            <a href="/detail/">Detalle</a>
-                            <button class="agregar" type="button">Agregar al carrito</button>
-                            <a class="comprar" href="./productCart.ejs">Comprar</a>
-                          </div>
-                      </div>
-                    </div>
-                   
-                    </div>
-                  </section>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  
-                  <section>
-                    <div class="container">
-                      
-                      <div class="row">
-                        <div class="col-12 col-md-12 imgproducto">
-                          <img src="/images/450x450.png" alt="">
-                        </div>
-                        <div class="col-12 col-md-12 descripcion">
-                          <p>Set Faber Castell, caja x 12 unidades</p>
-                          
-                          
-                            <h2>$ 125,53</h2>
-                            <span>30% OFF</span><br>
-                          
-                          <div class="botones">
-                            <a href="/detail/">Detalle</a>
-                            <button class="agregar" type="button">Agregar al carrito</button>
-                            <a class="comprar" href="./productCart.ejs">Comprar</a>
-                          </div>
-                      </div>
-                    </div>
-                   
-                    </div>
-                  </section>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  
-                  <section>
-                    <div class="container">
-                      
-                      <div class="row">
-                        <div class="col-12 col-md-12 imgproducto">
-                          <img src="/images/450x450.png" alt="">
-                        </div>
-                        <div class="col-12 col-md-12 descripcion">
-                          <p>Set Faber Castell, caja x 12 unidades</p>
-                          
-                          
-                            <h2>$ 125,53</h2>
-                            <span>30% OFF</span><br>
-                          
-                          <div class="botones">
-                            <a href="/detail/">Detalle</a>
-                            <button class="agregar" type="button">Agregar al carrito</button>
-                            <a class="comprar" href="./productCart.ejs">Comprar</a>
-                          </div>
-                      </div>
-                    </div>
-                   
-                    </div>
-                  </section>
-                </div>
+
+                <% }) %>
+                
 
                 
               </div>
