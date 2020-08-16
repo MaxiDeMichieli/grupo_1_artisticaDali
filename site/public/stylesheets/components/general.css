@@ -15,3 +15,8 @@
   box-sizing: border-box;
   margin: 0;
 }
+
+*:focus,
+button:focus {
+  outline: none;
+}
