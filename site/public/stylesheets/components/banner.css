@@ -60,6 +60,10 @@
       width: 30px;
       height: 30px;
   }
+  .carousel-fade .carousel-item {
+    transition-property: opacity;
+    transition-duration: .5s;
+  }
 }
 
 @media(max-width:425px) {

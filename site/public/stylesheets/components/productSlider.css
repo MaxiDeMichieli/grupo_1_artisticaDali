@@ -19,7 +19,7 @@
     background-repeat: no-repeat !important;
     position: absolute;
     right: -35px;
-    top: 140px;
+    top: 160px;
 }
 
 .owl-carousel .owl-nav .owl-next:hover {
@@ -37,7 +37,7 @@
     background-repeat: no-repeat !important;
     position: absolute;
     left: -30px;
-    top: 140px;
+    top: 160px;
 }
 
 .owl-carousel .owl-nav .owl-prev:hover {
@@ -125,7 +125,7 @@
 
     .productSlider .owl-nav .owl-prev,
     .productSlider .owl-nav .owl-next {
-        top: 120px;
+        top: 140px;
     }
 
     .productSlider h4 {
