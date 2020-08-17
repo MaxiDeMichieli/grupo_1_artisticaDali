@@ -18,6 +18,12 @@
 .footer a {
     text-decoration: none;
     color: #fff;
+    transition: color .5s ease;
+}
+
+.footer a:hover {
+    color: #bdbdbd;
+    transition: color .5s ease;
 }
 
 .footer h4 {

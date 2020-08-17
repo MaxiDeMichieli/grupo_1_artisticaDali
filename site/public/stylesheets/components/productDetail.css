@@ -121,6 +121,13 @@
 .detalles-productos .detalles .cantidad .botones .carrito {
     color: #fff;
     background: var(--color-medioOscuro);
+    transition: all .5s ease;
+}
+
+.detalles-productos .detalles .cantidad .botones .carrito:hover {
+    color: var(--color-medioOscuro);
+    background: #fff;
+    transition: all .5s ease;
 }
 
 

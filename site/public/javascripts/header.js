@@ -10,7 +10,23 @@ const hamburguesa = () => {
     document.getElementById("nav-icon").classList.toggle("active");
 }
 
+const desactiveHamburguesa = () => {
+    document.getElementById("nav-icon").classList.remove("active");
+}
+
+const desactiveSubcategorias = () => {
+    document.getElementById("subcategorias").classList.remove("categoria-active");
+}
+
+const desactiveCategorias = () => {
+    document.getElementById("escolar-categorias").classList.remove("categoria-active");
+    document.getElementById("artistica-categorias").classList.remove("categoria-active");
+    document.getElementById("oficina-categorias").classList.remove("categoria-active");
+}
+
 document.getElementById("nav-btn").onclick = () => {
+    desactiveSubcategorias();
+    desactiveCategorias();
     hamburguesa();
     activeNav()
 }
@@ -40,64 +56,84 @@ document.getElementById("buscador-icon").onclick = () => {
 /* CATEGORIAS */
 
 const activeSubcategorias = () => {
-    document.getElementById("subcategorias").classList.toggle("categoria-active");
+    document.getElementById("subcategorias").classList.add("categoria-active");
 }
 
+
+
+const desactiveNav = () => {
+    document.getElementById("nav").classList.remove("active-nav");
+}
 
 /* ESCOLAR */
 
 const activeEscolar = () => {
-    document.getElementById("escolar-categorias").classList.toggle("categoria-active")
+    document.getElementById("escolar-categorias").classList.add("categoria-active")
+}
+
+const desactiveEscolar = () => {
+    document.getElementById("escolar-categorias").classList.remove("categoria-active")
 }
 
 document.getElementById("escolar").onclick = () => {
-    hamburguesa();
-    activeNav();
+    desactiveHamburguesa();
+    desactiveNav();
     activeSubcategorias()
     activeEscolar();
+    desactiveOficina();
+    desactiveArtistica();
 }
 
 document.getElementById("atras-escolar").onclick = () => {
-    activeEscolar();
-    activeSubcategorias();
+    desactiveCategorias();
 }
 
 
 /* ARTISTICA */
 
 const activeArtistica = () => {
-    document.getElementById("artistica-categorias").classList.toggle("categoria-active")
+    document.getElementById("artistica-categorias").classList.add("categoria-active")
+}
+
+const desactiveArtistica = () => {
+    document.getElementById("artistica-categorias").classList.remove("categoria-active")
 }
 
 document.getElementById("artistica").onclick = () => {
-    hamburguesa();
-    activeNav();
+    desactiveHamburguesa();
+    desactiveNav();
     activeSubcategorias()
     activeArtistica();
+    desactiveEscolar();
+    desactiveOficina();
 }
 
 document.getElementById("atras-artistica").onclick = () => {
-    activeArtistica();
-    activeSubcategorias();
+    desactiveCategorias();
 }
 
 
 /* OFICINA */
 
 const activeOficina = () => {
-    document.getElementById("oficina-categorias").classList.toggle("categoria-active")
+    document.getElementById("oficina-categorias").classList.add("categoria-active")
+}
+
+const desactiveOficina = () => {
+    document.getElementById("oficina-categorias").classList.remove("categoria-active")
 }
 
 document.getElementById("oficina").onclick = () => {
-    hamburguesa();
-    activeNav();
+    desactiveHamburguesa();
+    desactiveNav();
     activeSubcategorias()
     activeOficina();
+    desactiveArtistica();
+    desactiveEscolar();
 }
 
 document.getElementById("atras-oficina").onclick = () => {
-    activeOficina();
-    activeSubcategorias();
+    desactiveCategorias();
 }
 
 /* TERMINA HEADER */

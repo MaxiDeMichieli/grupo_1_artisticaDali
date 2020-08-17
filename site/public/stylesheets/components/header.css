@@ -7,10 +7,12 @@
 .header a {
     text-decoration: none;
     color: #000000;
+    transition: color .3s ease;
 }
 
 .header a:hover {
     color: var(--color-medioOscuro);
+    transition: color .3s ease;
 }
 
 .header ul {
@@ -195,10 +197,12 @@
 .header .nav .menu li {
     margin: 20px auto;
     cursor: pointer;
+    transition: color .5s ease;
 }
 
 .header .nav .menu li:hover {
     color: var(--color-medioOscuro);
+    transition: color .5s ease;
 }
 
 
