@@ -102,6 +102,7 @@
 .registro .crear-cuenta .terminos input {
     width: auto;
     margin-right: 5px;
+    box-shadow: none;
 }
 
 .registro .crear-cuenta .terminos input:focus {
