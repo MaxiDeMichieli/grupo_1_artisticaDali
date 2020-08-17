@@ -13,7 +13,7 @@ $('.owl-carousel').owlCarousel({
             items:2,
             nav:true
         },
-        690:{
+        700:{
             items:3,
             nav:true
         },
