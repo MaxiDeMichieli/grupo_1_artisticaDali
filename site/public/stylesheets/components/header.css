@@ -265,6 +265,10 @@
 }
 
 @media (min-width: 768px) {
+    .header {
+        top: -56px;
+    }
+
     .header .nav-btn {
         display: none;
     }
@@ -297,6 +301,10 @@
 }
 
 @media (min-width: 992px) {
+    .header {
+        top: -1px;
+    }
+
     .header .logo {
         padding: 5px;
         margin: 5px 0;
