@@ -64,6 +64,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    width: 100%;
 }
 
 .carrito .productos .detalles .precio .precio-unitario {
@@ -298,6 +299,10 @@
     .carrito .productos {
         background-color: var(--color-claro);
         flex: 0 0 100%;
+    }
+
+    .carrito .productos .detalles .precio {
+        width: 70%;
     }
 
     .carrito .envio .sucursal {

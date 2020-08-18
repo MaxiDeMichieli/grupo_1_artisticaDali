@@ -1457,7 +1457,8 @@ button:focus {
 .carrito .productos .detalles .precio {
   display: flex;
   flex-wrap: wrap;
-  align-items: center; }
+  align-items: center;
+  width: 100%; }
 
 .carrito .productos .detalles .precio .precio-unitario {
   width: 100%;
@@ -1648,6 +1649,8 @@ button:focus {
   .carrito .productos {
     background-color: var(--color-claro);
     flex: 0 0 100%; }
+  .carrito .productos .detalles .precio {
+    width: 70%; }
   .carrito .envio .sucursal {
     max-width: none; }
   .carrito .envio .domicilio {
