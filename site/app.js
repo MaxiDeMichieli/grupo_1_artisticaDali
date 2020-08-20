@@ -8,11 +8,7 @@ var logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const categoriesRouter = require('./routes/categories');
-const productAddRouter = require('./routes/productAdd');
-const productCartRouter = require('./routes/productCart');
-const productDetail = require('./routes/productDetail');
-
+const productsRouter = require('./routes/products');
 var app = express();
 
 // view engine setup
@@ -29,10 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/category', categoriesRouter);
-app.use('/addproduct', productAddRouter); //Ruta provisoria, se deberá verificar si es parte de otra ruta que pase primero por la validación de tipo de usuario.
-app.use('/cart', productCartRouter);
-app.use('/detail', productDetail);
+app.use('/products', productsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
