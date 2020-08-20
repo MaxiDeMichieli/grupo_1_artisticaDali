@@ -7,7 +7,11 @@
     
     
     <div class="container">
-      <div class="col-12 portada"><img src="/images/portadas/banner_escolar.jpg" alt="categoria_escolar"></div>
+
+      <% if (banner != undefined) { %>
+       <div class="col-12 portada"><img src="/images/portadas/<%- banner %>" alt="categoria_escolar"></div>
+      <% } %>
+      
       <div class="row">
         <!--
           Barra de navegacion de productos

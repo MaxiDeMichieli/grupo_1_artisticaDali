@@ -26,21 +26,22 @@ module.exports = {
     categories : (req, res, next)=>{
         let categorias = [
             {
-                "cat":1, "title": "Escolar"
+                cat:1, title: "Escolar", img: "banner_escolar.jpg"
             },
             {
-                "cat":2, "title": "Artística"
+                cat:2, title: "Artística", img: "banner_artistica.jpg"
             },
             {
-                "cat":3, "title": "Oficina"
+                cat:3, title: "Oficina", img: "banner_oficina.jpg"
             }
         ];
         let categoryId=req.params.id;
-        categorias.forEach(element =>{
-            if(element.cat == categoryId){
+        categorias.forEach(categoria =>{
+            if(categoria.cat == categoryId){
             res.render('categories', {
-                title: element.title,
-                productos: dbProduct
+                title: categoria.title,
+                productos: dbProduct,
+                banner: categoria.img
             });
         }
         
