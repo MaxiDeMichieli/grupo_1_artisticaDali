@@ -8,6 +8,10 @@
     
     <div class="container">
 
+      <% if (search != undefined) { %>
+        <h1>Estas buscando "<%= search %>"</h1>  
+      <% } %>
+
       <% if (banner != undefined) { %>
        <div class="col-12 portada"><img src="/images/portadas/<%- banner %>" alt="categoria_escolar"></div>
       <% } %>
@@ -141,15 +145,22 @@
                           <img src="/images/productos/<%- producto.image[0] %> " alt="">
                         </div>
                         <div class="col-12 col-md-12 descripcion">
-                          <p><%= producto.name %> </p>
-                            <h2>$<%= producto.price %> </h2>
+                          
+                          <% if (producto.name.length > 30) { %>
+                            <% let nameSlice = producto.name.slice(0,30) %> 
+                             <p><%= nameSlice %>... </p>
+                            <% } else { %>
+                             <p><%= producto.name %> </p>
+                          <% } %>
+
+                          <h2>$<%= producto.price %> </h2>
 
                           <% if (producto.discount != 0) { %>
                            <span><%= producto.discount %>% OFF</span><br>
                           <% } %>
 
                           <div class="botones">
-                            <a href="/products/<%- producto.id %> ">Detalle</a>
+                            <a href="/products/detail/<%- producto.id %> ">Detalle</a>
                             <button class="agregar" type="button">Agregar al carrito</button>
                             <a class="comprar" href="./productCart.ejs">Comprar</a>
                           </div>

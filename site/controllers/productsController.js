@@ -41,10 +41,36 @@ module.exports = {
             res.render('categories', {
                 title: categoria.title,
                 productos: dbProduct,
-                banner: categoria.img
+                banner: categoria.img,
+                search: undefined
             });
         }
         
         })
+    },
+    search: (req, res) => {
+        let buscar = req.query.search;
+        let productos = [];
+        dbProduct.forEach(producto => {
+            if (producto.name.toLowerCase().includes(buscar)) {
+                productos.push(producto)
+            }
+        })
+
+        if(productos[0] == undefined) {
+            res.render('errorSearch', {
+                title: 'Error en su búsqueda',
+                search: buscar
+            })
+        } else{
+            res.render('categories', {
+            title: "Resultado de la búsqueda",
+            productos: productos,
+            banner: undefined,
+            search: buscar
+            })
+        }
+
+        
     }
 }

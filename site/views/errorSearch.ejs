@@ -1,0 +1,26 @@
+<%- include('partials/head.ejs') %> 
+<body>
+  
+  <%- include('partials/header.ejs') %>
+  
+  <div class="categorias">
+    <div class="container">
+
+        <div class="error-busqueda">
+            <div>
+                <h1>No encontramos ningun producto relacionado con "<%= search %>"</h1>
+                <h1>Por favor intenta con otra búsqueda</h1>
+            </div>
+        </div>  
+
+      
+    </div>
+  </div>
+  
+  
+  
+  <%- include('partials/footer.ejs') %>
+  
+  <script src="/javascripts/header.js"></script>
+  
+  <%- include('partials/scripts.ejs') %> 

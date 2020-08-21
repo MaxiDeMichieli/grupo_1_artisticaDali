@@ -9,10 +9,13 @@ router.get('/cart', controller.cart);
 router.get('/create', controller.addProduct);
 
 /* DETALLE DE PRODUCTO */
-router.get('/:id', controller.detail);
+router.get('/detail/:id', controller.detail);
 
 /* CATEGORIAS */
-router.get('/category/:id', controller.categories)
+router.get('/category/:id', controller.categories);
+
+/* BUSCADOR */
+router.get('/search', controller.search);
 
 
 

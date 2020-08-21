@@ -15,6 +15,22 @@
   width: 100%;
 }
 
+.categorias .container h1 {
+  font-family: var(--fuente-poppins);
+  text-align: center;
+  margin: 30px auto;
+  color: var(--color-oscuro);
+  font-size: 2em;
+}
+
+.categorias .container .error-busqueda {
+  min-height: 55vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
 /* MENU PRODUCTOS */
 
 .navbar{
