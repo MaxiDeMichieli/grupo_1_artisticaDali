@@ -49,7 +49,7 @@ module.exports = {
         })
     },
     search: (req, res) => {
-        let buscar = req.query.search;
+        let buscar = req.query.search.toLowerCase();
         let productos = [];
         dbProduct.forEach(producto => {
             if (producto.name.toLowerCase().includes(buscar)) {
