@@ -193,6 +193,26 @@
     justify-content: space-between;
     align-items: center;
     width: 50px;
+    position: relative;
+}
+
+.header .nav .icons ul .user-options {
+    position: absolute;
+    bottom: -97px;
+    left: -90px;
+    width: 150px;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, .3);
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: none;
+}
+
+.header .nav .icons ul .user-icon:hover .user-options {
+    display: flex;
 }
 
 .header .nav .menu li {
@@ -298,6 +318,10 @@
 
     .header .nav .menu ul li {
         margin: 15px 8px;
+    }
+
+    .header .nav .icons ul .user-options {
+        left: -70px;
     }
 }
 

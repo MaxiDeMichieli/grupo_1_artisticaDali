@@ -14,14 +14,14 @@
             <h3 id="cc" class="">CREAR CUENTA</h3>
         </div>
         <div class="inicio-sesion" id="inicio-sesion">
-            <form action="">
+            <form action="/users/login" method="POST">
                 <div>
                     <label for="emailInicio">Email</label>
-                    <input type="email" name="email" id="emailInicio" placeholder="dalí@ejemplo.com">
+                    <input type="email" name="email" id="emailInicio" placeholder="dalí@ejemplo.com" spellcheck="false" required>
                 </div>
                 <div>
                     <label for="passwordInicio">Contraseña</label>
-                    <input type="password" name="password" id="passwordInicio" maxlength="25">
+                    <input type="password" name="password" id="passwordInicio" maxlength="25" spellcheck="false" required>
                     <i class="fas fa-eye fa-lg view-pass" id="btn-pass-1"></i>
                 </div>
                 <a href="#">¿Olvidaste tu contraseña?</a>
@@ -29,27 +29,27 @@
             </form>
         </div>
         <div class="crear-cuenta none" id="crear-cuenta">
-            <form action="">
+            <form action="/users/login/create" method="POST">
                 <div>
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" placeholder="Artística">
+                    <input type="text" name="nombre" id="nombre" placeholder="Artística" spellcheck="false" required>
                 </div>
                 <div>
                     <label for="apellido">Apellido</label>
-                    <input type="text" name="apellido" id="apellido" placeholder="Dalí">
+                    <input type="text" name="apellido" id="apellido" placeholder="Dalí" spellcheck="false" required>
                 </div>
                 <div>
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="dalí@ejemplo.com">
+                    <input type="email" name="email" id="email" placeholder="dalí@ejemplo.com" spellcheck="false" required>
                 </div>
                 <div>
                     <label for="passwordRegistro">Contraseña</label>
-                    <input type="password" name="password" id="passwordRegistro" maxlength="25">
+                    <input type="password" name="password" id="passwordRegistro" maxlength="25" spellcheck="false" required>
                     <i class="fas fa-eye fa-lg view-pass" id="btn-pass-2"></i>
                 </div>
                 <div>
                     <label for="passwordRepeat">Repetir contraseña</label>
-                    <input type="password" name="passwordRepeat" id="passwordRepeat" maxlength="25">
+                    <input type="password" name="passwordRepeat" id="passwordRepeat" maxlength="25" spellcheck="false" required>
                     <i class="fas fa-eye fa-lg view-pass" id="btn-pass-3"></i>
                 </div>
                 <div class="terminos">
