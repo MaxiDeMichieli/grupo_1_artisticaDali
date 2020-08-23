@@ -62,6 +62,17 @@ module.exports = {
 
         fs.writeFileSync(path.join(__dirname, '../data/usersDataBase.json'), JSON.stringify(dbUsers))
         res.redirect('/users/account')
+    },
+    delete: (req, res) => {
+        let idUser = req.body.id;
+
+        let usersFilter = dbUsers.filter(user => {
+            return user.id != idUser;
+        });
+
+        fs.writeFileSync(path.join(__dirname, '../data/usersDataBase.json'), JSON.stringify(usersFilter))
+
+        res.redirect('/')
     }
 }
 

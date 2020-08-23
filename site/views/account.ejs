@@ -1,6 +1,22 @@
 <%- include('partials/head.ejs') %> 
 <body>
-  
+
+  <div class="popup-eliminar none" id="popup-eliminar">
+    <div class="popup-contenedor">
+      <div class="popup-contenido">
+        <h4>¿Estás seguro de eliminar tu cuenta?</h4>
+        <div class="btns">
+          <button id="cerrar-popup-btn">Cancelar</button>
+          <form action="/users/account/delete?_method=DELETE" method="POST">
+            <input type="" hidden value="<%- user.id %>" name="id"> 
+            <button type="submit">Eliminar cuenta</button>
+          </form>
+        </div>
+        <span class="cancelar" id="cancelar-btn"><i class="fas fa-times"></i></span>
+      </div>
+    </div>
+  </div>
+
   <%- include('partials/header.ejs') %>
   
   <div class="cuenta">
@@ -44,12 +60,16 @@
           </section>
         </div>
       </div>
+      <div class="eliminar-container">
+        <span class="eliminar" id="eliminar-btn">Eliminar mi cuenta <i class="fas fa-trash"></i></span>
+      </div>
     </div>
   </div>
 
   
   <%- include('partials/footer.ejs') %>
 
-<script src="/javascripts/header.js"></script>
+  <script src="/javascripts/header.js"></script>
+  <script src="/javascripts/account.js"></script>
   
   <%- include('partials/scripts.ejs') %> 

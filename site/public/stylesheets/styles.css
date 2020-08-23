@@ -1854,6 +1854,101 @@ button:focus {
   outline: none;
   box-shadow: none; }
 
+/* ELIMINAR CUENTA */
+.cuenta .eliminar-container {
+  text-align: end; }
+
+.cuenta .eliminar-container .eliminar {
+  color: #db0000;
+  font-size: .9em;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .5s ease; }
+
+.cuenta .eliminar-container .eliminar:hover {
+  color: #ff0000;
+  transition: all .5s ease; }
+
+.popup-eliminar {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 101; }
+
+.none {
+  display: none; }
+
+.popup-eliminar .popup-contenedor {
+  width: 300px;
+  height: 200px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5); }
+
+.popup-eliminar .popup-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative; }
+
+.popup-eliminar .popup-contenido h4 {
+  font-family: var(--fuente-poppins);
+  color: var(--color-oscuro);
+  text-align: center; }
+
+.popup-eliminar .popup-contenido .btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%; }
+
+.popup-eliminar .popup-contenido .btns button {
+  border: 2px solid var(--color-medioOscuro);
+  background-color: var(--color-medioOscuro);
+  color: #fff;
+  font-family: var(--fuente-baloo);
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 50px;
+  transition: all .5s ease; }
+
+.popup-eliminar .popup-contenido .btns button:focus {
+  outline: none; }
+
+.popup-eliminar .popup-contenido .btns button:hover {
+  background-color: #fff;
+  color: var(--color-medioOscuro);
+  transition: all .5s ease; }
+
+.popup-eliminar .popup-contenido .btns form button {
+  border: 2px solid #db0000;
+  background-color: #db0000;
+  color: #fff; }
+
+.popup-eliminar .popup-contenido .btns form button:hover {
+  border: 2px solid #db0000;
+  background-color: #fff;
+  color: #db0000; }
+
+.popup-eliminar .popup-contenido .cancelar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  cursor: pointer;
+  color: var(--color-oscuro); }
+
 /* MEDIAS */
 @media (min-width: 768px) {
   .cuenta {
