@@ -43,8 +43,7 @@ module.exports = {
             res.render('categories', {
                 title: categoria.title,
                 productos: dbProduct,
-                banner: categoria.img,
-                search: undefined
+                banner: categoria.img
             });
         }
         
@@ -68,7 +67,6 @@ module.exports = {
             res.render('categories', {
             title: "Resultado de la búsqueda",
             productos: productos,
-            banner: undefined,
             search: buscar
             })
         }

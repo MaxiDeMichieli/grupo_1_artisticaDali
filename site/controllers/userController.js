@@ -1,6 +1,7 @@
 const dbUsers = require('../data/usersDatabase');
 const fs = require('fs');
-const path = require('path')
+const path = require('path');
+const bcrypt = require('bcrypt');
 
 module.exports = {
     registerView: (req, res) => {
@@ -14,7 +15,7 @@ module.exports = {
             nombre: req.body.nombre.trim(),
             apellido: req.body.apellido.trim(),
             email: req.body.email.trim(),
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 12),
             telefono: null,
             calle: null,
             numero: null,
