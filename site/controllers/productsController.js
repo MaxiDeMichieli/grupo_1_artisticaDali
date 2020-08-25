@@ -1,5 +1,6 @@
 const dbProduct = require('../data/database');
 
+
 module.exports = {
     cart: (req, res, next)=>{
         res.render('productCart', {
@@ -34,13 +35,15 @@ module.exports = {
             {
                 cat:3, title: "Oficina", img: "banner_oficina.jpg"
             }
-        ];
+        ];    
         let categoryId=req.params.id;
         categorias.forEach(categoria =>{
             if(categoria.cat == categoryId){
             res.render('categories', {
                 title: categoria.title,
-                productos: dbProduct,
+                productos: dbProduct.filter(producto =>{
+                    return producto.category == categoryId
+                }),
                 banner: categoria.img,
                 search: undefined
             });

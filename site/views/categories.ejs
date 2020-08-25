@@ -30,33 +30,13 @@
               <div class="container menu-productos">
                 <div class="row col-12">
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Carpetas</a>
-                    <a class="dropdown-item" href="#">Cartucheras</a>
-                    <a class="dropdown-item" href="#">Crayones</a>
-                    <a class="dropdown-item" href="#">Cuadernos</a>
-                    <a class="dropdown-item" href="#">Gomas</a>
-                    <a class="dropdown-item" href="#">Guillotinas</a>
-                    <a class="dropdown-item" href="#">Marcadores</a>
-                    <a class="dropdown-item" href="#">Repuestos</a>
-                    <a class="dropdown-item" href="#">Bases de corte</a>
-                    <a class="dropdown-item" href="#">Block</a>
-                    <a class="dropdown-item" href="#">Boligrafos</a>
-                    <a class="dropdown-item" href="#">Adhesivos</a>
-                    <a class="dropdown-item" href="#">Cajas de archivo</a>
-                    <a class="dropdown-item" href="#">Cintas Adhesivas</a>
-                      <a class="dropdown-item" href="#">Folios</a>
-                      <a class="dropdown-item" href="#">Folios</a>
-                      <a class="dropdown-item" href="#">Geometría y dibujos técnico</a>
-                      <a class="dropdown-item" href="#">Lapices</a>
-                      <a class="dropdown-item" href="#">Mochilas</a>
-                      <a class="dropdown-item" href="#">Sellos</a>
-                      <a class="dropdown-item" href="#">Separadores</a>
-                      <a class="dropdown-item" href="#">Tijeras y cutters</a>
-                      <a class="dropdown-item" href="#">Regalería</a>
-                      <a class="dropdown-item" href="#">Varios</a>
-                      <a class="dropdown-item" href="#">Broches</a>
-                      <a class="dropdown-item" href="#">Caligrafía</a>
-                      <a class="dropdown-item" href="#">Corrector</a>
+                    
+                    <% productos.forEach(producto => { %>
+                      
+                        <a class="dropdown-item" href="#"><%- producto.subcategory %> </a>
+
+                      
+                    <% }) %>
                     </div>
                 </div class="row">
               </div>
@@ -76,54 +56,12 @@
             <div class="lateral col-lg-3">
               <h3>Categorias</h3>
               <ul>
-                <li><a href="categories.ejs">Carpetas</a>
-                </li>
-                <li><a href="categories.ejs">Cartucheras</a>
-                </li>
-                <li><a href="categories.ejs">Crayones</a>
-                </li>
-                <li><a href="categories.ejs">Cuadernos</a>
-                </li>
-                <li><a href="categories.ejs">Gomas</a>
-                </li>
-                <li><a href="categories.ejs">Guillotinas</a>
-                </li>
-                <li><a href="categories.ejs">Marcadores</a>
-                </li>
-                <li><a href="categories.ejs">Repuestos</a>
-                </li>
-                <li><a href="categories.ejs">Bases de Corte</a>
-                </li>
-                <li><a href="categories.ejs">Block</a>
-                </li>
-                <li><a href="categories.ejs">Bolígrafo</a>
-                </li>
-                <li><a href="categories.ejs">Adhesivos</a>
-                </li>
-                <li><a href="categories.ejs">Cajas de Archivo</a>
-                </li>
-                <li><a href="categories.ejs">Cintas Adhesivas</a>
-                </li>
-                <li><a href="categories.ejs">Folios</a>
-                </li>
-                <li><a href="categories.ejs">Geometría y Dibujo Técnico</a>
-                </li>
-                <li><a href="categories.ejs">Lápices</a>
-                </li>
-                <li><a href="categories.ejs">Mochilas</a>
-                </li>
-                <li><a href="categories.ejs">Sellos</a>
-                </li>
-                <li><a href="categories.ejs">Separadores</a>
-                </li>
-                <li><a href="categories.ejs">Tijeras y Cutters</a>
-                </li>
-                <li><a href="categories.ejs">Regaleria</a>
-                </li>
-                <li><a href="categories.ejs">Broches</a>
-                </li>
-                <li><a href="categories.ejs">Caligrafía</a>
-                </li>
+                <% productos.forEach(producto => { %>
+                  <li><a href="categories.ejs"><%- producto.subcategory %> </a>
+                  </li>
+                <% }) %>
+                
+                
               </ul>
               <div class="filtros">
                 <h3>Filtros</h3>
