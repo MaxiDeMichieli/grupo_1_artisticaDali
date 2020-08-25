@@ -1,11 +1,13 @@
-const dbProduct = require('../data/database');
+const dbProduct = require('../data/dataBase');
+const dbUsers = require('../data/usersDataBase');
 
 
 module.exports = {
     cart: (req, res, next)=>{
         res.render('productCart', {
             title: 'Carrito de compras',
-            productos: dbProduct
+            productos: dbProduct,
+            user: dbUsers[dbUsers.length - 1]
         })
     },
     detail: (req, res,) => {
@@ -69,7 +71,6 @@ module.exports = {
             res.render('categories', {
             title: "Resultado de la búsqueda",
             productos: productos,
-            banner: undefined,
             search: buscar
             })
         }

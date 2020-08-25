@@ -12,7 +12,7 @@
             </div>
             <div id="buscador" class="buscador col-12 col-sm-4 col-md-3 col-lg-3">
                 <form action="/products/search" class="buscar" method="GET">
-                    <input type="text" placeholder="Buscar" name="search">
+                    <input type="text" placeholder="Buscar" name="search" spellcheck="false" required>
                     <button type="submit"><i class="fas fa-search "></i></button>
                 </form>
             </div>
@@ -27,7 +27,14 @@
                 </div>
                 <div class="icons">
                     <ul>
-                        <li><a href="/users" class="user"><i class="fas fa-user"></i></a></li>
+                        <li class="user-icon">
+                            <i class="fas fa-user"></i>
+                            <span class="user-options">
+                                <a href="/users/login">Iniciar sesión</a>
+                                <a href="/users/account">Mis datos</a>
+                                <a href="#">Cerrar sesión</a>
+                            </span>
+                        </li>
                         <li><a href="/products/cart" class="cart"><i class="fas fa-shopping-cart"></i></a></li>
                     </ul>
                 </div>

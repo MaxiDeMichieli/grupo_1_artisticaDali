@@ -8,11 +8,11 @@
     
     <div class="container">
 
-      <% if (search != undefined) { %>
+      <% if (typeof search != 'undefined') { %>
         <h1>Estas buscando "<%= search %>"</h1>  
       <% } %>
 
-      <% if (banner != undefined) { %>
+      <% if (typeof banner != 'undefined') { %>
        <div class="col-12 portada"><img src="/images/portadas/<%- banner %>" alt="categoria_escolar"></div>
       <% } %>
       

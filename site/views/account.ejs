@@ -1,0 +1,75 @@
+<%- include('partials/head.ejs') %> 
+<body>
+
+  <div class="popup-eliminar none" id="popup-eliminar">
+    <div class="popup-contenedor">
+      <div class="popup-contenido">
+        <h4>¿Estás seguro de eliminar tu cuenta?</h4>
+        <div class="btns">
+          <button id="cerrar-popup-btn">Cancelar</button>
+          <form action="/users/account/delete?_method=DELETE" method="POST">
+            <input type="" hidden value="<%- user.id %>" name="id"> 
+            <button type="submit">Eliminar cuenta</button>
+          </form>
+        </div>
+        <span class="cancelar" id="cancelar-btn"><i class="fas fa-times"></i></span>
+      </div>
+    </div>
+  </div>
+
+  <%- include('partials/header.ejs') %>
+  
+  <div class="cuenta">
+    <div class="container">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#datos" role="tab" aria-controls="home" aria-selected="true">Mis datos</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#compras" role="tab" aria-controls="profile" aria-selected="false">Mis compras</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="datos" role="tabpanel" aria-labelledby="home-tab">
+          <section class="datos">
+            <article class="datos-personales">
+              <h5>Datos personales</h5>
+              <p><%- user.nombre %> <%- user.apellido %></p>
+              <p><%- user.email %></p>
+              <p>Teléfono: <%- user.telefono %></p>
+            </article>
+            <hr>
+            <article class="datos-envio">
+              <h5>Datos de envío</h5>
+              <p>Dirección: <%- user.calle %> <%- user.numero %></p>
+              <p>Dpto: <%- user.dpto %></p>
+              <p>C.Postal: <%- user.cpostal %></p>
+              <p>Provincia: <%- user.provincia %></p>
+              <p>Localidad: <%- user.localidad %></p>
+            </article>
+            <div class="btn-container">
+              <a href="/users/account/edit" class="btn">Editar Datos</a>
+            </div>
+          </section>
+        </div>
+        <div class="tab-pane fade" id="compras" role="tabpanel" aria-labelledby="profile-tab">
+          <section class="compras">
+            <article class="datos-personales">
+              <h5>En construcción</h5>
+            <article class="datos-envio">
+          </section>
+        </div>
+      </div>
+      <div class="eliminar-container">
+        <span class="eliminar" id="eliminar-btn">Eliminar mi cuenta <i class="fas fa-trash"></i></span>
+      </div>
+    </div>
+  </div>
+
+  
+  <%- include('partials/footer.ejs') %>
+
+  <script src="/javascripts/header.js"></script>
+  <script src="/javascripts/account.js"></script>
+  
+  <%- include('partials/scripts.ejs') %> 
