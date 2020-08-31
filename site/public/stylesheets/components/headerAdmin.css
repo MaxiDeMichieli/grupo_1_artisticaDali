@@ -1,0 +1,40 @@
+/* HEADER DE ADMINISTRACION DE PRODUCTOS*/
+.headerAdmin .container {
+  width: 100%;
+  padding: 0; }
+
+.headerAdmin header .row {
+  background-color: var(--color-medio);
+  padding: 5px;
+  width: 100%;
+  height: 20%;
+  margin: 0; }
+
+.headerAdmin .container .logo {
+  padding: 5px; }
+
+.headerAdmin .container a img {
+  width: 100%;
+  max-width: 80px;
+  max-height: 80px; }
+
+.headerAdmin .titulo {
+  padding: 10px;
+  font-size: 1.5em; }
+
+.headerAdmin .container .user {
+  font-family: Poppins;
+  text-align: right;
+  font-size: 0.8em;
+  color: var(--color-medioOscuro);
+  padding: 0; }
+
+.headerAdmin .container .user p {
+  margin-top: 10px;
+  margin-bottom: 0px; }
+
+.headerAdmin .container .user .cerrar {
+  border: 0;
+  background: none;
+  margin-bottom: 5px;
+  color: var(--color-oscuro); }

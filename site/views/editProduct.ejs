@@ -1,0 +1,86 @@
+<%- include('partials/head.ejs') %>  
+<body>
+    <!-- HEADER -->
+    <div class="edicion">
+        
+        <%- include('partials/headerAdmin.ejs')%>
+        
+        
+        <!-- FINALIZA HEADER -->   
+        <!-- BARRA DE NAVEGACION-->
+        <div class="nav col-12">
+            <ul>
+                <li>
+                    <a href="/products/edit">CARGA</a>
+                </li>
+                <li>
+                    <a href="#">STOCK</a>
+                </li>
+                <li>
+                    <a href="#">OFERTAS</a>
+                </li>
+            </ul>
+        </div>
+        <!-- FINALIZA BARRA DE NAVEGACION -->  
+                    <!-- EDICION -->
+                    
+                    <div class="edicion">
+                        <div class="container ">                               
+                            <form action="/products/edit/<%- id %>?_method=PUT" method="POST">
+                                <div class="row">
+                                    <div class="titulo col-12 ">
+                                        <h3>
+                                            <%= titulo %>
+                                        </h3>
+                                        <h6>
+                                            <%= name %> 
+                                        </h6>                 
+                                    </div>                                                                      
+                                    <div class="datos col-12" >   
+                                        <p>
+                                            <label for="">Categoría</label>
+                                            <input type="text" name="category" id="" value=<%= category %> >
+                                        </p>  
+                                        <p>
+                                            <label for="">Subcategoría</label>
+                                            <input type="text" name="subcategory" id="" value=<%= subcategory %> >
+                                        </p>        
+                                        <p>
+                                            <label for="">Nombre</label>
+                                            <input type="text" name="name" id="" value="<%= name %>" >
+                                        </p>
+                                        <p>
+                                            <label for="">Precio</label>
+                                            <input type="text" name="price" id="" value=<%= price %> >
+                                        </p>
+                                        <p>
+                                            <label for="">Descuento</label>
+                                            <input type="text" name="discount" id="" value=<%= discount %> >
+                                        </p>    
+                                        <p>
+                                            <label for="">Descripción</label>
+                                            <textarea name="description" id="" cols="30" rows="10"><%= description %> </textarea>
+                                        </p>
+                                                 
+                                    </div>
+                                    <div class="final">
+                                        
+                                        <button type="submit">guardar cambios</button>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+    
+    
+    
+    
+    <%- include('partials/scripts.ejs') %> 

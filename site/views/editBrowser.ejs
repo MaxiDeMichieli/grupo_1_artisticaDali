@@ -1,0 +1,86 @@
+<%- include('partials/head.ejs') %>  
+<body>            
+   
+    <div class="editionPage">
+          <!-- HEADER -->
+         <div class="headerEdit">
+           <%- include('partials/headerAdmin.ejs')%>
+         </div>    
+            <!-- FINALIZA HEADER --> 
+             <!-- BARRA DE NAVEGACION-->
+        <div class="nav col-12">
+            <ul>
+                <li>
+                    <a href="/products/create">CARGA</a>
+                </li>
+                <li>
+                    <a href="#">STOCK</a>
+                </li>
+                <li>
+                    <a href="#">OFERTAS</a>
+                </li>
+            </ul>
+        </div>
+        <!-- FINALIZA BARRA DE NAVEGACION -->          
+        <!-- EDICION y ELIMINACION -->
+        
+        <div class="editBrowser">
+            <div class="container">
+               
+                     <div class="titulo col-12">
+                         <h3>
+                            Editar o eliminar producto
+                         </h3>
+                     </div>
+                     <div class="buscador col-12">
+                        <form action="/products/searchEdit" class="buscar" method="GET">
+                           <div class="boton">
+                                <input type="text" placeholder="Buscar" name="search" spellcheck="false" required>
+                                <button type="submit"><i class="fas fa-search "></i></button>
+                           </div >
+                        </form>
+                     </div>
+               
+                <div class="resultado col-12">
+    
+                            <% if (typeof search != 'undefined') { %>
+                                <h3>Estas buscando "<%= search %>"</h3>  
+                            <% }  %>
+                </div>  
+
+                <div class=" container listado">
+                        <% productos.forEach(element => { %>
+                            <div class="row producto col-12">
+
+                                        <div class="imagen col-4">
+                                            <img src="/images/productos/<%- element.image %>"  alt="">
+                                        </div>
+                                            
+                                        <div class="datos col-8">
+                                            <% if (element.name.length > 15) { %>
+                                                <% let nameSlice = element.name.slice(0,30) %> 
+                                                <span><%= nameSlice %>... </span>
+                                                <% } else { %>
+                                                <span><%= element.name %> </span>
+                                                <% } %> 
+                                                        
+                                                <span>$ <%- element.price %> </span>
+                                                <span>% <%- element.discount %> </span>
+                                       </div>
+                                        <div class="botones col-12">
+                                                <a href="/products/edit/<%- element.id %>">Editar</a>
+                                                <form action="/products/delete/<%- element.id %>?_method=DELETE" method="POST">
+                                                    <button type="submit">Eliminar</button>
+                                                </form>
+                                        </div>          
+                               
+                            </div>  
+                        <% }) %>                                                     
+                </div>  
+            </div>
+        </div>
+    </div>
+            
+            <!-- FINALIZA PESTAÑA DE CARGA -->
+            
+            <%- include('partials/scripts.ejs') %> 
