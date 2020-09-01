@@ -1252,7 +1252,8 @@ button:focus {
     text-decoration: none;
     color: var(--color-medioOscuro); }
   .cargaProd ul li {
-    list-style: none; }
+    list-style: none;
+    margin-top: 10px; }
 
 .cargaProd .nav {
   width: 100%;
@@ -1269,8 +1270,13 @@ button:focus {
   font-family: var(--fuente-poppins);
   color: var(--color-oscuro); }
 
+.cargaProd .titulo {
+  text-align: center; }
+
 .cargaProd .carga .main {
-  width: 100%; }
+  width: 100%;
+  display: flex;
+  justify-content: center; }
 
 .cargaProd .carga .main form {
   width: 100%; }
@@ -1278,9 +1284,16 @@ button:focus {
 .cargaProd .carga .main .datos {
   display: flex;
   flex-wrap: wrap;
-  max-width: 100%; }
+  width: 100%;
+  padding: 0; }
 
 .cargaProd #form {
+  padding: 0; }
+
+.cargaProd .container {
+  padding: 0; }
+
+.cargaProd #formulario1 {
   padding: 0; }
 
 .cargaProd .carga .main .datos .row {
@@ -1380,10 +1393,9 @@ button:focus {
   justify-content: space-around; }
 
 /* BOTON FINAL */
-.cargaProd .pestañas .final {
+.cargaProd .final {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center; }
 
 .cargaProd .final button {
@@ -1398,57 +1410,6 @@ button:focus {
   font-family: var(--fuente-baloo);
   font-weight: 600;
   text-transform: uppercase; }
-
-/* EDITAR O ELIMINAR PRODUCTO*/
-.listadoProd {
-  width: 100%;
-  display: flex;
-  justify-content: center; }
-
-.listadoProd .main .row {
-  justify-content: center; }
-
-.listadoProd .row form .listado {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around; }
-
-.listadoProd .listado .producto {
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 0.8em;
-  border: 1px solid var(--color-medioOscuro);
-  border-radius: 20px;
-  margin-bottom: 5px; }
-
-.listadoProd .listado .producto .imagen {
-  width: 50%; }
-
-.listadoProd .listado .producto .imagen img {
-  width: 100%;
-  max-width: 100px; }
-
-.listadoProd .listado .producto .detalles {
-  padding: 5px;
-  text-align: left;
-  display: flex; }
-
-.listadoProd .listado .producto .detalles .datos {
-  width: 50%; }
-
-.listadoProd .listado .producto .botones {
-  padding: 5px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around; }
-
-.listadoProd .listado .producto .botones button {
-  border: red;
-  border-radius: 50px;
-  background-color: red;
-  color: white; }
 
 /* MEDIA QUERIES */
 @media (min-width: 768px) {
@@ -2088,23 +2049,103 @@ button:focus {
     color: var(--color-medioOscuro); }
 
 /* NAVEGACION */
-.cargaProd {
+.edicion {
   justify-content: center;
   width: 100%; }
-  .cargaProd a {
+  .edicion a {
     text-decoration: none;
     color: var(--color-medioOscuro); }
-  .cargaProd ul li {
+  .edicion ul li {
     list-style: none; }
 
-.cargaProd .nav {
+.edicion .nav {
   width: 100%;
   padding: 5px; }
-  .cargaProd .nav ul {
+  .edicion .nav ul {
     width: 100%;
     display: inline-flex;
     justify-content: space-evenly;
     padding: 0; }
+    .edicion .nav ul li a:hover {
+      color: var(--color-oscuro);
+      transition: color .3s ease; }
+
+/* CUERPO */
+.edicion .cuerpo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid var(--color-medio);
+  border-radius: 10px; }
+  .edicion .cuerpo .titulo {
+    width: 100%;
+    font-family: poppins;
+    color: var(--color-oscuro);
+    font-size: 1.5em;
+    text-align: center;
+    padding: 0; }
+  .edicion .cuerpo .datos {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    font-family: poppins;
+    color: var(--color-medioOscuro); }
+    .edicion .cuerpo .datos .seccion1 {
+      display: flex;
+      flex-direction: column;
+      width: 100%; }
+      .edicion .cuerpo .datos .seccion1 label {
+        width: 100%; }
+      .edicion .cuerpo .datos .seccion1 .input {
+        text-align: center;
+        margin: 5px; }
+        .edicion .cuerpo .datos .seccion1 .input input {
+          border: 1px solid var(--color-medioOscuro);
+          border-radius: 50px;
+          color: var(--color-medioOscuro);
+          width: 100%; }
+    .edicion .cuerpo .datos .seccion2 {
+      display: flex;
+      flex-direction: column;
+      max-width: 100%; }
+      .edicion .cuerpo .datos .seccion2 label {
+        width: 100%; }
+      .edicion .cuerpo .datos .seccion2 .input {
+        text-align: center;
+        margin: 5px; }
+        .edicion .cuerpo .datos .seccion2 .input input {
+          border: 1px solid var(--color-medioOscuro);
+          border-radius: 50px;
+          color: var(--color-medioOscuro);
+          width: 100%; }
+    .edicion .cuerpo .datos .descripcion {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center; }
+      .edicion .cuerpo .datos .descripcion label {
+        width: 100%;
+        text-align: center; }
+      .edicion .cuerpo .datos .descripcion textarea {
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid var(--color-medioOscuro);
+        color: var(--color-medioOscuro); }
+  .edicion .cuerpo .guardar {
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+    .edicion .cuerpo .guardar button {
+      border-radius: 50px;
+      border: 1px solid var(--color-medioOscuro);
+      color: white;
+      background-color: var(--color-medioOscuro);
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 10px; }
 
 /* HEADER DE ADMINISTRACION DE PRODUCTOS*/
 .headerAdmin .container {

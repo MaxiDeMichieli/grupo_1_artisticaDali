@@ -1,0 +1,21 @@
+<%- include('partials/head.ejs') %> 
+<body>
+  
+  <%- include('partials/headerAdmin.ejs') %>
+  
+  <div class="categorias">
+    <div class="container">
+
+        <div class="error-busqueda">
+            <div>
+                <h1>No encontramos ningun producto relacionado con "<%= search %>"</h1>
+                <h1>Por favor intenta con otra búsqueda</h1>
+                <p>
+                    <a href="/products/edit">VOLVER</a>
+                </p>
+            </div>
+        </div>  
+
+      
+    </div>
+  </div>

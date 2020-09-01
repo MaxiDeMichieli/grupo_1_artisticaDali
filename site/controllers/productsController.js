@@ -173,7 +173,7 @@ module.exports = {
         })
 
         if(productos[0] == undefined) {
-            res.render('editBrowser', {
+            res.render('errorEditBrowser', {
                 title: 'Error en su búsqueda',
                 productos: productos,
                 search: buscar
