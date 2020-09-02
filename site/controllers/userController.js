@@ -1,4 +1,4 @@
-const dbUsers = require('../data/usersDatabase');
+const dbUsers = require('../data/usersDataBase.js');
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');

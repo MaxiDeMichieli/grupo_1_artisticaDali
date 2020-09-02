@@ -1,4 +1,4 @@
-const dbProduct = require('../data/database');
+const dbProduct = require('../data/dataBase.js');
 
 module.exports = {
     home:(req, res, next) =>{
