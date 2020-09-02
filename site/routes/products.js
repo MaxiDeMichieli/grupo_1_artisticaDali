@@ -22,7 +22,7 @@ router.get('/cart', controller.cart);
 /* CARGA DE PRODUCTO */
 router.get('/create', controller.addProduct);
 
-router.post('/create',upload.any(), controller.create );
+router.post('/create', upload.any(), controller.create );
 
 /* EDICION DE PRODUCTO */
 
@@ -39,6 +39,9 @@ router.get('/detail/:id', controller.detail);
 
 /* CATEGORIAS */
 router.get('/category/:id', controller.categories);
+
+/* SUBCATEGORIAS */
+router.get('/subcategory/:id', controller.subcategories);
 
 /* BUSCADOR */
 router.get('/search', controller.search);

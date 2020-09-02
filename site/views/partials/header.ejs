@@ -44,63 +44,43 @@
             <div id="escolar-categorias" class="categoria">
                 <div class="subcategoria">
                     <a class="tit-cat" href="/products/category/1">ESCOLAR</a>
+                    <% for( ul in subcategories.escolar ) { %>
                     <ul>
-                        <li><a href="#">Carpetas</a></li>
-                        <li><a href="#">Cartucheras</a></li>
-                        <li><a href="#">Crayones</a></li>
-                        <li><a href="#">Cuadernos</a></li>
-                        <li><a href="#">Gomas</a></li>
+                        <% subcategories.escolar[ul].forEach(subcat => { %>
+                        <li><a href="/products/subcategory/<%- subcat %>"><%= subcat %></a></li>
+                        <% }) %>
                     </ul>
-                    <ul>
-                        <li><a href="#">Guillotinas</a></li>
-                        <li><a href="#">Marcadores</a></li>
-                        <li><a href="#">Repuestos</a></li>
-                        <li><a href="#">Bases de corte</a></li>
-                        <li><a href="#">Block</a></li>
-                    </ul>
+                    <% } %>
                 </div>
                 <span ><i id="atras-escolar" class="fas fa-times atras"></i></span>
             </div>
             <div id="artistica-categorias" class="categoria">
                 <div class="subcategoria">
                     <a class="tit-cat" href="/products/category/2">ARTISTICA</a>
-                    <ul>
-                        <li><a href="#">Carpetas</a></li>
-                        <li><a href="#">Cartucheras</a></li>
-                        <li><a href="#">Crayones</a></li>
-                        <li><a href="#">Cuadernos</a></li>
-                        <li><a href="#">Gomas</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href="#">Guillotinas</a></li>
-                        <li><a href="#">Marcadores</a></li>
-                        <li><a href="#">Repuestos</a></li>
-                        <li><a href="#">Bases de corte</a></li>
-                        <li><a href="#">Block</a></li>
-                    </ul>
+                    <% for( ul in subcategories.artistica ) { %>
+                        <ul>
+                            <% subcategories.artistica[ul].forEach(subcat => { %>
+                            <li><a href="/products/subcategory/<%- subcat %>"><%= subcat %></a></li>
+                            <% }) %>
+                        </ul>
+                    <% } %>
                 </div>
                 <span ><i id="atras-artistica" class="fas fa-times atras"></i></span>
             </div>
             <div id="oficina-categorias" class="categoria">
                 <div class="subcategoria">
                     <a class="tit-cat" href="/products/category/3">OFICINA</a>
-                    <ul>
-                        <li><a href="#">Carpetas</a></li>
-                        <li><a href="#">Cartucheras</a></li>
-                        <li><a href="#">Crayones</a></li>
-                        <li><a href="#">Cuadernos</a></li>
-                        <li><a href="#">Gomas</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href="#">Guillotinas</a></li>
-                        <li><a href="#">Marcadores</a></li>
-                        <li><a href="#">Repuestos</a></li>
-                        <li><a href="#">Bases de corte</a></li>
-                        <li><a href="#">Block</a></li>
-                    </ul>
+                    <% for( ul in subcategories.oficina ) { %>
+                        <ul>
+                            <% subcategories.oficina[ul].forEach(subcat => { %>
+                            <li><a href="/products/subcategory/<%- subcat %>"><%= subcat %></a></li>
+                            <% }) %>
+                        </ul>
+                    <% } %>
                 </div>
                 <span ><i id="atras-oficina" class="fas fa-times atras"></i></span>
             </div>
         </div>
+        <a href="/products/create" class="admin-btn">Administrar sitio</a>
     </header>
 </div>

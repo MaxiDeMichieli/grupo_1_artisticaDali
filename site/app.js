@@ -4,7 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var app = express();
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
+const headerCategories = require('./middlewares/headerSubcategoriesMiddleware');
 
 
 //Aquí se requieren los archivos de rutas
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
+app.use(headerCategories);
 
 // RUTAS
 

@@ -34,12 +34,14 @@ module.exports = {
     account: (req, res) => {
         res.render('account', {
             title: 'Mi cuenta',
+            subcategories: req.subcategories,
             user: dbUsers[dbUsers.length - 1]
         })
     },
     editView: (req, res) => {
         res.render('editAccount', {
             title: 'Editar mis datos',
+            subcategories: req.subcategories,
             user: dbUsers[dbUsers.length - 1]
         })
     },
@@ -61,8 +63,8 @@ module.exports = {
             }
         })
 
-        fs.writeFileSync(path.join(__dirname, '../data/usersDataBase.json'), JSON.stringify(dbUsers))
-        res.redirect('/users/edit')
+        fs.writeFileSync(path.join(__dirname, '../data/usersDataBase.json'), JSON.stringify(dbUsers), 'utf-8')
+        res.redirect('/users/account')
     },
     delete: (req, res) => {
         let idUser = req.body.id;
@@ -71,7 +73,7 @@ module.exports = {
             return user.id != idUser;
         });
 
-        fs.writeFileSync(path.join(__dirname, '../data/usersDataBase.json'), JSON.stringify(usersFilter))
+        fs.writeFileSync(path.join(__dirname, '../data/usersDataBase.json'), JSON.stringify(usersFilter), 'utf-8')
 
         res.redirect('/')
     }

@@ -10,6 +10,7 @@ module.exports = {
     cart: (req, res, next)=>{
         res.render('productCart', {
             title: 'Carrito de compras',
+            subcategories: req.subcategories,
             productos: dbProduct,
             user: dbUsers[dbUsers.length - 1]
         })
@@ -21,6 +22,7 @@ module.exports = {
         });
         res.render('productDetail', {
             title: 'Detalle de producto',
+            subcategories: req.subcategories,
             producto: producto[0],
             productos: dbProduct
         });
@@ -55,7 +57,7 @@ module.exports = {
             name: req.body.name,
             price: req.body.price,
             description: req.body.description,
-            discount: null,
+            discount: req.body.discount,
             category: req.body.category,
             subcategory: req.body.subcategory,
             image:[(req.files[0])?req.files[0].filename:"default-image.png"]
@@ -66,7 +68,7 @@ module.exports = {
         
         res.redirect('/products/create')
     },
-    categories : (req, res, next)=>{
+    categories : (req, res)=>{
         let categorias = [
             {
                 cat:1, title: "Escolar", img: "banner_escolar.jpg"
@@ -77,27 +79,49 @@ module.exports = {
             {
                 cat:3, title: "Oficina", img: "banner_oficina.jpg"
             }
-        ];  
+        ];
+
         let subcategoriasFiltradas = [];
-        let categoryId=req.params.id;
-        dbProduct.filter(element =>{
-        if(element.category == categoryId){
-        subcategoriasFiltradas.push(element.subcategory)}}) 
+
+        let categoryId = req.params.id;
+
+        dbProduct.forEach(element =>{
+            if(element.category == categoryId){
+                if(!subcategoriasFiltradas.includes(element.subcategory)){
+                    subcategoriasFiltradas.push(element.subcategory);
+                }
+            }
+            
+        });
+
         categorias.forEach(categoria =>{
             if(categoria.cat == categoryId){
             res.render('categories', {
                 title: categoria.title,
+                subcategories: req.subcategories,
                 productos: dbProduct.filter(producto =>{
                     return producto.category == categoryId
                 }),
-                subcategory: subcategoriasFiltradas.unique().sort(),
+                subcategory: subcategoriasFiltradas,
                 banner: categoria.img
             });
         }
         
         })
     },
+    subcategories: (req, res) => {
+        let subcategory = req.params.id;
 
+        res.render('categories', {
+            title: subcategory,
+            subcategories: req.subcategories,
+            productos: dbProduct.filter(producto => {
+                return producto.subcategory == subcategory;
+            }),
+            subcategory: [subcategory]
+        })
+
+    },
     search: (req, res) => {
         let buscar = req.query.search.toLowerCase();
         let productos = [];
@@ -105,18 +129,29 @@ module.exports = {
             if (producto.name.toLowerCase().includes(buscar)) {
                 productos.push(producto)
             }
-        })
+        });
+
+        let subcategoriasFiltradas = [];
+
+        productos.forEach(element =>{
+            if(!subcategoriasFiltradas.includes(element.subcategory)){
+                subcategoriasFiltradas.push(element.subcategory);
+            }
+        });
 
         if(productos[0] == undefined) {
             res.render('errorSearch', {
                 title: 'Error en su búsqueda',
+                subcategories: req.subcategories,
                 search: buscar
             })
         } else{
             res.render('categories', {
             title: "Resultado de la búsqueda",
+            subcategories: req.subcategories,
             productos: productos,
-            search: buscar
+            search: buscar,
+            subcategory: subcategoriasFiltradas
             })
         } 
     },
@@ -152,8 +187,8 @@ module.exports = {
         }
         })
         
-        fs.writeFileSync(path.join(__dirname, '../data/productsDataBase.json'), JSON.stringify(dbProduct))  
-        res.redirect('/products/create')
+        fs.writeFileSync(path.join(__dirname, '../data/productsDataBase.json'), JSON.stringify(dbProduct), 'utf-8')  
+        res.redirect('/products/edit')
     },
     editionPage:(req,res,next)=>{
         res.render('editBrowser', {
@@ -173,7 +208,7 @@ module.exports = {
         })
 
         if(productos[0] == undefined) {
-            res.render('errorEditBrowser', {
+            res.render('editBrowser', {
                 title: 'Error en su búsqueda',
                 productos: productos,
                 search: buscar
@@ -194,11 +229,8 @@ module.exports = {
             return element.id != idProduct;
         });
 
-        fs.writeFileSync(path.join(__dirname, '../data/productsDataBase.json'), JSON.stringify(productFilter))
+        fs.writeFileSync(path.join(__dirname, '../data/productsDataBase.json'), JSON.stringify(productFilter), 'utf-8')
 
         res.redirect('/products/edit')
     }
-    
-
-
 }

@@ -1,92 +1,95 @@
 <%- include('partials/head.ejs') %>  
 <body>
     <!-- HEADER -->
-    <div class="edicion">
-        
-        <%- include('partials/headerAdmin.ejs')%>
-        
-        
-        <!-- FINALIZA HEADER -->   
-        <!-- BARRA DE NAVEGACION-->
-        <div class="nav col-12">
-            <ul>
-                <li>
-                    <a href="/products/create">CARGA</a>
-                </li>
-                <li>
-                    <a href="#">STOCK</a>
-                </li>
-                <li>
-                    <a href="#">OFERTAS</a>
-                </li>
-            </ul>
-        </div>
-        <!-- FINALIZA BARRA DE NAVEGACION -->  
-        <!-- EDICION -->
-        
-       
-            <div class="container cuerpo col-12">                               
-                <form action="/products/edit/<%- id %>?_method=PUT" method="POST">
-                    <div class="row">
-                        <div class="titulo col-12 ">
-                            <h3>
-                                <%= titulo %>
-                            </h3>
-                            <h6>
-                                <%= name %> 
-                            </h6>                 
-                        </div>                                                                      
-                        <div class="datos col-12 " >   
-                           <div class="seccion1 col-12 col-md-6 col-lg-4">
-                                <div class="input">
-                                    <label for="">Categoría</label>
-                                    <input type="text" name="category" id="" value=<%= category %> >
-                                </div>  
-                                <div class="input">
-                                    <label for="">Subcategoría</label>
-                                    <input type="text" name="subcategory" id="" value=<%= subcategory %> >
-                                </div>        
-                                <div class="input">
-                                    <label for="">Nombre</label>
-                                    <input type="text" name="name" id="" value="<%= name %>" >
-                                </div>
-                           </div>
-                           <div class="seccion2 col-12 col-md-6 col-lg-4">
-                            <div class="input">
-                                    <label for="">Precio</label>
-                                    <input type="text" name="price" id="" value=<%= price %> >
-                                </div>
-                                <div class="input">
-                                    <label for="">Descuento</label>
-                                    <input type="text" name="discount" id="" value=<%= discount %> >
-                                </div>  
-                                <!--<div class="input" >
-                                    <label for="">Imagen</label>
-                                    <input type="file" id="file" name="image" value="<%= image %> ">
-                                </div>  -->
-                           </div>
-                            <div class="descripcion col-lg-4">
-                                <label for="">Descripción</label>
-                                <textarea name="description" id="" cols="30" rows="10"><%= description %> </textarea>
-                            </div>               
-                        </div>
-                        <div class="guardar">               
-                            <button type="submit">guardar cambios</button>
-                        </div>
-                    </form>
-                    
-                </div>
-            </div>
-        
-        
-        
+<div class="cargaProd">
+    <%- include('partials/headerAdmin.ejs')%>
+    <div class="nav col-12">
+        <ul>
+            <li>
+                <a href="/products/create">CARGA</a>
+            </li>
+            <li>
+                <a href="#">STOCK</a>
+            </li>
+            <li>
+                <a href="#">OFERTAS</a>
+            </li>
+        </ul>
     </div>
+    <div class="carga">
+        <div>
+            <h3 class="titulo">
+                Estas editando el producto:
+            </h3>
+            <h5>
+                <%= name %> 
+            </h5>
+        </div>
+        <div class="container main">
+            <form action="/products/edit/<%- id %>?_method=PUT" method="POST">
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-8" id="formulario1">
+                            <div class="datos">
+                                
+                                <div class="row">
+                                    <div class="col-12 col-md-12" id="form">
+                                        <div>
+                                            <div class="row">
+                                                
+                                                <div class="bloque1">
+                                                    <label for="category">Categoría</label>
+                                                    <select name="category" id="category">
+                                                        <option hidden>Elija una categoria</option>
+                                                    <option value="1" <% if(typeof category != 'undefined' && category == '1'){%> selected <% } %> >Escolar</option>
+                                                        <option value="2" <% if(typeof category != 'undefined' && category == '2'){%> selected <% } %>>Artística</option>
+                                                        <option value="3" <% if(typeof category != 'undefined' && category == '3'){%> selected <% } %>>Oficina</option>
+                                                    </select>
+                                                    <label for="name">Producto</label>
+                                                    <input type="text" placeholder="Producto" name="name" id="name" value="<%= name %>">
+                                                </div>
+                                                <div class="bloque2">
+                                                    <label for="subcategory">Subcategoría</label>
+                                                    <input type="text" placeholder="Subcategoría" name="subcategory" id="subcategory" value="<%= subcategory %>">
+                                                    <label for="discount">Descuento</label>
+                                                    <input type="text" placeholder="Descuento" name="discount" id="discount" value="<%= discount %>""
+                                                </div>
+                                            </div>
+                                        </div >
+                                    </div>
+                                </div>
+                                
+                                <div class="descripcion">
+                                    <label for="descripcion">Descripción del producto</label>
+                                    <textarea name="description" id="descripcion" cols="30" rows="7" placeholder="Escriba aquí"><%- description %></textarea>
+                                </div>
+                                <div class="precio">
+                                    <label for="precio">Precio:   $</label>
+                                    <input type="text" name="price" id="precio" value="<%= price %>">
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- <div class="col-12 col-md-12 col-lg-6" id="formulario2">
+                            <div class="cargaimg">
+                                <h3 id="tituloimg">Agregar archivos de imagen</h3>
+                                <p>
+                                    <input type="file" name="image" id="image">
+                                </p>
+                            </div>
+                        </div> -->
+                        <div class="final col-12">                          
+                            <button type="submit">Guardar cambios</button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
+
+    <!-- FINALIZA FORMULARIO DE CARGA -->
 </div>
-</div>
-</div>  
-
-
-
-
-
-<%- include('partials/scripts.ejs') %> 
+    
+    
+    
+    
+    
+    <%- include('partials/scripts.ejs') %> 

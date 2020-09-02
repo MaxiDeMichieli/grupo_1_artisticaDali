@@ -17,14 +17,26 @@
 /* BARRA DE NAVEGACION */
 .editionPage .nav {
     width: 100%;
+    background: var(--color-claro);
     padding: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
     ul{
-        width: 100%;
-        display: inline-flex;
-        justify-content: space-evenly;
-        padding: 0;
+      width: 100%;
+      max-width: 540px;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0px;
+      margin: 0;
+      a{
+        text-decoration: none;
+        color: var(--color-medioOscuro);
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
     }
-
 }
 /* EDITAR O ELIMINAR PRODUCTO*/
 

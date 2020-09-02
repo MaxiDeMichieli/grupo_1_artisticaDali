@@ -24,87 +24,75 @@
         <!-- FORMULARIO DE CARGA -->
         
         <div class="carga">
+            <div>
+                <h3 class="titulo">
+                    Carga de productos
+                </h3>
+            </div>
             <div class="container main">
-                <div class="row">
                     <form action="/products/create" method="POST" enctype="multipart/form-data">
-                        <div class="col-12 col-md-12 col-lg-6" id="formulario1">
-                            <h3 class="titulo">
-                                Carga de productos
-                            </h3>
-                            <div class="container datos">
-                                
-                                <div class="row">
-                                    <div class="col-12 col-md-12" id="form">
-                                        <div class="container">
-                                            <div class="row">
-                                                
-                                                <div class="bloque1">
-                                                    
-                                                    
-                                                    <select name="category" >
-
-                                                        <option hidden selected>Elija una categoria</option>
-                                                        <option value="1">Escolar</option>
-                                                        <option value="2">Artística</option>
-                                                        <option value="3">Oficina</option>
-                                                        
-                                                    </select>
-                                                    
-                                                    
-                                                    <input type="text" placeholder="Producto" name="name" id="producto">
-                                                    
+                        <div class="row">
+                            <div class="col-12 col-md-12 col-lg-6" id="formulario1">
+                                <div class="datos">
+                                    
+                                    <div class="row">
+                                        <div class="col-12 col-md-12" id="form">
+                                            <div>
+                                                <div class="row">
+                                                    <div class="bloque1">
+                                                        <select name="category" >
+                                                            <option hidden selected>Elija una categoria</option>
+                                                            <option value="1">Escolar</option>
+                                                            <option value="2">Artística</option>
+                                                            <option value="3">Oficina</option>
+                                                        </select>
+                                                        <input type="text" placeholder="Producto" name="name" id="producto">
+                                                    </div>
+                                                    <div class="bloque2">
+                                                        <input type="text" placeholder="Subcategoría" name="subcategory">
+                                                        <input type="number" placeholder="Descuento" name="discount" id="discount">
+                                                    </div>
                                                 </div>
-                                                <div class="bloque2">
-                                                    
-                                                    
-                                                    
-                                                    <input type="text" placeholder="Subcategoría" name="subcategory">
-                                                    
-                                                    
-                                                    <input type="text" placeholder="Cantidad" name="codigo" id="codigo">  
-                                                    
-                                                </div>
-                                            </div>
-                                        </div >
+                                            </div >
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <div class="descripcion">
-                                    <label for="descripcion">Descripción del producto</label>
-                                    <textarea name="description" id="descripcion" cols="30" rows="7">Escriba aquí</textarea>
-                                </div>
-                                <div class="precio">
-                                    <label for="precio">Precio:   $</label>
-                                    <input type="text" name="price" id="precio">
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-12 col-lg-6" id="formulario2">
-                            <div class="imagenes">
-                                <img src="/images/450x450.png" alt="">
-                                <img src="/images/450x450.png" alt="">
-                                <img src="/images/450x450.png" alt="">
-                                <img src="/images/450x450.png" alt="">
-                            </div>
-                            <div class="cargaimg">
-                                <h3 id="tituloimg">Agregar archivos de imagen</h3>
-                                <p>
-                                    <input type="file" name="image" id="examinar">
-                                </p>
-                                <div class="cargados">
-                                    <a href="">img001</a>
-                                    <a href="">img002</a>
-                                    <a href="">img003</a>
-                                    <a href="">img004</a>
+                                    
+                                    <div class="descripcion">
+                                        <label for="descripcion">Descripción del producto</label>
+                                        <textarea name="description" id="descripcion" cols="30" rows="7" placeholder="Escriba aquí"></textarea>
+                                    </div>
+                                    <div class="precio">
+                                        <label for="precio">Precio:   $</label>
+                                        <input type="text" name="price" id="precio">
+                                    </div>
+                                    
                                 </div>
                             </div>
-                        </div>
-                        <div class="final col-12">                          
-                            <button type="submit">finalizar</button>
+                            <div class="col-12 col-md-12 col-lg-6" id="formulario2">
+                                <!-- <div class="imagenes">
+                                    <img src="/images/450x450.png" alt="">
+                                    <img src="/images/450x450.png" alt="">
+                                    <img src="/images/450x450.png" alt="">
+                                    <img src="/images/450x450.png" alt="">
+                                </div> -->
+                                <div class="cargaimg">
+                                    <h3 id="tituloimg">Agregar archivos de imagen</h3>
+                                    <p>
+                                        <input type="file" name="image" id="examinar">
+                                    </p>
+                                    <!-- <div class="cargados">
+                                        <a href="">img001</a>
+                                        <a href="">img002</a>
+                                        <a href="">img003</a>
+                                        <a href="">img004</a>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="final col-12">                          
+                                <button type="submit">finalizar</button>
+                            </div>
                         </div>
                     </form>
-                </div>
             </div>
         </div>
 
