@@ -26,9 +26,9 @@
             </h5>
         </div>
         <div class="container main">
-            <form action="/products/edit/<%- id %>?_method=PUT" method="POST">
+            <form action="/products/edit/<%- id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-12 col-md-12 col-lg-8" id="formulario1">
+                        <div class="col-12 col-md-12 col-lg-6" id="formulario1">
                             <div class="datos">
                                 
                                 <div class="row">
@@ -51,7 +51,7 @@
                                                     <label for="subcategory">Subcategoría</label>
                                                     <input type="text" placeholder="Subcategoría" name="subcategory" id="subcategory" value="<%= subcategory %>">
                                                     <label for="discount">Descuento</label>
-                                                    <input type="text" placeholder="Descuento" name="discount" id="discount" value="<%= discount %>""
+                                                    <input type="text" placeholder="Descuento" name="discount" id="discount" value="<%= discount %>">
                                                 </div>
                                             </div>
                                         </div >
@@ -69,14 +69,18 @@
                                 
                             </div>
                         </div>
-                        <!-- <div class="col-12 col-md-12 col-lg-6" id="formulario2">
+                        <div class="col-12 col-md-12 col-lg-6" id="formulario2">
+                            <div class="imgactual">
+                                <h3>Imagen actual</h3>
+                                <img src="/images/productos/<%- image[0] %>" alt="">
+                            </div>
                             <div class="cargaimg">
-                                <h3 id="tituloimg">Agregar archivos de imagen</h3>
+                                <h3 id="tituloimg">Cambiar imagen</h3>
                                 <p>
                                     <input type="file" name="image" id="image">
                                 </p>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="final col-12">                          
                             <button type="submit">Guardar cambios</button>
                         </div>

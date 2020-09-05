@@ -1399,6 +1399,21 @@ button:focus {
 .cargaProd .imagenes img {
   max-width: 50%; }
 
+.cargaProd .imgactual {
+  width: 40%;
+  margin: 0 auto; }
+
+.cargaProd .imgactual img {
+  width: 100%; }
+
+.cargaProd .imgactual h3 {
+  text-align: center;
+  margin-right: 0;
+  margin-bottom: 0;
+  width: 100%;
+  font-size: 1em;
+  padding: 5px; }
+
 .cargaProd .cargaimg {
   border-radius: 15px;
   border: 1px solid var(--color-oscuro);
@@ -2032,6 +2047,8 @@ button:focus {
     width: 48%;
     max-width: 380px; } }
 
+/* ----------------------------------------------------------------------------------------------------------- */
+/* BUSCADOR PARA EDICION */
 .editionPage {
   justify-content: center;
   width: 100%; }
@@ -2061,7 +2078,7 @@ button:focus {
     .editionPage .nav ul a {
       text-decoration: none;
       color: var(--color-medioOscuro);
-      font-weight: 500;
+      font-weight: 600;
       font-size: 0.9rem; }
 
 /* EDITAR O ELIMINAR PRODUCTO*/
@@ -2140,6 +2157,7 @@ button:focus {
             color: white;
             width: 150px; }
 
+/* ----------------------------------------------------------------------------------------------------------- */
 /* HEADER DE ADMINISTRACION DE PRODUCTOS*/
 .headerAdmin .container {
   width: 100%;

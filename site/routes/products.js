@@ -10,7 +10,7 @@ let storage = multer.diskStorage({
     callback(null, 'public/images/productos')
     },
     filename:(req, file, callback)=>{
-        callback(null, file.filename + '-' + Date.now() + path.extname(file.originalname))
+        callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 })
 
@@ -30,7 +30,7 @@ router.get('/edit', controller.editionPage)
 router.get('/searchEdit', controller.browserToEdit)
 
 router.get('/edit/:id', controller.toEdit)
-router.put('/edit/:id', controller.edit)
+router.put('/edit/:id', upload.any(), controller.edit)
 
 router.delete('/delete/:id', controller.delete)
 
