@@ -33,9 +33,8 @@
                     
                     <% subcategory.forEach(element => { %>
                       
-                        <a class="dropdown-item" href="#"><%- element%> </a>
+                        <a class="dropdown-item" href="/products/subcategory/<%- element %>"><%- element %></a>
 
-                      
                     <% }) %>
                     </div>
                 </div class="row">
@@ -57,7 +56,7 @@
               <h3>Categorias</h3>
               <ul>
                 <% subcategory.forEach(element => { %>
-                  <li><a href="categories.ejs"><%- element%> </a>
+                  <li><a href="/products/subcategory/<%- element %>"><%- element%> </a>
                   </li>
                 <% }) %>
                 
