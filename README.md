@@ -106,7 +106,7 @@ Nuestra elección se basó principalmente en la funcionalidad del e-commerce, ta
 ### Retrospectiva: [retro.md](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/retro.md)
 
 ### Tareas realizadas:
-- Bases de datos (Usuarios y productos)
+- Bases de datos json (Usuarios y productos)
 - Templates engines
 - Funcionalidad de listado, detalle, alta, modificación y baja de productos.
 
