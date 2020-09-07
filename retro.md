@@ -21,3 +21,24 @@
 
 **Hacer menos:**
 
+# Sprint 2: Retro
+
+**Empezar a hacer:**
+
+- Trabajar en ramas paralelas al master con GIT 
+
+**Hacer mas:**
+
+- Organizar los archivos de la aplicación
+
+**Seguir haciendo:**
+
+- Reuniones por zoom para asignación de tareas.
+- Comunicación diaria de los avances o problemas que surgen.
+- Pensar la dificultad de las tareas y distribuirlas equitativamente acorde a ello.
+- Revisar errores o posibles mejoras de las funcionalidades del sitio y plantear las resoluciones.
+
+**Dejar de hacer:**
+
+**Hacer menos:**
+
