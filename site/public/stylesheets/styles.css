@@ -193,7 +193,7 @@ button:focus {
 
 .header .nav .icons ul .user-options {
   position: absolute;
-  bottom: -97px;
+  bottom: -98px;
   left: -90px;
   width: 150px;
   padding: 15px;
@@ -1071,6 +1071,12 @@ button:focus {
 .registro .none {
   display: none; }
 
+.registro .errors {
+  font-size: .9em;
+  color: red;
+  margin: 0;
+  width: 100%; }
+
 /* LOGO */
 .registro .logo {
   width: 100%;
@@ -1190,7 +1196,8 @@ button:focus {
   display: inline-block;
   font-size: .9em;
   color: #000;
-  margin-top: 30px; }
+  margin-top: 30px;
+  width: 100%; }
 
 /* BOTONES REDES */
 .registro .redes {

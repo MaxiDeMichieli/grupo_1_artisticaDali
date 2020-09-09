@@ -2,14 +2,17 @@ const dbUsers = require('../data/usersDataBase.js');
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
+const {check,validationResult,body} = require('express-validator');
 
 module.exports = {
     registerView: (req, res) => {
         res.render('register', {
-            title: 'Formulario de registro'
+            title: 'Inicia sesión'
         });
     },
     register: (req, res, next) => {
+        let errors = validationResult(req);
+
         let newUser = {
             id: dbUsers.length + 1,
             nombre: req.body.nombre.trim(),
@@ -25,11 +28,48 @@ module.exports = {
             localidad: null,
         }
 
-        dbUsers.push(newUser);
+        if(errors.isEmpty()){
+            dbUsers.push(newUser);
 
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'usersDataBase.json'), JSON.stringify(dbUsers), 'utf-8');
+            fs.writeFileSync(path.join(__dirname, '..', 'data', 'usersDataBase.json'), JSON.stringify(dbUsers), 'utf-8');
 
-        res.redirect('/users/account')
+            res.redirect('/users/account')
+        }else{
+            res.render('register', {
+                title: 'Crear cuenta',
+                errorsRegister: errors.mapped(),
+                oldRegister: req.body
+            })
+        }
+
+        
+    },
+    login: (req, res) => {
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+            /* dbUsuarios.forEach(usuario => {
+                if(usuario.email == req.body.email){
+                    req.session.usuario = {
+                        id:usuario.id,
+                        nick:usuario.nombre + " " + usuario.apellido,
+                        email:usuario.email,
+                        avatar:usuario.avatar
+                    }
+                }
+            });
+            if(req.body.recordar){
+                res.cookie('userMercadoLiebre',req.session.usuario,{maxAge:1000*60*2})
+            }
+            res.redirect('/') */
+            res.send('sesion iniciada')
+        }else{
+            res.render('register', {
+                title: "Inicia sesión",
+                errorsLogin: errors.mapped(),
+                oldLogin: req.body
+               })
+            res.send(errors.mapped())
+        }
     },
     account: (req, res) => {
         res.render('account', {
