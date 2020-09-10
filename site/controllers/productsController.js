@@ -129,6 +129,7 @@ module.exports = {
             productos: dbProduct.filter(producto => {
                 return producto.subcategory == subcategory;
             }),
+            subcategoryTitle: subcategory,
             subcategory: [subcategory]
         })
 
@@ -198,7 +199,9 @@ module.exports = {
             producto.discount = req.body.discount,
             producto.description = req.body.description;
                 if (typeof req.files[0] != 'undefined'){
-                fs.unlinkSync('public/images/productos/' + producto.image);
+                    if(producto.image[0] != 'default-image.png'){
+                        fs.unlinkSync('public/images/productos/' + producto.image);
+                    }
                 producto.image = [req.files[0].filename]
                 }
             }
@@ -270,7 +273,9 @@ module.exports = {
         /* ELIMINO IMAGEN */
         dbProduct.forEach(producto => {
             if (producto.id == idProduct) {
-                fs.unlinkSync('public/images/productos/' + producto.image)
+                if(producto.image[0] != 'default-image.png'){
+                    fs.unlinkSync('public/images/productos/' + producto.image)
+                }
             }
         })
 

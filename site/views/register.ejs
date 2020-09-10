@@ -10,47 +10,55 @@
             </a>
         </div>
         <div class="ventanas">
-            <h3 id="is" class="active">INICIAR SESIÓN</h3>
-            <h3 id="cc" class="">CREAR CUENTA</h3>
+            <h3 id="is" class=<%= (title == "Inicia sesión")?"active": "" %>>INICIAR SESIÓN</h3>
+            <h3 id="cc" class=<%= (title == "Crear cuenta")?"active": "" %>>CREAR CUENTA</h3>
         </div>
-        <div class="inicio-sesion" id="inicio-sesion">
+        <div class="inicio-sesion <%= (title == "Crear cuenta")?'none': '' %>" id="inicio-sesion">
             <form action="/users/login" method="POST">
                 <div>
                     <label for="emailInicio">Email</label>
-                    <input type="email" name="email" id="emailInicio" placeholder="dalí@ejemplo.com" spellcheck="false" required>
+                    <input type="text" name="email" id="emailInicio" placeholder="dalí@ejemplo.com" spellcheck="false" value="<%= (typeof oldLogin != 'undefined' && oldLogin.email)?oldLogin.email:'' %>">
+                    <p class="errors"><%= (typeof errorsLogin != 'undefined' && errorsLogin.email)?errorsLogin.email.msg: "" %></p>
                 </div>
                 <div>
                     <label for="passwordInicio">Contraseña</label>
-                    <input type="password" name="password" id="passwordInicio" maxlength="25" spellcheck="false" required>
+                    <input type="password" name="password" id="passwordInicio" maxlength="25" spellcheck="false">
                     <i class="fas fa-eye fa-lg view-pass" id="btn-pass-1"></i>
+                    <p class="errors"><%= (typeof errorsLogin != 'undefined' && errorsLogin.password)?errorsLogin.password.msg: "" %></p>
                 </div>
+                <p class="errors"><%= (typeof errorsLogin != 'undefined' && errorsLogin.custom && !errorsLogin.email && !errorsLogin.password)?errorsLogin.custom.msg: "" %> </p>
                 <a href="#">¿Olvidaste tu contraseña?</a>
                 <button type="submit">Ingresar</button>
             </form>
         </div>
-        <div class="crear-cuenta none" id="crear-cuenta">
+        <div class="crear-cuenta <%= (title == "Inicia sesión")?'none': '' %>" id="crear-cuenta">
             <form action="/users/login/create" method="POST">
                 <div>
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" placeholder="Artística" spellcheck="false" required>
+                    <input type="text" name="nombre" id="nombre" placeholder="Artística" spellcheck="false" value="<%= (typeof oldRegister != 'undefined' && oldRegister.nombre)?oldRegister.nombre:'' %>">
+                    <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.nombre)?errorsRegister.nombre.msg: "" %></p>
                 </div>
                 <div>
                     <label for="apellido">Apellido</label>
-                    <input type="text" name="apellido" id="apellido" placeholder="Dalí" spellcheck="false" required>
+                    <input type="text" name="apellido" id="apellido" placeholder="Dalí" spellcheck="false" value="<%= (typeof oldRegister != 'undefined' && oldRegister.apellido)?oldRegister.apellido:'' %>">
+                    <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.apellido)?errorsRegister.apellido.msg: "" %></p>
                 </div>
                 <div>
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="dalí@ejemplo.com" spellcheck="false" required>
+                    <input type="text" name="email" id="email" placeholder="dalí@ejemplo.com" spellcheck="false" value="<%= (typeof oldRegister != 'undefined' && oldRegister.email)?oldRegister.email:'' %>">
+                    <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.email)?errorsRegister.email.msg: "" %></p>
                 </div>
                 <div>
                     <label for="passwordRegistro">Contraseña</label>
-                    <input type="password" name="password" id="passwordRegistro" maxlength="25" spellcheck="false" required>
+                    <input type="password" name="password" id="passwordRegistro" maxlength="25" spellcheck="false" value="<%= (typeof oldRegister != 'undefined' && oldRegister.password)?oldRegister.password:'' %>">
                     <i class="fas fa-eye fa-lg view-pass" id="btn-pass-2"></i>
+                    <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.password)?errorsRegister.password.msg: "" %></p>
                 </div>
                 <div>
                     <label for="passwordRepeat">Repetir contraseña</label>
-                    <input type="password" name="passwordRepeat" id="passwordRepeat" maxlength="25" spellcheck="false" required>
+                    <input type="password" name="passwordRepeat" id="passwordRepeat" maxlength="25" spellcheck="false" value="<%= (typeof oldRegister != 'undefined' && oldRegister.passwordRepeat)?oldRegister.passwordRepeat:'' %>">
                     <i class="fas fa-eye fa-lg view-pass" id="btn-pass-3"></i>
+                    <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.passwordRepeat)?errorsRegister.passwordRepeat.msg: "" %></p>
                 </div>
                 <div class="terminos">
                     <input type="checkbox">Acepto los términos y condiciones.
