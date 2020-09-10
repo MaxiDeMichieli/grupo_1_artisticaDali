@@ -75,6 +75,7 @@ module.exports = {
         res.render('productAdd',{
             title: 'Error',
             errors:errors.errors,
+            oldAdd:req.body
         })
         console.log(errors.errors)
     }
