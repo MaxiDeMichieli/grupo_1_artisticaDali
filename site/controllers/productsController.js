@@ -2,6 +2,7 @@ const dbProduct = require('../data/dataBase');
 const dbUsers = require('../data/usersDataBase');
 const fs = require('fs');
 const path = require('path');
+const { validationResult } = require('express-validator');
 
 Array.prototype.unique=function(a){return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0})
         
@@ -45,7 +46,9 @@ module.exports = {
   
     },
     create: (req, res, next)=>{
+        let errors = validationResult(req);
         let lastId = 1;
+        if(errors.isEmpty()){
         dbProduct.forEach(producto=>{
             if(producto.id>lastId){
                 lastId = producto.id
@@ -62,11 +65,19 @@ module.exports = {
             subcategory: req.body.subcategory,
             image:[(req.files[0])?req.files[0].filename:"default-image.png"]
         }
+        
         dbProduct.push(newProduct);
-
+        
         fs.writeFileSync(path.join(__dirname, "..", "data", "productsDataBase.json"),JSON.stringify(dbProduct),'utf-8')
         
         res.redirect('/products/create')
+    }else{
+        res.render('productAdd',{
+            title: 'Error',
+            errors:errors.errors,
+        })
+        console.log(errors.errors)
+    }
     },
     categories : (req, res)=>{
         let categorias = [
@@ -175,7 +186,9 @@ module.exports = {
         })
     },
     edit:(req, res, next)=>{
+        let errors = validationResult(req)
         let idProduct = req.params.id;
+        if(errors.isEmpty()){
         dbProduct.forEach(producto => {
             if(producto.id == idProduct){
             producto.category = req.body.category,
@@ -192,7 +205,28 @@ module.exports = {
         })
 
         fs.writeFileSync(path.join(__dirname, '../data/productsDataBase.json'), JSON.stringify(dbProduct), 'utf-8')  
+    
         res.redirect('/products/edit')
+    }else{
+        let idProduct = req.params.id;
+        dbProduct.forEach(element=>{
+            if (element.id == idProduct) {
+                res.render('editProduct',{
+                    title: 'Edicion de producto',
+                    titulo: 'Estás editando el producto: ',
+                    id: element.id,
+                    category: element.category,
+                    subcategory: element.subcategory,
+                    name: element.name.trim(),
+                    price: element.price,
+                    discount: element.discount,
+                    image: element.image,
+                    description: element.description.trim(),
+                    errors:errors.errors
+                })
+            }
+        })
+    }
     },
     editionPage:(req,res,next)=>{
         res.render('editBrowser', {

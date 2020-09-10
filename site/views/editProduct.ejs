@@ -34,12 +34,21 @@
                                 <div class="row">
                                     <div class="col-12 col-md-12" id="form">
                                         <div>
+                                            <div class="errores">
+                                                <% if (typeof errors != 'undefined') { %>
+                                                  <ul>
+                                                      <% for( let i = 0; i < errors.length; i++ ) { %>
+                                                          <li style="color: red; list-style: circle;"><%= errors[i ].msg %> </li>                                                  
+                                                      <% } %>
+                                                  </ul>
+                                                  <% } %> 
+                                              </div>
                                             <div class="row">
                                                 
                                                 <div class="bloque1">
                                                     <label for="category">Categoría</label>
                                                     <select name="category" id="category">
-                                                        <option hidden>Elija una categoria</option>
+                                                        <option hidden value="0">Elija una categoria</option>
                                                     <option value="1" <% if(typeof category != 'undefined' && category == '1'){%> selected <% } %> >Escolar</option>
                                                         <option value="2" <% if(typeof category != 'undefined' && category == '2'){%> selected <% } %>>Artística</option>
                                                         <option value="3" <% if(typeof category != 'undefined' && category == '3'){%> selected <% } %>>Oficina</option>
