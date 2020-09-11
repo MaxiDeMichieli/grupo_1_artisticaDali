@@ -38,5 +38,9 @@ module.exports = [
             }
             return true
         })
-        .withMessage('Las contraseñas no coinciden')
+        .withMessage('Las contraseñas no coinciden'),
+
+    check('terminos')
+        .isLength({min:1})
+        .withMessage('Para crear una cuenta debes aceptar los términos y condiciones')
 ]

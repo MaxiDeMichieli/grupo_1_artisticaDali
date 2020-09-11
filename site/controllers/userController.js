@@ -41,8 +41,6 @@ module.exports = {
                 oldRegister: req.body
             })
         }
-
-        
     },
     login: (req, res) => {
         let errors = validationResult(req);
