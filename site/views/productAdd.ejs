@@ -65,16 +65,16 @@
                                                 <div class="row">
                                                     <div class="bloque1">
                                                         <select name="category" >
-                                                            <option hidden selected value="0">Elija una categoria</option>
-                                                            <option value="1">Escolar</option>
-                                                            <option value="2">Artística</option>
-                                                            <option value="3">Oficina</option>
+                                                            <option hidden selected value="0" >Elija una categoria</option>
+                                                            <option value="1" <% if(typeof oldAdd != 'undefined' && oldAdd.category == '1'){%> selected <% } %>>Escolar</option>
+                                                            <option value="2" <% if(typeof oldAdd != 'undefined' && oldAdd.category == '2'){%> selected <% } %>>Artística</option>
+                                                            <option value="3"<% if(typeof oldAdd != 'undefined' && oldAdd.category == '3'){%> selected <% } %>>Oficina</option>
                                                         </select>
-                                                        <input type="text" placeholder="Producto" name="name" id="producto">
+                                                        <input type="text" placeholder="Producto" name="name" id="producto" value="<%= (typeof oldAdd != 'undefined' && oldAdd.name)?oldAdd.name:'' %>">
                                                     </div>
                                                     <div class="bloque2">
-                                                        <input type="text" placeholder="Subcategoría" name="subcategory" >
-                                                        <input type="number" placeholder="Descuento" name="discount" id="discount">
+                                                        <input type="text" placeholder="Subcategoría" name="subcategory" value="<%= (typeof oldAdd != 'undefined' && oldAdd.subcategory)?oldAdd.subcategory:'' %>" >
+                                                        <input type="number" placeholder="Descuento" name="discount" id="discount" value="<%= (typeof oldAdd != 'undefined' && oldAdd.discount)?oldAdd.discount:'' %>">
                                                     </div>
                                                 </div>
                                             </div >
@@ -83,11 +83,11 @@
                                     
                                     <div class="descripcion">
                                         <label for="descripcion">Descripción del producto</label>
-                                        <textarea name="description" id="descripcion" cols="30" rows="7" placeholder="Escriba aquí"></textarea>
+                                        <textarea name="description" id="descripcion" cols="30" rows="7" placeholder="Escriba aquí" ><%= (typeof oldAdd != 'undefined' && oldAdd.description)?oldAdd.description:'' %></textarea>
                                     </div>
                                     <div class="precio">
                                         <label for="precio">Precio:   $</label>
-                                        <input type="number" name="price" id="precio">
+                                        <input type="number" name="price" id="precio" value="<%= (typeof oldAdd != 'undefined' && oldAdd.price)?oldAdd.price:'' %>">
                                     </div>
                                     
                                 </div>
@@ -102,7 +102,7 @@
                                 <div class="cargaimg">
                                     <h3 id="tituloimg">Agregar archivos de imagen</h3>
                                     <p>
-                                        <input type="file" name="image" id="examinar">
+                                        <input type="file" name="image" id="examinar" >
                                     </p>
                                     <!-- <div class="cargados">
                                         <a href="">img001</a>
