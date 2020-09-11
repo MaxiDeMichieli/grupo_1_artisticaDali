@@ -27,6 +27,9 @@
                     <p class="errors"><%= (typeof errorsLogin != 'undefined' && errorsLogin.password)?errorsLogin.password.msg: "" %></p>
                 </div>
                 <p class="errors"><%= (typeof errorsLogin != 'undefined' && errorsLogin.custom && !errorsLogin.email && !errorsLogin.password)?errorsLogin.custom.msg: "" %> </p>
+                <div class="recuerdame">
+                    <input type="checkbox" name="recordar">Mantener mi cuenta abierta
+                </div>
                 <a href="#">¿Olvidaste tu contraseña?</a>
                 <button type="submit">Ingresar</button>
             </form>

@@ -41,7 +41,8 @@ module.exports = {
         res.render('productAdd', { 
             title: 'Formulario de carga de productos',
             subcategoria: subcategorias.unique().sort(),
-            productos: products.unique().sort()
+            productos: products.unique().sort(),
+            productCreated: req.query.lp /* last product created */
         });
   
     },
@@ -70,7 +71,7 @@ module.exports = {
         
         fs.writeFileSync(path.join(__dirname, "..", "data", "productsDataBase.json"),JSON.stringify(dbProduct),'utf-8')
         
-        res.redirect('/products/create')
+        res.redirect('/products/create?lp=' + (lastId + 1))
     }else{
         res.render('productAdd',{
             title: 'Error',

@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var app = express();
 const methodOverride = require('method-override');
+const session = require('express-session')
 const headerCategories = require('./middlewares/headerSubcategoriesMiddleware');
 
 
@@ -25,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 app.use(headerCategories);
+app.use(session({secret:"artisticaDali"}));
 
 // RUTAS
 

@@ -795,6 +795,7 @@ button:focus {
   border-bottom: 1px solid var(--color-medio); }
 
 .productSlider .item-container h4 {
+  width: 100%;
   text-align: center;
   font-weight: 500;
   margin: 10px 0;
@@ -1148,7 +1149,8 @@ button:focus {
   outline: none;
   box-shadow: 0px 0px 4px var(--color-medio); }
 
-.registro .crear-cuenta .terminos {
+.registro .crear-cuenta .terminos,
+.registro .inicio-sesion .recuerdame {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1156,12 +1158,14 @@ button:focus {
   font-size: .9em;
   width: 100%; }
 
-.registro .crear-cuenta .terminos input {
+.registro .crear-cuenta .terminos input,
+.registro .inicio-sesion .recuerdame input {
   width: auto;
   margin-right: 5px;
   box-shadow: none; }
 
-.registro .crear-cuenta .terminos input:focus {
+.registro .crear-cuenta .terminos input:focus,
+.registro .inicio-sesion .recuerdame input:focus {
   box-shadow: none; }
 
 .registro .inicio-sesion form label,
@@ -1273,6 +1277,61 @@ button:focus {
 .cargaProd h5 {
   text-align: center;
   margin-bottom: 30px; }
+
+/* POPUP NUEVO PRODUCTO */
+.popup-producto {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); }
+
+.popup-producto .popup-contenedor {
+  width: 90%;
+  max-width: 400px;
+  height: 200px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; }
+
+.popup-producto .popup-contenedor h5 {
+  text-align: center;
+  margin-top: 15px;
+  color: var(--color-medioOscuro); }
+
+.popup-producto .popup-contenedor .botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
+
+.popup-producto .popup-contenedor .botones .btn {
+  padding: 5px 15px;
+  border: 2px solid var(--color-medioOscuro);
+  border-radius: 50px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--color-medioOscuro);
+  transition: all .5s ease;
+  cursor: pointer; }
+
+.popup-producto .popup-contenedor .botones .btn:hover {
+  background: var(--color-medioOscuro);
+  color: #fff;
+  transition: all .5s ease; }
+
+.popup-producto .popup-contenedor .botones .btn:focus {
+  box-shadow: none; }
+
+.none {
+  display: none; }
 
 /* NAVEGACION */
 .cargaProd {

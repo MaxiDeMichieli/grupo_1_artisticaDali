@@ -1,8 +1,23 @@
 <%- include('partials/head.ejs') %>  
 <body>
+    <!-- POPUP -->
+    <% if (typeof productCreated != 'undefined') { %>
+    <div class="popup-producto">
+        <div class="popup-contenedor">
+            <h5><i class="fas fa-check-circle"></i> Producto cargado correctamente!</h5>
+            <div class="botones">
+                <a href="/products/create" class="btn">Seguir cargando</a>
+                <a href="/products/edit/<%- productCreated%>" class="btn">Editar producto</a>
+                <a href="/products/detail/<%- productCreated%>" class="btn">Ver producto</a>
+            </div>
+        </div>
+    </div>
+    <% } %>
+
+
     <!-- HEADER -->
     <div class="cargaProd">
-      <%- include('partials/headerAdmin.ejs') %> 
+      <%- include('partials/headerAdmin.ejs') %>
         
         <!-- FINALIZA HEADER -->
         <!-- BARRA DE NAVEGACION-->
@@ -107,6 +122,5 @@
 
         <!-- FINALIZA FORMULARIO DE CARGA -->
     </div>
-    
     
     <%- include('partials/scripts.ejs') %> 

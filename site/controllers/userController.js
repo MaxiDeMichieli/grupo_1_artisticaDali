@@ -47,20 +47,20 @@ module.exports = {
     login: (req, res) => {
         let errors = validationResult(req);
         if(errors.isEmpty()){
-            /* dbUsuarios.forEach(usuario => {
+            dbUsers.forEach(usuario => {
                 if(usuario.email == req.body.email){
                     req.session.usuario = {
-                        id:usuario.id,
-                        nick:usuario.nombre + " " + usuario.apellido,
-                        email:usuario.email,
-                        avatar:usuario.avatar
+                        id: usuario.id,
+                        nombre: usuario.nombre,
+                        apellido: usuario.apellido,
+                        email: usuario.email
                     }
                 }
             });
             if(req.body.recordar){
-                res.cookie('userMercadoLiebre',req.session.usuario,{maxAge:1000*60*2})
+                res.cookie('userArtisticaDali',req.session.usuario,{maxAge:1000*60*60*24*365})
             }
-            res.redirect('/') */
+            res.redirect('/')
             res.send('sesion iniciada')
         }else{
             res.render('register', {

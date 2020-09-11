@@ -5,7 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const { addProduct } = require('../controllers/productsController');
 const productCreateValidator = require('../validations/productCreateValidator');
-const productEditValidator = require('../validations/productEditValidator')
+const productEditValidator = require('../validations/productEditValidator');
 
 
 let storage = multer.diskStorage({
