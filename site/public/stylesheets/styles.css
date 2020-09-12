@@ -193,7 +193,7 @@ button:focus {
 
 .header .nav .icons ul .user-options {
   position: absolute;
-  bottom: -98px;
+  top: 20px;
   left: -90px;
   width: 150px;
   padding: 15px;
@@ -1073,7 +1073,7 @@ button:focus {
   display: none; }
 
 .registro .errors {
-  font-size: .9em;
+  font-size: .8rem;
   color: red;
   margin: 0;
   width: 100%; }

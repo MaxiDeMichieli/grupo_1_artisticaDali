@@ -11,9 +11,7 @@ module.exports = [
     .withMessage('Debes elegir una categoría'),
 
     check('subcategory')
-    .isLength({
-        min:1
-    })
+    .isLength({min:1})
     .withMessage('Debes ingresar una subcategoría distinta, o mantiene el mismo valor'),
     
     check('name')

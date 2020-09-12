@@ -59,7 +59,6 @@ module.exports = {
                 res.cookie('userArtisticaDali',req.session.usuario,{maxAge:1000*60*60*24*365})
             }
             res.redirect('/')
-            res.send('sesion iniciada')
         }else{
             res.render('register', {
                 title: "Inicia sesión",

@@ -35,7 +35,7 @@
             </form>
         </div>
         <div class="crear-cuenta <%= (title == "Inicia sesión")?'none': '' %>" id="crear-cuenta">
-            <form action="/users/login/create" method="POST">
+            <form action="/users/register" method="POST">
                 <div>
                     <label for="nombre">Nombre</label>
                     <input type="text" name="nombre" id="nombre" placeholder="Artística" spellcheck="false" value="<%= (typeof oldRegister != 'undefined' && oldRegister.nombre)?oldRegister.nombre:'' %>">

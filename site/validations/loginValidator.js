@@ -15,7 +15,7 @@ module.exports = [
 
     body('custom')
         .custom((value, {req})=> {
-            result = false;
+            let result = false;
 
             dbUsuarios.forEach(user => {
                 if(user.email == req.body.email){

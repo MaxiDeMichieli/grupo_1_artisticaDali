@@ -6,7 +6,7 @@ const path = require('path');
 const { addProduct } = require('../controllers/productsController');
 const productCreateValidator = require('../validations/productCreateValidator');
 const productEditValidator = require('../validations/productEditValidator');
-
+const upImageProduct = require('../middlewares/upImageProduct')
 
 let storage = multer.diskStorage({
     destination:(req, file, callback)=>{
@@ -25,7 +25,7 @@ router.get('/cart', controller.cart);
 /* CARGA DE PRODUCTO */
 router.get('/create', controller.addProduct);
 
-router.post('/create', upload.any(), productCreateValidator, controller.create );
+router.post('/create', upImageProduct.any(), productCreateValidator, controller.create );
 
 /* EDICION DE PRODUCTO */
 
@@ -33,7 +33,7 @@ router.get('/edit', controller.editionPage)
 router.get('/searchEdit', controller.browserToEdit)
 
 router.get('/edit/:id', controller.toEdit)
-router.put('/edit/:id', upload.any(),productEditValidator,  controller.edit)
+router.put('/edit/:id', upImageProduct.any(), productEditValidator, controller.edit)
 
 router.delete('/delete/:id', controller.delete)
 
