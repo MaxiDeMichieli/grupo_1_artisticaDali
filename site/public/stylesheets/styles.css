@@ -188,8 +188,20 @@ button:focus {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 50px;
+  width: 50px; }
+
+.header .nav .icons ul .user-icon {
   position: relative; }
+
+.header .nav .icons ul .user-icon .session {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #00d900;
+  border-radius: 50px;
+  position: relative;
+  top: -5px;
+  right: 0px; }
 
 .header .nav .icons ul .user-options {
   position: absolute;
@@ -942,6 +954,7 @@ button:focus {
   outline: none !important; }
 
 .detalles-productos .detalles .cantidad .botones {
+  position: relative;
   margin: 15px 0;
   width: 100%;
   display: flex;
@@ -970,6 +983,24 @@ button:focus {
   color: var(--color-medioOscuro);
   background: #fff;
   transition: all .5s ease; }
+
+.detalles-productos .detalles .cantidad .botones .editar-producto {
+  padding: 5px 12px;
+  background: #fff;
+  border: 2px solid var(--color-medioOscuro);
+  position: absolute;
+  border-radius: 50px;
+  color: var(--color-medioOscuro);
+  font-weight: 600;
+  font-family: var(--fuente-baloo);
+  bottom: -45px;
+  transition: all .5s ease; }
+
+.detalles-productos .detalles .cantidad .botones .editar-producto:hover {
+  color: #fff;
+  background: var(--color-medioOscuro);
+  transition: all .5s ease;
+  text-decoration: none; }
 
 /* DESCRIPCION Y OPINIONES */
 .detalles-productos .fondo-gris {
@@ -1041,6 +1072,11 @@ button:focus {
     margin: 0 auto;
     width: 70%; } }
 
+@media (min-width: 768px) {
+  .detalles-productos .detalles .cantidad .botones .editar-producto {
+    bottom: 12px;
+    right: 100px; } }
+
 @media (min-width: 992px) {
   .detalles-productos .detalles-container {
     padding-bottom: 60px; }
@@ -1050,6 +1086,10 @@ button:focus {
     margin-top: 60px; }
   .detalles-productos .detalles .cantidad .botones button {
     margin: 0; }
+  .detalles-productos .detalles .cantidad .botones .editar-producto {
+    bottom: 7px;
+    left: 210px;
+    right: auto; }
   .detalles-productos .detalles .precio {
     margin: 30px 0; }
   .detalles-productos .descripcion-opinion .descripcion {
@@ -1094,6 +1134,12 @@ button:focus {
 
 .registro .logo img {
   width: 100%; }
+
+/* SUCCESS MESSAGE */
+.registro .success h4 {
+  text-align: center;
+  color: var(--color-medioOscuro);
+  margin-bottom: 20px; }
 
 /* VENTANAS */
 .registro .ventanas {
@@ -1168,9 +1214,13 @@ button:focus {
 .registro .inicio-sesion .recuerdame input:focus {
   box-shadow: none; }
 
+.registro .crear-cuenta .terminos label,
+.registro .inicio-sesion .recuerdame label {
+  margin: 0px; }
+
 .registro .inicio-sesion form label,
 .registro .crear-cuenta form label {
-  font-size: .9em;
+  font-size: .8rem;
   margin: 8px 0 2px 0; }
 
 .registro .inicio-sesion form button,

@@ -9,6 +9,13 @@
                 <img src="/images/logo.png" alt="Artística Dalí">
             </a>
         </div>
+
+        <% if (typeof success != 'undefined') { %>
+            <div class="success">
+                <h4>!Felicitaciones, creaste tu cuenta! Ya podes iniciar sesión</h4>
+            </div>
+        <% } %>
+
         <div class="ventanas">
             <h3 id="is" class=<%= (title == "Inicia sesión")?"active": "" %>>INICIAR SESIÓN</h3>
             <h3 id="cc" class=<%= (title == "Crear cuenta")?"active": "" %>>CREAR CUENTA</h3>
@@ -28,7 +35,7 @@
                 </div>
                 <p class="errors"><%= (typeof errorsLogin != 'undefined' && errorsLogin.custom && !errorsLogin.email && !errorsLogin.password)?errorsLogin.custom.msg: "" %> </p>
                 <div class="recuerdame">
-                    <input type="checkbox" name="recordar">Mantener mi cuenta abierta
+                    <input type="checkbox" name="recordar" id="recordar"><label for="recordar">Mantener mi cuenta abierta</label>
                 </div>
                 <a href="#">¿Olvidaste tu contraseña?</a>
                 <button type="submit">Ingresar</button>
@@ -64,7 +71,7 @@
                     <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.passwordRepeat)?errorsRegister.passwordRepeat.msg: "" %></p>
                 </div>
                 <div class="terminos">
-                    <input type="checkbox" name="terminos">Acepto los términos y condiciones.
+                    <input type="checkbox" name="terminos" id="terminos"><label for="terminos">Acepto los términos y condiciones.</label>
                     <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.terminos)?errorsRegister.terminos.msg: "" %></p>
                 </div>
                 <button type="submit">Crear Cuenta</button>

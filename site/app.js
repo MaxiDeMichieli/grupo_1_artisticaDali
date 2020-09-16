@@ -7,6 +7,8 @@ var app = express();
 const methodOverride = require('method-override');
 const session = require('express-session')
 const headerCategories = require('./middlewares/headerSubcategoriesMiddleware');
+const cookieSessionCheck = require('./middlewares/cookieSessionCheck');
+const sessionAdmin = require('./middlewares/sessionAdmin');
 
 
 //Aquí se requieren los archivos de rutas
@@ -27,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 app.use(headerCategories);
 app.use(session({secret:"artisticaDali"}));
+app.use(cookieSessionCheck);
+app.use(sessionAdmin);
 
 // RUTAS
 

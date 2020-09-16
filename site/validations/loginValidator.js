@@ -21,7 +21,7 @@ module.exports = [
                 if(user.email == req.body.email){
                     result = true;
                     if(!bcrypt.compareSync(req.body.password ,user.password)){
-                    result = false
+                        result = false
                     }
                 }
             });

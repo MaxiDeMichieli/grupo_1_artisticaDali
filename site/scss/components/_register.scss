@@ -46,6 +46,15 @@
 }
 
 
+/* SUCCESS MESSAGE */
+
+.registro .success h4 {
+    text-align: center;
+    color: var(--color-medioOscuro);
+    margin-bottom: 20px;
+}
+
+
 /* VENTANAS */
 
 .registro .ventanas {
@@ -133,9 +142,14 @@
     box-shadow: none;
 }
 
+.registro .crear-cuenta .terminos label,
+.registro .inicio-sesion .recuerdame label {
+    margin: 0px;
+}
+
 .registro .inicio-sesion form label,
 .registro .crear-cuenta form label {
-    font-size: .9em;
+    font-size: .8rem;
     margin: 8px 0 2px 0;
 }
 

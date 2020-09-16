@@ -6,9 +6,17 @@ const {check,validationResult,body} = require('express-validator');
 
 module.exports = {
     registerView: (req, res) => {
-        res.render('register', {
-            title: 'Inicia sesión'
-        });
+        let successAccount = req.params.id;
+        if(successAccount){
+            res.render('register', {
+                title: 'Inicia sesión',
+                success: true
+            })
+        } else{
+            res.render('register', {
+                title: 'Inicia sesión'
+            });
+        }
     },
     register: (req, res, next) => {
         let errors = validationResult(req);
@@ -26,6 +34,7 @@ module.exports = {
             cpostal: null,
             provincia: null,
             localidad: null,
+            admin: "false"
         }
 
         if(errors.isEmpty()){
@@ -33,7 +42,7 @@ module.exports = {
 
             fs.writeFileSync(path.join(__dirname, '..', 'data', 'usersDataBase.json'), JSON.stringify(dbUsers), 'utf-8');
 
-            res.redirect('/users/account')
+            res.redirect('/users/login/success')
         }else{
             res.render('register', {
                 title: 'Crear cuenta',
@@ -45,19 +54,20 @@ module.exports = {
     login: (req, res) => {
         let errors = validationResult(req);
         if(errors.isEmpty()){
-            dbUsers.forEach(usuario => {
-                if(usuario.email == req.body.email){
+            dbUsers.forEach(user => {
+                if(user.email == req.body.email){
                     req.session.usuario = {
-                        id: usuario.id,
-                        nombre: usuario.nombre,
-                        apellido: usuario.apellido,
-                        email: usuario.email
+                        id: user.id,
+                        nombre: user.nombre,
+                        apellido: user.apellido,
+                        email: user.email,
+                        hash: bcrypt.hashSync(user.password, 12),
+                    }
+                    if(req.body.recordar){
+                        res.cookie('userArtisticaDali', req.session.usuario, {maxAge:1000*60*60*24*365})
                     }
                 }
             });
-            if(req.body.recordar){
-                res.cookie('userArtisticaDali',req.session.usuario,{maxAge:1000*60*60*24*365})
-            }
             res.redirect('/')
         }else{
             res.render('register', {
@@ -69,17 +79,33 @@ module.exports = {
         }
     },
     account: (req, res) => {
+        let userInSession;
+        dbUsers.forEach(user => {
+            if(req.session.usuario.id == user.id){
+                userInSession = user;
+            }
+        });
+
         res.render('account', {
             title: 'Mi cuenta',
+            session: req.session,
             subcategories: req.subcategories,
-            user: dbUsers[dbUsers.length - 1]
+            user: userInSession
         })
     },
     editView: (req, res) => {
+        let userInSession;
+        dbUsers.forEach(user => {
+            if(req.session.usuario.id == user.id){
+                userInSession = user;
+            }
+        });
+
         res.render('editAccount', {
             title: 'Editar mis datos',
+            session: req.session,
             subcategories: req.subcategories,
-            user: dbUsers[dbUsers.length - 1]
+            user: userInSession
         })
     },
     edit: (req, res) => {
@@ -110,9 +136,22 @@ module.exports = {
             return user.id != idUser;
         });
 
-        fs.writeFileSync(path.join(__dirname, '../data/usersDataBase.json'), JSON.stringify(usersFilter), 'utf-8')
+        fs.writeFileSync(path.join(__dirname, '../data/usersDataBase.json'), JSON.stringify(usersFilter), 'utf-8');
+
+        req.session.destroy();
+        if(req.cookies.userArtisticaDali){
+            res.cookie('userArtisticaDali','',{maxAge:-1})
+        }
 
         res.redirect('/')
+    },
+    logout: (req,res) => {
+        req.session.destroy();
+        if(req.cookies.userArtisticaDali){
+            res.cookie('userArtisticaDali','',{maxAge:-1})
+        }
+
+        return res.redirect('/')
     }
 }
 

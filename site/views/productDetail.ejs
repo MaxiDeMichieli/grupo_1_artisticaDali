@@ -33,6 +33,9 @@
                         </span>
                         <div class="botones">
                             <button type="submit" class="carrito">agregar al carrito</button>
+                            <% if (typeof session.admin != 'undefined') { %>
+                                <a href="/products/edit/<%- producto.id %>" class="editar-producto">editar producto</a>
+                            <% } %>
                         </div>
                     </form>
                 </section>

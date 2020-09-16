@@ -9,11 +9,19 @@ Array.prototype.unique=function(a){return function(){return this.filter(a)}}(fun
 
 module.exports = {
     cart: (req, res, next)=>{
+        let userInSession;
+        dbUsers.forEach(user => {
+            if(req.session.usuario.id == user.id){
+                userInSession = user;
+            }
+        });
+
         res.render('productCart', {
             title: 'Carrito de compras',
+            session: req.session,
             subcategories: req.subcategories,
             productos: dbProduct,
-            user: dbUsers[dbUsers.length - 1]
+            user: userInSession
         })
     },
     detail: (req, res,) => {
@@ -23,6 +31,7 @@ module.exports = {
         });
         res.render('productDetail', {
             title: 'Detalle de producto',
+            session: req.session,
             subcategories: req.subcategories,
             producto: producto[0],
             productos: dbProduct
@@ -40,6 +49,7 @@ module.exports = {
         
         res.render('productAdd', { 
             title: 'Formulario de carga de productos',
+            session: req.session,
             subcategoria: subcategorias.unique().sort(),
             productos: products.unique().sort(),
             productCreated: req.query.lp /* last product created */
@@ -75,6 +85,7 @@ module.exports = {
     }else{
         res.render('productAdd',{
             title: 'Error',
+            session: req.session,
             errors:errors.errors,
             oldAdd:req.body
         })
@@ -111,6 +122,7 @@ module.exports = {
             if(categoria.cat == categoryId){
             res.render('categories', {
                 title: categoria.title,
+                session: req.session,
                 subcategories: req.subcategories,
                 productos: dbProduct.filter(producto =>{
                     return producto.category == categoryId
@@ -127,6 +139,7 @@ module.exports = {
 
         res.render('categories', {
             title: subcategory,
+            session: req.session,
             subcategories: req.subcategories,
             productos: dbProduct.filter(producto => {
                 return producto.subcategory == subcategory;
@@ -156,12 +169,14 @@ module.exports = {
         if(productos[0] == undefined) {
             res.render('errorSearch', {
                 title: 'Error en su búsqueda',
+                session: req.session,
                 subcategories: req.subcategories,
                 search: buscar
             })
         } else{
             res.render('categories', {
             title: "Resultado de la búsqueda",
+            session: req.session,
             subcategories: req.subcategories,
             productos: productos,
             search: buscar,
@@ -175,6 +190,7 @@ module.exports = {
             if (element.id == idProduct) {
                 res.render('editProduct',{
                     title: 'Edicion de producto',
+                    session: req.session,
                     titulo: 'Estás editando el producto: ',
                     id: element.id,
                     category: element.category,
@@ -204,7 +220,7 @@ module.exports = {
                     if(producto.image[0] != 'default-image.png'){
                         fs.unlinkSync('public/images/productos/' + producto.image);
                     }
-                producto.image = [req.files[0].filename]
+                    producto.image = [req.files[0].filename]
                 }
             }
         })
@@ -218,6 +234,7 @@ module.exports = {
             if (element.id == idProduct) {
                 res.render('editProduct',{
                     title: 'Edicion de producto',
+                    session: req.session,
                     titulo: 'Estás editando el producto: ',
                     id: element.id,
                     category: element.category,
@@ -236,10 +253,9 @@ module.exports = {
     editionPage:(req,res,next)=>{
         res.render('editBrowser', {
             title: 'Buscador de productos a editar o eliminar',
+            session: req.session,
             productos: dbProduct
         })
-            
-        
     },
     browserToEdit:(req, res) => {
         let buscar = req.query.search.toLowerCase();
@@ -253,12 +269,14 @@ module.exports = {
         if(productos[0] == undefined) {
             res.render('editBrowser', {
                 title: 'Error en su búsqueda',
+                session: req.session,
                 productos: productos,
                 search: buscar
             })
         } else{
             res.render('editBrowser', {
             title: "Resultado de la búsqueda",
+            session: req.session,
             productos: productos,
             search: buscar
             })
