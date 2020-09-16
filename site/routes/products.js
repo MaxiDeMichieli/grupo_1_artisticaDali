@@ -6,7 +6,7 @@ const productEditValidator = require('../validations/productEditValidator');
 const upImageProduct = require('../middlewares/upImageProduct');
 const sessionUserCheck = require('../middlewares/sessionUserCheck');
 const adminUserCheck = require('../middlewares/adminUserCheck');
-const userAdmin = require('../middlewares/userAdmin')
+
 
 
 /* CARRITO */
