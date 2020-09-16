@@ -52,7 +52,8 @@ module.exports = {
             session: req.session,
             subcategoria: subcategorias.unique().sort(),
             productos: products.unique().sort(),
-            productCreated: req.query.lp /* last product created */
+            productCreated: req.query.lp, /* last product created */
+            usuario:req.session.usuario.email
         });
   
     },
@@ -87,7 +88,8 @@ module.exports = {
             title: 'Error',
             session: req.session,
             errors:errors.errors,
-            oldAdd:req.body
+            oldAdd:req.body,
+            usuario:req.session.usuario.email
         })
         console.log(errors.errors)
     }
@@ -199,7 +201,8 @@ module.exports = {
                     price: element.price,
                     discount: element.discount,
                     image: element.image,
-                    description: element.description.trim()
+                    description: element.description.trim(),
+                    usuario:req.session.usuario.email
                 })
             }
         })
@@ -244,7 +247,8 @@ module.exports = {
                     discount: element.discount,
                     image: element.image,
                     description: element.description.trim(),
-                    errors:errors.errors
+                    errors:errors.errors,
+                    usuario:req.session.usuario.email
                 })
             }
         })
@@ -254,7 +258,8 @@ module.exports = {
         res.render('editBrowser', {
             title: 'Buscador de productos a editar o eliminar',
             session: req.session,
-            productos: dbProduct
+            productos: dbProduct,
+            usuario:req.session.usuario.email
         })
     },
     browserToEdit:(req, res) => {
@@ -271,14 +276,16 @@ module.exports = {
                 title: 'Error en su búsqueda',
                 session: req.session,
                 productos: productos,
-                search: buscar
+                search: buscar,
+                usuario:req.session.usuario.email
             })
         } else{
             res.render('editBrowser', {
             title: "Resultado de la búsqueda",
             session: req.session,
             productos: productos,
-            search: buscar
+            search: buscar,
+            usuario:req.session.usuario.email
             })
         } 
     },

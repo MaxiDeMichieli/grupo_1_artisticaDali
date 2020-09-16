@@ -6,25 +6,26 @@ const productEditValidator = require('../validations/productEditValidator');
 const upImageProduct = require('../middlewares/upImageProduct');
 const sessionUserCheck = require('../middlewares/sessionUserCheck');
 const adminUserCheck = require('../middlewares/adminUserCheck');
+const userAdmin = require('../middlewares/userAdmin')
 
 
 /* CARRITO */
 router.get('/cart', sessionUserCheck, controller.cart);
 
 /* CARGA DE PRODUCTO */
-router.get('/create', adminUserCheck, controller.addProduct);
+router.get('/create',sessionUserCheck, adminUserCheck,  controller.addProduct);
 
 router.post('/create', upImageProduct.any(), productCreateValidator, controller.create );
 
 /* EDICION DE PRODUCTO */
 
-router.get('/edit', adminUserCheck, controller.editionPage)
-router.get('/searchEdit', controller.browserToEdit)
+router.get('/edit',sessionUserCheck, adminUserCheck, controller.editionPage)
+router.get('/searchEdit',sessionUserCheck, controller.browserToEdit)
 
-router.get('/edit/:id', adminUserCheck, controller.toEdit)
-router.put('/edit/:id', upImageProduct.any(), productEditValidator, controller.edit)
+router.get('/edit/:id',sessionUserCheck, adminUserCheck, controller.toEdit)
+router.put('/edit/:id',sessionUserCheck, upImageProduct.any(), productEditValidator, controller.edit)
 
-router.delete('/delete/:id', controller.delete)
+router.delete('/delete/:id',sessionUserCheck, controller.delete)
 
 /* DETALLE DE PRODUCTO */
 router.get('/detail/:id', controller.detail);
