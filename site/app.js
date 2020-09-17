@@ -33,7 +33,6 @@ app.use(cookieSessionCheck);
 app.use(sessionAdmin);
 
 // RUTAS
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
