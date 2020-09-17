@@ -16,6 +16,13 @@
     display: none;
 }
 
+.registro .errors {
+    font-size: .8rem;
+    color: red;
+    margin: 0;
+    width: 100%;
+}
+
 
 /* LOGO */
 
@@ -36,6 +43,15 @@
 
 .registro .logo img {
     width: 100%;
+}
+
+
+/* SUCCESS MESSAGE */
+
+.registro .success h4 {
+    text-align: center;
+    color: var(--color-medioOscuro);
+    margin-bottom: 20px;
 }
 
 
@@ -104,7 +120,8 @@
     box-shadow: 0px 0px 4px var(--color-medio);
 }
 
-.registro .crear-cuenta .terminos {
+.registro .crear-cuenta .terminos,
+.registro .inicio-sesion .recuerdame {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -113,19 +130,26 @@
     width: 100%;
 }
 
-.registro .crear-cuenta .terminos input {
+.registro .crear-cuenta .terminos input,
+.registro .inicio-sesion .recuerdame input {
     width: auto;
     margin-right: 5px;
     box-shadow: none;
 }
 
-.registro .crear-cuenta .terminos input:focus {
+.registro .crear-cuenta .terminos input:focus,
+.registro .inicio-sesion .recuerdame input:focus {
     box-shadow: none;
+}
+
+.registro .crear-cuenta .terminos label,
+.registro .inicio-sesion .recuerdame label {
+    margin: 0px;
 }
 
 .registro .inicio-sesion form label,
 .registro .crear-cuenta form label {
-    font-size: .9em;
+    font-size: .8rem;
     margin: 8px 0 2px 0;
 }
 
@@ -160,6 +184,7 @@
     font-size: .9em;
     color: #000;
     margin-top: 30px;
+    width: 100%;
 }
 
 

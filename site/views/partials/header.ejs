@@ -28,12 +28,15 @@
                 <div class="icons">
                     <ul>
                         <li class="user-icon">
-                            <i class="fas fa-user"></i>
-                            <span class="user-options">
-                                <a href="/users/login">Iniciar sesión</a>
-                                <a href="/users/account">Mis datos</a>
-                                <a href="#">Cerrar sesión</a>
-                            </span>
+                            <% if (typeof session.usuario != 'undefined') { %>
+                                <i class="fas fa-user"><span class="session"></span></i>
+                                <span class="user-options">
+                                    <a href="/users/account">Mis datos</a>
+                                    <a href="/users/logout">Cerrar sesión</a>
+                                </span>
+                            <% } else { %>
+                                <a href="/users/login"><i class="fas fa-user"></i></a>
+                            <% } %> 
                         </li>
                         <li><a href="/products/cart" class="cart"><i class="fas fa-shopping-cart"></i></a></li>
                     </ul>
@@ -81,6 +84,8 @@
                 <span ><i id="atras-oficina" class="fas fa-times atras"></i></span>
             </div>
         </div>
-        <a href="/products/create" class="admin-btn">Administrar sitio</a>
+        <% if (typeof session.admin != 'undefined') { %>
+            <a href="/products/create" class="admin-btn">Administrar sitio</a>
+        <% } %>
     </header>
 </div>

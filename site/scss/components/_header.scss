@@ -212,12 +212,26 @@
     justify-content: space-between;
     align-items: center;
     width: 50px;
+}
+
+.header .nav .icons ul .user-icon {
     position: relative;
+}
+
+.header .nav .icons ul .user-icon .session {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #00d900;
+    border-radius: 50px;
+    position: relative;
+    top: -5px;
+    right: 0px;
 }
 
 .header .nav .icons ul .user-options {
     position: absolute;
-    bottom: -97px;
+    top: 20px;
     left: -90px;
     width: 150px;
     padding: 15px;

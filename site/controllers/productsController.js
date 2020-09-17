@@ -2,17 +2,24 @@ const dbProduct = require('../data/dataBase');
 const dbUsers = require('../data/usersDataBase');
 const fs = require('fs');
 const path = require('path');
-
-Array.prototype.unique=function(a){return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0})
+const { validationResult } = require('express-validator');
         
 
 module.exports = {
-    cart: (req, res, next)=>{
+    cart: (req, res)=>{
+        let userInSession;
+        dbUsers.forEach(user => {
+            if(req.session.usuario.id == user.id){
+                userInSession = user;
+            }
+        });
+
         res.render('productCart', {
             title: 'Carrito de compras',
+            session: req.session,
             subcategories: req.subcategories,
             productos: dbProduct,
-            user: dbUsers[dbUsers.length - 1]
+            user: userInSession
         })
     },
     detail: (req, res,) => {
@@ -22,12 +29,13 @@ module.exports = {
         });
         res.render('productDetail', {
             title: 'Detalle de producto',
+            session: req.session,
             subcategories: req.subcategories,
             producto: producto[0],
             productos: dbProduct
         });
     },
-    addProduct: (req, res, next) =>{
+    addProduct: (req, res) =>{
         let subcategorias = []
         dbProduct.filter(element =>{
             subcategorias.push(element.subcategory)
@@ -39,13 +47,15 @@ module.exports = {
         
         res.render('productAdd', { 
             title: 'Formulario de carga de productos',
-            subcategoria: subcategorias.unique().sort(),
-            productos: products.unique().sort()
+            session: req.session,
+            productCreated: req.query.lp, /* last product created */
         });
   
     },
-    create: (req, res, next)=>{
+    create: (req, res)=>{
+        let errors = validationResult(req);
         let lastId = 1;
+        if(errors.isEmpty()){
         dbProduct.forEach(producto=>{
             if(producto.id>lastId){
                 lastId = producto.id
@@ -62,11 +72,21 @@ module.exports = {
             subcategory: req.body.subcategory,
             image:[(req.files[0])?req.files[0].filename:"default-image.png"]
         }
+        
         dbProduct.push(newProduct);
-
+        
         fs.writeFileSync(path.join(__dirname, "..", "data", "productsDataBase.json"),JSON.stringify(dbProduct),'utf-8')
         
-        res.redirect('/products/create')
+        res.redirect('/products/create?lp=' + (lastId + 1))
+    }else{
+        res.render('productAdd',{
+            title: 'Error',
+            session: req.session,
+            errors:errors.errors,
+            oldAdd:req.body
+        })
+        console.log(errors.errors)
+    }
     },
     categories : (req, res)=>{
         let categorias = [
@@ -98,6 +118,7 @@ module.exports = {
             if(categoria.cat == categoryId){
             res.render('categories', {
                 title: categoria.title,
+                session: req.session,
                 subcategories: req.subcategories,
                 productos: dbProduct.filter(producto =>{
                     return producto.category == categoryId
@@ -114,10 +135,12 @@ module.exports = {
 
         res.render('categories', {
             title: subcategory,
+            session: req.session,
             subcategories: req.subcategories,
             productos: dbProduct.filter(producto => {
                 return producto.subcategory == subcategory;
             }),
+            subcategoryTitle: subcategory,
             subcategory: [subcategory]
         })
 
@@ -142,12 +165,14 @@ module.exports = {
         if(productos[0] == undefined) {
             res.render('errorSearch', {
                 title: 'Error en su búsqueda',
+                session: req.session,
                 subcategories: req.subcategories,
                 search: buscar
             })
         } else{
             res.render('categories', {
             title: "Resultado de la búsqueda",
+            session: req.session,
             subcategories: req.subcategories,
             productos: productos,
             search: buscar,
@@ -155,52 +180,64 @@ module.exports = {
             })
         } 
     },
-    toEdit:(req,res,next)=>{
+    toEdit:(req, res)=>{
         let idProduct = req.params.id;
         dbProduct.forEach(element=>{
             if (element.id == idProduct) {
                 res.render('editProduct',{
                     title: 'Edicion de producto',
+                    session: req.session,
                     titulo: 'Estás editando el producto: ',
-                    id: element.id,
-                    category: element.category,
-                    subcategory: element.subcategory,
-                    name: element.name.trim(),
-                    price: element.price,
-                    discount: element.discount,
-                    image: element.image,
-                    description: element.description.trim()
+                    product: element
                 })
             }
         })
     },
-    edit:(req, res, next)=>{
+    edit:(req, res)=>{
+        let errors = validationResult(req)
         let idProduct = req.params.id;
-        dbProduct.forEach(producto => {
-            if(producto.id == idProduct){
-            producto.category = req.body.category,
-            producto.subcategory = req.body.subcategory,
-            producto.name = req.body.name,
-            producto.price = req.body.price,
-            producto.discount = req.body.discount,
-            producto.description = req.body.description;
-                if (typeof req.files[0] != 'undefined'){
-                fs.unlinkSync('public/images/productos/' + producto.image);
-                producto.image = [req.files[0].filename]
+        if(errors.isEmpty()){
+            dbProduct.forEach(producto => {
+                if(producto.id == idProduct){
+                producto.category = req.body.category,
+                producto.subcategory = req.body.subcategory,
+                producto.name = req.body.name,
+                producto.price = req.body.price,
+                producto.discount = req.body.discount,
+                producto.description = req.body.description;
+                    if (typeof req.files[0] != 'undefined'){
+                        if(producto.image[0] != 'default-image.png'){
+                            fs.unlinkSync('public/images/productos/' + producto.image);
+                        }
+                        producto.image = [req.files[0].filename]
+                    }
                 }
-            }
-        })
+            })
 
-        fs.writeFileSync(path.join(__dirname, '../data/productsDataBase.json'), JSON.stringify(dbProduct), 'utf-8')  
-        res.redirect('/products/edit')
+            fs.writeFileSync(path.join(__dirname, '../data/productsDataBase.json'), JSON.stringify(dbProduct), 'utf-8')  
+
+            res.redirect('/products/edit')
+        }else{
+            let idProduct = req.params.id;
+            dbProduct.forEach(element=>{
+                if (element.id == idProduct) {
+                    res.render('editProduct',{
+                        title: 'Edicion de producto',
+                        session: req.session,
+                        titulo: 'Estás editando el producto: ',
+                        product: element,
+                        errors:errors.errors
+                    })
+                }
+            })
+        }
     },
-    editionPage:(req,res,next)=>{
+    editionPage:(req, res)=>{
         res.render('editBrowser', {
             title: 'Buscador de productos a editar o eliminar',
+            session: req.session,
             productos: dbProduct
         })
-            
-        
     },
     browserToEdit:(req, res) => {
         let buscar = req.query.search.toLowerCase();
@@ -214,12 +251,14 @@ module.exports = {
         if(productos[0] == undefined) {
             res.render('editBrowser', {
                 title: 'Error en su búsqueda',
+                session: req.session,
                 productos: productos,
                 search: buscar
             })
         } else{
             res.render('editBrowser', {
             title: "Resultado de la búsqueda",
+            session: req.session,
             productos: productos,
             search: buscar
             })
@@ -236,7 +275,9 @@ module.exports = {
         /* ELIMINO IMAGEN */
         dbProduct.forEach(producto => {
             if (producto.id == idProduct) {
-                fs.unlinkSync('public/images/productos/' + producto.image)
+                if(producto.image[0] != 'default-image.png'){
+                    fs.unlinkSync('public/images/productos/' + producto.image)
+                }
             }
         })
 
