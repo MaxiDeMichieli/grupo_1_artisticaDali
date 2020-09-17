@@ -18,7 +18,7 @@ module.exports = {
             });
         }
     },
-    register: (req, res, next) => {
+    register: (req, res) => {
         let errors = validationResult(req);
 
         let newUser = {

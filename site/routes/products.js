@@ -14,17 +14,16 @@ router.get('/cart', sessionUserCheck, controller.cart);
 
 /* CARGA DE PRODUCTO */
 router.get('/create',sessionUserCheck, adminUserCheck,  controller.addProduct);
-
 router.post('/create', upImageProduct.any(), productCreateValidator, controller.create );
 
 /* EDICION DE PRODUCTO */
-
 router.get('/edit',sessionUserCheck, adminUserCheck, controller.editionPage)
 router.get('/searchEdit',sessionUserCheck, controller.browserToEdit)
 
 router.get('/edit/:id',sessionUserCheck, adminUserCheck, controller.toEdit)
 router.put('/edit/:id',sessionUserCheck, upImageProduct.any(), productEditValidator, controller.edit)
 
+/* BORRAR PRODUCTO */
 router.delete('/delete/:id',sessionUserCheck, controller.delete)
 
 /* DETALLE DE PRODUCTO */
