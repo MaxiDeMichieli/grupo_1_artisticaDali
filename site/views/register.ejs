@@ -10,9 +10,9 @@
             </a>
         </div>
 
-        <% if (typeof success != 'undefined') { %>
-            <div class="success">
-                <h4>!Felicitaciones, creaste tu cuenta! Ya podes iniciar sesión</h4>
+        <% if (typeof msg != 'undefined') { %>
+            <div class="msg">
+                <h4><%= msg %></h4>
             </div>
         <% } %>
 
@@ -37,7 +37,7 @@
                 <div class="recuerdame">
                     <input type="checkbox" name="recordar" id="recordar"><label for="recordar">Mantener mi cuenta abierta</label>
                 </div>
-                <a href="#">¿Olvidaste tu contraseña?</a>
+                <a href="/users/recover">¿Olvidaste tu contraseña?</a>
                 <button type="submit">Ingresar</button>
             </form>
         </div>

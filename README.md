@@ -85,3 +85,28 @@ Nuestra elección se basó principalmente en la funcionalidad del e-commerce, ta
 - REGISTRO: register.ejs
 - FORMULARIO DE CARGA DEL PRODUCTO: productAdd.ejs
 - CATEGORIAS(extra): categories.ejs
+
+## Tercer Sprint (07/09)
+
+### [Tablero](https://trello.com/b/yAEJerws/grupo-1-proyecto-art%C3%ADstica-dal%C3%AD)
+
+## Integrantes 
+
+
+### De Michieli, Máximo
+- 19 años
+- Estudiante de Programación Web
+
+
+### Céspedes, Jonatan
+- 34 años
+- Dibujante, Tatuador y estudiante de Programación Web
+
+
+### Retrospectiva: [retro.md](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/retro.md)
+
+### Tareas realizadas:
+- Bases de datos json (Usuarios y productos)
+- Templates engines
+- Funcionalidad de listado, detalle, alta, modificación y baja de productos.
+
