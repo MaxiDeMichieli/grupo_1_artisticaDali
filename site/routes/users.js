@@ -3,6 +3,8 @@ const router = express.Router();
 const controller = require('../controllers/userController');
 const loginValidator = require('../validations/loginValidator');
 const registerValidator = require('../validations/registerValidator');
+const emailRecoverValidator = require('../validations/emailRecoverValidator');
+const passRecoverValidator = require('../validations/passRecoverValidator');
 const sessionUserCheck = require('../middlewares/sessionUserCheck');
 const onlyVisitorCheck = require('../middlewares/onlyVisitorCheck');
 
@@ -20,7 +22,15 @@ router.post('/login', loginValidator, controller.login);
 router.post('/register', registerValidator, controller.register)
 
 /* LOGOUT */
-router.get('/logout', sessionUserCheck, controller.logout)
+router.get('/logout', sessionUserCheck, controller.logout);
+
+/* RECOVER PASSWORD */
+router.get('/recover', onlyVisitorCheck, controller.recoverView);
+router.post('/recover', emailRecoverValidator, controller.sendEmail);
+router.get('/recover/sent/:id', onlyVisitorCheck, controller.sentView);
+router.get('/recover/:id/:hash', onlyVisitorCheck, controller.changePassView);
+router.post('/recover/:id/:hash', passRecoverValidator, controller.changePass);
+
 
 
 module.exports = router;
