@@ -29,7 +29,7 @@
 
         <% if (title == 'Modifica tu contraseña') { %>
             <div class="cambiar-contraseña">
-                <form action="" method="POST">
+                <form action="?_method=PUT" method="POST">
                     <div>
                         <label for="password">Nueva contraseña</label>
                         <input type="password" name="password" id="password" maxlength="25" spellcheck="false" value="<%= (typeof old != 'undefined' && old.password)?old.password:'' %>">

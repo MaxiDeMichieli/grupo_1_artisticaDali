@@ -29,7 +29,7 @@ router.get('/recover', onlyVisitorCheck, controller.recoverView);
 router.post('/recover', emailRecoverValidator, controller.sendEmail);
 router.get('/recover/sent/:id', onlyVisitorCheck, controller.sentView);
 router.get('/recover/:id/:hash', onlyVisitorCheck, controller.changePassView);
-router.post('/recover/:id/:hash', passRecoverValidator, controller.changePass);
+router.put('/recover/:id/:hash', passRecoverValidator, controller.changePass);
 
 
 

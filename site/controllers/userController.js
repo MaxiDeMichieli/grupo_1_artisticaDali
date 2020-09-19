@@ -166,7 +166,7 @@ module.exports = {
     recoverView: (req, res) => {  //VISTA DE FORMULARIO PARA RECUPERAR CONTRASEÑA
         res.render('recoverPass', {
             title: 'Recupera tu contraseña',
-            msg: 'Coloca el email de tu cuenta para recuperar la contraeña'
+            msg: 'Coloca el email de tu cuenta para recuperar la contraseña'
         });
     },
     sendEmail: (req, res) => {  //POST QUE ENVIA LA URL AL EMAIL INGRESADO EN EL FORMULARIO
