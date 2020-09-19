@@ -53,10 +53,6 @@
 
 /*  */
 
-.recover .email-recover {
-    width: 50%;
-}
-
 .recover .email-recover form,
 .recover .cambiar-contraseña form {
     width: 100%;
@@ -145,5 +141,8 @@
     }
     .recover .cambiar-contraseña form div {
         width: 48%;
+    }
+    .recover .email-recover {
+        width: 50%;
     }
 }

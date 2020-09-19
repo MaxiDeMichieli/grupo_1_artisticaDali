@@ -2357,9 +2357,6 @@ button:focus {
   margin-bottom: 20px; }
 
 /*  */
-.recover .email-recover {
-  width: 50%; }
-
 .recover .email-recover form,
 .recover .cambiar-contraseña form {
   width: 100%;
@@ -2434,4 +2431,6 @@ button:focus {
   .recover {
     max-width: 650px; }
   .recover .cambiar-contraseña form div {
-    width: 48%; } }
+    width: 48%; }
+  .recover .email-recover {
+    width: 50%; } }
