@@ -177,11 +177,13 @@ module.exports = {
             dbUsers.forEach(user => {
                 if(user.email == email){
             
+                    let fullUrl = req.protocol + '://' + req.get('host');
+                    
                     let mailOptions = {
                         from: 'Artística Dalí <artisticadali@gmail.com>',
                         to: user.email,
                         subject: 'Recupera tu contraseña',
-                        html: `<div class="header" style="width:100%;background-color: #fff;padding: 5px;"><div class="img" style="width: 30%;min-width: 140px;max-width: 270px;margin:0 auto"><img src="https://i.postimg.cc/kMbCXbwz/logo.png" alt="Artística Dalí" style="width: 100%;"></div></div><div class="body" style="max-width: 700px;margin: 0 auto;"><h2 style="color:#204051;">Hola ${user.nombre}!</h2><h3 style="text-align: center;color:#204051;">Cambia tu contraseña haciendo click en el siguiente boton:</h3><div class="boton" style="display: flex;flex-wrap: wrap;align-content: center;"><a href="http://localhost:3000/users/recover/${user.id}/${user.password.slice(7, 60).split('/').join('')}recover" style="display: inline-block;margin: 0 auto;margin-top: 30px;padding: 8px 15px;font-weight: 500;background-color: #3b6978;text-decoration: none;color: #fff;border: 2px solid #3b6978;border-radius: 50px;transition: all .5s ease;">Cambiar contraseña</a></div></div>`
+                        html: `<div class="header" style="width:100%;background-color: #fff;padding: 5px;"><div class="img" style="width: 30%;min-width: 140px;max-width: 270px;margin:0 auto"><img src="https://i.postimg.cc/kMbCXbwz/logo.png" alt="Artística Dalí" style="width: 100%;"></div></div><div class="body" style="max-width: 700px;margin: 0 auto;"><h2 style="color:#204051;">Hola ${user.nombre}!</h2><h3 style="text-align: center;color:#204051;">Cambia tu contraseña haciendo click en el siguiente boton:</h3><div class="boton" style="display: flex;flex-wrap: wrap;align-content: center;"><a href="${fullUrl}/users/recover/${user.id}/${user.password.slice(7, 60).split('/').join('')}recover" style="display: inline-block;margin: 0 auto;margin-top: 30px;padding: 8px 15px;font-weight: 500;background-color: #3b6978;text-decoration: none;color: #fff;border: 2px solid #3b6978;border-radius: 50px;transition: all .5s ease;">Cambiar contraseña</a></div></div>`
                     }
             
                     nodemailerTransporter.sendMail(mailOptions, (err, data) => {
