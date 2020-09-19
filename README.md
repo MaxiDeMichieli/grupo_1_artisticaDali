@@ -90,23 +90,21 @@ Nuestra elección se basó principalmente en la funcionalidad del e-commerce, ta
 
 ### [Tablero](https://trello.com/b/yAEJerws/grupo-1-proyecto-art%C3%ADstica-dal%C3%AD)
 
-## Integrantes 
-
-
-### De Michieli, Máximo
-- 19 años
-- Estudiante de Programación Web
-
-
-### Céspedes, Jonatan
-- 34 años
-- Dibujante, Tatuador y estudiante de Programación Web
-
-
 ### Retrospectiva: [retro.md](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/retro.md)
 
 ### Tareas realizadas:
 - Bases de datos json (Usuarios y productos)
 - Templates engines
 - Funcionalidad de listado, detalle, alta, modificación y baja de productos.
+
+## Cuarto Sprint (21/09)
+
+### [Tablero](https://trello.com/b/yAEJerws/grupo-1-proyecto-art%C3%ADstica-dal%C3%AD)
+
+### Retrospectiva: [retro.md](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/retro.md)
+
+### Tareas realizadas:
+- Formulario de registro con: campos necesarios, subida de imagen de perfil, encriptación de contraseña.
+- Formulario de login: campos de email y password, recordar usuario.
+- Rutas de huéspedes y usuarios.
 
