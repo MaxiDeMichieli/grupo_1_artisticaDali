@@ -42,3 +42,23 @@
 
 **Hacer menos:**
 
+# Sprint 3: Retro
+
+**Empezar a hacer:** 
+
+**Hacer mas:**
+
+- Comentar las funcionalidades en los archivos de la aplicación
+
+**Seguir haciendo:**
+
+- Reuniones por zoom para asignación de tareas.
+- Comunicación diaria de los avances o problemas que surgen.
+- Pensar la dificultad de las tareas y distribuirlas equitativamente acorde a ello.
+- Revisar errores o posibles mejoras de las funcionalidades del sitio y plantear las resoluciones.
+- Estar al día con las tareas, y agregar funcionalidades extras a medida que las vamos aprendiendo.
+
+**Dejar de hacer:**
+
+**Hacer menos:**
+
