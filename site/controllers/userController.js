@@ -261,10 +261,15 @@ module.exports = {
                 msg: `Lo siento! Hubo un error al cambiar la contraseña. Intenta realizar nuevamente todos los pasos`
             })
         } else{
-            res.render('recoverPass', {
-                title: "Modifica tu contraseña",
-                errors: errors.mapped(),
-                old: req.body
+            dbUsers.forEach(user => {
+                if(user.id == userId && hash == (user.password.slice(7, 60).split('/').join('') + 'recover')){
+                    res.render('recoverPass', {
+                        title: "Modifica tu contraseña",
+                        errors: errors.mapped(),
+                        old: req.body,
+                        msg: `${user.nombre}! coloca tu nueva contraseña`
+                    });
+                }
             });
         }
         
