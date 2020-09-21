@@ -188,12 +188,24 @@ button:focus {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 50px;
+  width: 50px; }
+
+.header .nav .icons ul .user-icon {
   position: relative; }
+
+.header .nav .icons ul .user-icon .session {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #00d900;
+  border-radius: 50px;
+  position: relative;
+  top: -5px;
+  right: 0px; }
 
 .header .nav .icons ul .user-options {
   position: absolute;
-  bottom: -97px;
+  top: 20px;
   left: -90px;
   width: 150px;
   padding: 15px;
@@ -795,6 +807,7 @@ button:focus {
   border-bottom: 1px solid var(--color-medio); }
 
 .productSlider .item-container h4 {
+  width: 100%;
   text-align: center;
   font-weight: 500;
   margin: 10px 0;
@@ -941,6 +954,7 @@ button:focus {
   outline: none !important; }
 
 .detalles-productos .detalles .cantidad .botones {
+  position: relative;
   margin: 15px 0;
   width: 100%;
   display: flex;
@@ -969,6 +983,24 @@ button:focus {
   color: var(--color-medioOscuro);
   background: #fff;
   transition: all .5s ease; }
+
+.detalles-productos .detalles .cantidad .botones .editar-producto {
+  padding: 5px 12px;
+  background: #fff;
+  border: 2px solid var(--color-medioOscuro);
+  position: absolute;
+  border-radius: 50px;
+  color: var(--color-medioOscuro);
+  font-weight: 600;
+  font-family: var(--fuente-baloo);
+  bottom: -45px;
+  transition: all .5s ease; }
+
+.detalles-productos .detalles .cantidad .botones .editar-producto:hover {
+  color: #fff;
+  background: var(--color-medioOscuro);
+  transition: all .5s ease;
+  text-decoration: none; }
 
 /* DESCRIPCION Y OPINIONES */
 .detalles-productos .fondo-gris {
@@ -1040,6 +1072,11 @@ button:focus {
     margin: 0 auto;
     width: 70%; } }
 
+@media (min-width: 768px) {
+  .detalles-productos .detalles .cantidad .botones .editar-producto {
+    bottom: 12px;
+    right: 100px; } }
+
 @media (min-width: 992px) {
   .detalles-productos .detalles-container {
     padding-bottom: 60px; }
@@ -1049,6 +1086,10 @@ button:focus {
     margin-top: 60px; }
   .detalles-productos .detalles .cantidad .botones button {
     margin: 0; }
+  .detalles-productos .detalles .cantidad .botones .editar-producto {
+    bottom: 7px;
+    left: 210px;
+    right: auto; }
   .detalles-productos .detalles .precio {
     margin: 30px 0; }
   .detalles-productos .descripcion-opinion .descripcion {
@@ -1071,6 +1112,12 @@ button:focus {
 .registro .none {
   display: none; }
 
+.registro .errors {
+  font-size: .8rem;
+  color: red;
+  margin: 0;
+  width: 100%; }
+
 /* LOGO */
 .registro .logo {
   width: 100%;
@@ -1087,6 +1134,12 @@ button:focus {
 
 .registro .logo img {
   width: 100%; }
+
+/* MESSAGE */
+.registro .msg h4 {
+  text-align: center;
+  color: var(--color-medioOscuro);
+  margin-bottom: 20px; }
 
 /* VENTANAS */
 .registro .ventanas {
@@ -1142,7 +1195,8 @@ button:focus {
   outline: none;
   box-shadow: 0px 0px 4px var(--color-medio); }
 
-.registro .crear-cuenta .terminos {
+.registro .crear-cuenta .terminos,
+.registro .inicio-sesion .recuerdame {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1150,17 +1204,23 @@ button:focus {
   font-size: .9em;
   width: 100%; }
 
-.registro .crear-cuenta .terminos input {
+.registro .crear-cuenta .terminos input,
+.registro .inicio-sesion .recuerdame input {
   width: auto;
   margin-right: 5px;
   box-shadow: none; }
 
-.registro .crear-cuenta .terminos input:focus {
+.registro .crear-cuenta .terminos input:focus,
+.registro .inicio-sesion .recuerdame input:focus {
   box-shadow: none; }
+
+.registro .crear-cuenta .terminos label,
+.registro .inicio-sesion .recuerdame label {
+  margin: 0px; }
 
 .registro .inicio-sesion form label,
 .registro .crear-cuenta form label {
-  font-size: .9em;
+  font-size: .8rem;
   margin: 8px 0 2px 0; }
 
 .registro .inicio-sesion form button,
@@ -1190,7 +1250,8 @@ button:focus {
   display: inline-block;
   font-size: .9em;
   color: #000;
-  margin-top: 30px; }
+  margin-top: 30px;
+  width: 100%; }
 
 /* BOTONES REDES */
 .registro .redes {
@@ -1266,6 +1327,61 @@ button:focus {
 .cargaProd h5 {
   text-align: center;
   margin-bottom: 30px; }
+
+/* POPUP NUEVO PRODUCTO */
+.popup-producto {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); }
+
+.popup-producto .popup-contenedor {
+  width: 90%;
+  max-width: 400px;
+  height: 200px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; }
+
+.popup-producto .popup-contenedor h5 {
+  text-align: center;
+  margin-top: 15px;
+  color: var(--color-medioOscuro); }
+
+.popup-producto .popup-contenedor .botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
+
+.popup-producto .popup-contenedor .botones .btn {
+  padding: 5px 15px;
+  border: 2px solid var(--color-medioOscuro);
+  border-radius: 50px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--color-medioOscuro);
+  transition: all .5s ease;
+  cursor: pointer; }
+
+.popup-producto .popup-contenedor .botones .btn:hover {
+  background: var(--color-medioOscuro);
+  color: #fff;
+  transition: all .5s ease; }
+
+.popup-producto .popup-contenedor .botones .btn:focus {
+  box-shadow: none; }
+
+.none {
+  display: none; }
 
 /* NAVEGACION */
 .cargaProd {
@@ -2198,3 +2314,123 @@ button:focus {
   background: none;
   margin-bottom: 5px;
   color: var(--color-oscuro); }
+
+/* ----------------------------------------------------------------------------------------------------------- */
+/* GENERAL RECOVER PASS */
+.recover {
+  font-family: 'Poppins';
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 420px;
+  margin: 30px auto;
+  padding: 10px;
+  font-size: 14px; }
+
+.recover .errors {
+  font-size: .8rem;
+  color: red;
+  margin: 0;
+  width: 100%; }
+
+/* LOGO */
+.recover .logo {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+
+.recover .logo a {
+  display: block;
+  width: 60%;
+  min-width: 200px;
+  max-width: 300px;
+  margin-bottom: 30px; }
+
+.recover .logo img {
+  width: 100%; }
+
+/* MESSAGE */
+.recover .msg h4 {
+  text-align: center;
+  color: var(--color-medioOscuro);
+  margin-bottom: 20px; }
+
+/*  */
+.recover .email-recover form,
+.recover .cambiar-contraseña form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.recover .email-recover form div,
+.recover .cambiar-contraseña form div {
+  width: 100%;
+  position: relative; }
+
+.recover .view-pass {
+  position: absolute;
+  right: 0px;
+  top: 28px;
+  color: #9a9a9a;
+  cursor: pointer;
+  padding: 10px 15px; }
+
+.recover .email-recover form input,
+.recover .cambiar-contraseña form input {
+  width: 100%;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  font-size: .9em; }
+
+.recover form input:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px var(--color-medio); }
+
+.recover .email-recover form label,
+.recover .cambiar-contraseña form label {
+  font-size: .8rem;
+  margin: 8px 0 2px 0; }
+
+.recover .email-recover form button,
+.recover .cambiar-contraseña form button {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid var(--color-medioOscuro);
+  border-radius: 50px;
+  color: #fff;
+  background-color: var(--color-medioOscuro);
+  margin: 20px 0;
+  font-size: 1.2em;
+  font-family: 'Baloo Da 2';
+  font-weight: 600;
+  transition: all .5s ease; }
+
+.recover .email-recover form button:hover,
+.recover .cambiar-contraseña form button:hover {
+  color: var(--color-medioOscuro);
+  background-color: #fff;
+  transition: all .5s ease; }
+
+.recover form button:focus {
+  outline: none;
+  box-shadow: none; }
+
+.recover .email-recover a {
+  display: inline-block;
+  font-size: .9em;
+  color: #000;
+  margin-top: 30px;
+  width: 100%; }
+
+/* MEDIA QUERIES */
+@media (min-width: 800px) {
+  .recover {
+    max-width: 650px; }
+  .recover .cambiar-contraseña form div {
+    width: 48%; }
+  .recover .email-recover {
+    width: 50%; } }

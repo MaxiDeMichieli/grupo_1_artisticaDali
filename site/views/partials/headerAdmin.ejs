@@ -6,8 +6,8 @@
                     <a href="/"><img src="/images/logo_carga.png" alt="Artística Dalí"></a>
                 </div>
                 <div class="user col-9 col-sm-6 col-md-8 col-lg-9" >
-                    <p>Usuario: Nombre_de_usuario</p>
-                    <button type="submit" class="cerrar">cerrar sesión</button>
+                    <p>Usuario: <%= session.usuario.nombre %> <%= session.usuario.apellido %></p>
+                    <a href="/users/logout" class="cerrar">cerrar sesión</a>
                 </div>
             </div>
         </div>

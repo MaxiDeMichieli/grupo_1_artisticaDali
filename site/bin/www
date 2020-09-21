@@ -88,3 +88,9 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+console.log(`
+---------------------------------------
+Servidor funcionando en el puerto ${port}
+link: http://localhost:${port}
+---------------------------------------
+`);

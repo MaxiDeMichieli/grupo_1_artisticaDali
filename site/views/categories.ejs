@@ -12,6 +12,10 @@
         <h1>Estas buscando "<%= search %>"</h1>  
       <% } %>
 
+      <% if (typeof subcategoryTitle != 'undefined') { %>
+        <h1><%= subcategory %></h1>  
+      <% } %>
+
       <% if (typeof banner != 'undefined') { %>
        <div class="col-12 portada"><img src="/images/portadas/<%- banner %>" alt="categoria_escolar"></div>
       <% } %>
