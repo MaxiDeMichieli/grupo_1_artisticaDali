@@ -26,24 +26,31 @@ module.exports = function(sequelize, dataTypes){
         },
         telefono:{
             type:dataTypes.STRING(30),
+            defaultValue: null
         },
         calle:{
             type:dataTypes.STRING(45),
+            defaultValue: null
         },
         numero:{
             type:dataTypes.INTEGER(11),
+            defaultValue: null
         },
         dpto:{
             type:dataTypes.STRING(10),
+            defaultValue: null
         },
         cp:{
             type:dataTypes.STRING(15),
+            defaultValue: null
         },
         provincia:{
             type:dataTypes.STRING(45),
+            defaultValue: null
         },
         localidad:{
             type:dataTypes.STRING(45),
+            defaultValue: null
         },
         rol:{
             type:dataTypes.BOOLEAN,
