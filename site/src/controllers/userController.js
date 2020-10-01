@@ -171,9 +171,12 @@ module.exports = {
         let errors = validationResult(req);
 
         if(errors.isEmpty()){
-            dbUsers.forEach(user => {
-                if(user.email == email){
-            
+            db.Users.findOne({
+                where: {
+                    email: email
+                }
+            })
+                .then(user => {
                     let fullUrl = req.protocol + '://' + req.get('host');
                     
                     let mailOptions = {
@@ -191,8 +194,7 @@ module.exports = {
                             res.redirect(`/users/recover/sent/${user.id}`)
                         }
                     });
-                }
-            });
+                })
         } else{
             res.render('recoverPass', {
                 title: "Recupera tu contraseña",
@@ -204,7 +206,6 @@ module.exports = {
     },
     sentView: (req, res) => {
         let userId = req.params.id;
-        let userData;
 
         if(userId == 'error'){
             res.render('recoverPass', {
@@ -212,33 +213,33 @@ module.exports = {
                 msg: 'Lo siento! hubo un error al enviar el mail, intentalo denuevo mas tarde'
             })
         } else{
-            dbUsers.forEach(user => {
-                if(user.id == userId){
-                    userData = user;
-                }
-            });
-            res.render('recoverPass', {
-                title: 'Mail enviado',
-                msg: `Hola ${userData.nombre}! enviamos un mail a ${userData.email}. Sigue los pasos del mail para cambiar tu contraseña.`
-            })
+            db.Users.findByPk(userId)
+                .then(user => {
+                    res.render('recoverPass', {
+                        title: 'Mail enviado',
+                        msg: `Hola ${user.nombre}! enviamos un mail a ${user.email}. Sigue los pasos del mail para cambiar tu contraseña.`
+                    })
+                })
         }
     },
     changePassView: (req, res) => {
         let userId = req.params.id;
         let hash = req.params.hash;
 
-        dbUsers.forEach(user => {
-            if(user.id == userId && hash == (user.password.slice(7, 60).split('/').join('') + 'recover')){
-                res.render('recoverPass', {
-                    title: 'Modifica tu contraseña',
-                    msg: `${user.nombre}! coloca tu nueva contraseña`
-                });
-            }
-        });
-        res.render('recoverPass', {
-            title: 'Error',
-            msg: 'Los siento! La direccion de recuperación de contraseña no es correcta. Por favor verifica el link del mail o vuelve a hacer todos los pasos.'
-        });
+        db.Users.findByPk(userId)
+            .then(user => {
+                if(hash == (user.password.slice(7, 60).split('/').join('') + 'recover')){
+                    res.render('recoverPass', {
+                        title: 'Modifica tu contraseña',
+                        msg: `${user.nombre}! coloca tu nueva contraseña`
+                    });
+                } else{
+                    res.render('recoverPass', {
+                        title: 'Error',
+                        msg: 'Los siento! La direccion de recuperación de contraseña no es correcta. Por favor verifica el link del mail o vuelve a hacer todos los pasos.'
+                    });
+                }
+            })
     },
     changePass: (req, res) => {
         let userId = req.params.id;
@@ -246,27 +247,49 @@ module.exports = {
         let errors = validationResult(req);
 
         if(errors.isEmpty()){
-            dbUsers.forEach(user => {
-                if(user.id == userId && hash == (user.password.slice(7, 60).split('/').join('') + 'recover')){
-                    user.password = bcrypt.hashSync(req.body.password, 12);
-                    res.redirect('/users/login/recovered');
-                    fs.writeFileSync(path.join(__dirname, '../data/usersDataBase.json'), JSON.stringify(dbUsers), 'utf-8');
-                }
-            });
-            res.render('recoverPass', {
-                title: 'Mail enviado',
-                msg: `Lo siento! Hubo un error al cambiar la contraseña. Intenta realizar nuevamente todos los pasos`
-            })
-        } else{
-            dbUsers.forEach(user => {
-                if(user.id == userId && hash == (user.password.slice(7, 60).split('/').join('') + 'recover')){
+            db.Users.findByPk(userId)
+                .then(user => {
+                    if(hash == (user.password.slice(7, 60).split('/').join('') + 'recover')){
+                        db.Users.update({
+                            password: bcrypt.hashSync(req.body.password, 12)
+                        }, {
+                            where: {
+                                id: user.id
+                            }
+                        })
+                            .then(() => {
+                                res.redirect('/users/login/recovered');
+                            })
+                            .catch(err => {
+                                res.render('recoverPass', {
+                                    title: 'Mail enviado',
+                                    msg: `Lo siento! Hubo un error al cambiar la contraseña. Intenta realizar nuevamente todos los pasos`
+                                })
+                            })
+                    }
+                })
+                .catch(err => {
                     res.render('recoverPass', {
-                        title: "Modifica tu contraseña",
-                        errors: errors.mapped(),
-                        old: req.body,
-                        msg: `${user.nombre}! coloca tu nueva contraseña`
-                    });
-                }
+                        title: 'Mail enviado',
+                        msg: `Lo siento! Hubo un error al cambiar la contraseña. Intenta realizar nuevamente todos los pasos`
+                    })
+                })
+        } else{
+            db.Users.findByPk(userId)
+                .then(user => {
+                    if(hash == (user.password.slice(7, 60).split('/').join('') + 'recover')){
+                        res.render('recoverPass', {
+                            title: "Modifica tu contraseña",
+                            errors: errors.mapped(),
+                            old: req.body,
+                            msg: `${user.nombre}! coloca tu nueva contraseña`
+                        });
+                    }
+                })
+
+
+            dbUsers.forEach(user => {
+                
             });
         }
         

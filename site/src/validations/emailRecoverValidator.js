@@ -1,18 +1,23 @@
 const {check, validatorResult, body} = require('express-validator');
-const dbUsers = require('../data/usersDataBase');
+const db = require('../database/models');
 
 module.exports = [
     check('email').isEmail()
-    .withMessage('Debes ingresar un email válido'),
+        .withMessage('Debes ingresar un email válido'),
 
-    body('email').custom(value => {
-        let result = false;
-        dbUsers.forEach(user => {
-            if(user.email == value){
-                result = true;
-            }
-        });
-        return result;
-    })
-    .withMessage('Este email no se encuentra registrado')
+    body('email')
+        .custom(function(value){
+            return db.Users.findOne({
+                where:{
+                    email:value
+                }
+            })
+            .then(user => {
+                console.log('encontrado')
+                if(!user){
+                    console.log('encontrado pero no')
+                    return Promise.reject('Este email no se encuentra registrado')
+                }
+            })
+        }),
 ]
