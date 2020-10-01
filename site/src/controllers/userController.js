@@ -1,4 +1,5 @@
 const dbUsers = require('../data/usersDataBase.js');
+const db = require('../database/models')
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
@@ -32,28 +33,20 @@ module.exports = {
     register: (req, res) => {
         let errors = validationResult(req);
 
-        let newUser = {
-            id: dbUsers.length + 1,
-            nombre: req.body.nombre.trim(),
-            apellido: req.body.apellido.trim(),
-            email: req.body.email.trim(),
-            password: bcrypt.hashSync(req.body.password, 12),
-            telefono: null,
-            calle: null,
-            numero: null,
-            dpto: null,
-            cpostal: null,
-            provincia: null,
-            localidad: null,
-            admin: "false"
-        }
-
         if(errors.isEmpty()){
-            dbUsers.push(newUser);
-
-            fs.writeFileSync(path.join(__dirname, '..', 'data', 'usersDataBase.json'), JSON.stringify(dbUsers), 'utf-8');
-
-            res.redirect('/users/login/success')
+            db.Users.create({
+                nombre: req.body.nombre.trim(),
+                apellido: req.body.apellido.trim(),
+                email: req.body.email.trim(),
+                password: bcrypt.hashSync(req.body.password, 12),
+            })
+                .then(() => {
+                    res.redirect('/users/login/success')
+                })
+                .catch((err) => {
+                    console.log(err);
+                    res.redirect('/user/login')
+                })
         }else{
             res.render('register', {
                 title: 'Crear cuenta',
@@ -65,8 +58,12 @@ module.exports = {
     login: (req, res) => {
         let errors = validationResult(req);
         if(errors.isEmpty()){
-            dbUsers.forEach(user => {
-                if(user.email == req.body.email){
+            db.Users.findOne({
+                where: {
+                    email: req.body.email
+                }
+            })
+                .then((user) => {
                     req.session.usuario = {
                         id: user.id,
                         nombre: user.nombre,
@@ -77,9 +74,11 @@ module.exports = {
                     if(req.body.recordar){
                         res.cookie('userArtisticaDali', req.session.usuario, {maxAge:1000*60*60*24*365})
                     }
-                }
-            });
-            res.redirect('/')
+                    res.redirect('/')
+                })
+                .catch((err) => {
+                    res.redirect('/user/login')
+                })
         }else{
             res.render('register', {
                 title: "Inicia sesión",

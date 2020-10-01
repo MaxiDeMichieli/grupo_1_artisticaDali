@@ -1,5 +1,6 @@
 const {check, validationResult, body} = require('express-validator');
 const dbUsuarios = require('../data/usersDataBase');
+const db = require('../database/models');
 
 module.exports = [
     check('nombre')
@@ -16,16 +17,17 @@ module.exports = [
     
     body('email')
         .custom(function(value){
-            let usuario = dbUsuarios.filter(user=>{
-                return user.email == value 
+            return db.Users.findOne({
+                where:{
+                    email:value
+                }
             })
-            if(usuario == false){ 
-                return true 
-            }else{
-                return false 
-            }
-        })
-        .withMessage('Este email ya está registrado'),
+            .then(user => {
+                if(user){
+                    return Promise.reject('Este email ya está registrado')
+                }
+            })
+        }),
 
     check('password')
         .isLength({min:6, max:100})
