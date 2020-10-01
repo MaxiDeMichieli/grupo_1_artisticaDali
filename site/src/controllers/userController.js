@@ -123,7 +123,7 @@ module.exports = {
             apellido: req.body.apellido.trim(),
             telefono: req.body.telefono.trim(),
             calle: req.body.calle.trim(),
-            numero: parseInt(req.body.numero.trim()),
+            numero: req.body.numero == 0 ? null : req.body.numero,
             dpto: req.body.dpto.trim(),
             cp: req.body.cpostal.trim(),
             provincia: req.body.provincia.trim(),
@@ -138,20 +138,19 @@ module.exports = {
             })
     },
     delete: (req, res) => {
-        let idUser = req.body.id;
+        db.Users.destroy({
+            where: {
+                id: req.session.usuario.id
+            }
+        })
+            .then(() => {
+                req.session.destroy();
+                if(req.cookies.userArtisticaDali){
+                    res.cookie('userArtisticaDali','',{maxAge:-1})
+                }
 
-        let usersFilter = dbUsers.filter(user => {
-            return user.id != idUser;
-        });
-
-        fs.writeFileSync(path.join(__dirname, '../data/usersDataBase.json'), JSON.stringify(usersFilter), 'utf-8');
-
-        req.session.destroy();
-        if(req.cookies.userArtisticaDali){
-            res.cookie('userArtisticaDali','',{maxAge:-1})
-        }
-
-        res.redirect('/')
+                res.redirect('/')
+            })
     },
     logout: (req,res) => {
         req.session.destroy();
