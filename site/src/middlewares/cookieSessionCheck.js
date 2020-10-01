@@ -1,15 +1,21 @@
-const dbUser = require('../data/usersDataBase');
+const db = require('../database/models');
 const bcrypt = require('bcrypt')
 
 module.exports = (req, res, next) => {
-    if(req.cookies.userArtisticaDali){
-        dbUser.forEach(user => {
-            if(req.cookies.userArtisticaDali.email == user.email && req.cookies.userArtisticaDali.id == user.id){
+    if(req.cookies.userArtisticaDali && !req.session.usuario){
+        db.Users.findOne({
+            where: {
+                email:req.cookies.userArtisticaDali.email,
+                id: req.cookies.userArtisticaDali.id
+            }
+        })
+            .then(user => {
                 if(bcrypt.compareSync(user.password, req.cookies.userArtisticaDali.hash)){
                     req.session.usuario = req.cookies.userArtisticaDali;
                 }
-            }
-        })
+                next();
+            })
+    }else{
+        next()
     }
-    next();
 }

@@ -1,10 +1,8 @@
-const dbUsers = require('../data/usersDataBase.js');
 const db = require('../database/models')
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const {check,validationResult,body} = require('express-validator');
-const nodemailer = require('nodemailer');
 const nodemailerTransporter = require('../functions/nodemailerTransporter')
 
 module.exports = {
@@ -286,11 +284,6 @@ module.exports = {
                         });
                     }
                 })
-
-
-            dbUsers.forEach(user => {
-                
-            });
         }
         
     }

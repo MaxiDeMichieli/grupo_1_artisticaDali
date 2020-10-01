@@ -1,19 +1,19 @@
-const dbUsers = require('../data/usersDataBase');
+const db = require('../database/models');
 
 module.exports = (req, res, next) => {
-    let admin = false;
-
-    dbUsers.forEach(user => {
-        if(req.session.usuario.id == user.id){
-            if(user.admin){
-                admin = true;
+    db.Users.findByPk(req.session.usuario.id)
+        .then(user => {
+            let admin = false
+            if(user.rol == 1){
+                admin = true
             }
-        }
-    })
-
-    if(admin){
-        next();
-    }else{
-        res.redirect('/')
-    }
+            if(admin){
+                next();
+            }else{
+                res.redirect('/')
+            }
+        })
+        .catch(err => {
+            res.redirect('/')
+        })
 }

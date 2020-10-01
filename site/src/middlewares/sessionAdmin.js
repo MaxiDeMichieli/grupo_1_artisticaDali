@@ -1,12 +1,16 @@
-const dbUsers = require('../data/usersDataBase')
+const db = require('../database/models');
 
 module.exports = (req, res, next) => {
+    console.log(req.session.admin)
     if(req.session.usuario && !req.session.admin){
-        dbUsers.forEach(user => {
-            if(req.session.usuario.id == user.id && user.admin == true){
-                req.session.admin = true;
-            }
-        })
+        db.Users.findByPk(req.session.usuario.id)
+            .then(user => {
+                if(user.rol == 1){
+                    req.session.admin = true;
+                }
+                next();
+            })
+    }else{
+        next();
     }
-    next();
 }

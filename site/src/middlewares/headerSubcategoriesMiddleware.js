@@ -1,7 +1,17 @@
-const dbProduct = require('../data/dataBase');
+const db = require('../database/models');
+const dbProduct = require('../data/dataBase')
 
 
 module.exports = (req, res, next) => {
+    /* db.Categories.findAll({
+        include: [{association: 'subcategorias'}]
+    })
+        .then(resultado => {
+            console.log(resultado)
+            res.send(resultado)
+        })
+ */
+
     let escolar = [];
     let artistica = [];
     let oficina = [];
