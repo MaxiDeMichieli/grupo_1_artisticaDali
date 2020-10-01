@@ -1,5 +1,6 @@
 const dbProduct = require('../data/dataBase');
 const dbUsers = require('../data/usersDataBase');
+const db = require('../database/models');
 const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
@@ -36,57 +37,43 @@ module.exports = {
         });
     },
     addProduct: (req, res) =>{
-        let subcategorias = []
-        dbProduct.filter(element =>{
-            subcategorias.push(element.subcategory)
+        db.Categories.findAll({
+            include:[{association:'subcategorias'}]
         })
-        let products = []
-        dbProduct.filter(element =>{
-            products.push(element)
+            .then(categorias =>{
+                res.render('productAdd', { 
+                    title: 'Formulario de carga de productos',
+                    categorias:categorias,
+                    session: req.session,
+                    productCreated: req.query.lp, /* last product created */
+                })
+            })
+            .catch(error =>{
+                console.log(error)
         })
-        
-        res.render('productAdd', { 
-            title: 'Formulario de carga de productos',
-            session: req.session,
-            productCreated: req.query.lp, /* last product created */
-        });
-  
     },
     create: (req, res)=>{
         let errors = validationResult(req);
         let lastId = 1;
         if(errors.isEmpty()){
-        dbProduct.forEach(producto=>{
-            if(producto.id>lastId){
-                lastId = producto.id
-            }
-        })
-
-        let newProduct = {
-            id: lastId + 1,
-            name: req.body.name,
-            price: req.body.price,
-            description: req.body.description,
-            discount: req.body.discount,
-            category: req.body.category,
-            subcategory: req.body.subcategory,
-            image:[(req.files[0])?req.files[0].filename:"default-image.png"]
-        }
-        
-        dbProduct.push(newProduct);
-        
-        fs.writeFileSync(path.join(__dirname, "..", "data", "productsDataBase.json"),JSON.stringify(dbProduct),'utf-8')
+            db.Products.create({
+                nombre:req.body.name.trim(),
+                precio:Number(req.body.price.trim()),
+                descuento:Number(req.body.discount.trim()),
+                descripcion:req.body.description,
+                subcategoria_id:req.body.subcategory
+            })
         
         res.redirect('/products/create?lp=' + (lastId + 1))
-    }else{
-        res.render('productAdd',{
-            title: 'Error',
-            session: req.session,
-            errors:errors.errors,
-            oldAdd:req.body
-        })
-        console.log(errors.errors)
-    }
+        }else{
+            res.render('productAdd',{
+                title: 'Error',
+                session: req.session,
+                errors:errors.errors,
+                oldAdd:req.body
+            })
+            console.log(errors.errors)
+        }
     },
     categories : (req, res)=>{
         let categorias = [
