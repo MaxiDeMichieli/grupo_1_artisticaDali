@@ -88,55 +88,54 @@ module.exports = {
         }
     },
     account: (req, res) => {
-        let userInSession;
-        dbUsers.forEach(user => {
-            if(req.session.usuario.id == user.id){
-                userInSession = user;
+        db.Users.findOne({
+            where: {
+                id: req.session.usuario.id
             }
-        });
-
-        res.render('account', {
-            title: 'Mi cuenta',
-            session: req.session,
-            subcategories: req.subcategories,
-            user: userInSession
         })
+            .then(user => {
+                res.render('account', {
+                    title: 'Mi cuenta',
+                    session: req.session,
+                    subcategories: req.subcategories,
+                    user: user
+                })
+            })
     },
     editView: (req, res) => {
-        let userInSession;
-        dbUsers.forEach(user => {
-            if(req.session.usuario.id == user.id){
-                userInSession = user;
+        db.Users.findOne({
+            where: {
+                id: req.session.usuario.id
             }
-        });
-
-        res.render('editAccount', {
-            title: 'Editar mis datos',
-            session: req.session,
-            subcategories: req.subcategories,
-            user: userInSession
         })
+            .then(user => {
+                res.render('editAccount', {
+                    title: 'Editar mis datos',
+                    session: req.session,
+                    subcategories: req.subcategories,
+                    user: user
+                })
+            })
     },
     edit: (req, res) => {
-        let idUser = req.body.id;
-        dbUsers.forEach(user => {
-            if (user.id == idUser) {
-                user.id = Number(req.body.id);
-                user.nombre = req.body.nombre.trim();
-                user.apellido = req.body.apellido.trim();
-                user.email = req.body.email.trim();
-                user.telefono = req.body.telefono.trim();
-                user.calle = req.body.calle.trim();
-                user.numero = req.body.numero.trim();
-                user.dpto = req.body.dpto.trim();
-                user.cpostal = req.body.cpostal.trim();
-                user.provincia = req.body.provincia.trim();
-                user.localidad = req.body.localidad.trim();
+        db.Users.update({
+            nombre: req.body.nombre.trim(),
+            apellido: req.body.apellido.trim(),
+            telefono: req.body.telefono.trim(),
+            calle: req.body.calle.trim(),
+            numero: parseInt(req.body.numero.trim()),
+            dpto: req.body.dpto.trim(),
+            cp: req.body.cpostal.trim(),
+            provincia: req.body.provincia.trim(),
+            localidad: req.body.localidad.trim()
+        }, {
+            where: {
+                id: req.session.usuario.id
             }
         })
-
-        fs.writeFileSync(path.join(__dirname, '../data/usersDataBase.json'), JSON.stringify(dbUsers), 'utf-8')
-        res.redirect('/users/account')
+            .then(() => {
+                res.redirect('/users/account')
+            })
     },
     delete: (req, res) => {
         let idUser = req.body.id;

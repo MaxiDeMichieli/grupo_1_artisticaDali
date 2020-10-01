@@ -7,7 +7,6 @@
     <div class="container">
         <div class="datos">
             <form action="/users/account/edit?_method=PUT" method="POST">
-                <input type="hidden" value="<%- user.id %>" name="id">
                 <div class="edit-container">
                     <h5>Datos personales</h5>
                     <div>
@@ -20,11 +19,11 @@
                     </div>
                     <div>
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" spellcheck="false" required value="<%- user.email %>">
+                        <input type="email" name="email" id="email" spellcheck="false" required value="<%- user.email %>" disabled>
                     </div>
                     <div>
                         <label for="telefono">Teléfono</label>
-                        <input type="text" name="telefono" id="telefono" spellcheck="false" required value="<%- user.telefono %>">
+                        <input type="text" name="telefono" id="telefono" spellcheck="false" value="<%- user.telefono %>">
                     </div>
                 </div>
                 
