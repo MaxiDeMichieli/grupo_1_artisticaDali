@@ -11,19 +11,19 @@
                     <h5>Datos personales</h5>
                     <div>
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" spellcheck="false" required value="<%- user.nombre %>">
+                        <input type="text" name="nombre" id="nombre" spellcheck="false" required <% if(user.nombre){ %>value="<%- user.nombre %>"<% } %> >
                     </div>
                     <div>
                         <label for="apellido">Apellido</label>
-                        <input type="text" name="apellido" id="apellido" spellcheck="false" required value="<%- user.apellido %>">
+                        <input type="text" name="apellido" id="apellido" spellcheck="false" required <% if(user.apellido){ %>value="<%- user.apellido %>"<% } %>>
                     </div>
                     <div>
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" spellcheck="false" required value="<%- user.email %>" disabled>
+                    <input type="email" name="email" id="email" spellcheck="false" required <% if(user.email){ %>value="<%- user.email %>"<% } %> disabled>
                     </div>
                     <div>
                         <label for="telefono">Teléfono</label>
-                        <input type="text" name="telefono" id="telefono" spellcheck="false" value="<%- user.telefono %>">
+                        <input type="text" name="telefono" id="telefono" spellcheck="false" <% if(user.telefono){ %>value="<%- user.telefono %>"<% } %>>
                     </div>
                 </div>
                 
@@ -31,28 +31,28 @@
                     <h5>Datos de envío</h5>
                     <div>
                         <label for="calle">Calle</label>
-                        <input type="text" name="calle" id="calle" spellcheck="false" value="<%- user.calle %>">
+                    <input type="text" name="calle" id="calle" spellcheck="false" <% if(user.calle){ %>value="<%- user.calle %>"<% } %>>
                     </div>
                     <div>
                         <label for="numero">Numero</label>
-                        <input type="number" name="numero" id="numero" spellcheck="false" value="<%- user.numero %>">
+                        <input type="number" name="numero" id="numero" spellcheck="false" <% if(user.numero){ %>value="<%- user.numero %>"<% } %>>
                     </div>
                     <div>
                         <label for="dpto">Dpto. (opcional)</label>
-                        <input type="text" name="dpto" id="dpto" spellcheck="false" value="<%- user.dpto %>">
+                        <input type="text" name="dpto" id="dpto" spellcheck="false" <% if(user.dpto){ %>value="<%- user.dpto %>"<% } %>>
                     </div>
                     <div>
                         <label for="cpostal">C.Postal</label>
-                        <input type="text" name="cpostal" id="cpostal" spellcheck="false" value="<%- user.cpostal %>">
+                        <input type="text" name="cpostal" id="cpostal" spellcheck="false" <% if(user.cpostal){ %>value="<%- user.cpostal %>"<% } %>>
                         <a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank">Encontrá tu CP</a>
                     </div>
                     <div>
                         <label for="provincia">Provincia</label>
-                        <input type="text" name="provincia" id="provincia" spellcheck="false" value="<%- user.provincia %>">
+                        <input type="text" name="provincia" id="provincia" spellcheck="false" <% if(user.provincia){ %>value="<%- user.provincia %>"<% } %>>
                     </div>
                     <div>
                         <label for="localidad">Locaildad</label>
-                        <input type="text" name="localidad" id="localidad" spellcheck="false" value="<%- user.localidad %>">
+                        <input type="text" name="localidad" id="localidad" spellcheck="false" <% if(user.localidad){ %>value="<%- user.localidad %>"<% } %>>
                     </div>
                 </div>
         
