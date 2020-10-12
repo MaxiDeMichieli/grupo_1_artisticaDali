@@ -117,15 +117,15 @@ module.exports = {
     },
     edit: (req, res) => {
         db.Users.update({
-            nombre: req.body.nombre.trim(),
-            apellido: req.body.apellido.trim(),
-            telefono: req.body.telefono.trim(),
-            calle: req.body.calle.trim(),
-            numero: req.body.numero == 0 ? null : req.body.numero,
-            dpto: req.body.dpto.trim(),
-            cp: req.body.cpostal.trim(),
-            provincia: req.body.provincia.trim(),
-            localidad: req.body.localidad.trim()
+            nombre: req.body.nombre != ''?req.body.nombre.trim():null,
+            apellido: req.body.apellido != ''?req.body.apellido.trim():null,
+            telefono: req.body.telefono != ''?req.body.telefono.trim():null,
+            calle: req.body.calle != ''?req.body.calle.trim():null,
+            numero: req.body.numero != ''?req.body.numero:null,
+            dpto: req.body.dpto != ''?req.body.dpto.trim():null,
+            cp: req.body.cpostal != ''?req.body.cpostal.trim():null,
+            provincia: req.body.provincia != ''?req.body.provincia.trim():null,
+            localidad: req.body.localidad != ''?req.body.localidad.trim():null
         }, {
             where: {
                 id: req.session.usuario.id
