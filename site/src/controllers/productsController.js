@@ -1,9 +1,9 @@
-
 const dbUsers = require('../data/usersDataBase');
 const db = require('../database/models')
 const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
+const {Op} = require('sequelize')
 
 
 module.exports = {
@@ -93,9 +93,13 @@ module.exports = {
         }
     },
     categories : (req, res)=>{
-        db.Categories.findAll({where:{id:req.params.id}, include:[{association: 'subcategorias', include:[{association: 'productos', include:[{association:'imagenes'}]}]}]})
+        db.Categories.findAll({
+            where:{id:req.params.id},
+            include:[{association: 'subcategorias',
+            include:[{association: 'productos',
+            include:[{association:'imagenes'}]}]}]})
         .then(function (categorias){
-            
+           res.send(categorias)
             res.render('categories', {
                 title: categorias.nombre,
                 session: req.session,
@@ -107,7 +111,10 @@ module.exports = {
         })
     },
     subcategories: (req, res) => {
-        db.Subcategories.findAll({where:{id:req.params.id},include:[{association: 'productos', include:[{association:'imagenes'}]}]})
+        db.Subcategories.findAll({
+            where:{id:req.params.id},
+            include:[{association: 'productos', 
+            include:[{association:'imagenes'}]}]})
 
         .then(function(subcategorias){
             
@@ -126,8 +133,10 @@ module.exports = {
     search: (req, res) => {
         let buscar = req.query.search.toLowerCase();
         db.Products.findAll({where:{
-            nombre:buscar
-        }})
+            nombre:{
+                [Op.substring]:buscar
+            }
+        }, include:[{association: 'imagenes'}, {association: 'subcategoria'}]})
         .then(function(resultado){
             if(resultado == 0) {
                 res.render('errorSearch', {
@@ -137,11 +146,24 @@ module.exports = {
                     search: buscar
                 })
             } else{
+                let subcategorias = [];
+                
+                resultado.forEach(producto=>{
+                    if(subcategorias.includes(producto.subcategoria.nombre)){
+                        
+                    }else{
+                        subcategorias.push({
+                            id:producto.subcategoria.id,
+                            nombre:producto.subcategoria.nombre
+                        })
+                    }
+                })
+                
                 res.render('categories', {
                     title: "Resultado de la búsqueda",
                     session: req.session,
                     subcategories: req.subcategories,
-                    subcategorias:resultado,
+                    subcategorias:subcategorias,
                     productos: resultado,
                     search: buscar,
                     subcategory: resultado
@@ -228,24 +250,25 @@ module.exports = {
         }})
     },
     delete:(req, res)=>{
+        let eliminarImagen = db.ProductImages.destroy({
+            where:{
+            producto_id:req.params.id
+        }})
+
         let eliminarProducto = db.Products.destroy({
             where:{
                 id: req.params.id
             }
         })
-        let eliminarImagen = db.ProductImages.destroy({where:{
-            producto_id:req.params.id
-        }})
-
-        Promise.all([eliminarProducto, eliminarImagen])        
+        
+        Promise.all([eliminarImagen, eliminarProducto])        
         .then(function(producto, imagen){
-            return producto, imagen
-            
+            res.redirect('/products/edit')   
         })
         .catch(error=>{
             res.send(error)
             console.log(error)
         })
-        res.redirect('/products/edit')  
+       
     }
 }

@@ -59,11 +59,11 @@
             <div class="lateral col-lg-3">
               <h3>Subcategorias</h3>
               <ul>
-                <% subcategorias.forEach(subcategoria => { %>
-                  <li><a href="/products/subcategory/<%- subcategoria.id %>"><%- subcategoria.nombre%> </a>
-                  </li>
-                <% }) %>
                 
+                  <% subcategorias.forEach(subcategoria => { %>
+                    <li><a href="/products/subcategory/<%- subcategoria.id %>"><%- subcategoria.nombre%> </a>
+                    </li>
+                  <% }) %>
                 
               </ul>
               <div class="filtros">
