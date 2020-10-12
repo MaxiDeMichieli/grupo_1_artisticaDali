@@ -1,12 +1,17 @@
+const db = require('../database/models')
 const dbProduct = require('../data/dataBase.js');
 
 module.exports = {
     home:(req, res, next) =>{
-        res.render('index', { 
+        db.Products.findAll({include:[{association:'imagenes'}]})
+        .then(function(productos){
+            res.render('index', { 
             title: 'Artística Dalí',
             session: req.session,
             subcategories: req.subcategories,
-            productos: dbProduct
+            productos: productos,
+            imagen:productos
         });
+    })
     },
 }

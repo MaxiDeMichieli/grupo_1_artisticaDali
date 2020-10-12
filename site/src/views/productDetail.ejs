@@ -8,11 +8,11 @@
         <div class="container">
             <div class="row detalles-container">
                 <div class="imagenes col-12 col-lg-6">
-                    <% if (producto.image.length > 1) { %>
+                    <% if (imagen.length > 1) { %>
                     <div class="chicas">
 
-                        <% producto.image.forEach((img, i) => { %> 
-                        <img src="/images/productos/<%- img %> " alt="" id="img-sm<%- i + 1 %>">
+                        <% imagen.forEach((img, i) => { %> 
+                        <img src="/public/images/productos/<%- img[0] %> " alt="" id="img-sm<%- i + 1 %>">
                         <% }) %>
                         
                     </div>
@@ -20,12 +20,12 @@
                     
 
                     <div class="grande">
-                        <img id="img" src="/images/productos/<%- producto.image[0] %> " alt="producto">
+                        <img id="img" src="/images/productos/<%- imagen[0].imagen %> " alt="producto">
                     </div>
                 </div>
                 <section class="detalles col-12 col-lg-6">
-                    <h2><%= producto.name %> </h2>
-                    <span class="precio">$<%= producto.price %> </span>
+                    <h2><%= producto.nombre %> </h2>
+                    <span class="precio">$<%= producto.precio %> </span>
                     <form action="" class="cantidad">
                         <label for="cantidad">Cantidad</label>
                         <span class="numero">
@@ -47,7 +47,7 @@
                     <div class="descripcion col-12 col-lg-6">
                         <h3>Descripción del producto</h3>
                         <div class="descripcion-parrafos">
-                            <% let descripcion = producto.description.split('\n') %>
+                            <% let descripcion = producto.descripcion.split('\n') %>
                             <% descripcion.forEach(frase => { %>
                                 <p><%= frase %> </p>
                             <% }) %>
@@ -77,21 +77,21 @@
                     <a href="/products/detail/<%- producto.id %> ">
                         <div class="item">
                             <div class="item-container">
-                                <img src="/images/productos/<%- producto.image[0] %> " alt="">
-                                <% if (producto.name.length > 30) { %>
-                                    <% let nameSlice = producto.name.slice(0,30) %> 
+                                <img src="/public/images/productos/<%- producto.imagenes[0].imagen %> " alt="">
+                                <% if (producto.nombre.length > 30) { %>
+                                    <% let nameSlice = producto.nombre.slice(0,30) %> 
                                      <h4><%= nameSlice %>... </h4>
                                    <% } else { %>
-                                   <h4><%= producto.name %> </h4>
+                                   <h4><%= producto.nombre %> </h4>
                                 <% } %>
-                                <span class="precio">$<%= producto.price %>
-                                  <% if (producto.discount != 0) { %>
+                                <span class="precio">$<%= producto.precio %>
+                                  <% if (producto.descuento != 0) { %>
                                    <!-- <span>$1800</span> -->
                                   <% } %>
                                 </span>
-                                <% if (producto.discount != 0) { %>
+                                <% if (producto.descuento != 0) { %>
                                 <div class="oferta">
-                                    <span><%= producto.discount %> % OFF</span>
+                                    <span><%= producto.descuento %> % OFF</span>
                                 </div>
                                 <% } %>
                             </div>
@@ -104,7 +104,7 @@
 
     <%- include('partials/footer.ejs') %>
 
-    <% if (producto.image.length > 1) { %>
+    <% if (imagen.length > 1) { %>
     <script>
         const imgGrande = document.getElementById("img");
         const imgChica1 = document.getElementById("img-sm1");
@@ -113,11 +113,11 @@
         const imgChica4 = document.getElementById("img-sm4");
 
         document.getElementById("img-sm1").onclick = () => {
-            imgGrande.src = "/images/productos/<%- producto.image[0] %>";
+            imgGrande.src = "/images/productos/<%- producto.imagen[0] %>";
         }
 
         document.getElementById("img-sm2").onclick = () => {
-            imgGrande.src = "/images/productos/<%- producto.image[1] %>";
+            imgGrande.src = "/images/productos/<%- producto.imagen[1] %>";
         }
     </script>
     <% } %>

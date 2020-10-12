@@ -54,19 +54,19 @@
                             <div class="row producto col-12">
 
                                         <div class="imagen col-4 col-md-3 col-lg-3">
-                                            <img src="/images/productos/<%- element.image[0] %>"  alt="">
+                                            <img src="/images/productos/<%- element.imagenes[0].imagen %>"  alt="">
                                         </div>
                                             
                                         <div class="datos col-8 col-md-5 col-lg-5">
-                                            <% if (element.name.length > 15) { %>
-                                                <% let nameSlice = element.name.slice(0,30) %> 
+                                            <% if (element.nombre.length > 15) { %>
+                                                <% let nameSlice = element.nombre.slice(0,30) %> 
                                                 <span><%= nameSlice %>... </span>
                                                 <% } else { %>
-                                                <span><%= element.name %> </span>
+                                                <span><%= element.nombre %> </span>
                                                 <% } %> 
                                                         
-                                                <span>$ <%- element.price %> </span>
-                                                <span>% <%- element.discount %> </span>
+                                                <span>$ <%- element.precio %> </span>
+                                                <span>% <%- element.descuento %> </span>
                                        </div>
                                         <div class="botones col-12 col-md-4 col-lg-4">
                                                 <a href="/products/edit/<%- element.id %>">Editar</a>

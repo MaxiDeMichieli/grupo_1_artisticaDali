@@ -48,12 +48,12 @@
                 <div class="subcategoria">
                     <a class="tit-cat" href="/products/category/1">ESCOLAR</a>
                     <% for( ul in subcategories.escolar ) { %>
-                    <ul>
-                        <% subcategories.escolar[ul].forEach(subcat => { %>
-                        <li><a href="/products/subcategory/<%- subcat %>"><%= subcat %></a></li>
-                        <% }) %>
-                    </ul>
-                    <% } %>
+                        <ul>
+                            <% subcategories.escolar[ul].forEach(subcat => { %>
+                            <li><a href="/products/subcategory/<%- subcat %>"><%= subcat %></a></li>
+                            <% }) %>
+                        </ul>
+                        <% } %>
                 </div>
                 <span ><i id="atras-escolar" class="fas fa-times atras"></i></span>
             </div>
@@ -66,7 +66,8 @@
                             <li><a href="/products/subcategory/<%- subcat %>"><%= subcat %></a></li>
                             <% }) %>
                         </ul>
-                    <% } %>
+                        <% } %>
+    
                 </div>
                 <span ><i id="atras-artistica" class="fas fa-times atras"></i></span>
             </div>
@@ -79,7 +80,8 @@
                             <li><a href="/products/subcategory/<%- subcat %>"><%= subcat %></a></li>
                             <% }) %>
                         </ul>
-                    <% } %>
+                        <% } %>
+    
                 </div>
                 <span ><i id="atras-oficina" class="fas fa-times atras"></i></span>
             </div>

@@ -45,6 +45,9 @@
                 </h3>
             </div>
             <div class="container main">
+
+                      <!-- FORMULARIO -->  
+
                     <form action="/products/create" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-12 col-md-12 col-lg-6" id="formulario1">
@@ -53,6 +56,7 @@
                                     <div class="row">
                                         <div class="col-12 col-md-12" id="form">
                                             <div>
+                                                <!-- Listado de errores -->
                                                 <div class="errores">
                                                     <% if (typeof errors != 'undefined') { %>
                                                       <ul>
@@ -62,18 +66,36 @@
                                                       </ul>
                                                       <% } %> 
                                                   </div>
+                                                  
                                                 <div class="row">
+                                                    <!-- Agregar nueva subcategoria -->
+                                                    <div class="addSubcategory">
+                                                        <label for="">Agregar subcategoria</label>
+                                                        <input type="radio" name="add" id="inputRadio">
+                                                    </div>
+                                                    <div class="inputAdd">
+                                                        <input type="text" name="addSub" placeholder="Agregue una nueva subcategoria">
+                                                    </div>
+                                                    <!-- Categoria y subcategoria-->
                                                     <div class="bloque1">
                                                         <select name="category" >
-                                                            <option hidden selected value="0" >Elija una categoria</option>
-                                                            <option value="1" <% if(typeof oldAdd != 'undefined' && oldAdd.category == '1'){%> selected <% } %>>Escolar</option>
-                                                            <option value="2" <% if(typeof oldAdd != 'undefined' && oldAdd.category == '2'){%> selected <% } %>>Artística</option>
-                                                            <option value="3"<% if(typeof oldAdd != 'undefined' && oldAdd.category == '3'){%> selected <% } %>>Oficina</option>
+                                                            <option hidden selected value="0" >Elija una Categoria</option>
+                                                           <% categorias.forEach(categoria => { %>
+                                                            <option value="<%= categoria.id %>"<% if(typeof oldAdd != 'undefined' && oldAdd.categoria){%> selected <% } %>><%= categoria.nombre %> </option>
+                                                           <% }) %>
                                                         </select>
-                                                        <input type="text" placeholder="Producto" name="name" id="producto" value="<%= (typeof oldAdd != 'undefined' && oldAdd.name)?oldAdd.name:'' %>">
+                                                        <select name="subcategory" >
+                                                            <option hidden selected value="0" >Elija una subcategoria</option>
+                                                           <% categorias.forEach(categoria => { %>
+                                                            <option value="<%= categoria.id %>"<% if(typeof oldAdd != 'undefined' && oldAdd.categoria ){%> selected <% } %>><%= categoria.nombre %> </option>
+                                                           <% }) %>
+                                                        </select>
+
                                                     </div>
+                                                    <!-- Producto y descuento -->
                                                     <div class="bloque2">
-                                                        <input type="text" placeholder="Subcategoría" name="subcategory" value="<%= (typeof oldAdd != 'undefined' && oldAdd.subcategory)?oldAdd.subcategory:'' %>" >
+                                                        <input type="text" placeholder="Producto" name="name" id="producto" value="<%= (typeof oldAdd != 'undefined' && oldAdd.name)?oldAdd.name:'' %>">
+                                                        
                                                         <input type="number" placeholder="Descuento" name="discount" id="discount" value="<%= (typeof oldAdd != 'undefined' && oldAdd.discount)?oldAdd.discount:'' %>">
                                                     </div>
                                                 </div>

@@ -12,6 +12,9 @@ module.exports = (sequelize, dataTypes) => {
         nombre:{
             type:dataTypes.STRING(45),
             allowNull:false
+        }, 
+        banner:{
+            type:dataTypes.STRING(45)
         }
     } 
 

@@ -22,7 +22,7 @@
                 Estas editando el producto:
             </h3>
             <h5>
-                <%= product.name %> 
+                <%= product.nombre %> 
             </h5>
         </div>
         <div class="container main">
@@ -49,18 +49,18 @@
                                                     <label for="category">Categoría</label>
                                                     <select name="category" id="category">
                                                         <option hidden value="0">Elija una categoria</option>
-                                                    <option value="1" <% if(typeof product.category != 'undefined' && product.category == '1'){%> selected <% } %> >Escolar</option>
+                                                        <option value="1" <% if(typeof product.category != 'undefined' && product.category == '1'){%> selected <% } %> >Escolar</option>
                                                         <option value="2" <% if(typeof product.category != 'undefined' && product.category == '2'){%> selected <% } %>>Artística</option>
                                                         <option value="3" <% if(typeof product.category != 'undefined' && product.category == '3'){%> selected <% } %>>Oficina</option>
                                                     </select>
                                                     <label for="name">Producto</label>
-                                                    <input type="text" placeholder="Producto" name="name" id="name" value="<%= product.name %>">
+                                                    <input type="text" placeholder="Producto" name="name" id="name" value="<%= product.nombre %>">
                                                 </div>
                                                 <div class="bloque2">
                                                     <label for="subcategory">Subcategoría</label>
-                                                    <input type="text" placeholder="Subcategoría" name="subcategory" id="subcategory" value="<%= product.subcategory %>">
+                                                    <input type="text" placeholder="Subcategoría" name="subcategory" id="subcategory" value="<%= product.subcategoria_id%>">
                                                     <label for="discount">Descuento</label>
-                                                    <input type="text" placeholder="Descuento" name="discount" id="discount" value="<%= product.discount %>">
+                                                    <input type="text" placeholder="Descuento" name="discount" id="discount" value="<%= product.descuento %>">
                                                 </div>
                                             </div>
                                         </div >
@@ -69,11 +69,11 @@
                                 
                                 <div class="descripcion">
                                     <label for="descripcion">Descripción del producto</label>
-                                    <textarea name="description" id="descripcion" cols="30" rows="7" placeholder="Escriba aquí"><%- product.description %></textarea>
+                                    <textarea name="description" id="descripcion" cols="30" rows="7" placeholder="Escriba aquí"><%- product.descripcion %></textarea>
                                 </div>
                                 <div class="precio">
                                     <label for="precio">Precio:   $</label>
-                                    <input type="text" name="price" id="precio" value="<%= product.price %>">
+                                    <input type="text" name="price" id="precio" value="<%= product.precio %>">
                                 </div>
                                 
                             </div>
@@ -81,7 +81,7 @@
                         <div class="col-12 col-md-12 col-lg-6" id="formulario2">
                             <div class="imgactual">
                                 <h3>Imagen actual</h3>
-                                <img src="/images/productos/<%- product.image[0] %>" alt="">
+                                <img src="/images/productos/<%- product.imagenes[0].imagen %>" alt="">
                             </div>
                             <div class="cargaimg">
                                 <h3 id="tituloimg">Cambiar imagen</h3>

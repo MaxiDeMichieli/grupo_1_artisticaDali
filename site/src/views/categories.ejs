@@ -35,9 +35,9 @@
                 <div class="row col-12">
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     
-                    <% subcategory.forEach(element => { %>
+                    <% subcategorias.forEach(subcategoria => { %>
                       
-                        <a class="dropdown-item" href="/products/subcategory/<%- element %>"><%- element %></a>
+                        <a class="dropdown-item" href="/products/subcategory/<%- subcategoria.id %>"><%- subcategoria %></a>
 
                     <% }) %>
                     </div>
@@ -57,10 +57,10 @@
           
           <div class="row">
             <div class="lateral col-lg-3">
-              <h3>Categorias</h3>
+              <h3>Subcategorias</h3>
               <ul>
-                <% subcategory.forEach(element => { %>
-                  <li><a href="/products/subcategory/<%- element %>"><%- element%> </a>
+                <% subcategorias.forEach(subcategoria => { %>
+                  <li><a href="/products/subcategory/<%- subcategoria.id %>"><%- subcategoria.nombre%> </a>
                   </li>
                 <% }) %>
                 
@@ -83,21 +83,21 @@
                     <div class="container">
                       <div class="row">
                         <div class="col-12 col-md-12 imgproducto">
-                          <img src="/images/productos/<%- producto.image[0] %> " alt="">
+                          <img src="/images/productos/<%- producto.imagenes[0].imagen %> " alt="">
                         </div>
                         <div class="col-12 col-md-12 descripcion">
                           
-                          <% if (producto.name.length > 30) { %>
-                            <% let nameSlice = producto.name.slice(0,30) %> 
+                          <% if (producto.nombre.length > 30) { %>
+                            <% let nameSlice = producto.nombre.slice(0,30) %> 
                              <p><%= nameSlice %>... </p>
                             <% } else { %>
-                             <p><%= producto.name %> </p>
+                             <p><%= producto.nombre %> </p>
                           <% } %>
 
-                          <h2>$<%= producto.price %> </h2>
+                          <h2>$<%= producto.precio %> </h2>
 
-                          <% if (producto.discount != 0) { %>
-                           <span><%= producto.discount %>% OFF</span><br>
+                          <% if (producto.descuento != 0) { %>
+                           <span><%= producto.descuento %>% OFF</span><br>
                           <% } %>
 
                           <div class="botones">
