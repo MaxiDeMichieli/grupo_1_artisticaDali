@@ -250,25 +250,36 @@ module.exports = {
         }})
     },
     delete:(req, res)=>{
-        let eliminarImagen = db.ProductImages.destroy({
+        db.ProductImages.findAll({
             where:{
             producto_id:req.params.id
         }})
-
-        let eliminarProducto = db.Products.destroy({
-            where:{
-                id: req.params.id
-            }
+        .then(imagenes => {
+            let eliminarImagen = db.ProductImages.destroy({
+                where:{
+                producto_id:req.params.id
+            }})
+    
+            let eliminarCarrito = db.Carts.destroy({
+                where:{
+                producto_id:req.params.id
+            }})
+    
+            let eliminarProducto = db.Products.destroy({
+                where:{
+                    id: req.params.id
+                }
+            })
+            
+            Promise.all([eliminarImagen, eliminarCarrito, eliminarProducto])        
+            .then(function(resultado){
+                res.send(imagenes)
+                res.redirect('/products/edit')   
+            })
+            .catch(error=>{
+                res.send(error)
+                console.log(error)
+            })
         })
-        
-        Promise.all([eliminarImagen, eliminarProducto])        
-        .then(function(producto, imagen){
-            res.redirect('/products/edit')   
-        })
-        .catch(error=>{
-            res.send(error)
-            console.log(error)
-        })
-       
     }
 }
