@@ -62,12 +62,14 @@ module.exports = {
                 descripcion: req.body.description,
                 descuento: Number(req.body.discount.trim()),
                 subcategoria_id: Number(req.body.subcategory),  
-            }).then((result)=>{
+            })
+            .then((result)=>{
                 let id = result.id
                 db.ProductImages.create({
                     imagen:(req.files[0])?req.files[0].filename:"default-image.png",
                     producto_id:result.id
-                }).then(()=>{
+                })
+                .then(()=>{
                     res.redirect('/products/create?lp=' + id)
                 })
             })
@@ -197,7 +199,8 @@ module.exports = {
                 res.redirect('/products/edit')
             })
         }else{
-            db.Products.findByPk(req.params.id, {include:{association: 'imagenes'}})
+            db.Products.findByPk(req.params.id, 
+            {include:{association: 'imagenes'}})
             .then((producto) => {
                 res.render('editProduct',{
                     title: 'Edicion de producto',
@@ -211,7 +214,9 @@ module.exports = {
         
     },
     editionPage:(req, res)=>{
-        db.Products.findAll({include:[{association:'imagenes'}]})
+        db.Products.findAll({
+            include:[{association:'imagenes'}]
+        })
         .then((productos) => {
             res.render('editBrowser', {
                 title: 'Buscador de productos a editar o eliminar',
@@ -223,9 +228,12 @@ module.exports = {
     browserToEdit:(req, res) => {
 
         let buscar = req.query.search.toLowerCase();
-        db.Products.findAll({where:{
-            nombre:buscar
-        },include:{association: 'imagenes'}})
+
+        db.Products.findAll({
+        where:{nombre:buscar},
+        include:{association: 'imagenes'}
+        })
+        
         .then(function(resultado){
             if(resultado == 0) {
                 res.render('editBrowser', {
