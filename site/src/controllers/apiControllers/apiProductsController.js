@@ -7,11 +7,11 @@ const {Op} = require('sequelize')
 
 module.exports = {
     subcategories: (req, res) => {
-        let categoria = req.params.category;
+        let categoriaId = req.params.category;
 
         db.Categories.findOne({
             where: {
-                nombre: categoria
+                id: categoriaId
             },
             include: [
                 {association: 'subcategorias'}

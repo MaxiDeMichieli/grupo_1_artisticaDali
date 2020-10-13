@@ -18,12 +18,21 @@ window.addEventListener('load', () => {
 
     /* LLAMAR LAS SUBCATEGORIAS DEPENDIENDO LA CATEGORIA SELECCIONADA */
     categorySelect.addEventListener('change', () => {
-        fetch()
+
+        fetch(`${window.location.origin}/api/products/${categorySelect.value}/subcategories`)
+        .then(result => {
+            if(result.ok){
+                return result.json();
+            }else{
+                return 'err';
+            }
+        })
+        .then(result => {
+            subcategoriaSelect.innerHTML = '<option hidden selected value="0" >Elija una subcategoria</option>'
+            result.subcategorias.forEach(subcategoria => {
+                subcategoriaSelect.innerHTML += `<option value="${subcategoria.id}" >${subcategoria.nombre}</option>`
+            })
+        })
+
     })
-
-
-
-
-
-
 })
