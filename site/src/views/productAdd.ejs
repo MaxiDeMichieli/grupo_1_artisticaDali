@@ -84,8 +84,13 @@
                                                             <option value="<%= categoria.id %>"<% if(typeof oldAdd != 'undefined' && oldAdd.categoria){%> selected <% } %>><%= categoria.nombre %> </option>
                                                            <% }) %>
                                                         </select>
-                                                        <input type="text" placeholder="Subcategoria" name="subcategory" id="subcategoria" value="<%= (typeof oldAdd != 'undefined' && oldAdd.subcategory)?oldAdd.subcategory:'' %>">
-                                                       
+                                                        <select name="subcategory" >
+                                                            <option hidden selected value="0" >Elija una subcategoria</option>
+                                                           <% categorias.forEach(categoria => { %>
+                                                            <option value="<%= categoria.id %>"<% if(typeof oldAdd != 'undefined' && oldAdd.categoria ){%> selected <% } %>><%= categoria.nombre %> </option>
+                                                           <% }) %>
+                                                        </select>
+
                                                     </div>
                                                     <!-- Producto y descuento -->
                                                     <div class="bloque2">
