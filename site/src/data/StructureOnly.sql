@@ -15,6 +15,13 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- -----------------------------------------------------
+-- Schema artistica_dali
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `artistica_dali` DEFAULT CHARACTER SET utf8 ;
+USE `artistica_dali` ;
+
 --
 -- Table structure for table `carts`
 --
