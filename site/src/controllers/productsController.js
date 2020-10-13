@@ -93,42 +93,37 @@ module.exports = {
         }
     },
     categories : (req, res)=>{
-        db.Categories.findAll({
+        db.Categories.findOne({
             where:{id:req.params.id},
             include:[{association: 'subcategorias',
             include:[{association: 'productos',
             include:[{association:'imagenes'}]}]}]})
-        .then(function (categorias){
-           res.send(categorias)
+
+        .then(categoria => {
             res.render('categories', {
-                title: categorias.nombre,
+                title: categoria.nombre,
                 session: req.session,
-                subcategories:req.subcategories,
-                subcategorias:categorias[0].subcategorias,
-                productos: categorias[0].subcategorias[0].productos,
-                banner: categorias.banner
+                subcategories: req.subcategories,
+                categoria: categoria
             });
         })
     },
     subcategories: (req, res) => {
-        db.Subcategories.findAll({
-            where:{id:req.params.id},
+        db.Subcategories.findOne({
+            where:{
+                nombre:req.params.id
+            },
             include:[{association: 'productos', 
             include:[{association:'imagenes'}]}]})
 
-        .then(function(subcategorias){
-            
-            res.render('categories', {
-            title: subcategorias,
+        .then(function(subcategoria){
+            res.render('subcategories', {
+            title: subcategoria.nombre,
             session: req.session,
             subcategories:req.subcategories,
-            subcategorias: subcategorias,
-            productos: subcategorias[0].productos,
-            subcategoryTitle: subcategorias.nombre,
-            subcategory: [subcategorias]
+            subcategoria: subcategoria
+            })
         })
-    })
-        
     },
     search: (req, res) => {
         let buscar = req.query.search.toLowerCase();
@@ -149,17 +144,12 @@ module.exports = {
                 let subcategorias = [];
                 
                 resultado.forEach(producto=>{
-                    if(subcategorias.includes(producto.subcategoria.nombre)){
-                        
-                    }else{
-                        subcategorias.push({
-                            id:producto.subcategoria.id,
-                            nombre:producto.subcategoria.nombre
-                        })
+                    if(!subcategorias.includes(producto.subcategoria.nombre)){
+                        subcategorias.push(producto.subcategoria.nombre)
                     }
                 })
                 
-                res.render('categories', {
+                res.render('search', {
                     title: "Resultado de la búsqueda",
                     session: req.session,
                     subcategories: req.subcategories,
@@ -273,13 +263,21 @@ module.exports = {
             
             Promise.all([eliminarImagen, eliminarCarrito, eliminarProducto])        
             .then(function(resultado){
-                res.send(imagenes)
+                imagenes.forEach(imagen => {
+                    if(imagen.imagen != 'default-image.png'){
+                        fs.unlinkSync('public/images/productos/' + imagen.imagen)
+                    }
+                })
+
                 res.redirect('/products/edit')   
             })
             .catch(error=>{
                 res.send(error)
                 console.log(error)
             })
+        })
+        .catch(error => {
+            res.send(error);
         })
     }
 }

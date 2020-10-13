@@ -8,7 +8,7 @@
     
     <div class="container">
 
-       <div class="col-12 portada"><img src="/images/portadas/<%- categoria.banner %>" alt="<%- categoria.nombre %>"></div>
+        <h1><%= subcategoria.nombre %></h1>
       
       <div class="row">
         <!--
@@ -24,12 +24,7 @@
               <div class="container menu-productos">
                 <div class="row col-12">
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    
-                    <% categoria.subcategorias.forEach(subcategoria => { %>
-                      
                         <a class="dropdown-item" href="/products/subcategory/<%- subcategoria.nombre %>"><%- subcategoria.nombre %></a>
-
-                    <% }) %>
                     </div>
                 </div class="row">
               </div>
@@ -49,12 +44,7 @@
             <div class="lateral col-lg-3">
               <h3>Subcategorias</h3>
               <ul>
-                
-                  <% categoria.subcategorias.forEach(subcategoria => { %>
-                    <li><a href="/products/subcategory/<%- subcategoria.nombre %>"><%- subcategoria.nombre %></a>
-                    </li>
-                  <% }) %>
-                
+                    <li><a href="/products/subcategory/<%- subcategoria.nombre %>"><%- subcategoria.nombre %></a></li>
               </ul>
               <div class="filtros">
                 <h3>Filtros</h3>
@@ -66,8 +56,6 @@
               <div class="row">
 
 
-                <% categoria.subcategorias.forEach(subcategoria => { %>
-                
                 <% subcategoria.productos.forEach(producto => { %>
                  
                 <div class="col-12 col-sm-6 col-lg-4 producto">
@@ -95,7 +83,7 @@
                           <div class="botones">
                             <a href="/products/detail/<%- producto.id %> ">Detalle</a>
                             <button class="agregar" type="button">Agregar al carrito</button>
-                            <a class="comprar" href="./productCart.ejs">Comprar</a>
+                            <a class="comprar" href="#">Comprar</a>
                           </div>
                       </div>
                     </div>
@@ -103,7 +91,6 @@
                   </section>
                 </div>
 
-                <% }) %>
                 <% }) %>
                 
 

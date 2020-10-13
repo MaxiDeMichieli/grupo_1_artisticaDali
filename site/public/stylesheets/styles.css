@@ -1443,38 +1443,35 @@ button:focus {
   margin: 0; }
 
 .cargaProd .carga .addSubcategory {
-  width: 100%;
-}  
+  width: 100%; }
 
 .cargaProd .carga .addSubcategory label {
   text-align: left;
-  max-width: 50%;
-}
+  max-width: 50%; }
 
-.cargaProd .carga .inputAdd{
-  width: 100%;
-}
+.cargaProd .carga .inputAdd {
+  width: 100%; }
 
-.cargaProd .carga .inputAdd input{
+.cargaProd .carga .inputAdd input {
   width: 100%;
   height: 30px;
   border-radius: 20px;
   border: 1px solid var(--color-oscuro);
   margin: 5px 0;
   padding: 5px;
-  color: var(--color-medioOscuro);
-}
+  color: var(--color-medioOscuro); }
 
 .cargaProd .carga .bloque2 {
   max-width: 50%;
   padding-left: 5px;
-  font-size: 1em; }
+  font-size: 1em;
+  width: 50%; }
 
 .cargaProd .carga .bloque1 {
   max-width: 50%;
   padding-right: 5px;
-  font-size: 1em; 
-}
+  font-size: 1em;
+  width: 50%; }
 
 .cargaProd .carga .bloque1 input, .bloque2 input {
   width: 100%;

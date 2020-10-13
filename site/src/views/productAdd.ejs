@@ -70,25 +70,23 @@
                                                 <div class="row">
                                                     <!-- Agregar nueva subcategoria -->
                                                     <div class="addSubcategory">
-                                                        <label for="">Agregar subcategoria</label>
-                                                        <input type="radio" name="add" id="inputRadio">
+                                                        <label for="checkSubcategoria">Agregar subcategoria</label>
+                                                        <input type="checkbox" name="add" id="checkSubcategoria">
                                                     </div>
-                                                    <div class="inputAdd">
+                                                    <div class="inputAdd none" id="addSubcategoria">
                                                         <input type="text" name="addSub" placeholder="Agregue una nueva subcategoria">
                                                     </div>
                                                     <!-- Categoria y subcategoria-->
                                                     <div class="bloque1">
-                                                        <select name="category" >
+                                                        <select name="category" id="categorySelect">
                                                             <option hidden selected value="0" >Elija una Categoria</option>
                                                            <% categorias.forEach(categoria => { %>
                                                             <option value="<%= categoria.id %>"<% if(typeof oldAdd != 'undefined' && oldAdd.categoria){%> selected <% } %>><%= categoria.nombre %> </option>
                                                            <% }) %>
                                                         </select>
-                                                        <select name="subcategory" >
+                                                        <select name="subcategory" id="subcategorySelect">
                                                             <option hidden selected value="0" >Elija una subcategoria</option>
-                                                           <% categorias.forEach(categoria => { %>
-                                                            <option value="<%= categoria.id %>"<% if(typeof oldAdd != 'undefined' && oldAdd.categoria ){%> selected <% } %>><%= categoria.nombre %> </option>
-                                                           <% }) %>
+                                                            <option value="1" >seleccione primero la categoria</option>
                                                         </select>
 
                                                     </div>
@@ -144,5 +142,7 @@
 
         <!-- FINALIZA FORMULARIO DE CARGA -->
     </div>
+
+    <script src="/javascripts/addProduct.js"></script>
     
     <%- include('partials/scripts.ejs') %> 
