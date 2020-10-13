@@ -108,3 +108,16 @@ Nuestra elección se basó principalmente en la funcionalidad del e-commerce, ta
 - Formulario de login: campos de email y password, recordar usuario.
 - Rutas de huéspedes y usuarios.
 
+## Quinto Sprint (12/10)
+
+### [Tablero](https://trello.com/b/yAEJerws/grupo-1-proyecto-art%C3%ADstica-dal%C3%AD)
+
+### Retrospectiva: [retro.md](https://github.com/MaxiDeMichieli/grupo_1_artisticaDali/blob/master/retro.md)
+
+### Tareas realizadas:
+- Diagrama de base de datos.
+- Scripts con la creacion de las bases de datos y todas sus tablas + tipos de datos de los campos y todas sus restricciones + relaciones entre las diferentes tablas.
+- Script de poblacion de base de datos.
+- Creacion de la carpeta Sequelize con archivos de configuración y modelos con sus relaciones.
+- CRUD de usuarios, productos y tablas secundarias.
+
