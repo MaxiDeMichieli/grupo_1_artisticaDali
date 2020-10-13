@@ -165,14 +165,18 @@ module.exports = {
         db.Products.findOne({
             where:{
                 id: req.params.id 
-            }, include:{association: 'imagenes'}
+            }, include:[{association: 'imagenes'}, {association: 'subcategoria'}]
         }).then(producto =>{
-            res.render('editProduct',{
-                title: 'Edicion de producto',
-                session: req.session,
-                titulo: 'Estás editando el producto: ',
-                product: producto
-            }) 
+            db.Categories.findAll({include:[{association:'subcategorias'}]})
+            .then(categorias => {
+                res.render('editProduct',{
+                    title: 'Edicion de producto',
+                    session: req.session,
+                    titulo: 'Estás editando el producto: ',
+                    product: producto,
+                    categorias: categorias
+                }) 
+            })
         })
     },
     edit:(req, res)=>{

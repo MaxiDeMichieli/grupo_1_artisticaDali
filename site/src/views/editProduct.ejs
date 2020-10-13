@@ -48,17 +48,26 @@
                                                 <div class="bloque1">
                                                     <label for="category">Categoría</label>
                                                     <select name="category" id="category">
-                                                        <option hidden value="0">Elija una categoria</option>
-                                                        <option value="1" <% if(typeof product.category != 'undefined' && product.category == '1'){%> selected <% } %> >Escolar</option>
-                                                        <option value="2" <% if(typeof product.category != 'undefined' && product.category == '2'){%> selected <% } %>>Artística</option>
-                                                        <option value="3" <% if(typeof product.category != 'undefined' && product.category == '3'){%> selected <% } %>>Oficina</option>
+                                                        <option hidden selected value="0">Elija una categoria</option>
+                                                        <% categorias.forEach(categoria => { %>
+                                                            <option
+                                                                <% if (categoria.id == product.subcategoria.categoria_id) { %>
+                                                                 selected
+                                                                <% } %>
+                                                            value="<%= categoria.id %>"<% if(typeof oldAdd != 'undefined' && oldAdd.categoria){%> selected <% } %>><%= categoria.nombre %> </option>
+                                                        <% }) %>
+                                                    </select>
+                                                    <label for="subcategorySelect">Subcategoría</label>
+                                                    <select name="subcategory" id="subcategorySelect">
+                                                        <option hidden selected value="0" >Elija una subcategoria</option>
+                                                        <option value="1" >seleccione primero la categoria</option>
                                                     </select>
                                                     <label for="name">Producto</label>
                                                     <input type="text" placeholder="Producto" name="name" id="name" value="<%= product.nombre %>">
                                                 </div>
                                                 <div class="bloque2">
-                                                    <label for="subcategory">Subcategoría</label>
-                                                    <input type="text" placeholder="Subcategoría" name="subcategory" id="subcategory" value="<%= product.subcategoria_id%>">
+                                                    <label for="name">Producto</label>
+                                                    <input type="text" placeholder="Producto" name="name" id="name" value="<%= product.nombre %>">
                                                     <label for="discount">Descuento</label>
                                                     <input type="text" placeholder="Descuento" name="discount" id="discount" value="<%= product.descuento %>">
                                                 </div>
