@@ -1,6 +1,8 @@
+CREATE DATABASE  IF NOT EXISTS `artistica_dali` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `artistica_dali`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: artistica_dali
+-- Host: 127.0.0.1    Database: artistica_dali
 -- ------------------------------------------------------
 -- Server version	5.5.5-10.4.14-MariaDB
 
@@ -14,13 +16,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
--- -----------------------------------------------------
--- Schema artistica_dali
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `artistica_dali` DEFAULT CHARACTER SET utf8 ;
-USE `artistica_dali` ;
 
 --
 -- Table structure for table `carts`
@@ -39,7 +34,7 @@ CREATE TABLE `carts` (
   KEY `producto_id_carrito_idx` (`producto_id`),
   CONSTRAINT `producto_id_carrito` FOREIGN KEY (`producto_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `usuario_id_carrito` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +68,7 @@ CREATE TABLE `product_images` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `producto_id_idx` (`producto_id`),
   CONSTRAINT `producto_id` FOREIGN KEY (`producto_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,13 +83,15 @@ CREATE TABLE `products` (
   `nombre` varchar(45) NOT NULL,
   `precio` varchar(45) NOT NULL,
   `descuento` varchar(45) DEFAULT NULL,
-  `descripcion` varchar(45) DEFAULT NULL,
+  `descripcion` varchar(800) DEFAULT NULL,
   `subcategoria_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `subcategory_idx` (`subcategoria_id`),
   CONSTRAINT `subcategory` FOREIGN KEY (`subcategoria_id`) REFERENCES `subcategories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -173,9 +170,11 @@ CREATE TABLE `users` (
   `provincia` varchar(45) DEFAULT NULL,
   `localidad` varchar(45) DEFAULT NULL,
   `rol` tinyint(4) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -187,4 +186,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-13  0:23:39
+-- Dump completed on 2020-10-15 23:53:43

@@ -1,6 +1,8 @@
+CREATE DATABASE  IF NOT EXISTS `artistica_dali` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `artistica_dali`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: artistica_dali
+-- Host: 127.0.0.1    Database: artistica_dali
 -- ------------------------------------------------------
 -- Server version	5.5.5-10.4.14-MariaDB
 
@@ -14,13 +16,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
--- -----------------------------------------------------
--- Schema artistica_dali
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `artistica_dali` DEFAULT CHARACTER SET utf8 ;
-USE `artistica_dali` ;
 
 --
 -- Table structure for table `carts`
@@ -39,7 +34,7 @@ CREATE TABLE `carts` (
   KEY `producto_id_carrito_idx` (`producto_id`),
   CONSTRAINT `producto_id_carrito` FOREIGN KEY (`producto_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `usuario_id_carrito` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,6 +43,7 @@ CREATE TABLE `carts` (
 
 LOCK TABLES `carts` WRITE;
 /*!40000 ALTER TABLE `carts` DISABLE KEYS */;
+INSERT INTO `carts` VALUES (1,3,24),(2,3,40);
 /*!40000 ALTER TABLE `carts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +88,7 @@ CREATE TABLE `product_images` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `producto_id_idx` (`producto_id`),
   CONSTRAINT `producto_id` FOREIGN KEY (`producto_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,13 +113,15 @@ CREATE TABLE `products` (
   `nombre` varchar(45) NOT NULL,
   `precio` varchar(45) NOT NULL,
   `descuento` varchar(45) DEFAULT NULL,
-  `descripcion` varchar(45) DEFAULT NULL,
+  `descripcion` varchar(800) DEFAULT NULL,
   `subcategoria_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `subcategory_idx` (`subcategoria_id`),
   CONSTRAINT `subcategory` FOREIGN KEY (`subcategoria_id`) REFERENCES `subcategories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +130,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (24,'Acrilico profesional Winsor & Newton 60ml, ca','1010','25','El acrílico profesional es nuestra gama posee',12),(25,'Bandeja acuarela Giotto 24 colores + pincel','628','15','Las acuarelas Giotto proporcionan una gama de',5),(26,'Acuarelas Rembrandt traditional estuche X22','28123','10','Rembrandt es el nombre legendario de una gama',5),(27,'ATRIL A MORZA REGULABLE LUSTRADO SEURAT','6220','5','Atril a morza regulable lustrado Seurat',6),(28,'BARNIZ POLIURETANICO AL AGUA EUREKA X 250ML','324','8','Barniz poliuretanico al agua ofrece una varia',16),(29,'BASTIDOR SEURAT','703','5','50X65 CM TELA ESTUDIO GRANO FINO',21),(30,'BASTIDOR SEURAT 20X20 CM TELA ESTUDIO GRANO F','208','12','Bastidor Seurat\\nTela Estudio\\nGrano Fino',21),(31,'BIBLIORATO AVIOS LOMO DE PAPEL LEGAL','208','5','\"Reforzado, la mejor calidad',8),(32,'CABALLETE VERTICAL A VARILLA LUSTRADO SEURAT','45960','5','-Caballete vertical a varilla roscada lustrad',26),(33,'CAJA PLASTICA UTIL-OF AMERICANA','781','5','COLOR AZUL 2,5 X 32,5 X 25,5 CM',20),(34,'CAJA UTIL-OF KRAFT','230','5','LOMO 4 CM 3 SOLAPAS PLASTIFICADA MARRON',20),(35,'ESTUCHE ALBA OLEO EXTRA FINO 10 POMOS DE 18ML','2372','5','Estuche Alba Oleo Profesional\r\nContiene 10 po',4),(36,'Carpeta Mooving fortnite a4 2 anillos x40cm','350','10','Carpeta Mooving de fortnite a4 2 anillos x40 ',11),(37,'Cartuchera Mooving doble cierre fortnite, ref','735','5','Cartuchera Mooving doble cierre fortnite, ref',2),(38,'CINTA UTIL-OF ADHESIVA 48 X 50 YDS TRANSPAREN','59','5','Cinta adhesiva de embalar transparente 48x50 ',22),(39,'COMPAS PLAN-TEC 9112 BIGOTERA AJUSTE RAPIDO','1450','10','Con dispositivo de ajuste rápido y regulador ',14),(40,'CUADERNO EXITO TAPA DURA FORRADO UNIVERSO Nº3','195','5','CUADERNO TAPA DURA 19X24 48 HOJAS RAYADAS UNI',15),(41,'GOMA STABILO EXAM GRADE NEGRA','65','5','GOMA STABILO EXAM GRADE NEGRA',18),(42,'Lapices de colores Faber Castell Kit','665','5','Lápices de madera clásicos: lápices de color ',3),(43,'Sharpie Kit Lettering crea tus diseños 30 Pcs','4500','10','El Set Lettering Sharpie contiene:\r\n-10 Marca',10),(44,'Resaltador Stabilo Swing Cool Paster x6, la m','95','5','Marca Nº1 en resaltadores. Colores pastel, pu',10),(45,'MARCADOR ALBA ACRYLIC 6MM (COLORES VARIOS)','290','5','-son de base acrilica \r\n-20 colores compatibl',10),(46,'Valija Cresko Disney Spiderman 17','5240','6','Valija Cresko Disney Spiderman 17',1),(47,'PERFORADORA MIT CHICA PINTADA','485','5','Perforador metálico y zona de sujeción antide',24),(48,'Mini pincel Winsor & Newton','449','5','Pincel Winsor & Newton mini, pincel de bolsil',13),(49,'PIZARRA GALAXIA 80X120','2600','5','Pizarra blanca laminada Galaxia.\r\nDimensiones',23),(50,'EPUESTO EXITO Nº3 CAJA FAMILIAR POR 480 HOJAS','1200','5','EPUESTO EXITO Nº3 CAJA FAMILIAR POR 480 HOJAS',27),(51,'REPUESTO RIVADAVIA Nº 3 FAMILIAR POR 288 HOJA','299','10','REPUESTO RIVADAVIA Nº 3 FAMILIAR POR 288 HOJA',27),(52,'SOBRE MEDORO CAJA 2781 OBRA 12.5X19 BOLSA 80G','123','10','Sobre tipo caja varias medidas',25),(53,'SOBRE MEDORO CAJA A1386 OFICIO CON VENTANA IN','112','4','Papel obre, la mejor calidad',25),(54,'TIJERA PIZZINI SPAZIO ACERO 17 CM ACERO MANGO','150','10','TIJERA PIZZINI SPAZIO ACERO 17 CM ACERO MANGO',19),(55,'TINTA ROTRING PARA ESTILOGRAFO 250ML. COLOR N','2588','10','Adecuada para papel vegetal, papel de dibujo,',17);
+INSERT INTO `products` VALUES (24,'Acrilico profesional Winsor & Newton 60ml, ca','1010','25','El acrílico profesional es nuestra gama posee la calidad más fina. Combina nuestra experiencia con los colores y los últimos avances en tecnología de resina. Nuestros 80 colores son brillantes cuando están húmedos y siguen siendo tan brillante cuando están seco. Lo que se ve es realmente lo que es.-r-nCon 62 colores individuales de pigmento esto crea el más limpio espectro brillante y las mejores oportunidades de mezcla de color.',12,NULL,'2020-10-16 02:20:05'),(25,'Bandeja acuarela Giotto 24 colores + pincel','628','15','Las acuarelas Giotto proporcionan una gama de colores brillantes, vivos y opacos para que crees tu obra maestra.-r-nMezcla los colores como un chef mezcla sus ingredientes para crear una realidad mágica.-r-nY para fantásticos efectos de acuarela simplemente diluye la pintura con agua.',5,NULL,'2020-10-16 02:20:48'),(26,'Acuarelas Rembrandt traditional estuche X22','28123','10','Rembrandt es el nombre legendario de una gama que es conocida por su calidad superior e inigualable. Se ha desarrollado a través de pura habilidad y visión artística y se basa en las mejores materias primas.-r-nContenido:-r-n-22 sartenes (108- 224- 254- 268- 270- 336- 366- 370- 371- 409- 411- 416- 506- 508- 532- 535- 615- 620- 623- 662- 702- 708)-r-n-1 cepillo serie 110 no. 4 (cabello puro rojo sable)-r-n-Bandeja mezcladora de porcelana',5,NULL,'2020-10-16 02:29:06'),(27,'ATRIL A MORZA REGULABLE LUSTRADO SEURAT','6220','5','Atril a morza regulable lustrado Seurat',6,NULL,NULL),(28,'BARNIZ POLIURETANICO AL AGUA EUREKA X 250ML','324','8','Barniz poliuretanico al agua ofrece una variada gama de aplicación, es de secado rápido.-r-nLa pelicula protectora que forma no deja formar rayas de pincel, debido a su poder autonivelante. de terminación brillante, muy resistente y duradera.-r-nO AMARILLEA APTO PARA INTERIORES Y EXTERIORES SECADO AL TACTO 1 HORA, DOS MANOS DE 2 A 3 HORAS.-r-nSECADO TOTAL 24 HORAS.',16,NULL,'2020-10-16 02:30:25'),(29,'BASTIDOR SEURAT','703','5','50X65 CM TELA ESTUDIO GRANO FINO',21,NULL,NULL),(30,'BASTIDOR SEURAT 20X20 CM TELA ESTUDIO GRANO F','208','12','Bastidor Seurat-r-nTela Estudio-r-nGrano Fino',21,NULL,'2020-10-16 02:31:11'),(31,'BIBLIORATO AVIOS LOMO DE PAPEL LEGAL','208','5','Reforzado, la mejor calidad.',8,NULL,'2020-10-16 02:31:44'),(32,'CABALLETE VERTICAL A VARILLA LUSTRADO SEURAT','45960','5','-Caballete vertical a varilla roscada lustrado-r-n-Medidas cerrado: 99x92x222-r-n-Altura maxima Mastil 340 cm-r-n-Altura maxima de bastidor soportado  275cm',26,NULL,'2020-10-16 02:32:17'),(33,'CAJA PLASTICA UTIL-OF AMERICANA','781','5','COLOR AZUL 2,5 X 32,5 X 25,5 CM',20,NULL,NULL),(34,'CAJA UTIL-OF KRAFT','230','5','LOMO 4 CM 3 SOLAPAS PLASTIFICADA MARRON',20,NULL,NULL),(35,'ESTUCHE ALBA OLEO EXTRA FINO 10 POMOS DE 18ML','2372','5','Estuche Alba Oeo Profesional-r-nContiene 10 pomos de 18ml de óleos extra fino para uso profesional.',4,NULL,'2020-10-16 02:33:40'),(36,'Carpeta Mooving fortnite a4 2 anillos x40cm','350','10','Carpeta Mooving de fortnite a4 2 anillos x40 centimetros',11,NULL,'2020-10-16 02:34:11'),(37,'Cartuchera Mooving doble cierre fortnite, ref','735','5','Cartuchera Mooving doble cierre fortnite, reforzada',2,NULL,'2020-10-16 02:34:40'),(38,'CINTA UTIL-OF ADHESIVA 48 X 50 YDS TRANSPAREN','59','5','Cinta adhesiva de embalar transparente 48x50 METROS-r-nPrimera Marca, Primera Calidad',22,NULL,'2020-10-16 02:35:18'),(39,'COMPAS PLAN-TEC 9112 BIGOTERA AJUSTE RAPIDO','1450','10','Con dispositivo de ajuste rápido y regulador micrométrico. Para círculos de 1mm a 300mm Conjunto: compás, adaptador universar y portaminas',14,NULL,'2020-10-16 02:35:49'),(40,'CUADERNO EXITO TAPA DURA FORRADO UNIVERSO Nº3','195','5','CUADERNO TAPA DURA 19X24 48 HOJAS RAYADAS UNIVERSO EXITO E3-r-n* 10 COLORES A ELECCION-r-n*CUADERNO COCIDO-r-n*FORRADO EN VINILICO LAVABLE-r-n*PAPEL DE FIBRA DE CAÑA',15,NULL,'2020-10-16 02:36:38'),(41,'GOMA STABILO EXAM GRADE NEGRA','65','5','GOMA STABILO EXAM GRADE NEGRA',18,NULL,NULL),(42,'Lapices de colores Faber Castell Kit','665','5','Lápices de madera clásicos: lápices de color estándar con forma hexagonal.-r-nDestacan por sus colores intensos y por un especial proceso de encolado que hace que las minas sean súper resistentes a la rotura.-r-nLos lápices de color clásicos están disponibles en 60 colores diferentes.',3,NULL,'2020-10-16 02:37:25'),(43,'Sharpie Kit Lettering crea tus diseños 30 Pcs','4500','10','El Set Lettering Sharpie contiene:-r-n-10 Marcadores Permanentes Sharpie Punta Fina-r-n-4 Boligrafos Sharpie Pen-r-n-6 Boligrafos Sharpie Pen Brush-r-n-2 Marcadores Sharpie Paint-r-n-5 Sobres con Tarjeta-r-n-3 Tarjetas portanombres',10,NULL,'2020-10-16 02:38:24'),(44,'Resaltador Stabilo Swing Cool Paster x6, la m','95','5','Marca Nº1 en resaltadores. Colores pastel, punta biselada. Colores disponibles:-r-n-amarillo-r-n-celeste-r-n-lila-r-n-naranja-r-n-rosa-r-n-verde',10,NULL,'2020-10-16 02:39:06'),(45,'MARCADOR ALBA ACRYLIC 6MM (COLORES VARIOS)','290','5','-son de base acrilica-r-n-20 colores compatibles con Decoralba-r-n-multisuperficie (papel-carton-tela-vidrio-pared-macetas-mdf-etc...)-r-n-vienen 2 puntas (chisel y bullet)-r-n-colores brillantes-r-n-resistencia UV',10,NULL,'2020-10-16 02:39:52'),(46,'Valija Cresko Disney Spiderman 17','5240','6','Valija Cresko Disney Spiderman 17',1,NULL,NULL),(47,'PERFORADORA MIT CHICA PINTADA','485','5','Perforador metálico y zona de sujeción antideslizante.-r-nCuerpo metálico muy resistente. Practicidad y suavidad de funcionamiento con mecanismo de punzón sin fricción.',24,NULL,'2020-10-16 02:40:49'),(48,'Mini pincel Winsor & Newton','449','5','Pincel Winsor & Newton mini, pincel de bolsillo.-r-nEspecial para acuarelas, gouache, tinta.',13,NULL,'2020-10-16 02:41:26'),(49,'PIZARRA GALAXIA 80X120','2600','5','Pizarra blanca laminada Galaxia.-r-nDimensiones: 80x120-r-nMarco metálico color negro.',23,NULL,'2020-10-16 02:42:00'),(50,'EPUESTO EXITO Nº3 CAJA FAMILIAR POR 480 HOJAS','1200','5','REPUESTO EXITO Nº3 CAJA FAMILIAR POR 480 HOJAS RAYADO',27,NULL,'2020-10-16 02:43:09'),(51,'REPUESTO RIVADAVIA Nº 3 FAMILIAR 288 HOJAS','299','10','REPUESTO RIVADAVIA Nº 3 FAMILIAR POR 288 HOJAS',27,NULL,'2020-10-16 02:43:59'),(52,'SOBRE MEDORO CAJA 2781 OBRA 12.5X19 BOLSA 80G','123','10','Sobre tipo caja, varias medidas',25,NULL,'2020-10-16 02:44:32'),(53,'SOBRE MEDORO CAJA A1386 OFICIO CON VENTANA IN','112','4','Papel obre, la mejor calidad',25,NULL,NULL),(54,'TIJERA PIZZINI SPAZIO ACERO 17 CM ACERO MANGO','150','10','TIJERA PIZZINI SPAZIO ACERO 17 CM ACERO MANGO PLASTICO',19,NULL,'2020-10-16 02:45:20'),(55,'TINTA ROTRING PARA ESTILOGRAFO 250ML. COLOR N','2588','10','Adecuada para papel vegetal, papel de dibujo, cartulina de dibujo y y tus proyectos. Tiene gran fluidez, es muy opaca y presenta buena adherencia. No mancha cuando se seca, imborrable , resistente a la luz, adecuada para todo tipo de reproducciones, admite la mezcla de tintas de distintos colores, gran pureza del color.',17,NULL,'2020-10-16 02:45:52');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,9 +238,11 @@ CREATE TABLE `users` (
   `provincia` varchar(45) DEFAULT NULL,
   `localidad` varchar(45) DEFAULT NULL,
   `rol` tinyint(4) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -251,7 +251,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Jonatan','Cespedes','retratos.jonatan@gmail.com','$2b$12$STa15bgHbWy.znewxZTp3u9zvnJPL8Ww.h5UoXzMDrJPLdWLKAvP.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1),(2,'Jonatan','Cespedes','kuramatattoo@gmail.com','$2b$12$STa15bgHbWy.znewxZTp3u9zvnJPL8Ww.h5UoXzMDrJPLdWLKAvP.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1);
+INSERT INTO `users` VALUES (1,'Jonatan','Cespedes','retratos.jonatan@gmail.com','$2b$12$STa15bgHbWy.znewxZTp3u9zvnJPL8Ww.h5UoXzMDrJPLdWLKAvP.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL),(2,'Jonatan','Cespedes','kuramatattoo@gmail.com','$2b$12$STa15bgHbWy.znewxZTp3u9zvnJPL8Ww.h5UoXzMDrJPLdWLKAvP.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL),(3,'Maximo','De Michieli','maxidemichieli@gmail.com','$2b$12$qeE/KjMZHNSFb73n2UZPx.Y6JH0kYoRUdZLVMNPYZXKHyzQ/xKLgO','1121648374',NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL),(4,'Maximo','De Michieli','maxdemichieli@gmail.com','$2b$12$ZrroYMW.4.rh/Hdd7i5b1erUss9.kFqIMHISAsgpx7D0DHhcMCaiW',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2020-10-16 01:21:00','2020-10-16 01:21:00');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -264,4 +264,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-13  0:25:25
+-- Dump completed on 2020-10-15 23:52:37
