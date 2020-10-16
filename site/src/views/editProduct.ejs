@@ -38,7 +38,7 @@
                                                 <% if (typeof errors != 'undefined') { %>
                                                   <ul>
                                                       <% for( let i = 0; i < errors.length; i++ ) { %>
-                                                          <li style="color: red; list-style: circle;"><%= errors[i ].msg %> </li>                                                  
+                                                          <li style="color: red; list-style: circle;"><%= errors[i].msg %> </li>                                                  
                                                       <% } %>
                                                   </ul>
                                                   <% } %> 
@@ -47,7 +47,7 @@
                                                 
                                                 <div class="bloque1">
                                                     <label for="category">Categoría</label>
-                                                    <select name="category" id="category">
+                                                    <select name="category" id="categorySelect">
                                                         <option hidden selected value="0">Elija una categoria</option>
                                                         <% categorias.forEach(categoria => { %>
                                                             <option
@@ -60,10 +60,18 @@
                                                     <label for="subcategorySelect">Subcategoría</label>
                                                     <select name="subcategory" id="subcategorySelect">
                                                         <option hidden selected value="0" >Elija una subcategoria</option>
-                                                        <option value="1" >seleccione primero la categoria</option>
+                                                        <% categorias.forEach(categoria => { %>
+                                                         <% if (categoria.id == product.subcategoria.categoria_id) { %>
+                                                          <% categoria.subcategorias.forEach(subcategoria => { %>
+                                                           <option
+                                                           <% if (subcategoria.id == product.subcategoria.id) { %>
+                                                            selected
+                                                           <% } %>
+                                                           value="<%- subcategoria.id %>"><%= subcategoria.nombre %></option>
+                                                          <% }) %>
+                                                         <% } %>
+                                                        <% }) %>
                                                     </select>
-                                                    <label for="name">Producto</label>
-                                                    <input type="text" placeholder="Producto" name="name" id="name" value="<%= product.nombre %>">
                                                 </div>
                                                 <div class="bloque2">
                                                     <label for="name">Producto</label>
@@ -111,7 +119,7 @@
 </div>
     
     
-    
+    <script src="/javascripts/editProduct.js"></script>
     
     
     <%- include('partials/scripts.ejs') %> 

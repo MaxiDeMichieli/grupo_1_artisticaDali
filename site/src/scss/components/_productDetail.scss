@@ -180,18 +180,21 @@
     padding-bottom: 20px;
     border-bottom: 2px solid var(--color-oscuro);
     color:var(--color-oscuro);
+    width: 100%;
 }
 
 .detalles-productos .descripcion-opinion .descripcion .descripcion-parrafos  p {
     margin: 0;
     padding-bottom: 2px;
     color:var(--color-oscuro);
+    width: 100%;
 }
 
 .detalles-productos .descripcion-opinion .opiniones {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    width: 100%;
 }
 
 .detalles-productos .descripcion-opinion .opiniones .opinion {

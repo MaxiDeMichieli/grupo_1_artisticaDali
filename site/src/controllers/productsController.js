@@ -8,7 +8,33 @@ const {Op} = require('sequelize')
 
 module.exports = {
     cart: (req, res)=>{
-        let userInSession;
+        let userId = req.session.usuario.id;
+        db.Carts.findAll({
+            where: {
+                usuario_id: userId
+            },
+            include: [{association: 'producto',
+                include: [{association: 'imagenes'}]
+            }]
+        })
+        .then(productos => {
+            db.Users.findByPk(userId)
+            .then(usuario => {
+                res.render('productCart', {
+                    title: 'Carrito de compras',
+                    session: req.session,
+                    subcategories: req.subcategories,
+                    productos: productos,
+                    usuario: usuario
+                })
+            })
+        })
+
+
+
+
+
+        /* let userInSession;
         dbUsers.forEach(user => {
             if(req.session.usuario.id == user.id){
                 userInSession = user;
@@ -20,7 +46,7 @@ module.exports = {
             session: req.session,
             subcategories: req.subcategories,
             user: userInSession
-        })
+        }) */
     },
     detail: (req, res,) => {
         let pedidoDetalleProducto = db.Products.findByPk(req.params.id, {include:[{association:'imagenes'}]})
@@ -56,10 +82,12 @@ module.exports = {
     create: (req, res)=>{
         let errors = validationResult(req);
         if(errors.isEmpty()){
+            let description = req.body.description;
+            let descriptionReplaced = description.replace(/\r\n/gi, '-r-n'); /* REEMPLAZO SALTOS DE LINEA PARA PODER GUARDARLOS EN LA BASAE DE DATOS */
             db.Products.create({
                 nombre: req.body.name.trim(),
                 precio: Number(req.body.price.trim()),
-                descripcion: req.body.description,
+                descripcion: descriptionReplaced,
                 descuento: Number(req.body.discount.trim()),
                 subcategoria_id: Number(req.body.subcategory),  
             })
@@ -171,6 +199,8 @@ module.exports = {
         }).then(producto =>{
             db.Categories.findAll({include:[{association:'subcategorias'}]})
             .then(categorias => {
+                producto.descripcion = producto.descripcion.replace(/-r-n/gi, '\r\n'); /* REEMPLAZO SALTOS DE LINEA PARA PODER GUARDARLOS EN LA BASAE DE DATOS */
+
                 res.render('editProduct',{
                     title: 'Edicion de producto',
                     session: req.session,
@@ -184,11 +214,14 @@ module.exports = {
     edit:(req, res)=>{
         let errors = validationResult(req)
         if(errors.isEmpty()){
+            let description = req.body.description;
+            let descriptionReplaced = description.replace(/\r\n/gi, '-r-n'); /* REEMPLAZO SALTOS DE LINEA PARA PODER GUARDARLOS EN LA BASAE DE DATOS */
+
             db.Products.update({
                 nombre: req.body.name,
                 precio: Number(req.body.price),
                 descuento: Number(req.body.discount),
-                descripcion: req.body.description,
+                descripcion: descriptionReplaced,
                 subcategoria_id: Number(req.body.subcategory),  
             }, {
                 where: {
@@ -199,15 +232,23 @@ module.exports = {
                 res.redirect('/products/edit')
             })
         }else{
-            db.Products.findByPk(req.params.id, 
-            {include:{association: 'imagenes'}})
-            .then((producto) => {
-                res.render('editProduct',{
-                    title: 'Edicion de producto',
-                    session: req.session,
-                    titulo: 'Estás editando el producto: ',
-                    product: producto,
-                    errors:errors.errors
+            db.Products.findOne({
+                where:{
+                    id: req.params.id 
+                }, include:[{association: 'imagenes'}, {association: 'subcategoria'}]
+            }).then(producto =>{
+                db.Categories.findAll({include:[{association:'subcategorias'}]})
+                .then(categorias => {
+                    producto.descripcion = producto.descripcion.replace(/-r-n/gi, '\r\n'); /* REEMPLAZO SALTOS DE LINEA PARA PODER GUARDARLOS EN LA BASAE DE DATOS */
+    
+                    res.render('editProduct',{
+                        title: 'Edicion de producto',
+                        session: req.session,
+                        titulo: 'Estás editando el producto: ',
+                        product: producto,
+                        categorias: categorias,
+                        errors: errors.errors
+                    }) 
                 })
             })
         }   
@@ -226,12 +267,15 @@ module.exports = {
         }) 
     },
     browserToEdit:(req, res) => {
-
         let buscar = req.query.search.toLowerCase();
 
         db.Products.findAll({
-        where:{nombre:buscar},
-        include:{association: 'imagenes'}
+            where:{
+                nombre:{
+                    [Op.substring]:buscar
+                }
+            },
+            include:{association: 'imagenes'}
         })
         
         .then(function(resultado){

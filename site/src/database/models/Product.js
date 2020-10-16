@@ -20,7 +20,7 @@ module.exports = function(sequelize, dataTypes){
             type:dataTypes.INTEGER(11)
         },
         descripcion:{
-            type:dataTypes.STRING(300)
+            type:dataTypes.STRING(800)
         },
         subcategoria_id:{
             type:dataTypes.INTEGER(11),
@@ -30,7 +30,8 @@ module.exports = function(sequelize, dataTypes){
 
     let config = {
         tableName: "products",
-        timestamps:false
+        timestamps: true,
+        underscored: true
     }
 
     const Product = sequelize.define(alias, cols, config);

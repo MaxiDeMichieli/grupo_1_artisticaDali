@@ -3,6 +3,9 @@
 
     <%- include('./partials/header.ejs') %> 
 
+    <% if (productos == 0) { %>
+     <h2>No hay productos en su carrito -- en contruccion --</h2>
+    <% } else { %>
     <div class="carrito">
         <div class="container">
             <h2>Productos en su Carrito</h2>
@@ -11,14 +14,16 @@
 
                     <!-- PRODUCTOS -->
                     <section class="col-12 productos">
+
+                        <% productos.forEach(carrito => { %>
                         <div class="producto">
                             <div class="imagen">
-                                <img src="/images/productos/<%- productos[0].image[0] %>" alt="">
+                                <img src="/images/productos/<%- carrito.producto.imagenes[0].imagen %>" alt="">
                             </div>
                             <div class="detalles">
-                                <h3><%= productos[0].name %> </h3>
+                                <h3><%= carrito.producto.nombre %> </h3>
                                 <div class="precio">
-                                    <span class="precio-unitario">$<%= productos[0].price %> c/u</span>
+                                    <span class="precio-unitario">$<%= carrito.producto.precio %> c/u</span>
                                     <span class="cantidad">
                                         <input type="number" class="number-spinner" value="1"  min="1" max="100">
                                     </span>
@@ -27,22 +32,8 @@
                                 <button class="sacar-carrito">Quitar del carrito</button>
                             </div>
                         </div>
-                        <div class="producto">
-                            <div class="imagen">
-                                <img src="/images/productos/<%- productos[1].image[0] %>" alt="">
-                            </div>
-                            <div class="detalles">
-                                <h3><%= productos[1].name %> </h3>
-                                <div class="precio">
-                                    <span class="precio-unitario">$<%= productos[1].price %> c/u</span>
-                                    <span class="cantidad">
-                                        <input type="number" class="number-spinner" value="1"  min="1" max="100">
-                                    </span>
-                                    <span class="precio-sumado">$4500</span>
-                                </div>
-                                <button class="sacar-carrito">Quitar del carrito</button>
-                            </div>
-                        </div>
+                        <% }) %>
+
                     </section>
 
                     <!-- ENVIO -->
@@ -75,19 +66,19 @@
                         <div class="domicilio none" id="domicilio-inputs">
                             <div>
                                 <label for="calle">Calle</label>
-                                <input type="text" name="calle" id="calle" class="input" value="<%- user.calle %>">
+                                <input type="text" name="calle" id="calle" class="input" value="<%- usuario.calle %>">
                             </div>
                             <div>
                                 <label for="numero">Número</label>
-                                <input type="number" name="numero" id="numero" class="input" value="<%- user.numero %>">
+                                <input type="number" name="numero" id="numero" class="input" value="<%- usuario.numero %>">
                             </div>
                             <div>
                                 <label for="dpto">Dpto.</label>
-                                <input type="text" name="dpto" id="dpto" class="input" value="<%- user.dpto %>">
+                                <input type="text" name="dpto" id="dpto" class="input" value="<%- usuario.dpto %>">
                             </div>
                             <div>
                                 <label for="cpostal">C. Postal</label>
-                                <input type="text" name="cpostal" id="cpostal" class="input" value="<%- user.cpostal %>">
+                                <input type="text" name="cpostal" id="cpostal" class="input" value="<%- usuario.cp %>">
                             </div>
                             <div>
                                 <label for="provincia">Provincia</label>
@@ -130,6 +121,7 @@
             </form>
         </div>
     </div>
+    <% } %>
 
 
     <%- include('partials/footer.ejs') %>

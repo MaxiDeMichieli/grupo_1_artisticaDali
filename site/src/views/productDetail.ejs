@@ -47,7 +47,7 @@
                     <div class="descripcion col-12 col-lg-6">
                         <h3>Descripción del producto</h3>
                         <div class="descripcion-parrafos">
-                            <% let descripcion = producto.descripcion.split('\n') %>
+                            <% let descripcion = producto.descripcion.split(`-r-n`) %>
                             <% descripcion.forEach(frase => { %>
                                 <p><%= frase %> </p>
                             <% }) %>
