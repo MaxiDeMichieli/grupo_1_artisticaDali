@@ -7,6 +7,8 @@ const upImageProduct = require('../../middlewares/upImageProduct');
 const sessionUserCheck = require('../../middlewares/sessionUserCheck');
 const adminUserCheck = require('../../middlewares/adminUserCheck');
 
-router.get('/:category/subcategories', controller.subcategories)
+router.get('/:category/subcategories', controller.subcategories);
+
+router.post('/addCart/:prod/:cantidad', controller.addCart);
 
 module.exports = router;

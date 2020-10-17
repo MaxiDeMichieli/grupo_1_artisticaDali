@@ -14,6 +14,9 @@
   box-sizing: border-box;
   margin: 0; }
 
+.none {
+  display: none; }
+
 *:focus,
 button:focus {
   outline: none; }
@@ -881,6 +884,22 @@ button:focus {
   font-family: var(--fuente-poppins);
   margin-top: 30px; }
 
+/* POPUP PRODUCTO AGREGADO */
+.detalles-productos .producto-agregado-ok {
+  padding: 30px;
+  background: #35bd35;
+  display: flex;
+  position: fixed;
+  border-radius: 20px;
+  z-index: 100;
+  top: 40px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 20px;
+  text-align: center;
+  right: 0px; }
+
 /* IMAGENES */
 .detalles-productos .imagenes {
   display: flex;
@@ -977,7 +996,13 @@ button:focus {
 .detalles-productos .detalles .cantidad .botones .carrito {
   color: #fff;
   background: var(--color-medioOscuro);
-  transition: all .5s ease; }
+  transition: all .5s ease;
+  width: 186px;
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center; }
 
 .detalles-productos .detalles .cantidad .botones .carrito:hover {
   color: var(--color-medioOscuro);

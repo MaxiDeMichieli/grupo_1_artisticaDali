@@ -20,5 +20,20 @@ module.exports = {
         .then(resultado => {
             res.json(resultado)
         })
+    },
+    addCart: (req, res) => {
+        let producto = req.params.prod;
+        let cantidad = req.params.cantidad;
+
+        db.Carts.create({
+            usuario_id: req.session.usuario.id,
+            producto_id: producto
+        })
+        .then(resultado => {
+            res.json(resultado);
+        })
+        .then(err => {
+            console.log(err);
+        })
     }
 }

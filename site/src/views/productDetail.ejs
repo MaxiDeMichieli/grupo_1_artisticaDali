@@ -5,6 +5,7 @@
     <%- include('partials/header.ejs') %>
 
     <div class="detalles-productos">
+        <div id="productoAgregado" class="none">Producto agregado correctamente</div>
         <div class="container">
             <div class="row detalles-container">
                 <div class="imagenes col-12 col-lg-6">
@@ -26,13 +27,16 @@
                 <section class="detalles col-12 col-lg-6">
                     <h2><%= producto.nombre %> </h2>
                     <span class="precio">$<%= producto.precio %> </span>
-                    <form action="" class="cantidad">
+                    <form action="<%- producto.id %>" class="cantidad" id="formAgregarProducto">
                         <label for="cantidad">Cantidad</label>
                         <span class="numero">
-                            <input type="number" value="1" min="1" max="100" class="number-spinner">
+                            <input type="number" value="1" min="1" max="100" class="number-spinner" id="cantidad">
                         </span>
                         <div class="botones">
-                            <button type="submit" class="carrito">agregar al carrito</button>
+                            <button type="submit" class="carrito">
+                                <span id="textoBtnAgregar">agregar al carrito</span>
+                                <img src="/images/loading/loading.gif" alt="loading" id="loading" class="none">
+                            </button>
                             <% if (typeof session.admin != 'undefined') { %>
                                 <a href="/products/edit/<%- producto.id %>" class="editar-producto">editar producto</a>
                             <% } %>
@@ -104,27 +108,13 @@
 
     <%- include('partials/footer.ejs') %>
 
+
+
     <% if (imagen.length > 1) { %>
-    <script>
-        const imgGrande = document.getElementById("img");
-        const imgChica1 = document.getElementById("img-sm1");
-        const imgChica2 = document.getElementById("img-sm2");
-        const imgChica3 = document.getElementById("img-sm3");
-        const imgChica4 = document.getElementById("img-sm4");
-
-        document.getElementById("img-sm1").onclick = () => {
-            imgGrande.src = "/images/productos/<%- producto.imagen[0] %>";
-        }
-
-        document.getElementById("img-sm2").onclick = () => {
-            imgGrande.src = "/images/productos/<%- producto.imagen[1] %>";
-        }
-    </script>
+    <script src="/javascripts/productDetail2.js"></script>
     <% } %>
-    
-    
 
-    <!-- <script src="/javascripts/detallesProducto.js"></script> -->
+    <script src="/javascripts/productDetail.js"></script>
     <script src="/javascripts/header.js"></script>
     
   
