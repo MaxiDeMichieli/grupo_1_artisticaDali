@@ -1,5 +1,8 @@
 <%- include('partials/head.ejs') %> 
 <body>
+    <div class="background-cargando">
+        <img src="/images/loading/loading.gif" alt="loading" id="loading" class="none">
+    </div>
   
   <%- include('partials/header.ejs') %>
   
@@ -11,15 +14,15 @@
                     <h5>Datos personales</h5>
                     <div>
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" spellcheck="false" required <% if(user.nombre){ %>value="<%- user.nombre %>"<% } %> >
+                        <input type="text" name="nombre" id="nombre" spellcheck="false" disabled <% if(user.nombre){ %>value="<%- user.nombre %>"<% } %> >
                     </div>
                     <div>
                         <label for="apellido">Apellido</label>
-                        <input type="text" name="apellido" id="apellido" spellcheck="false" required <% if(user.apellido){ %>value="<%- user.apellido %>"<% } %>>
+                        <input type="text" name="apellido" id="apellido" spellcheck="false" disabled <% if(user.apellido){ %>value="<%- user.apellido %>"<% } %>>
                     </div>
                     <div>
                         <label for="email">Email</label>
-                    <input type="email" name="email" id="email" spellcheck="false" required <% if(user.email){ %>value="<%- user.email %>"<% } %> disabled>
+                    <input type="email" name="email" id="email" spellcheck="false" disabled <% if(user.email){ %>value="<%- user.email %>"<% } %> >
                     </div>
                     <div>
                         <label for="telefono">Teléfono</label>
@@ -43,16 +46,21 @@
                     </div>
                     <div>
                         <label for="cpostal">C.Postal</label>
-                        <input type="text" name="cpostal" id="cpostal" spellcheck="false" <% if(user.cpostal){ %>value="<%- user.cpostal %>"<% } %>>
+                        <input type="text" name="cpostal" id="cpostal" spellcheck="false" <% if(user.cp){ %>value="<%- user.cp %>"<% } %>>
                         <a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank">Encontrá tu CP</a>
                     </div>
                     <div>
                         <label for="provincia">Provincia</label>
-                        <input type="text" name="provincia" id="provincia" spellcheck="false" <% if(user.provincia){ %>value="<%- user.provincia %>"<% } %>>
+                        <select name="provincia" id="provincia">
+                            <option value="0" hidden selected >Seleccione su Provincia</option>
+                        </select>
                     </div>
                     <div>
                         <label for="localidad">Locaildad</label>
-                        <input type="text" name="localidad" id="localidad" spellcheck="false" <% if(user.localidad){ %>value="<%- user.localidad %>"<% } %>>
+                        <select name="localidad" id="localidad">
+                            <option hidden selected value="0" >Seleccione su localidad</option>
+                            <option value="0" >seleccione primero su provincia</option>
+                        </select>
                     </div>
                 </div>
         
@@ -70,6 +78,7 @@
   
   <%- include('partials/footer.ejs') %>
 
+<script src="/javascripts/editAccount.js"></script>
 <script src="/javascripts/header.js"></script>
   
   <%- include('partials/scripts.ejs') %> 

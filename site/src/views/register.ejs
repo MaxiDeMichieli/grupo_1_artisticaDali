@@ -21,17 +21,17 @@
             <h3 id="cc" class=<%= (title == "Crear cuenta")?"active": "" %>>CREAR CUENTA</h3>
         </div>
         <div class="inicio-sesion <%= (title == "Crear cuenta")?'none': '' %>" id="inicio-sesion">
-            <form action="/users/login" method="POST">
+            <form action="/users/login" method="POST" id="form-login">
                 <div>
                     <label for="emailInicio">Email</label>
-                    <input type="text" name="email" id="emailInicio" placeholder="dalí@ejemplo.com" spellcheck="false" value="<%= (typeof oldLogin != 'undefined' && oldLogin.email)?oldLogin.email:'' %>">
-                    <p class="errors"><%= (typeof errorsLogin != 'undefined' && errorsLogin.email)?errorsLogin.email.msg: "" %></p>
+                    <input type="text" name="email" id="emailInicio" placeholder="dalí@ejemplo.com" spellcheck="false" value="<%= (typeof oldLogin != 'undefined' && oldLogin.email)?oldLogin.email:'' %>" >
+                    <p class="errors" id="errorEmailLogin"><%= (typeof errorsLogin != 'undefined' && errorsLogin.email)?errorsLogin.email.msg: "" %></p>
                 </div>
                 <div>
                     <label for="passwordInicio">Contraseña</label>
-                    <input type="password" name="password" id="passwordInicio" maxlength="25" spellcheck="false">
+                    <input type="password" name="password" id="passwordInicio" maxlength="25" spellcheck="false" value="<%= (typeof oldLogin != 'undefined' && oldLogin.password)?oldLogin.password:'' %>" >
                     <i class="fas fa-eye fa-lg view-pass" id="btn-pass-1"></i>
-                    <p class="errors"><%= (typeof errorsLogin != 'undefined' && errorsLogin.password)?errorsLogin.password.msg: "" %></p>
+                    <p class="errors" id="errorPassLogin"><%= (typeof errorsLogin != 'undefined' && errorsLogin.password)?errorsLogin.password.msg: "" %></p>
                 </div>
                 <p class="errors"><%= (typeof errorsLogin != 'undefined' && errorsLogin.custom && !errorsLogin.email && !errorsLogin.password)?errorsLogin.custom.msg: "" %> </p>
                 <div class="recuerdame">
@@ -42,37 +42,37 @@
             </form>
         </div>
         <div class="crear-cuenta <%= (title == "Inicia sesión")?'none': '' %>" id="crear-cuenta">
-            <form action="/users/register" method="POST">
+            <form action="/users/register" method="POST" id="form-register">
                 <div>
                     <label for="nombre">Nombre</label>
                     <input type="text" name="nombre" id="nombre" placeholder="Artística" spellcheck="false" value="<%= (typeof oldRegister != 'undefined' && oldRegister.nombre)?oldRegister.nombre:'' %>">
-                    <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.nombre)?errorsRegister.nombre.msg: "" %></p>
+                    <p class="errors" id="errorNombre"><%= (typeof errorsRegister != 'undefined' && errorsRegister.nombre)?errorsRegister.nombre.msg: "" %></p>
                 </div>
                 <div>
                     <label for="apellido">Apellido</label>
                     <input type="text" name="apellido" id="apellido" placeholder="Dalí" spellcheck="false" value="<%= (typeof oldRegister != 'undefined' && oldRegister.apellido)?oldRegister.apellido:'' %>">
-                    <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.apellido)?errorsRegister.apellido.msg: "" %></p>
+                    <p class="errors" id="errorApellido"><%= (typeof errorsRegister != 'undefined' && errorsRegister.apellido)?errorsRegister.apellido.msg: "" %></p>
                 </div>
                 <div>
                     <label for="email">Email</label>
                     <input type="text" name="email" id="email" placeholder="dalí@ejemplo.com" spellcheck="false" value="<%= (typeof oldRegister != 'undefined' && oldRegister.email)?oldRegister.email:'' %>">
-                    <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.email)?errorsRegister.email.msg: "" %></p>
+                    <p class="errors" id="errorEmail"><%= (typeof errorsRegister != 'undefined' && errorsRegister.email)?errorsRegister.email.msg: "" %></p>
                 </div>
                 <div>
                     <label for="passwordRegistro">Contraseña</label>
                     <input type="password" name="password" id="passwordRegistro" maxlength="25" spellcheck="false" value="<%= (typeof oldRegister != 'undefined' && oldRegister.password)?oldRegister.password:'' %>">
                     <i class="fas fa-eye fa-lg view-pass" id="btn-pass-2"></i>
-                    <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.password)?errorsRegister.password.msg: "" %></p>
+                    <p class="errors" id="errorPass"><%= (typeof errorsRegister != 'undefined' && errorsRegister.password)?errorsRegister.password.msg: "" %></p>
                 </div>
                 <div>
                     <label for="passwordRepeat">Repetir contraseña</label>
                     <input type="password" name="passwordRepeat" id="passwordRepeat" maxlength="25" spellcheck="false" value="<%= (typeof oldRegister != 'undefined' && oldRegister.passwordRepeat)?oldRegister.passwordRepeat:'' %>">
                     <i class="fas fa-eye fa-lg view-pass" id="btn-pass-3"></i>
-                    <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.passwordRepeat)?errorsRegister.passwordRepeat.msg: "" %></p>
+                    <p class="errors" id="errorPass2"><%= (typeof errorsRegister != 'undefined' && errorsRegister.passwordRepeat)?errorsRegister.passwordRepeat.msg: "" %></p>
                 </div>
                 <div class="terminos">
                     <input type="checkbox" name="terminos" id="terminos"><label for="terminos">Acepto los términos y condiciones.</label>
-                    <p class="errors"><%= (typeof errorsRegister != 'undefined' && errorsRegister.terminos)?errorsRegister.terminos.msg: "" %></p>
+                    <p class="errors" id="errorTerms"><%= (typeof errorsRegister != 'undefined' && errorsRegister.terminos)?errorsRegister.terminos.msg: "" %></p>
                 </div>
                 <button type="submit">Crear Cuenta</button>
             </form>
