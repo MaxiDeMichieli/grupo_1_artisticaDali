@@ -2,6 +2,7 @@ window.addEventListener('load', () => {
 
     let provinciaSelect = document.getElementById('provincia');
     let localidadSelect = document.getElementById('localidad');
+    let loadingBackground = document.getElementById('background-cargando');
 
     fetch('https://apis.datos.gob.ar/georef/api/provincias')
     .then(function(response){
@@ -21,21 +22,24 @@ window.addEventListener('load', () => {
     provinciaSelect.addEventListener('change', () => {
         let provincia = provinciaSelect.value;
 
-        fetch(`https://apis.datos.gob.ar/georef/api/localidades?max=1000&provincia=${provincia}`)
+        loadingBackground.classList.remove('none');
+
+        fetch(`https://apis.datos.gob.ar/georef/api/municipios?max=1000&provincia=${provincia}`)
         .then(function(response){
             return response.json();
         })
         .then(function(result){
-            result.localidades.sort(function(prev,next){
+            result.municipios.sort(function(prev,next){
                 return prev.nombre > next.nombre
             })
 
-            localidadSelect.innerHTML =`<option>Seleccione su localidad</option>`
+            localidadSelect.innerHTML = `<option>Seleccione su localidad</option>`
 
-            result.localidades.forEach(localidad => {
+            result.municipios.forEach(localidad => {
                 localidadSelect.innerHTML += `<option value = "${localidad.nombre}">${localidad.nombre}</option>`
             })
-            console.log('se termino de cargar!!')
+            
+            loadingBackground.classList.add('none');
         })
 
     })
