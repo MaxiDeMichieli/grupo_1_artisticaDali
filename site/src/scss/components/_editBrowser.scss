@@ -39,6 +39,9 @@
         font-weight: 600;
         font-size: 0.9rem;
       }
+      a:hover{
+          color: lightblue;
+      }
     }
 }
 /* EDITAR O ELIMINAR PRODUCTO*/
@@ -126,6 +129,9 @@
                 .botones{
                         display: flex;
                         justify-content: space-evenly;
+                        a:hover{
+                            color: lightblue;
+                        }
                         button{
                             border: 1px solid red;
                             border-radius: 50px;
@@ -139,6 +145,58 @@
     }
     
 }
+
+/* MEDIA */
+
+@media (min-width:768px){
+    .editionPage{
+        .container{
+            .listado{
+                .botones a{
+                    text-align: center;
+                    border: 1px solid lightblue;
+                    border-radius: 50px;
+                    background-color:white;
+                    color: rgb(80, 80, 252);
+                    width: 150px;;
+                }
+            }
+        }
+    }
+    .col-lg-4 {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* @media (min-width: 992px) {
+    .editionPage{
+        .container{
+            .listado{
+                .botones a{
+                    text-align: center;
+                    border: 1px solid lightblue;
+                    border-radius: 50px;
+                    background-color:white;
+                    color: rgb(80, 80, 252);
+                    width: 150px;;
+                }
+            }
+        }
+    }
+    .col-lg-4 {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+} */
 
 
 

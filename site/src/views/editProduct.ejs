@@ -57,6 +57,7 @@
                                                             value="<%= categoria.id %>"<% if(typeof oldAdd != 'undefined' && oldAdd.categoria){%> selected <% } %>><%= categoria.nombre %> </option>
                                                         <% }) %>
                                                     </select>
+                                                    <small class="text-danger" id="errorCategory"></small>
                                                     <label for="subcategorySelect">Subcategoría</label>
                                                     <select name="subcategory" id="subcategorySelect">
                                                         <option hidden selected value="0" >Elija una subcategoria</option>
@@ -72,12 +73,14 @@
                                                          <% } %>
                                                         <% }) %>
                                                     </select>
+                                                    <small class="text-danger" id="errorSubCategory"></small>
                                                 </div>
                                                 <div class="bloque2">
                                                     <label for="name">Producto</label>
-                                                    <input type="text" placeholder="Producto" name="name" id="name" value="<%= product.nombre %>">
+                                                    <input type="text" placeholder="Producto" name="name" id="inputProduct" value="<%= product.nombre %>">
+                                                    <small class="text-danger" id="errorProduct"></small>
                                                     <label for="discount">Descuento</label>
-                                                    <input type="text" placeholder="Descuento" name="discount" id="discount" value="<%= product.descuento %>">
+                                                    <input type="text" placeholder="Descuento" name="discount" id="inputDiscount" value="<%= product.descuento %>">
                                                 </div>
                                             </div>
                                         </div >
@@ -90,20 +93,23 @@
                                 </div>
                                 <div class="precio">
                                     <label for="precio">Precio:   $</label>
-                                    <input type="text" name="price" id="precio" value="<%= product.precio %>">
+                                    <input type="text" name="price" id="inputPrice" value="<%= product.precio %>">
+                                    <small class="text-danger" id="errorPrice"></small>
                                 </div>
                                 
                             </div>
                         </div>
                         <div class="col-12 col-md-12 col-lg-6" id="formulario2">
+                            <div id="imagePreview" class="imgactual"></div>
                             <div class="imgactual">
                                 <h3>Imagen actual</h3>
-                                <img src="/images/productos/<%- product.imagenes[0].imagen %>" alt="">
+                                <img src="/images/productos/<%- product.imagenes[0].imagen %>" alt="" id="imgActual">
                             </div>
                             <div class="cargaimg">
                                 <h3 id="tituloimg">Cambiar imagen</h3>
                                 <p>
-                                    <input type="file" name="image" id="image">
+                                    <input type="file" name="image" id="examinar">
+                                    <small class="text-danger" id="errorImage"></small>
                                 </p>
                             </div>
                         </div>

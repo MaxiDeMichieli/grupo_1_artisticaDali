@@ -4,6 +4,12 @@ window.addEventListener('load', () => {
     let inputAddSubcategoria = document.getElementById('addSubcategoria'); */
     let subcategoriaSelect = document.getElementById('subcategorySelect');
     let categorySelect = document.getElementById('categorySelect');
+    let inputProduct = document.getElementById('inputProduct');
+    let inputPrice = document.getElementById('inputPrice');
+    let imgActual = document.getElementById('imgActual');
+    let inputImage = document.getElementById('examinar');
+
+    
 
     /* MOSTRAR INPUT PARA NUEVA CATEGORIA */
     /* checkSubcategoria.addEventListener('change', () => {
@@ -34,5 +40,108 @@ window.addEventListener('load', () => {
             })
         })
 
+    })
+
+
+    /* VALIDACIONES */
+
+    categorySelect.addEventListener('blur', function(){
+        if(this.value == 0){
+            this.classList.add('is-invalid');
+            let error = 'Elige una categoria';
+            errorCategory.innerHTML = error 
+        }else{
+            this.classList.remove('is-invalid');
+            this.classList.add('is-valid');
+            errorCategory.innerHTML = ''
+        }
+    })
+
+    subcategorySelect.addEventListener('blur', function(){
+        if(this.value == 0){
+            this.classList.add('is-invalid');
+            let error = 'Elige una subcategoria';
+            errorSubCategory.innerHTML = error 
+        }else{
+            this.classList.remove('is-invalid');
+            this.classList.add('is-valid');
+            errorSubCategory.innerHTML = ''
+        }
+    })
+
+    let productNameValidator = () => {
+        switch (true) {
+            case inputProduct.value == 0:
+                var error = 'Ingresa un nombre de producto';
+                errorProduct.innerHTML = error; 
+                inputProduct.classList.add('is-invalid');
+                break;
+            case inputProduct.value.length <=2:
+                error = 'Ingresa un nombre no menor de tres letras';
+                errorProduct.innerHTML = error;
+                inputProduct.classList.add('is-invalid');  
+                break;
+            default:     
+                inputProduct.classList.remove('is-invalid');
+                inputProduct.classList.add('is-valid');
+                errorProduct.innerHTML = ''
+        }
+    }
+    inputProduct.addEventListener('blur', function(){
+        productNameValidator()
+    })
+    inputProduct.addEventListener('keyup', function(){
+        productNameValidator()
+    })
+
+    let productPriceValidator = () => {
+        switch (true) {
+            case inputPrice.value == 0:
+                inputPrice.classList.add('inputError');
+                var error = 'Ingresa un precio';
+                errorPrice.innerHTML = error
+                break;
+            case inputPrice.value.length <=1:
+                error = 'Ingresa precio válido';
+                errorPrice.innerHTML = error;
+                inputPrice.classList.add('is-invalid');  
+                break;
+            default:     
+                inputPrice.classList.remove('is-invalid');
+                inputPrice.classList.add('is-valid');
+                errorPrice.innerHTML = ''
+        }
+    }
+    inputPrice.addEventListener('blur', function(){
+        productPriceValidator()
+    })
+    inputPrice.addEventListener('keyup', function(){
+        productPriceValidator()
+    })
+
+    /* VALIDACION DE CARGA DE IMAGENES Y PREVISUALIZACION */
+    inputImage.addEventListener('change', 
+    function fileValidation(){
+        var errorImage = document.getElementById('errorImage')
+        var filePath = inputImage.value; //Capturo el valor del input
+        var allowefExtensions = /(.jpg|.jpeg|.png|.gif)$/i; //Extensiones permitidas
+        if(!allowefExtensions.exec(filePath)){ //El método exec() ejecuta una busqueda sobre las coincidencias de una expresión regular en una cadena especifica. Devuelve el resultado como array, o null.
+            let error = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)'
+            errorImage.innerHTML = error;
+            inputImage.value = '';
+            document.getElementById('imagePreview').innerHTML = '';
+            return false;
+        }else{
+            // Image preview
+            if(inputImage.files && inputImage.files[0]){
+                imgActual.style.display = 'none' 
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    document.getElementById('imagePreview').innerHTML = '<img src="' + e.target.result +'"/>';
+                };
+                reader.readAsDataURL(inputImage.files[0]);
+                errorImage.innerHTML = '';
+            }
+        }
     })
 })

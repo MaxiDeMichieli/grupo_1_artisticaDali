@@ -1,0 +1,79 @@
+.contact{
+    color: var(--color-oscuro);
+    font-family: Poppins;
+    text-align: center;
+    h1{
+        margin: 10px;
+        border-bottom: 1px solid var(--color-medioOscuro);
+    }
+    .sucursales{
+        margin-top: 20px;;
+        text-align: center;
+        width: 95%;
+        .separadores{
+            padding: 5px;
+        }
+        h2{
+            font-weight: bold;
+            border-bottom: 1px solid var(--color-medioOscuro);
+            padding-bottom: 5px;
+        }
+        p{
+            font-size:1.2em;
+        }
+        iframe{
+            max-width: 100%;
+        }
+        .suc1 {
+            border: 1px solid var(--color-medioOscuro);
+            border-radius: 40px;
+            padding: 10px;
+            
+        }
+        .suc2 {
+            border: 1px solid var(--color-medioOscuro);
+            border-radius: 40px;
+            padding: 10px;
+            
+        } 
+
+    } 
+    .form{
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    } 
+    .formularioContacto{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid var(--color-medioOscuro);
+        border-radius: 40px;
+        padding: 10px;
+
+        input{
+            border: 1px solid var(--color-medioOscuro);
+            border-radius: 50px
+        }
+        textarea{
+            border: 1px solid var(--color-medioOscuro);
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        button{
+            border: 1px solid var(--color-medioOscuro);
+            border-radius: 20px;
+            background-color: var(--color-claro);
+            color: var(--color-oscuro)
+        }
+        button:hover{
+            background-color: var(--color-medioOscuro);
+            color: var(--color-claro)
+        }
+    }     
+
+}
+

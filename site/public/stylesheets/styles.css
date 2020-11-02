@@ -477,6 +477,9 @@ button:focus {
   margin-top: 60px; }
 
 /* CATEGORIAS */
+.home .container .categoriashome {
+  margin: 10px; }
+
 .home .categoriashome section {
   display: flex;
   flex-wrap: wrap;
@@ -487,6 +490,13 @@ button:focus {
   flex-wrap: wrap;
   justify-content: center;
   border-bottom: none; }
+
+.home .categoriashome section img:hover {
+  -moz-box-shadow: 0px 0px 30px #78a2fd;
+  -webkit-box-shadow: 0px 0px 30px #78a2fd;
+  box-shadow: 0px 0px 30px  #78a2fd;
+  transform: scale(1.05);
+  transition: all 1s ease; }
 
 .home .categoriashome section img {
   width: 100%;
@@ -1418,6 +1428,8 @@ button:focus {
   .cargaProd a {
     text-decoration: none;
     color: var(--color-medioOscuro); }
+  .cargaProd a:hover {
+    color: lightblue; }
   .cargaProd ul li {
     list-style: none; }
 
@@ -1552,6 +1564,10 @@ button:focus {
   border: 1px solid var(--color-oscuro);
   width: 30%;
   flex-grow: 1; }
+
+.cargaProd #errorPrice {
+  width: 100%;
+  text-align: center; }
 
 /* CAJA IMAGENES */
 .cargaProd .imagenes {
@@ -2245,6 +2261,8 @@ button:focus {
       color: var(--color-medioOscuro);
       font-weight: 600;
       font-size: 0.9rem; }
+    .editionPage .nav ul a:hover {
+      color: lightblue; }
 
 /* EDITAR O ELIMINAR PRODUCTO*/
 .editionPage .editBrowser {
@@ -2315,6 +2333,8 @@ button:focus {
         .editionPage .editBrowser .container .listado .producto .botones {
           display: flex;
           justify-content: space-evenly; }
+          .editionPage .editBrowser .container .listado .producto .botones a:hover {
+            color: lightblue; }
           .editionPage .editBrowser .container .listado .producto .botones button {
             border: 1px solid red;
             border-radius: 50px;
@@ -2322,6 +2342,47 @@ button:focus {
             color: white;
             width: 150px; }
 
+/* MEDIA */
+@media (min-width: 768px) {
+  .editionPage .container .listado .botones a {
+    text-align: center;
+    border: 1px solid lightblue;
+    border-radius: 50px;
+    background-color: white;
+    color: #5050fc;
+    width: 150px; }
+  .col-lg-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; } }
+
+/* @media (min-width: 992px) {
+    .editionPage{
+        .container{
+            .listado{
+                .botones a{
+                    text-align: center;
+                    border: 1px solid lightblue;
+                    border-radius: 50px;
+                    background-color:white;
+                    color: rgb(80, 80, 252);
+                    width: 150px;;
+                }
+            }
+        }
+    }
+    .col-lg-4 {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+} */
 /* ----------------------------------------------------------------------------------------------------------- */
 /* HEADER DE ADMINISTRACION DE PRODUCTOS*/
 .headerAdmin .container {
@@ -2363,6 +2424,9 @@ button:focus {
   background: none;
   margin-bottom: 5px;
   color: var(--color-oscuro); }
+
+.headerAdmin .container .user .cerrar:hover {
+  color: red; }
 
 /* ----------------------------------------------------------------------------------------------------------- */
 /* GENERAL RECOVER PASS */
@@ -2483,3 +2547,62 @@ button:focus {
     width: 48%; }
   .recover .email-recover {
     width: 50%; } }
+
+.contact {
+  color: var(--color-oscuro);
+  font-family: Poppins;
+  text-align: center; }
+  .contact h1 {
+    margin: 10px;
+    border-bottom: 1px solid var(--color-medioOscuro); }
+  .contact .sucursales {
+    margin-top: 20px;
+    text-align: center;
+    width: 95%; }
+    .contact .sucursales .separadores {
+      padding: 5px; }
+    .contact .sucursales h2 {
+      font-weight: bold;
+      border-bottom: 1px solid var(--color-medioOscuro);
+      padding-bottom: 5px; }
+    .contact .sucursales p {
+      font-size: 1.2em; }
+    .contact .sucursales iframe {
+      max-width: 100%; }
+    .contact .sucursales .suc1 {
+      border: 1px solid var(--color-medioOscuro);
+      border-radius: 40px;
+      padding: 10px; }
+    .contact .sucursales .suc2 {
+      border: 1px solid var(--color-medioOscuro);
+      border-radius: 40px;
+      padding: 10px; }
+  .contact .form {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px; }
+  .contact .formularioContacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid var(--color-medioOscuro);
+    border-radius: 40px;
+    padding: 10px; }
+    .contact .formularioContacto input {
+      border: 1px solid var(--color-medioOscuro);
+      border-radius: 50px; }
+    .contact .formularioContacto textarea {
+      border: 1px solid var(--color-medioOscuro);
+      border-radius: 20px;
+      margin-bottom: 10px; }
+    .contact .formularioContacto button {
+      border: 1px solid var(--color-medioOscuro);
+      border-radius: 20px;
+      background-color: var(--color-claro);
+      color: var(--color-oscuro); }
+    .contact .formularioContacto button:hover {
+      background-color: var(--color-medioOscuro);
+      color: var(--color-claro); }

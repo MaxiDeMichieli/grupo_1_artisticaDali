@@ -70,8 +70,8 @@
                                        </div>
                                         <div class="botones col-12 col-md-4 col-lg-4">
                                                 <a href="/products/edit/<%- element.id %>">Editar</a>
-                                                <form action="/products/delete/<%- element.id %>?_method=DELETE" method="POST">
-                                                    <button type="submit">Eliminar</button>
+                                                <form id="deleteProduct" action="/products/delete/<%- element.id %>?_method=DELETE" method="POST" >
+                                                    <button id="btn-deleteProduct" type="submit"  >Eliminar</button>
                                                 </form>
                                         </div>          
                                
@@ -83,5 +83,6 @@
     </div>
             
             <!-- FINALIZA PESTAÑA DE CARGA -->
-            
+            <script src="/javascripts/editBrowser.js"></script>
+
             <%- include('partials/scripts.ejs') %> 

@@ -1,4 +1,4 @@
-<%- include('partials/head.ejs') %>  
+        <%- include('partials/head.ejs') %>  
 <body>
     <!-- POPUP -->
     <% if (typeof productCreated != 'undefined') { %>
@@ -84,17 +84,23 @@
                                                             <option value="<%= categoria.id %>"<% if(typeof oldAdd != 'undefined' && oldAdd.categoria){%> selected <% } %>><%= categoria.nombre %> </option>
                                                            <% }) %>
                                                         </select>
+                                                        <small class="text-danger" id="errorCategory">
+                                                        </small>
                                                         <select name="subcategory" id="subcategorySelect">
                                                             <option hidden selected value="0" >Elija una subcategoria</option>
                                                             <option value="1" >seleccione primero la categoria</option>
                                                         </select>
+                                                        <small class="text-danger" id="errorSubCategory">
+                                                        </small>
 
                                                     </div>
                                                     <!-- Producto y descuento -->
                                                     <div class="bloque2">
-                                                        <input type="text" placeholder="Producto" name="name" id="producto" value="<%= (typeof oldAdd != 'undefined' && oldAdd.name)?oldAdd.name:'' %>">
+                                                        <input type="text" placeholder="Producto" name="name" id="inputProduct" value="<%= (typeof oldAdd != 'undefined' && oldAdd.name)?oldAdd.name:'' %>">
+                                                        <small class="text-danger" id="errorProduct">
+                                                        </small>
                                                         
-                                                        <input type="number" placeholder="Descuento" name="discount" id="discount" value="<%= (typeof oldAdd != 'undefined' && oldAdd.discount)?oldAdd.discount:'' %>">
+                                                        <input type="number" placeholder="Descuento" name="discount" id="inputDiscount" value="<%= (typeof oldAdd != 'undefined' && oldAdd.discount)?oldAdd.discount:'' %>">
                                                     </div>
                                                 </div>
                                             </div >
@@ -103,26 +109,27 @@
                                     
                                     <div class="descripcion">
                                         <label for="descripcion">Descripción del producto</label>
-                                        <textarea name="description" id="descripcion" cols="30" rows="7" placeholder="Escriba aquí" ><%= (typeof oldAdd != 'undefined' && oldAdd.description)?oldAdd.description:'' %></textarea>
+                                        <textarea name="description" id="description" cols="30" rows="7" placeholder="Escriba aquí" ><%= (typeof oldAdd != 'undefined' && oldAdd.description)?oldAdd.description:'' %></textarea>
+                                        <small class="text-danger" id="errorDescription"></small>
                                     </div>
                                     <div class="precio">
                                         <label for="precio">Precio:   $</label>
-                                        <input type="number" name="price" id="precio" value="<%= (typeof oldAdd != 'undefined' && oldAdd.price)?oldAdd.price:'' %>">
+                                        <input type="number" name="price" id="inputPrice" value="<%= (typeof oldAdd != 'undefined' && oldAdd.price)?oldAdd.price:'' %>">
+                                        <small class="text-danger" id="errorPrice">
+                                        </small>
                                     </div>
                                     
                                 </div>
                             </div>
                             <div class="col-12 col-md-12 col-lg-6" id="formulario2">
-                                <!-- <div class="imagenes">
-                                    <img src="/images/450x450.png" alt="">
-                                    <img src="/images/450x450.png" alt="">
-                                    <img src="/images/450x450.png" alt="">
-                                    <img src="/images/450x450.png" alt="">
-                                </div> -->
+                                <div id="imagePreview" class="imgactual">
+
+                                </div>
                                 <div class="cargaimg">
                                     <h3 id="tituloimg">Agregar archivos de imagen</h3>
                                     <p>
                                         <input type="file" name="image" id="examinar" >
+                                        <small class="text-danger" id="errorImage"></small>
                                     </p>
                                     <!-- <div class="cargados">
                                         <a href="">img001</a>

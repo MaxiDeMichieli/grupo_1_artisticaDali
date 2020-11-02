@@ -98,6 +98,9 @@
       text-decoration: none;
       color: var(--color-medioOscuro);
   }
+  a:hover{
+    color: lightblue;
+  }
   ul{
       li{
           list-style: none;
@@ -245,6 +248,10 @@
   border: 1px solid var(--color-oscuro);
   width: 30%;
   flex-grow: 1;
+}
+.cargaProd #errorPrice{
+  width: 100%;
+  text-align: center;
 }
 
 /* CAJA IMAGENES */
