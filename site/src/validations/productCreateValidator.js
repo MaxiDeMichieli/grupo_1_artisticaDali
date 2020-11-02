@@ -18,5 +18,8 @@ module.exports = [
     .withMessage('Debes ingresar una nombre de producto'),
 
     check('price')
-    .isLength({min:1}).withMessage('Debes ingresar el precio del producto')
+    .isLength({min:1}).withMessage('Debes ingresar el precio del producto'),
+
+    check('description')
+    .isLength({min:1, max:800}).withMessage('La descripción sobrepasa el máximo de caracteres (800)')
 ]

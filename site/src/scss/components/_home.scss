@@ -20,6 +20,10 @@
 
 /* CATEGORIAS */
 
+.home .container .categoriashome{
+  margin: 10px
+}
+
 .home .categoriashome section{
   display: flex;
   flex-wrap: wrap;
@@ -33,7 +37,13 @@
   border-bottom: none;
 
 }
-
+.home .categoriashome section img:hover{
+  -moz-box-shadow: 0px 0px 30px #78a2fd;
+  -webkit-box-shadow: 0px 0px 30px #78a2fd;
+  box-shadow: 0px 0px 30px  #78a2fd;
+  transform: scale(1.05);
+  transition: all 1s ease
+}
 .home .categoriashome section img {
   width: 100%;
   margin: 10px;

@@ -1,0 +1,91 @@
+<%- include('partials/head.ejs') %> 
+<body>
+    
+    <%- include('partials/header.ejs') %>
+    
+    <div class="contact">
+        <h1>CONTACTANOS</h1>
+        <div class="sucursales container">
+            <div class="row">
+                
+                <div class="col-12 col-md-6 col-lg-6  separadores">
+                    <div class="suc1">
+                        <h2>
+                            Sucursal - <%= sucursal1.nombre %>  
+                        </h2>
+                        
+                        <p>Direccion: <%= sucursal1.domicilio %> </p>
+                        <p>Horarios: <%= sucursal1.horarios %> </p>
+                        <p>Teléfono: <%= sucursal1.telefono %></p>
+                        <p>Email: <%= sucursal1.email %></p>
+                        
+                        
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3286.8554419039274!2d-58.72801858519777!3d-34.531890261207224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbd434d21d7a1%3A0x6872187f3d2c5d8c!2sSalerno%201180%2C%20B1663JWX%20San%20Miguel%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1603890018423!5m2!1ses-419!2sar" width="500" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-6 separadores">
+                    <div class="suc2" >
+                        <h2>
+                            Sucursal - <%= sucursal2.nombre %>
+                        </h2>
+                        <p>Direccion: <%= sucursal2.domicilio %></p>
+                        <p>Horarios: <%= sucursal2.horarios %></p>
+                        <p>Teléfono: <%= sucursal2.telefono %></p>
+                        <p>Email: <%= sucursal2.email %></p>
+                        
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.803169786638!2d-58.332208185191426!3d-34.71014417064316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a33288e60564af%3A0x7324cc1c16302a17!2sAv.%20Cris%C3%B3logo%20Larralde%205951%2C%20B1875AQI%20Wilde%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1603924870004!5m2!1ses-419!2sar" width="500" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="container">
+
+            <div class="errores">
+                <% if (typeof errors != 'undefined') { %>
+                  <ul>
+                      <% for( let i = 0; i < errors.length; i++ ) { %>
+                          <li style="color: red; list-style: circle;"><%= errors[i ].msg %> </li>                                                  
+                      <% } %>
+                  </ul>
+                  <% } %> 
+            </div>
+            
+            <form action="/contact" method="POST">
+            
+                <div class="row form">
+                    <div class="col-12 col-md-6 col-lg-6 formularioContacto">
+                    
+                        <label for="">Nombre y apellido</label>
+                        <input type="text" name="nombre">
+                        <label for="">Telefono</label>
+                        <input type="tel" name="telefono">
+                        <label for="">Correo electrónico</label>
+                        <input type="email" name="email">
+                        <label for=""></label>
+                        <textarea id="" cols="30" rows="10" name="consulta" ></textarea>
+                    
+                    <button type="submit">Enviar consulta</button>
+                    
+                    </div> 
+                </div>
+            
+            </form>
+        </div>
+    
+    
+    
+    
+    
+</div>
+
+
+
+<%- include('partials/footer.ejs') %>
+
+<script src="/javascripts/header.js"></script>
+
+<%- include('partials/scripts.ejs') %> 

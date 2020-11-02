@@ -63,46 +63,83 @@ module.exports = {
     },
     create: (req, res)=>{
         let errors = validationResult(req);
-        if(errors.isEmpty()){
-            let description = req.body.description;
-            let descriptionReplaced = description.replace(/\r\n/gi, '-r-n'); /* REEMPLAZO SALTOS DE LINEA PARA PODER GUARDARLOS EN LA BASAE DE DATOS */
-            db.Products.create({
-                nombre: req.body.name.trim(),
-                precio: Number(req.body.price.trim()),
-                descripcion: descriptionReplaced,
-                descuento: Number(req.body.discount.trim()),
-                subcategoria_id: Number(req.body.subcategory),  
-            })
+        let newSubcategory = req.body.addSub;
+
+        if(newSubcategory == ''){
+        
+            if(errors.isEmpty()){
+                let description = req.body.description;
+                let descriptionReplaced = description.replace(/\r\n/gi, '-r-n'); /* REEMPLAZO SALTOS DE LINEA PARA PODER GUARDARLOS EN LA BASAE DE DATOS */
+                db.Products.create({
+                    nombre: req.body.name.trim(),
+                    precio: Number(req.body.price.trim()),
+                    descripcion: descriptionReplaced,
+                    descuento: Number(req.body.discount.trim()),
+                    subcategoria_id: Number(req.body.subcategory),  
+                })
+                .then((result)=>{
+                    let id = result.id
+                    db.ProductImages.create({
+                        imagen:(req.files[0])?req.files[0].filename:"default-image.png",
+                        producto_id:result.id
+                    })
+                    .then(()=>{
+                        res.redirect('/products/create?lp=' + id)
+                    })
+                })
+                .catch(error =>{
+                    console.log(error)
+                })
+                
+            }else{
+                db.Categories.findAll({include:[{association:'subcategorias'}]})
             .then((result)=>{
-                let id = result.id
-                db.ProductImages.create({
-                    imagen:(req.files[0])?req.files[0].filename:"default-image.png",
-                    producto_id:result.id
+                
+                res.render('productAdd', {
+                    title: 'Error',
+                    categorias:result,
+                    session:req.session,
+                    errors:errors.errors,
+                    oldAdd:req.body
                 })
-                .then(()=>{
-                    res.redirect('/products/create?lp=' + id)
-                })
-            })
-            .catch(error =>{
+                
+                }).catch(error =>{
                 console.log(error)
-            })
-            
+                })
+            }
         }else{
-            db.Categories.findAll({include:[{association:'subcategorias'}]})
-        .then((result)=>{
-            
-            res.render('productAdd', {
-                title: 'Error',
-                categorias:result,
-                session:req.session,
-                errors:errors.errors,
-                oldAdd:req.body
+        
+            db.Subcategories.create({
+                nombre : newSubcategory,
+                categoria_id : req.body.category
             })
-            
-            }).catch(error =>{
-            console.log(error)
-            })
-        }
+            .then(result =>{
+                if(errors.isEmpty()){
+                    let description = req.body.description;
+                    let descriptionReplaced = description.replace(/\r\n/gi, '-r-n'); /* REEMPLAZO SALTOS DE LINEA PARA PODER GUARDARLOS EN LA BASAE DE DATOS */
+                    db.Products.create({
+                        nombre: req.body.name.trim(),
+                        precio: Number(req.body.price.trim()),
+                        descripcion: descriptionReplaced,
+                        descuento: Number(req.body.discount.trim()),
+                        subcategoria_id: Number(result.id),  
+                    })
+                    .then((result)=>{
+                        let id = result.id
+                        db.ProductImages.create({
+                            imagen:(req.files[0])?req.files[0].filename:"default-image.png",
+                            producto_id:result.id
+                        })
+                        .then(()=>{
+                            res.redirect('/products/create?lp=' + id)
+                        })
+                    })
+                    .catch(error =>{
+                        console.log(error)
+                    })
+                }
+            }) 
+        } 
     },
     categories : (req, res)=>{
         db.Categories.findOne({
