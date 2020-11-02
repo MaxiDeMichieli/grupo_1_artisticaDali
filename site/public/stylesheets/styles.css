@@ -2059,7 +2059,8 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #fff;
-  padding: 5px; }
+  padding: 5px;
+  width: 100%; }
 
 .carrito .pagar div span {
   font-size: 1.2em;
