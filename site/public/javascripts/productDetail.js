@@ -6,15 +6,13 @@ window.addEventListener('load', () => {
 
     let formulario = id('formAgregarProducto');
     let cantidad = id('cantidad');
-    let textoBtn = id('textoBtnAgregar');
-    let loading = id('loading');
     let agregado = id('productoAgregado');
     let formAction = formulario.attributes.action.textContent;
+    let loadingBackground = document.getElementById('background-cargando');
 
     formulario.addEventListener('submit', (e) => {
         e.preventDefault();
-        textoBtn.classList.add('none');
-        loading.classList.remove('none');
+        loadingBackground.classList.remove('none');
 
         fetch(`${window.location.origin}/api/products/addCart/${formAction}/${cantidad.value}`, {
             method: 'POST'
@@ -30,8 +28,7 @@ window.addEventListener('load', () => {
         .then(result => {
             if(result != 'err'){
                 setTimeout(() => {
-                    textoBtn.classList.remove('none');
-                    loading.classList.add('none');
+                    loadingBackground.classList.add('none');
                     agregado.classList.remove('none');
                     agregado.classList.add('producto-agregado-ok');
                     setTimeout(() => {
@@ -42,9 +39,5 @@ window.addEventListener('load', () => {
             }
             
         })
-
     })
-
-
-
 })

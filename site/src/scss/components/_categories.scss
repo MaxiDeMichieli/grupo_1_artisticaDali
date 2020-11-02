@@ -57,6 +57,13 @@
   display: flex;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  position: relative;
+  transition: all .5s ease;
+  margin-bottom: 15px;
+}
+.categorias section:hover{
+  transform: scale(1.03);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
 }
 .categorias .col-12{
   margin-top: 15px;
@@ -65,16 +72,20 @@
   max-width: 350px;
   margin: 15px auto 0 auto;
 }
+.categorias .producto a {
+  width: 100%;
+}
 .categorias section .imgproducto img{
   width: 100%;
   display: block;
-  max-width: 300px;
+  max-width: 180px;
   margin: auto;
 }
 
 .categorias section .descripcion{
   color: var(--color-medioOscuro);
   text-align: center;
+  position: unset;
 }
 
 .categorias section .descripcion p{
@@ -84,7 +95,13 @@
 .categorias section .descripcion span{
   font-family: Poppins;
   display: block;
-  
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--color-medioOscuro);
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 0px 10px 0px 10px;
 }
 
 .categorias section .descripcion h2{
@@ -108,13 +125,7 @@
   color: var(--color-claro);
   border: none;
   border-radius: 50px;
-  padding: 5px;
-}
-.categorias section .descripcion .botones a{
-  margin-bottom: 10px;
-}
-.categorias section .descripcion .botones a.comprar{
-  display: none;
+  padding: 7px 15px;
 }
 
 /* MENU LATERAL */
@@ -153,7 +164,7 @@
 
 /* DESKTOP */
 
-@media (min-width: 992px){
+@media (min-width: 1200px){
   /*Elimina boton productos*/
   .navbar{
     display: none;
@@ -195,13 +206,5 @@
   }
   .categorias section .descripcion h2{
     text-align: center;
-  }
-
-  /* Elimino boton agregar al carrito */
-  .categorias .productos .botones button{
-    display: none;
-  }
-  .categorias section .descripcion .botones a.comprar{
-    display: inline;
   }
 }

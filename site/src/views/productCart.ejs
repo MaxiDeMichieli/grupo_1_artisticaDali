@@ -1,5 +1,16 @@
 <%- include('./partials/head.ejs') %>
 <body>
+    <div class="cantidad-background none" id="background-cantidad">
+        <div class="contenedor-cantidad">
+            <span id="cancelar-cantidad" class="cancelar-cantidad"><i class="fas fa-times"></i></span>
+            <span class="numero">
+                <input type="number" value="1" min="1" max="100" class="number-spinner" id="cantidad-input">
+            </span>
+            <button type="button" class="aceptar-cantidad" id="aceptar-cantidad">Aceptar</button>
+        </div>
+    </div>
+
+    <%- include('./partials/loadingBackground.ejs') %> 
 
     <%- include('./partials/header.ejs') %> 
 
@@ -13,7 +24,7 @@
                <div class="row">
 
                     <!-- PRODUCTOS -->
-                    <section class="col-12 productos">
+                    <section class="col-12 productos" id="contenedor-productos">
 
                         <% productos.forEach(carrito => { %>
                         <div class="producto">
@@ -24,12 +35,16 @@
                                 <h3><%= carrito.producto.nombre %> </h3>
                                 <div class="precio">
                                     <span class="precio-unitario">$<%= carrito.producto.precio %> c/u</span>
-                                    <span class="cantidad">
-                                        <input type="number" class="number-spinner" value="1"  min="1" max="100">
-                                    </span>
-                                    <span class="precio-sumado">$90</span>
+                                    <span class="total">Total: &nbsp </span>
+                                    <span class="precio-sumado">$<%- carrito.producto.precio * carrito.cantidad %></span>
                                 </div>
-                                <button class="sacar-carrito">Quitar del carrito</button>
+                                <div class="contenedor-cantidad">
+                                    <input type="number" class="cantidad none">
+                                </div>
+                                <div class="botones">
+                                    <button class="cantidad" type="button" onclick=<%- `cantidadBtn(${carrito.producto.id})` %>>Cantidad: <span id="cantidad" onload=<%- `cantidad(${carrito.cantidad})` %>  ><%= carrito.cantidad %></span> <i class="fas fa-angle-down"></i></button>
+                                    <span class="eliminar" onclick=<%- `deleteProduct(${carrito.producto.id})` %>><i class="fas fa-trash"></i></span>
+                                </div>
                             </div>
                         </div>
                         <% }) %>
@@ -105,7 +120,11 @@
                     <section class="pagar col-11 col-lg-4">
                         <div class="subtotal">
                             <h5>Subtotal</h5>
-                            <span>$4.590</span>
+                            <% let precioFinal = 0 %> 
+                            <% productos.forEach(carrito => { %>
+                                <% precioFinal += carrito.producto.precio * carrito.cantidad %> 
+                            <% }) %>
+                            <span id="precioSubtotal">$<%= precioFinal %></span>
                         </div>
                         <div class="costo-envio">
                             <h5>Costo de envío</h5>
@@ -113,7 +132,7 @@
                         </div>
                         <div class="total">
                             <h5>TOTAL</h5>
-                            <span>$4.930</span>
+                            <span id="precioTotal">$<%= precioFinal + 340 %></span>
                         </div>
                         <button type="submit">PAGAR</button>
                     </section>

@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const controller = require ('../../controllers/apiControllers/apiProductsController');
-const productCreateValidator = require('../../validations/productCreateValidator');
-const productEditValidator = require('../../validations/productEditValidator');
-const upImageProduct = require('../../middlewares/upImageProduct');
-const sessionUserCheck = require('../../middlewares/sessionUserCheck');
-const adminUserCheck = require('../../middlewares/adminUserCheck');
 
 router.get('/:category/subcategories', controller.subcategories);
 
 router.post('/addCart/:prod/:cantidad', controller.addCart);
+
+router.post('/removeCart/:prod', controller.removeCart);
+
+router.get('/cartProducts', controller.cartProducts);
+
+router.post('/qtyCart/:prod/:cant', controller.cartCantidad);
 
 module.exports = router;

@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `artistica_dali` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `artistica_dali`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: artistica_dali
@@ -18,27 +16,6 @@ USE `artistica_dali`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `carts`
---
-
-DROP TABLE IF EXISTS `carts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `carts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario_id` int(11) NOT NULL,
-  `producto_id` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL DEFAULT 1,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `usuario_id_carrito_idx` (`usuario_id`),
-  KEY `producto_id_carrito_idx` (`producto_id`),
-  CONSTRAINT `producto_id_carrito` FOREIGN KEY (`producto_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `usuario_id_carrito` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `carts`
 --
 
@@ -47,22 +24,6 @@ LOCK TABLES `carts` WRITE;
 INSERT INTO `carts` VALUES (59,3,46,2);
 /*!40000 ALTER TABLE `carts` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `categories`
---
-
-DROP TABLE IF EXISTS `categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `banner` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `categories`
@@ -75,24 +36,6 @@ INSERT INTO `categories` VALUES (1,'Escolar','banner_escolar.jpg'),(2,'Artístic
 UNLOCK TABLES;
 
 --
--- Table structure for table `product_images`
---
-
-DROP TABLE IF EXISTS `product_images`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `product_images` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `producto_id` int(11) NOT NULL,
-  `imagen` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `producto_id_idx` (`producto_id`),
-  CONSTRAINT `producto_id` FOREIGN KEY (`producto_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `product_images`
 --
 
@@ -101,29 +44,6 @@ LOCK TABLES `product_images` WRITE;
 INSERT INTO `product_images` VALUES (16,24,'image-1602552164495.jpg'),(17,25,'image-1602552275336.jpg'),(18,26,'image-1602552382052.jpg'),(19,27,'image-1602555850750.jpg'),(20,28,'image-1602555979916.jpg'),(21,29,'image-1602556092570.jpg'),(22,30,'image-1602556187014.jpg'),(23,31,'image-1602556292798.jpg'),(24,32,'image-1602556408566.jpg'),(25,33,'image-1602556489876.jpg'),(26,34,'image-1602556571621.jpg'),(27,35,'image-1602556662341.jpg'),(28,36,'image-1602556741299.jpg'),(29,37,'image-1602556825855.jpg'),(30,38,'image-1602557084400.jpg'),(31,39,'image-1602557158892.jpg'),(32,40,'image-1602557265404.jpg'),(33,41,'image-1602557330494.jpg'),(34,42,'image-1602557415289.jpg'),(35,43,'image-1602557581238.jpg'),(36,44,'image-1602557672263.jpg'),(37,45,'image-1602557781997.jpg'),(38,46,'image-1602557853254.jpg'),(39,47,'image-1602557993577.jpg'),(40,48,'image-1602558069970.jpg'),(41,49,'image-1602558178929.jpg'),(42,50,'image-1602558236977.jpg'),(43,51,'image-1602558275958.jpg'),(44,52,'image-1602558332452.jpg'),(45,53,'image-1602558382398.jpg'),(46,54,'image-1602558442891.jpg'),(47,55,'image-1602558498669.jpg');
 /*!40000 ALTER TABLE `product_images` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `products`
---
-
-DROP TABLE IF EXISTS `products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `products` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `precio` varchar(45) NOT NULL,
-  `descuento` varchar(45) DEFAULT NULL,
-  `descripcion` varchar(800) DEFAULT NULL,
-  `subcategoria_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `subcategory_idx` (`subcategoria_id`),
-  CONSTRAINT `subcategory` FOREIGN KEY (`subcategoria_id`) REFERENCES `subcategories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `products`
@@ -136,26 +56,6 @@ INSERT INTO `products` VALUES (24,'Acrilico profesional Winsor & Newton 60ml, ca
 UNLOCK TABLES;
 
 --
--- Table structure for table `purchase_product`
---
-
-DROP TABLE IF EXISTS `purchase_product`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `purchase_product` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `compra_id` int(11) NOT NULL,
-  `producto_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `venta_id_idx` (`compra_id`),
-  KEY `producto_id_compra_idx` (`producto_id`),
-  CONSTRAINT `compra_id` FOREIGN KEY (`compra_id`) REFERENCES `purchases` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `producto_id_compra` FOREIGN KEY (`producto_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `purchase_product`
 --
 
@@ -163,23 +63,6 @@ LOCK TABLES `purchase_product` WRITE;
 /*!40000 ALTER TABLE `purchase_product` DISABLE KEYS */;
 /*!40000 ALTER TABLE `purchase_product` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `purchases`
---
-
-DROP TABLE IF EXISTS `purchases`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `purchases` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `usuario_id_compra_idx` (`usuario_id`),
-  CONSTRAINT `usuario_id_compra` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `purchases`
@@ -191,24 +74,6 @@ LOCK TABLES `purchases` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `subcategories`
---
-
-DROP TABLE IF EXISTS `subcategories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `subcategories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `categoria_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `categoria_idx` (`categoria_id`),
-  CONSTRAINT `categoria` FOREIGN KEY (`categoria_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `subcategories`
 --
 
@@ -217,34 +82,6 @@ LOCK TABLES `subcategories` WRITE;
 INSERT INTO `subcategories` VALUES (1,'Mochilas',1),(2,'Cartucheras',1),(3,'Lápices',1),(4,'Oleos',2),(5,'Acuarelas',2),(6,'Atriles',2),(7,'Cajas',3),(8,'Biblioratos',3),(9,'Abrochadoras',3),(10,'Marcadores',2),(11,'Carpetas',1),(12,'Acrílicos',2),(13,'Pinceles',2),(14,'Compás',2),(15,'Cuadernos',1),(16,'Barniz',2),(17,'Tintas',2),(18,'Gomas',1),(19,'Tijeras',1),(20,'Cajas',3),(21,'Bastidores',2),(22,'Cintas Adhesivas',3),(23,'Pizarras',3),(24,'Perforadoras',3),(25,'Sobres',3),(26,'Caballetes y atriles',2),(27,'Repuestos',1);
 /*!40000 ALTER TABLE `subcategories` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `apellido` varchar(45) NOT NULL,
-  `email` varchar(60) NOT NULL,
-  `password` varchar(70) NOT NULL,
-  `telefono` varchar(30) DEFAULT NULL,
-  `calle` varchar(45) DEFAULT NULL,
-  `numero` int(11) DEFAULT NULL,
-  `dpto` varchar(10) DEFAULT NULL,
-  `cp` varchar(15) DEFAULT NULL,
-  `provincia` varchar(45) DEFAULT NULL,
-  `localidad` varchar(45) DEFAULT NULL,
-  `rol` tinyint(4) NOT NULL DEFAULT 0,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
@@ -265,4 +102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-02 10:51:59
+-- Dump completed on 2020-11-02 10:52:34

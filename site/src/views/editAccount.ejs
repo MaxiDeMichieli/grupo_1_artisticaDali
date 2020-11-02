@@ -52,14 +52,22 @@
                     <div>
                         <label for="provincia">Provincia</label>
                         <select name="provincia" id="provincia">
-                            <option value="0" hidden selected >Seleccione su Provincia</option>
+                            <% if (user.provincia) { %>
+                                <option value="<%- user.provincia %>" hidden selected ><%- user.provincia %></option>
+                            <% } else { %>
+                                <option value="0" hidden selected >Seleccione su Provincia</option>
+                            <% } %>
                         </select>
                     </div>
                     <div>
                         <label for="localidad">Locaildad</label>
                         <select name="localidad" id="localidad">
-                            <option hidden selected value="0" >Seleccione su localidad</option>
-                            <option value="0" >seleccione primero su provincia</option>
+                            <% if (user.localidad) { %>
+                                <option value="<%- user.localidad %>" hidden selected ><%- user.localidad %></option>
+                            <% } else { %>
+                                <option hidden selected value="0" >Seleccione su localidad</option>
+                                <option value="0" >seleccione primero su provincia</option>
+                            <% } %>
                         </select>
                     </div>
                 </div>

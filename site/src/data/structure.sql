@@ -28,13 +28,14 @@ CREATE TABLE `carts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuario_id` int(11) NOT NULL,
   `producto_id` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `usuario_id_carrito_idx` (`usuario_id`),
   KEY `producto_id_carrito_idx` (`producto_id`),
   CONSTRAINT `producto_id_carrito` FOREIGN KEY (`producto_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `usuario_id_carrito` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,4 +187,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-15 23:53:43
+-- Dump completed on 2020-11-02 10:53:03

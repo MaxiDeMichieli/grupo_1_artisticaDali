@@ -21,6 +21,9 @@
 button:focus {
   outline: none; }
 
+a:hover {
+  text-decoration: none; }
+
 /* INPUT VALIDATIONS */
 .is-valid {
   border: 1.5px solid !important;
@@ -695,7 +698,14 @@ button:focus {
 .categorias section {
   display: flex;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px; }
+  border-radius: 10px;
+  position: relative;
+  transition: all .5s ease;
+  margin-bottom: 15px; }
+
+.categorias section:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); }
 
 .categorias .col-12 {
   margin-top: 15px; }
@@ -704,22 +714,33 @@ button:focus {
   max-width: 350px;
   margin: 15px auto 0 auto; }
 
+.categorias .producto a {
+  width: 100%; }
+
 .categorias section .imgproducto img {
   width: 100%;
   display: block;
-  max-width: 300px;
+  max-width: 180px;
   margin: auto; }
 
 .categorias section .descripcion {
   color: var(--color-medioOscuro);
-  text-align: center; }
+  text-align: center;
+  position: unset; }
 
 .categorias section .descripcion p {
   font-family: Poppins; }
 
 .categorias section .descripcion span {
   font-family: Poppins;
-  display: block; }
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--color-medioOscuro);
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 0px 10px 0px 10px; }
 
 .categorias section .descripcion h2 {
   font-family: 'Baloo Da 2';
@@ -740,13 +761,7 @@ button:focus {
   color: var(--color-claro);
   border: none;
   border-radius: 50px;
-  padding: 5px; }
-
-.categorias section .descripcion .botones a {
-  margin-bottom: 10px; }
-
-.categorias section .descripcion .botones a.comprar {
-  display: none; }
+  padding: 7px 15px; }
 
 /* MENU LATERAL */
 .categorias .lateral {
@@ -771,7 +786,7 @@ button:focus {
     margin-bottom: 10px; } }
 
 /* DESKTOP */
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   /*Elimina boton productos*/
   .navbar {
     display: none; }
@@ -800,12 +815,7 @@ button:focus {
   .categorias .producto {
     margin: 15px 0 0 0; }
   .categorias section .descripcion h2 {
-    text-align: center; }
-  /* Elimino boton agregar al carrito */
-  .categorias .productos .botones button {
-    display: none; }
-  .categorias section .descripcion .botones a.comprar {
-    display: inline; } }
+    text-align: center; } }
 
 /* ----------------------------------------------------------------------------------------------------------- */
 /* GENERAL PRODUCT SLIDER */
@@ -1771,6 +1781,68 @@ button:focus {
   text-align: center;
   color: var(--color-oscuro); }
 
+/* BACKGROUND CANTIDAD */
+.cantidad-background {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 100; }
+
+.cantidad-background .contenedor-cantidad {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative; }
+
+.cantidad-background .numero {
+  padding: 3px 10px;
+  background: #fff;
+  border-radius: 50px;
+  border: 2px solid var(--color-medioOscuro); }
+
+.cantidad-background .nice-number button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-weight: bolder;
+  color: var(--color-medioOscuro); }
+
+.cantidad-background .nice-number input {
+  border: none;
+  background: transparent;
+  color: var(--color-oscuro); }
+
+.cantidad-background .nice-number input:focus {
+  outline: none; }
+
+.cantidad-background .aceptar-cantidad {
+  margin-top: 20px;
+  background: var(--color-oscuro);
+  border: 2px solid var(--color-oscuro);
+  padding: 7px 15px;
+  color: #fff;
+  font-weight: 700;
+  font-family: var(--fuente-poppins);
+  border-radius: 50px; }
+
+.cantidad-background .cancelar-cantidad {
+  padding: 15px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  cursor: pointer; }
+
 /* PRODUCTOS */
 .carrito .productos {
   display: flex;
@@ -1785,7 +1857,9 @@ button:focus {
   display: flex;
   flex-wrap: wrap;
   padding: 30px 0;
-  border-bottom: 1px solid var(--color-oscuro); }
+  border-bottom: 1px solid var(--color-oscuro);
+  position: relative;
+  margin: 0 auto; }
 
 .carrito .productos .producto:nth-last-child(1) {
   border-bottom: none; }
@@ -1821,9 +1895,12 @@ button:focus {
   text-align: right;
   color: var(--color-medioOscuro); }
 
+.carrito .productos .detalles .precio .total {
+  flex-grow: 1;
+  text-align: end; }
+
 .carrito .productos .detalles .precio .precio-sumado {
   text-align: right;
-  flex-grow: 1;
   font-size: 1.2em;
   font-family: 'Baloo Da 2';
   font-weight: 800;
@@ -1841,39 +1918,34 @@ button:focus {
   min-width: 68px;
   width: 40%; }
 
-/* NICE NUMBER */
-.carrito .nice-number button {
-  outline: none;
-  border: none;
-  background-color: transparent;
-  font-weight: bolder;
-  font-size: 1.2em;
-  color: var(--color-oscuro); }
-
-.carrito .nice-number input {
-  border: none;
-  background: transparent;
-  color: var(--color-oscuro); }
-
-.carrito .nice-number input:focus {
-  outline: none; }
-
-/* NICE NUMBER END */
-.carrito .productos .detalles .sacar-carrito {
+.carrito .productos .detalles .botones {
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; }
+
+.carrito .productos .detalles .cantidad {
   max-width: 250px;
   font-family: var(--fuente-baloo);
   font-weight: 600;
   font-size: 1em;
   color: #fff;
-  padding: 6px;
+  padding: 8px 25px;
   border-radius: 50px;
   border: var(--color-oscuro);
   background: var(--color-oscuro);
-  margin-top: 15px; }
+  margin-top: 5px; }
 
 .carrito .productos .detalles .sacar-carrito:focus {
   outline: none; }
+
+.carrito .productos .detalles .eliminar {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px 10px;
+  color: red;
+  cursor: pointer; }
 
 /* ENVIOS */
 .carrito .envio {
@@ -2028,12 +2100,15 @@ button:focus {
     justify-content: flex-end; }
   .carrito .productos .detalles .precio .precio-unitario {
     width: auto; }
-  .carrito .productos .detalles .precio .precio-sumado {
-    flex-grow: 0; }
+  .carrito .productos .detalles .precio .total {
+    flex-grow: 0;
+    margin-left: 20px; }
   .carrito .productos .detalles .precio .cantidad {
     margin: 0 15px; } }
 
 @media (min-width: 992px) {
+  .carrito .productos .producto {
+    width: 90%; }
   .carrito .pagar {
     margin-top: 40px; }
   .carrito .productos .imagen {

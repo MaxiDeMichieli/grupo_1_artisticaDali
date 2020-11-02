@@ -4,44 +4,93 @@ window.addEventListener('load', () => {
     let localidadSelect = document.getElementById('localidad');
     let loadingBackground = document.getElementById('background-cargando');
 
-    fetch('https://apis.datos.gob.ar/georef/api/provincias')
-    .then(function(response){
-        return response.json();
-    })
-    .then(function(result){
-        result.provincias.sort(function(prev,next){
-            return prev.nombre > next.nombre
-        })
-
-        result.provincias.forEach(provincia => {
-            provinciaSelect.innerHTML += `<option value = "${provincia.nombre}">${provincia.nombre}</option>`
-        })
-    })
-
-
-    provinciaSelect.addEventListener('change', () => {
-        let provincia = provinciaSelect.value;
-
-        loadingBackground.classList.remove('none');
-
-        fetch(`https://apis.datos.gob.ar/georef/api/municipios?max=1000&provincia=${provincia}`)
+    (function provinciasApi(){
+        fetch('https://apis.datos.gob.ar/georef/api/provincias')
         .then(function(response){
             return response.json();
         })
         .then(function(result){
-            result.municipios.sort(function(prev,next){
+            result.provincias.sort(function(prev,next){
                 return prev.nombre > next.nombre
             })
 
-            localidadSelect.innerHTML = `<option>Seleccione su localidad</option>`
+            let options = '';
 
-            result.municipios.forEach(localidad => {
-                localidadSelect.innerHTML += `<option value = "${localidad.nombre}">${localidad.nombre}</option>`
+            result.provincias.forEach(provincia => {
+                options += `<option value = "${provincia.nombre}">${provincia.nombre}</option>`
             })
-            
-            loadingBackground.classList.add('none');
-        })
 
+            provinciaSelect.innerHTML = options;
+        })
+    })()
+
+
+    function municipiosApi() {
+        let provincia = provinciaSelect.value;
+
+        loadingBackground.classList.remove('none');
+
+        /* if(provincia == 'Ciudad Autónoma de Buenos Aires'){ */
+            fetch(`https://apis.datos.gob.ar/georef/api/localidades?max=1000&provincia=${provincia}`)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(result){
+                result.localidades.sort(function(prev,next){
+                    return prev.nombre > next.nombre
+                })
+
+                if(localidadSelect.value != 0) {
+                    localidadSelect.innerHTML = `<option selected hidden value="${localidadSelect.value}" >${localidadSelect.value}</option>`
+                } else {
+                    localidadSelect.innerHTML = `<option selected hidden>Seleccione su localidad</option>`
+                }
+
+                let options = ''
+
+                result.localidades.forEach(localidad => {
+                    options += `<option value = "${localidad.nombre}">${localidad.nombre}</option>`
+                })
+
+                localidadSelect.innerHTML += options;
+                
+                loadingBackground.classList.add('none');
+            })
+        /* } else {
+            fetch(`https://apis.datos.gob.ar/georef/api/municipios?max=1000&provincia=${provincia}`)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(result){
+                result.municipios.sort(function(prev,next){
+                    return prev.nombre > next.nombre
+                })
+
+                if(localidadSelect.value != 0) {
+                    localidadSelect.innerHTML = `<option selected hidden value="${localidadSelect.value}" >${localidadSelect.value}</option>`
+                } else {
+                    localidadSelect.innerHTML = `<option selected hidden>Seleccione su localidad</option>`
+                }
+
+                let options = '';
+
+                result.municipios.forEach(localidad => {
+                    options += `<option value = "${localidad.nombre}">${localidad.nombre}</option>`
+                })
+
+                localidadSelect.innerHTML = options;
+            
+                loadingBackground.classList.add('none');
+            })
+        } */
+    }
+
+    if(provinciaSelect.value != 0){
+        municipiosApi();
+    }
+
+    provinciaSelect.addEventListener('change', () => {
+        municipiosApi();
     })
 
 

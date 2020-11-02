@@ -12,6 +12,76 @@
     color: var(--color-oscuro);
 }
 
+/* BACKGROUND CANTIDAD */
+
+.cantidad-background {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .55);
+    z-index: 100;
+}
+
+.cantidad-background .contenedor-cantidad {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+
+.cantidad-background .numero {
+    padding: 3px 10px;
+    background: #fff;
+    border-radius: 50px;
+    border: 2px solid var(--color-medioOscuro);
+}
+
+.cantidad-background .nice-number button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-weight: bolder;
+    color: var(--color-medioOscuro);
+}
+
+.cantidad-background .nice-number input {
+    border: none;
+    background: transparent;
+    color: var(--color-oscuro);
+}
+
+.cantidad-background .nice-number input:focus {
+    outline: none;
+}
+
+.cantidad-background .aceptar-cantidad {
+    margin-top: 20px;
+    background: var(--color-oscuro);
+    border: 2px solid var(--color-oscuro);
+    padding: 7px 15px;
+    color: #fff;
+    font-weight: 700;
+    font-family: var(--fuente-poppins);
+    border-radius: 50px;
+}
+
+.cantidad-background .cancelar-cantidad {
+    padding: 15px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}
 
 /* PRODUCTOS */
 
@@ -30,6 +100,8 @@
     flex-wrap: wrap;
     padding: 30px 0;
     border-bottom: 1px solid var(--color-oscuro);
+    position: relative;
+    margin: 0 auto;
 }
 
 .carrito .productos .producto:nth-last-child(1) {
@@ -73,9 +145,13 @@
     color: var(--color-medioOscuro);
 }
 
+.carrito .productos .detalles .precio .total {
+    flex-grow: 1;
+    text-align: end;
+}
+
 .carrito .productos .detalles .precio .precio-sumado {
     text-align: right;
-    flex-grow: 1;
     font-size: 1.2em;
     font-family: 'Baloo Da 2';
     font-weight: 800;
@@ -95,43 +171,37 @@
     width: 40%;
 }
 
-/* NICE NUMBER */
-.carrito .nice-number button {
-    outline: none;
-    border: none;
-    background-color: transparent;
-    font-weight: bolder;
-    font-size: 1.2em;
-    color: var(--color-oscuro);
-}
-
-.carrito .nice-number input {
-    border: none;
-    background: transparent;
-    color: var(--color-oscuro);
-}
-
-.carrito .nice-number input:focus {
-    outline: none;
-}
-/* NICE NUMBER END */
-
-.carrito .productos .detalles .sacar-carrito {
+.carrito .productos .detalles .botones {
     width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.carrito .productos .detalles .cantidad {
     max-width: 250px;
     font-family: var(--fuente-baloo);
     font-weight: 600;
     font-size: 1em;
     color: #fff;
-    padding: 6px;
+    padding: 8px 25px;
     border-radius: 50px;
     border: var(--color-oscuro);
     background: var(--color-oscuro);
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .carrito .productos .detalles .sacar-carrito:focus {
     outline: none;
+}
+
+.carrito .productos .detalles .eliminar {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 10px 10px;
+    color: red;
+    cursor: pointer;
 }
 
 
@@ -344,8 +414,9 @@
         width: auto;
     }
     
-    .carrito .productos .detalles .precio .precio-sumado {
+    .carrito .productos .detalles .precio .total {
         flex-grow: 0;
+        margin-left: 20px;
     }
 
     .carrito .productos .detalles .precio .cantidad {
@@ -354,6 +425,10 @@
 }
 
 @media (min-width: 992px) {
+    .carrito .productos .producto {
+        width: 90%;
+    }
+
     .carrito .pagar {
         margin-top: 40px;
     }

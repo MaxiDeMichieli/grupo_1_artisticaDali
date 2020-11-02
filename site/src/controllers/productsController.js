@@ -29,24 +29,6 @@ module.exports = {
                 })
             })
         })
-
-
-
-
-
-        /* let userInSession;
-        dbUsers.forEach(user => {
-            if(req.session.usuario.id == user.id){
-                userInSession = user;
-            }
-        });
-        
-        res.render('productCart', {
-            title: 'Carrito de compras',
-            session: req.session,
-            subcategories: req.subcategories,
-            user: userInSession
-        }) */
     },
     detail: (req, res,) => {
         let pedidoDetalleProducto = db.Products.findByPk(req.params.id, {include:[{association:'imagenes'}]})

@@ -1,5 +1,8 @@
 <%- include('./partials/head.ejs') %> 
 <body>
+    <div class="background-cargando none" id="background-cargando">
+        <img src="/images/loading/loading.png" alt="loading" id="loading" class="loading rotate">
+    </div>
   
   <%- include('./partials/header.ejs') %>
   
@@ -61,32 +64,31 @@
                 <div class="col-12 col-sm-6 col-lg-4 producto">
                   <section>
                     <div class="container">
-                      <div class="row">
-                        <div class="col-12 col-md-12 imgproducto">
-                          <img src="/images/productos/<%- producto.imagenes[0].imagen %> " alt="">
-                        </div>
-                        <div class="col-12 col-md-12 descripcion">
-                          
-                          <% if (producto.nombre.length > 30) { %>
-                            <% let nameSlice = producto.nombre.slice(0,30) %> 
-                             <p><%= nameSlice %>... </p>
-                            <% } else { %>
-                             <p><%= producto.nombre %> </p>
-                          <% } %>
-
-                          <h2>$<%= producto.precio %> </h2>
-
-                          <% if (producto.descuento != 0) { %>
-                           <span><%= producto.descuento %>% OFF</span><br>
-                          <% } %>
-
-                          <div class="botones">
-                            <a href="/products/detail/<%- producto.id %> ">Detalle</a>
-                            <button class="agregar" type="button">Agregar al carrito</button>
-                            <a class="comprar" href="#">Comprar</a>
+                      <a href="/products/detail/<%- producto.id %>">
+                        <div class="row">
+                          <div class="col-12 col-md-12 imgproducto">
+                            <img src="/images/productos/<%- producto.imagenes[0].imagen %> " alt="">
                           </div>
+                          <div class="col-12 col-md-12 descripcion">
+                            
+                            <% if (producto.nombre.length > 30) { %>
+                              <% let nameSlice = producto.nombre.slice(0,30) %> 
+                               <p><%= nameSlice %>... </p>
+                              <% } else { %>
+                               <p><%= producto.nombre %> </p>
+                            <% } %>
+                        
+                            <h2>$<%= producto.precio %> </h2>
+                        
+                            <% if (producto.descuento != 0) { %>
+                             <span><%= producto.descuento %>% OFF</span>
+                            <% } %>
+                      </a>  
+                            <div class="botones">
+                              <button class="agregar" type="button" onclick=<%- `addCart(${producto.id})` %>  >Agregar al carrito</button>
+                            </div>
+                        </div>
                       </div>
-                    </div>
                     </div>
                   </section>
                 </div>
@@ -110,5 +112,6 @@
   <%- include('partials/footer.ejs') %>
   
   <script src="/javascripts/header.js"></script>
+  <script src="/javascripts/categories.js"></script>
   
   <%- include('partials/scripts.ejs') %> 
