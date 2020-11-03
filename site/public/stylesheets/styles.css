@@ -565,14 +565,14 @@ a:hover {
   -moz-box-shadow: 0px 0px 30px #78a2fd;
   -webkit-box-shadow: 0px 0px 30px #78a2fd;
   box-shadow: 0px 0px 30px  #78a2fd;
-  transform: scale(1.05);
-  transition: all 1s ease; }
+  transform: scale(1.05); }
 
 .home .categoriashome section img {
   width: 100%;
   margin: 10px;
   border-radius: 20px;
-  border: 1px solid var(--color-medio); }
+  border: 1px solid var(--color-medio);
+  transition: all 1s ease; }
 
 .home .banner_desktop img {
   display: none; }
@@ -903,7 +903,8 @@ a:hover {
   margin: 10px 0;
   min-height: 80px;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: center; }
 
 .productSlider .item-container .precio {
   display: flex;
