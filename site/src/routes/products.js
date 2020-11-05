@@ -30,7 +30,7 @@ router.delete('/delete/:id',sessionUserCheck, controller.delete)
 router.get('/detail/:id', controller.detail);
 
 /* CATEGORIAS */
-router.get('/category/:id', controller.categories);
+router.get('/category/:id/:filter?', controller.categories);
 
 /* SUBCATEGORIAS */
 router.get('/subcategory/:id', controller.subcategories);
