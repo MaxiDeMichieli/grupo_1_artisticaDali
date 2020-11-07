@@ -28,8 +28,8 @@ router.get('/logout', sessionUserCheck, controller.logout);
 router.get('/recover', onlyVisitorCheck, controller.recoverView);
 router.post('/recover', emailRecoverValidator, controller.sendEmail);
 router.get('/recover/sent/:id', onlyVisitorCheck, controller.sentView);
-router.get('/recover/:id/:hash', onlyVisitorCheck, controller.changePassView);
-router.put('/recover/:id/:hash', passRecoverValidator, controller.changePass);
+router.get('/recover/change/:id/:hash', onlyVisitorCheck, controller.changePassView);
+router.put('/recover/change/:id/:hash', passRecoverValidator, controller.changePass);
 
 
 

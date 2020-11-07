@@ -1,0 +1,43 @@
+/* ADD PRODUCT CART LOGIN */
+
+.contenedor-addProdLog div {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .contenedor-addProdLog h5 {
+    font-family: var(--fuente-poppins);
+    text-align: center;
+    width: 80%;
+    margin: 0px;
+  }
+  
+  .contenedor-addProdLog a {
+    color: #fff;
+    background: var(--color-oscuro);
+    padding: 9px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    border: 2px solid var(--color-oscuro);
+    transition: all .5s ease;
+  }
+  
+  .contenedor-addProdLog a:hover {
+    color: var(--color-oscuro);
+    background: #fff;
+  }
+  
+  .contenedor-addProdLog span {
+    position: absolute;
+    padding: 10px;
+    top: 0px;
+    right: 5px;
+    cursor: pointer;
+  }

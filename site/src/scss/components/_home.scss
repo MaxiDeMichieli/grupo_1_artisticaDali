@@ -38,9 +38,9 @@
 
 }
 .home .categoriashome section img:hover{
-  -moz-box-shadow: 0px 0px 30px #78a2fd;
-  -webkit-box-shadow: 0px 0px 30px #78a2fd;
-  box-shadow: 0px 0px 30px  #78a2fd;
+  -moz-box-shadow: 0px 0px 10px #78a2fd;
+  -webkit-box-shadow: 0px 0px 10px #78a2fd;
+  box-shadow: 0px 0px 10px  #78a2fd;
   transform: scale(1.05);
 }
 .home .categoriashome section img {
@@ -48,7 +48,7 @@
   margin: 10px;
   border-radius: 20px;
   border: 1px solid var(--color-medio);
-  transition: all 1s ease
+  transition: all .8s ease
 }
 
 .home .banner_desktop img{

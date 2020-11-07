@@ -9,6 +9,7 @@ const session = require('express-session')
 const headerCategories = require('./middlewares/headerSubcategoriesMiddleware');
 const cookieSessionCheck = require('./middlewares/cookieSessionCheck');
 const sessionAdmin = require('./middlewares/sessionAdmin');
+const cartQuantity = require('./middlewares/cartQuantity');
 
 
 //Aquí se requieren los archivos de rutas
@@ -17,7 +18,6 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const apiProductsRouter = require('./routes/apiRoutes/apiProducts')
-const contactRouter = require('./routes/contact')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,13 +33,13 @@ app.use(headerCategories);
 app.use(session({secret:"artisticaDali"}));
 app.use(cookieSessionCheck);
 app.use(sessionAdmin);
+app.use(cartQuantity);
 
 // RUTAS
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
-app.use('/api/products', apiProductsRouter)
-app.use('/contact', contactRouter)
+app.use('/api/products', apiProductsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

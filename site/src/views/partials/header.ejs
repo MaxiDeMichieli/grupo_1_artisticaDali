@@ -38,7 +38,14 @@
                                 <a href="/users/login"><i class="fas fa-user"></i></a>
                             <% } %> 
                         </li>
-                        <li><a href="/products/cart" class="cart"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li class="cart-icon">
+                            <a href="/products/cart" class="cart" id="cartCount">
+                                <i class="fas fa-shopping-cart"></i>
+                                <% if (locals.cart != 0 && locals.cart) { %>
+                                 <span class="cantidad-cart"><%= cart %></span>
+                                <% } %>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

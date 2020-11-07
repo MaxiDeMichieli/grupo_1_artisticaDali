@@ -1,9 +1,4 @@
-const db = require('../../database/models')
-const fs = require('fs');
-const path = require('path');
-const { validationResult } = require('express-validator');
-const {Op} = require('sequelize')
-
+const db = require('../../database/models');
 
 module.exports = {
     subcategories: (req, res) => {
@@ -23,19 +18,49 @@ module.exports = {
     },
     addCart: (req, res) => {
         let producto = req.params.prod;
-        let cantidad = req.params.cantidad;
+        let cantidad = parseInt(req.params.cantidad);
 
-        db.Carts.create({
-            usuario_id: req.session.usuario.id,
-            producto_id: producto,
-            cantidad: cantidad
-        })
-        .then(resultado => {
-            res.json(resultado);
-        })
-        .then(err => {
-            console.log(err);
-        })
+        if(!req.session.usuario){
+            res.json({visitor: true});
+        } else {
+            db.Carts.findOne({
+                where: {
+                    usuario_id: req.session.usuario.id,
+                    producto_id: producto
+                }
+            })
+            .then(result => {
+                console.log(result)
+                if(result == null) {
+                    db.Carts.create({
+                        usuario_id: req.session.usuario.id,
+                        producto_id: producto,
+                        cantidad: cantidad
+                    })
+                    .then(resultado => {
+                        res.json(resultado);
+                    })  
+                    .catch(err => {
+                        res.json(err);
+                    })
+                } else {
+                    db.Carts.update({
+                        cantidad: result.dataValues.cantidad + cantidad
+                    }, {
+                        where: {
+                            usuario_id: req.session.usuario.id,
+                            producto_id: producto,
+                        }
+                    })
+                    .then(result => {
+                        res.json(result)
+                    })
+                    .catch(err => {
+                        res.json(err)
+                    })
+                }
+            })
+        }
     },
     removeCart: (req, res) => {
         let producto = req.params.prod;
