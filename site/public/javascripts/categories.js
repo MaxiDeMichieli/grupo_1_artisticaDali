@@ -37,17 +37,18 @@ function addCart(id) {
     })
     .then(result => {
         if(result != 'err'){
-            setTimeout(() => {
-                loadingBackground.classList.add('none');
-                productoAgregado.classList.remove('none');
-                setTimeout(() => {
-                    productoAgregado.classList.add('none')
-                }, 3000);
-            }, 1000);
-            cantidadProductos();
-
             if(result.visitor) {
                 addProdLog.classList.remove('none');
+                loadingBackground.classList.add('none');
+            } else {
+                setTimeout(() => {
+                    loadingBackground.classList.add('none');
+                    productoAgregado.classList.remove('none');
+                    setTimeout(() => {
+                        productoAgregado.classList.add('none')
+                    }, 3000);
+                }, 1000);
+                cantidadProductos();
             }
         }
     })
