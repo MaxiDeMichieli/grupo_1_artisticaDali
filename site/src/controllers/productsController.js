@@ -161,28 +161,12 @@ module.exports = {
     },
     categories : (req, res)=>{
         let id = req.params.id;
-        let filter = req.params.filter;
-        let sort = []
-        switch (filter) {
-            case 'higherPrice':
-                sort.push((a, b)=>a - b)
-                break;
-            case 'lowerPrice':
-                sort.push((a,b)=>a + b)
-            break;
-            case 'a-z':
-                sort.push((a,b)=>a - b)
-                break;
-            case 'z-a':
-                sort.push((a,b)=>a + b)
-                break;
-            default:
-                break;
-        }
+        /* let filter = req.params.filter; */
+        
         db.Categories.findOne({
             where:{id:req.params.id},
             include:[{association: 'subcategorias',
-            include:[{association: 'productos', order:[['precio', 'DESC']],
+            include:[{association: 'productos',
             include:[{association:'imagenes'}]}]}]
         })
         .then(categoria => {
@@ -190,8 +174,7 @@ module.exports = {
                 title: categoria.nombre,
                 session: req.session,
                 subcategories: req.subcategories,
-                categoria: categoria,
-                filter : sort
+                categoria: categoria
             });
         })
     },
