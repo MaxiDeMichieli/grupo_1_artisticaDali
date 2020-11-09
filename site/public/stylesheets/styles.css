@@ -2152,14 +2152,13 @@ a:hover {
   color: var(--color-oscuro);
   margin: 60px 0px 20px 0px; }
 
-.carrito .container .categoriascarrito {
-  margin: 10px; }
+.carrito .categoriascarrito {
+  margin: 20px 0px 40px 0px; }
 
 .carrito .categoriascarrito section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 40px; }
+  justify-content: center; }
 
 .carrito .categoriascarrito section a {
   display: flex;
