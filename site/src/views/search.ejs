@@ -1,13 +1,14 @@
 <%- include('./partials/head.ejs') %> 
 <body>
-    <div class="background-cargando none" id="background-cargando">
-      <img src="/images/loading/loading.png" alt="loading" id="loading" class="loading rotate">
-    </div>
+  <%- include('./partials/addProdLog.ejs') %>
+    
+  <%- include('./partials/loadingBackground.ejs') %> 
   
   <%- include('./partials/header.ejs') %>
   
   <div class="categorias">
     
+    <%- include('./partials/productoAgregado.ejs') %> 
     
     <div class="container">
 

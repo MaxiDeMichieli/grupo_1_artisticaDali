@@ -8,7 +8,27 @@ window.addEventListener('load', () => {
     let cantidad = id('cantidad');
     let agregado = id('productoAgregado');
     let formAction = formulario.attributes.action.textContent;
-    let loadingBackground = document.getElementById('background-cargando');
+    let loadingBackground = id('background-cargando');
+    let addProdLog = id('addProdLog');
+    let addProdLogExit = id('addProdLog-exit');
+
+
+    /* CANTIDAD DE PRODUCTOS EN EL CARRITO */
+    let cantidadProductos = () => {
+    fetch(`${window.location.origin}/api/products/cartProducts`)
+        .then(result => {
+            if(result.ok){
+                return result.json();
+            }else{
+                return 'err';
+            }
+        })
+        .then(result => {
+            if (result != 'err') {
+                cartCount.innerHTML = `<i class="fas fa-shopping-cart"></i><span class="cantidad-cart">${result.length}</span>`
+            }
+        })
+    }
 
     formulario.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -27,17 +47,28 @@ window.addEventListener('load', () => {
         })
         .then(result => {
             if(result != 'err'){
-                setTimeout(() => {
+                if(result.visitor) {
                     loadingBackground.classList.add('none');
-                    agregado.classList.remove('none');
-                    agregado.classList.add('producto-agregado-ok');
+                    addProdLog.classList.remove('none');
+                } else {
                     setTimeout(() => {
-                        agregado.classList.add('none');
-                        agregado.classList.remove('producto-agregado-ok');
-                    }, 3000)
-                }, 3000)
+                        loadingBackground.classList.add('none');
+                        agregado.classList.remove('none');
+                        agregado.classList.add('producto-agregado-ok');
+                        setTimeout(() => {
+                            agregado.classList.add('none');
+                            agregado.classList.remove('producto-agregado-ok');
+                        }, 3000)
+                    }, 1000)
+                    cantidadProductos();
+                }
             }
-            
         })
     })
+
+
+    addProdLogExit.addEventListener('click', () => {
+        addProdLog.classList.add('none');
+    })
+
 })

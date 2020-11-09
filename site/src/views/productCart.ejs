@@ -14,11 +14,35 @@
 
     <%- include('./partials/header.ejs') %> 
 
-    <% if (productos == 0) { %>
-     <h2>No hay productos en su carrito -- en contruccion --</h2>
-    <% } else { %>
     <div class="carrito">
         <div class="container">
+            <% if (productos == 0) { %>
+            <h2>No hay productos en su carrito</h2>
+
+            <h4>Selecciona alguna de nuestras categorías para encontrar los mejores productos:</h4>
+
+            <div class="container categoriascarrito">
+                <div class="row">
+                  <div class="col-12 col-md-4">
+                    <section>
+                      <a href="/products/category/1"><img src="/images/categorias/cat_escolar.jpg" alt="escolar"></a>
+                    </section>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <section>
+                      <a href="/products/category/2"><img src="/images/categorias/cat_artistica.jpg" alt="artistica"></a>
+                    </section>
+                  </div>
+                  <div class="col-12 col-md-4" >
+                    <section> 
+                      <a href="/products/category/3"><img src="/images/categorias/cat_oficina.jpg" alt="oficina"></a>
+                    </section>
+                  </div>
+                </div>
+            </div>
+
+            <% } else { %>
+
             <h2>Productos en su Carrito</h2>
             <form action="#">
                <div class="row">
@@ -138,9 +162,9 @@
                     </section>
                </div>
             </form>
+            <% } %>
         </div>
     </div>
-    <% } %>
 
 
     <%- include('partials/footer.ejs') %>

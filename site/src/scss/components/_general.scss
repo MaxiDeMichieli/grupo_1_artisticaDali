@@ -18,7 +18,7 @@
 }
 
 .none {
-  display: none;
+  display: none !important;
 }
 
 *:focus,
@@ -74,6 +74,34 @@ a:hover {
   width: 35px;
   height: 35px;
 }
+
+/* PRODUCTO AGREGADO */
+
+/* POPUP PRODUCTO AGREGADO */
+
+.producto-agregado-ok {
+  padding: 30px;
+  background: #fff;
+  display: flex;
+  position: fixed;
+  border-radius: 20px;
+  z-index: 100;
+  top: 40px;
+  color: #35bd35;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 20px;
+  text-align: center;
+  right: 0px;
+  border: 3px solid #35bd35;
+}
+
+.producto-agregado-ok i {
+  margin-right: 10px;
+  font-size: 1.6rem;
+}
+
+
 
 @-webkit-keyframes rotating /* Safari and Chrome */ {
   from {

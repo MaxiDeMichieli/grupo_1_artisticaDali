@@ -20,6 +20,24 @@ function radio(x){
     }
 }
 
+/* CANTIDAD DE PRODUCTOS EN CARRITO */
+
+let cantidadProductos = () => {
+    fetch(`${window.location.origin}/api/products/cartProducts`)
+    .then(result => {
+        if(result.ok){
+            return result.json();
+        }else{
+            return 'err';
+        }
+    })
+    .then(result => {
+        if (result != 'err') {
+            cartCount.innerHTML = `<i class="fas fa-shopping-cart"></i><span class="cantidad-cart">${result.length}</span>`
+        }
+    })
+}
+
 
 /* LISTAR PRODUCTOS */
 
@@ -95,6 +113,7 @@ let deleteProduct = (id) => {
     })
     .then(() => {
         listarProductos();
+        cantidadProductos();
     })
 }
 

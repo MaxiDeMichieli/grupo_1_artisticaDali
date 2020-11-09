@@ -1,6 +1,8 @@
 <%- include('partials/head.ejs') %>
 <body>
 
+    <%- include('partials/loadingBackground.ejs') %> 
+
     <div class="recover">
         <div class="logo">
             <a href="/">
@@ -16,33 +18,13 @@
 
         <% if (title == 'Recupera tu contraseña') { %>
             <div class="email-recover">
-                <form action="/users/recover" method="POST">
+                <form action="/users/recover" method="POST" id="email-recover">
                     <div>
                         <label for="emailInicio">Email</label>
                         <input type="text" name="email" id="emailInicio" placeholder="dalí@ejemplo.com" spellcheck="false" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>">
                         <p class="errors"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %></p>
                     </div>
                     <button type="submit" class="btn">Enviar email</button>
-                </form>
-            </div>
-        <% } %>
-
-        <% if (title == 'Modifica tu contraseña') { %>
-            <div class="cambiar-contraseña">
-                <form action="?_method=PUT" method="POST">
-                    <div>
-                        <label for="password">Nueva contraseña</label>
-                        <input type="password" name="password" id="password" maxlength="25" spellcheck="false" value="<%= (typeof old != 'undefined' && old.password)?old.password:'' %>">
-                        <i class="fas fa-eye fa-lg view-pass" id="btn-pass-1"></i>
-                        <p class="errors"><%= (typeof errors != 'undefined' && errors.password)?errors.password.msg: "" %></p>
-                    </div>
-                    <div>
-                        <label for="passwordRepeat">Repetir contraseña</label>
-                        <input type="password" name="passwordRepeat" id="passwordRepeat" maxlength="25" spellcheck="false" value="<%= (typeof old != 'undefined' && old.passwordRepeat)?old.passwordRepeat:'' %>">
-                        <i class="fas fa-eye fa-lg view-pass" id="btn-pass-2"></i>
-                        <p class="errors"><%= (typeof errors != 'undefined' && errors.passwordRepeat)?errors.passwordRepeat.msg: "" %></p>
-                    </div>
-                    <button type="submit" class="btn">Confirmar contraseña</button>
                 </form>
             </div>
         <% } %>
