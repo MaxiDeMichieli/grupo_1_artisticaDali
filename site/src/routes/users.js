@@ -26,19 +26,31 @@ passport.use(new GoogleStrategy({
        /* User.findOrCreate({ googleId: profile.id }, function (err, user) {
          return done(err, user);
        }); */
-       db.Users.findOrCreate({ where: { password : profile.id  },
+       db.Users.findOrCreate({ where: { google_id : profile.id  },
         defaults:{
             nombre: profile.name.givenName,
             apellido: profile.name.familyName,
-            password: profile.id,
-            email: 'mail'
+            google_id: profile.id,
+            email: 'Google',
+            password: profile.id
          }})
-         .then(result=>{
-            return done('err', result[0].dataValues)
+         .then(usuario =>{
+            return done(null, usuario)
+         })
+         .catch(error=>{
+           console.log(error)
          })
   }
 ));
 
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 router.get('/auth/google',
   passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }), function(req,res){

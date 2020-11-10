@@ -56,6 +56,9 @@ module.exports = function(sequelize, dataTypes){
             type:dataTypes.BOOLEAN,
             allowNull:false,
             defaultValue:0
+        },
+        google_id:{
+            type: dataTypes.INTEGER(40)
         }
     }
 

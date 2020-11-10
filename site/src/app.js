@@ -9,7 +9,7 @@ const session = require('express-session')
 const headerCategories = require('./middlewares/headerSubcategoriesMiddleware');
 const cookieSessionCheck = require('./middlewares/cookieSessionCheck');
 const sessionAdmin = require('./middlewares/sessionAdmin');
-
+const passport = require('passport')
 
 //Aquí se requieren los archivos de rutas
 
@@ -33,6 +33,10 @@ app.use(headerCategories);
 app.use(session({secret:"artisticaDali"}));
 app.use(cookieSessionCheck);
 app.use(sessionAdmin);
+
+//Passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // RUTAS
 app.use('/', indexRouter);
