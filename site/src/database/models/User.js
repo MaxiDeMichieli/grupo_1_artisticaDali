@@ -22,7 +22,7 @@ module.exports = function(sequelize, dataTypes){
         },
         password:{
             type:dataTypes.STRING(70),
-            allowNull:false
+            defaultValue: null
         },
         telefono:{
             type:dataTypes.STRING(30),
@@ -54,8 +54,16 @@ module.exports = function(sequelize, dataTypes){
         },
         rol:{
             type:dataTypes.BOOLEAN,
-            allowNull:false,
-            defaultValue:0
+            defaultValue:0,
+            allowNull:false
+        },
+        social_id: {
+            type:dataTypes.STRING(60),
+            defaultValue: null
+        },
+        social_provider: {
+            type:dataTypes.STRING(45),
+            defaultValue: null
         }
     }
 
