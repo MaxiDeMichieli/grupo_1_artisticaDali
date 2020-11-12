@@ -8,7 +8,7 @@ const sessionUserCheck = require('../middlewares/sessionUserCheck');
 const adminUserCheck = require('../middlewares/adminUserCheck');
 
 
-
+ 
 /* CARRITO */
 router.get('/cart', sessionUserCheck, controller.cart);
 

@@ -1,4 +1,3 @@
-const dbUsers = require('../data/usersDataBase');
 const db = require('../database/models')
 const fs = require('fs');
 const path = require('path');
@@ -7,6 +6,7 @@ const {Op} = require('sequelize')
 
 
 module.exports = {
+    /* CARRITO DE COMPRAS */
     cart: (req, res)=>{
         let userId = req.session.usuario.id;
         db.Carts.findAll({
@@ -30,13 +30,19 @@ module.exports = {
             })
         })
     },
+    /* DETALLE DE PRODUCTO */
     detail: (req, res,) => {
-        let pedidoDetalleProducto = db.Products.findByPk(req.params.id, {include:[{association:'imagenes'}]})
-        let pedidoTodosLosProductos = db.Products.findAll({include:[{association:'imagenes'}]})
+        
+        let pedidoDetalleProducto = db.Products.findByPk(req.params.id, {
+            include:[{association:'imagenes'}]
+        });
+        
+        let pedidoTodosLosProductos = db.Products.findAll({
+            include:[{association:'imagenes'}]
+        });
         
         Promise.all([pedidoDetalleProducto, pedidoTodosLosProductos])
         .then(function ([producto, productos]){
-
             res.render('productDetail', {
             title: 'Detalle de producto',
             session: req.session,
@@ -45,11 +51,15 @@ module.exports = {
             productos: productos,
             imagen: producto.imagenes
         })
-      }) 
+      }); 
       
     },
+    /* AGREGAR PRODUCTO (renderiza vista)*/
     addProduct: (req, res) =>{
-        db.Categories.findAll({include:[{association:'subcategorias'}]})
+        
+        db.Categories.findAll({
+            include:[{association:'subcategorias'}]
+        })
         .then((result)=>{
             res.render('productAdd', {
                 title: 'Formulario de carga de productos',
@@ -57,19 +67,24 @@ module.exports = {
                 session:req.session,
                 productCreated:req.query.lp
             })           
-        }).catch(error =>{
+        })
+        .catch(error =>{
             console.log(error)
         })     
     },
+    /* AGREGAR PRODUCTO (crea el producto) */
     create: (req, res)=>{
+
         let errors = validationResult(req);
         let newSubcategory = req.body.addSub;
 
         if(newSubcategory == ''){
         
             if(errors.isEmpty()){
+                
                 let description = req.body.description;
                 let descriptionReplaced = description.replace(/\r\n/gi, '-r-n'); /* REEMPLAZO SALTOS DE LINEA PARA PODER GUARDARLOS EN LA BASAE DE DATOS */
+                
                 db.Products.create({
                     nombre: req.body.name.trim(),
                     precio: Number(req.body.price.trim()),
@@ -108,15 +123,19 @@ module.exports = {
                 })
             }
         }else{
-        
+
+        /* Creación de nueva subcategoría */
+
             db.Subcategories.create({
                 nombre : newSubcategory,
                 categoria_id : req.body.category
             })
             .then(result =>{
                 if(errors.isEmpty()){
-                    let description = req.body.description;
+                    
+                    let description = req.body.description;                   
                     let descriptionReplaced = description.replace(/\r\n/gi, '-r-n'); /* REEMPLAZO SALTOS DE LINEA PARA PODER GUARDARLOS EN LA BASAE DE DATOS */
+                    
                     db.Products.create({
                         nombre: req.body.name.trim(),
                         precio: Number(req.body.price.trim()),
@@ -125,7 +144,9 @@ module.exports = {
                         subcategoria_id: Number(result.id),  
                     })
                     .then((result)=>{
+                        
                         let id = result.id
+                        
                         db.ProductImages.create({
                             imagen:(req.files[0])?req.files[0].filename:"default-image.png",
                             producto_id:result.id
@@ -141,13 +162,15 @@ module.exports = {
             }) 
         } 
     },
+    /* CATEGORIAS (Renderiza vista) */
     categories : (req, res)=>{
+        
         db.Categories.findOne({
             where:{id:req.params.id},
             include:[{association: 'subcategorias',
             include:[{association: 'productos',
-            include:[{association:'imagenes'}]}]}]})
-
+            include:[{association:'imagenes'}]}]}]
+        })
         .then(categoria => {
             res.render('categories', {
                 title: categoria.nombre,
@@ -157,14 +180,16 @@ module.exports = {
             });
         })
     },
+    /* SUBCATEGORIAS (Renderiza vista) */
     subcategories: (req, res) => {
+       
         db.Subcategories.findOne({
             where:{
                 nombre:req.params.id
             },
             include:[{association: 'productos', 
-            include:[{association:'imagenes'}]}]})
-
+            include:[{association:'imagenes'}]}]
+        })
         .then(function(subcategoria){
             res.render('subcategories', {
             title: subcategoria.nombre,
@@ -174,14 +199,21 @@ module.exports = {
             })
         })
     },
+    /* BUSCADOR DEL HEADER */
     search: (req, res) => {
+
         let buscar = req.query.search.toLowerCase();
+       
         db.Products.findAll({where:{
             nombre:{
                 [Op.substring]:buscar
-            }
-        }, include:[{association: 'imagenes'}, {association: 'subcategoria'}]})
+            }},
+            include:[
+            {association: 'imagenes'},
+            {association: 'subcategoria'}]
+        })
         .then(function(resultado){
+
             if(resultado == 0) {
                 res.render('errorSearch', {
                     title: 'Error en su búsqueda',
@@ -189,7 +221,7 @@ module.exports = {
                     subcategories: req.subcategories,
                     search: buscar
                 })
-            } else{
+            } else {
                 let subcategorias = [];
                 
                 resultado.forEach(producto=>{
@@ -210,13 +242,21 @@ module.exports = {
         }})
     
     },
+    /* EDICIÓN DE PRODUCTO (Renderiza vista) */
     toEdit:(req, res)=>{
+
         db.Products.findOne({
             where:{
                 id: req.params.id 
-            }, include:[{association: 'imagenes'}, {association: 'subcategoria'}]
-        }).then(producto =>{
-            db.Categories.findAll({include:[{association:'subcategorias'}]})
+            }, 
+            include:[
+                {association: 'imagenes'},
+                {association: 'subcategoria'}]
+        })
+        .then(producto =>{
+            db.Categories.findAll({
+                include:[{association:'subcategorias'}]
+            })
             .then(categorias => {
                 producto.descripcion = producto.descripcion.replace(/-r-n/gi, '\r\n'); /* REEMPLAZO SALTOS DE LINEA PARA PODER GUARDARLOS EN LA BASAE DE DATOS */
 
@@ -230,9 +270,13 @@ module.exports = {
             })
         })
     },
+    /* EDICIÓN DE PRODUCTO (Modifica el producto) */
     edit:(req, res)=>{
+
         let errors = validationResult(req)
+        
         if(errors.isEmpty()){
+            
             let description = req.body.description;
             let descriptionReplaced = description.replace(/\r\n/gi, '-r-n'); /* REEMPLAZO SALTOS DE LINEA PARA PODER GUARDARLOS EN LA BASAE DE DATOS */
 
@@ -254,9 +298,15 @@ module.exports = {
             db.Products.findOne({
                 where:{
                     id: req.params.id 
-                }, include:[{association: 'imagenes'}, {association: 'subcategoria'}]
-            }).then(producto =>{
-                db.Categories.findAll({include:[{association:'subcategorias'}]})
+                }, 
+                include:[
+                    {association: 'imagenes'}, 
+                    {association: 'subcategoria'}]
+            })
+            .then(producto =>{
+                db.Categories.findAll({
+                    include:[{association:'subcategorias'}]
+                })
                 .then(categorias => {
                     producto.descripcion = producto.descripcion.replace(/-r-n/gi, '\r\n'); /* REEMPLAZO SALTOS DE LINEA PARA PODER GUARDARLOS EN LA BASAE DE DATOS */
     
@@ -273,6 +323,7 @@ module.exports = {
         }   
         
     },
+    /* EDICION O ELIMINACION DE PRODUCTOS (Renderiza vista) */
     editionPage:(req, res)=>{
         db.Products.findAll({
             include:[{association:'imagenes'}]
@@ -285,6 +336,7 @@ module.exports = {
             })
         }) 
     },
+    /* EDICION O ELIMINACION DE PRODUCTOS (Buscador) */
     browserToEdit:(req, res) => {
         let buscar = req.query.search.toLowerCase();
 
@@ -314,12 +366,16 @@ module.exports = {
                 })
         }})
     },
+    /* EDICION O ELIMINACION DE PRODUCTOS (Elimina producto) */
     delete:(req, res)=>{
+
         db.ProductImages.findAll({
             where:{
             producto_id:req.params.id
-        }})
+            }
+        })
         .then(imagenes => {
+            
             let eliminarImagen = db.ProductImages.destroy({
                 where:{
                 producto_id:req.params.id
