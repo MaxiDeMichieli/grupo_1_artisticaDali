@@ -7,6 +7,16 @@ const emailRecoverValidator = require('../validations/emailRecoverValidator');
 const passRecoverValidator = require('../validations/passRecoverValidator');
 const sessionUserCheck = require('../middlewares/sessionUserCheck');
 const onlyVisitorCheck = require('../middlewares/onlyVisitorCheck');
+const passport = require('passport');
+const googleLogin = require('../functions/googleLogin');
+googleLogin()
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 /* USER ACCOUNT */
 router.get('/account', sessionUserCheck, controller.account);
@@ -31,6 +41,8 @@ router.get('/recover/sent/:id', onlyVisitorCheck, controller.sentView);
 router.get('/recover/change/:id/:hash', onlyVisitorCheck, controller.changePassView);
 router.put('/recover/change/:id/:hash', passRecoverValidator, controller.changePass);
 
-
+/* GOOGLE LOGIN */
+router.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
+router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/users/login' }), controller.loginGoogle);
 
 module.exports = router;

@@ -10,6 +10,7 @@ const headerCategories = require('./middlewares/headerSubcategoriesMiddleware');
 const cookieSessionCheck = require('./middlewares/cookieSessionCheck');
 const sessionAdmin = require('./middlewares/sessionAdmin');
 const cartQuantity = require('./middlewares/cartQuantity');
+const passport = require('passport');
 
 
 //Aquí se requieren los archivos de rutas
@@ -34,6 +35,10 @@ app.use(session({secret:"artisticaDali"}));
 app.use(cookieSessionCheck);
 app.use(sessionAdmin);
 app.use(cartQuantity);
+
+//Passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // RUTAS
 app.use('/', indexRouter);

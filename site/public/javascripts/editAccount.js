@@ -20,7 +20,7 @@ window.addEventListener('load', () => {
                 options += `<option value = "${provincia.nombre}">${provincia.nombre}</option>`
             })
 
-            provinciaSelect.innerHTML = options;
+            provinciaSelect.innerHTML += options;
         })
     })()
 
@@ -43,7 +43,7 @@ window.addEventListener('load', () => {
                 if(localidadSelect.value != 0) {
                     localidadSelect.innerHTML = `<option selected hidden value="${localidadSelect.value}" >${localidadSelect.value}</option>`
                 } else {
-                    localidadSelect.innerHTML = `<option selected hidden>Seleccione su localidad</option>`
+                    localidadSelect.innerHTML = `<option selected hidden value="0">Seleccione su localidad</option>`
                 }
 
                 let options = ''
@@ -55,6 +55,9 @@ window.addEventListener('load', () => {
                 localidadSelect.innerHTML += options;
                 
                 loadingBackground.classList.add('none');
+            })
+            .catch(err => {
+                console.log(err)
             })
         /* } else {
             fetch(`https://apis.datos.gob.ar/georef/api/municipios?max=1000&provincia=${provincia}`)
