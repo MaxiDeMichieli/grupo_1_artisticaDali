@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const {check,validationResult,body} = require('express-validator');
-const nodemailerTransporter = require('../functions/nodemailerTransporter')
+const nodemailerTransporter = require('../functions/nodemailerTransporter');
+const { Op } = require("sequelize");
 
 module.exports = {
     registerView: (req, res) => {
@@ -58,7 +59,8 @@ module.exports = {
         if(errors.isEmpty()){
             db.Users.findOne({
                 where: {
-                    email: req.body.email
+                    email: req.body.email,
+                    password: {[Op.not]: null}
                 }
             })
                 .then((user) => {
@@ -284,6 +286,18 @@ module.exports = {
                 })
         }
         
+    },
+    loginGoogle: (req, res) => {
+        let user = req.session.passport.user[0]
+        req.session.usuario = {
+          id: user.id,
+          nombre: user.nombre,
+          apellido: user.apellido,
+          email: user.email,
+          googleId: user.social_id,
+        }
+
+        res.redirect('/')
     }
 }
 
