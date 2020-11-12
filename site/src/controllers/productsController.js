@@ -383,7 +383,7 @@ module.exports = {
     
             let eliminarCarrito = db.Carts.destroy({
                 where:{
-                producto_id:req.params.id
+                producto_id:req.params.id 
             }})
     
             let eliminarProducto = db.Products.destroy({
