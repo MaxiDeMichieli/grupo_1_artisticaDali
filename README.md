@@ -2,7 +2,9 @@
 
 ![logotipo](/design/logos/logo.png)
 
-- [Web Artística Dalí](https://artistica-dali.herokuapp.com)
+## [Link a la web Artística Dalí](https://artistica-dali.herokuapp.com)
+
+
 
 ## Primer Sprint (24/07)
 
