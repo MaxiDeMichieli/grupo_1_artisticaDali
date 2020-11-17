@@ -3,7 +3,7 @@
 let loadingBackground = document.getElementById('background-cargando');
 let addProdLog = document.getElementById('addProdLog');
 let addProdLogExit = document.getElementById('addProdLog-exit');
-let productoAgregado = document.getElementById('productoAgregado');
+let agregado = document.getElementById('productoAgregado');
 
 /* CANTIDAD DE PRODUCTOS EN EL CARRITO */
 let cantidadProductos = () => {
