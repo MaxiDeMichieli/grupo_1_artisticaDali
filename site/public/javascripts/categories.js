@@ -43,9 +43,11 @@ function addCart(id) {
             } else {
                 setTimeout(() => {
                     loadingBackground.classList.add('none');
-                    productoAgregado.classList.remove('none');
+                    agregado.style.top = "40px";
+                    agregado.style.opacity = "1";
                     setTimeout(() => {
-                        productoAgregado.classList.add('none')
+                        agregado.style.top = "-170px";
+                        agregado.style.opacity = "0";
                     }, 3000);
                 }, 1000);
                 cantidadProductos();

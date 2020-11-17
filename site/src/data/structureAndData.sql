@@ -35,7 +35,7 @@ CREATE TABLE `carts` (
   KEY `producto_id_carrito_idx` (`producto_id`),
   CONSTRAINT `producto_id_carrito` FOREIGN KEY (`producto_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `usuario_id_carrito` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `carts` (
 
 LOCK TABLES `carts` WRITE;
 /*!40000 ALTER TABLE `carts` DISABLE KEYS */;
-INSERT INTO `carts` VALUES (106,3,26,1);
+INSERT INTO `carts` VALUES (107,3,40,4);
 /*!40000 ALTER TABLE `carts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -245,7 +245,7 @@ CREATE TABLE `users` (
   `social_provider` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -254,7 +254,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Jonatan','Cespedes','retratos.jonatan@gmail.com','$2b$12$STa15bgHbWy.znewxZTp3u9zvnJPL8Ww.h5UoXzMDrJPLdWLKAvP.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL),(2,'Jonatan','Cespedes','kuramatattoo@gmail.com','$2b$12$STa15bgHbWy.znewxZTp3u9zvnJPL8Ww.h5UoXzMDrJPLdWLKAvP.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL),(3,'Maximo','De Michieli','maxidemichieli@gmail.com','$2b$12$7CjdOG2YBIoDJ1xNVBmKju8J882zLhDIoiC/zvxfXBEbtk996D5La','1121648374','Salerno',1180,'12','1663','Buenos Aires','SAN MIGUEL',1,NULL,'2020-11-11 18:16:47',NULL,NULL),(4,'Maximo','De Michieli','maxdemichieli@gmail.com','$2b$12$ZrroYMW.4.rh/Hdd7i5b1erUss9.kFqIMHISAsgpx7D0DHhcMCaiW',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2020-10-16 01:21:00','2020-10-16 01:21:00',NULL,NULL),(16,'Maximo','De Michieli','maxidemichieli@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,'Ciudad Autónoma de Buenos Aires','NUÑEZ',0,'2020-11-12 02:11:00','2020-11-12 02:17:36','118144377900204033470','google');
+INSERT INTO `users` VALUES (1,'Jonatan','Cespedes','retratos.jonatan@gmail.com','$2b$12$STa15bgHbWy.znewxZTp3u9zvnJPL8Ww.h5UoXzMDrJPLdWLKAvP.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL),(2,'Jonatan','Cespedes','kuramatattoo@gmail.com','$2b$12$STa15bgHbWy.znewxZTp3u9zvnJPL8Ww.h5UoXzMDrJPLdWLKAvP.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL),(3,'Maximo','De Michieli','maxidemichieli@gmail.com','$2b$12$7CjdOG2YBIoDJ1xNVBmKju8J882zLhDIoiC/zvxfXBEbtk996D5La','1121648374','Salerno',1180,'12','1663','Buenos Aires','SAN MIGUEL',1,NULL,'2020-11-11 18:16:47',NULL,NULL),(16,'Maximo','De Michieli','maxidemichieli@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,'Ciudad Autónoma de Buenos Aires','NUÑEZ',0,'2020-11-12 02:11:00','2020-11-12 02:17:36','118144377900204033470','google');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -267,4 +267,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-11 23:28:11
+-- Dump completed on 2020-11-13  0:41:44

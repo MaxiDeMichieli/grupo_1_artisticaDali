@@ -53,11 +53,11 @@ window.addEventListener('load', () => {
                 } else {
                     setTimeout(() => {
                         loadingBackground.classList.add('none');
-                        agregado.classList.remove('none');
-                        agregado.classList.add('producto-agregado-ok');
+                        agregado.style.top = "40px";
+                        agregado.style.opacity = "1";
                         setTimeout(() => {
-                            agregado.classList.add('none');
-                            agregado.classList.remove('producto-agregado-ok');
+                            agregado.style.top = "-170px";
+                            agregado.style.opacity = "0";
                         }, 3000)
                     }, 1000)
                     cantidadProductos();
